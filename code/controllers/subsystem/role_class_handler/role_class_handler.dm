@@ -114,32 +114,26 @@ SUBSYSTEM_DEF(role_class_handler)
 	Since this is class handler related, might as well also have the class handler send itself into the params
 */
 /datum/controller/subsystem/role_class_handler/proc/finish_class_handler(mob/living/carbon/human/H, datum/job/advclass/picked_class, datum/class_select_handler/related_handler, special_session_queue)
-	if(!picked_class || !related_handler || !H) // Extreme edge case but is possible, likely href exploit or late activation
+	if(!picked_class || QDELETED(related_handler) || QDELETED(H)) // Extreme edge case but is possible, likely href exploit or late activation
 		return FALSE
+
 	if(picked_class.total_positions != -1)
 		if(picked_class.current_positions >= picked_class.total_positions)
 			related_handler.rolled_class_is_full(picked_class)
 			return FALSE
-	H.advsetup = FALSE // This is actually on a lot of shit, so its a ghetto selector protector if u need one
+
+	SSjob.AssignRole(H, picked_class, TRUE)
+	adjust_class_amount(picked_class, 1) // we are handling one guy right now.
+	H.finish_class_hugbox()
+
+	qdel(related_handler)
+
 	if(picked_class.inherit_parent_title)
 		var/datum/job/old = SSjob.GetJob(H.job)
 		if(old)
 			picked_class.title = old.title
-	SSjob.AssignRole(H, picked_class, TRUE)
+
 	SSjob.EquipRank(H, picked_class, H.client)
-	H.density = TRUE
-	H.invisibility = initial(H.invisibility)
-	H.cure_blind("advsetup")
-	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used.static_inventory //locate() still iterates over contents
-	if(GET_IT_OUT)
-		qdel(GET_IT_OUT)
-	// We don't track open browsers, so we need to force close them here
-	related_handler.ForceCloseMenus() // force menus closed
-
-	class_select_handlers.Remove(related_handler.linked_client.ckey)
-	qdel(related_handler)
-
-	adjust_class_amount(picked_class, 1) // we are handling one guy right now.
 
 // A dum helper to adjust the class amount, we could do it elsewhere but this will also inform any relevant class handlers open.
 /datum/controller/subsystem/role_class_handler/proc/adjust_class_amount(datum/job/advclass/target_datum, amount)
@@ -155,12 +149,8 @@ SUBSYSTEM_DEF(role_class_handler)
 			found_menu.rolled_class_is_full(target_datum) //  inform the datum of its error.
 
 /datum/controller/subsystem/role_class_handler/proc/cancel_class_handler(mob/living/carbon/human/H)
-	H.advsetup = FALSE
-	H.invisibility = 0
-	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used.static_inventory //locate() still iterates over contents
-	qdel(GET_IT_OUT)
-	H.cure_blind("advsetup")
+	H.finish_class_hugbox()
 
 	var/datum/class_select_handler/related_handler = class_select_handlers[H.client.ckey]
-	related_handler?.ForceCloseMenus() // force menus closed
-	qdel(related_handler)
+	if(related_handler)
+		qdel(related_handler)

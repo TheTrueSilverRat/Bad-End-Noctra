@@ -51,6 +51,16 @@
 	/// classes we rolled, basically you get a datum followed by a number in here on how many times you rerolled it.
 	var/list/rolled_classes = list()
 
+/datum/class_select_handler/Destroy()
+	if(linked_client)
+		ForceCloseMenus()
+		SSrole_class_handler.class_select_handlers -= linked_client.ckey
+	linked_client = null
+	cur_picked_class = null
+	class_cat_alloc_attempts = null
+	forced_class_additions = null
+	return ..()
+
 // The normal route for first use of this list.
 /datum/class_select_handler/proc/initial_setup()
 	assemble_the_CLASSES()
@@ -62,15 +72,6 @@
 	thicc_assets.send(linked_client)
 
 	browser_slop()
-
-/datum/class_select_handler/Destroy()
-	ForceCloseMenus() // force menus closed
-	// Cleanup anything holding references, aka these lists holding refs to class datums and the other two
-	linked_client = null
-	cur_picked_class = null
-	class_cat_alloc_attempts = null
-	forced_class_additions = null
-	. = ..()
 
 // I hope to god you have a client before you call this, cause the checks on the SS
 /datum/class_select_handler/proc/assemble_the_CLASSES()
@@ -132,7 +133,7 @@
 /datum/class_select_handler/proc/rolled_class_is_full(datum/job/advclass/filled_class)
 	// Fun fact, if you don't remove the class that is maxed they just get new choices infinitely
 	// Also all the checks are done causing this to be called anyways
-	rolled_classes.Remove(filled_class)
+	rolled_classes -= filled_class
 
 	var/list/possible_list = list()
 	for(var/CTAG_CAT in filled_class.category_tags)

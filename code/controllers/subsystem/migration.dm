@@ -133,7 +133,6 @@ SUBSYSTEM_DEF(migrants)
 		if(!length(priority))
 			continue
 		var/client/picked
-		priority = shuffle(priority)
 		for(var/client/client as anything in priority)
 			if(!can_be_role(client, assignment))
 				continue
@@ -285,14 +284,6 @@ SUBSYSTEM_DEF(migrants)
 
 	SSjob.EquipRank(character, migrant_job, character.client)
 	SSticker.minds += character.mind
-	var/mob/living/carbon/human/humanc
-	if(ishuman(character))
-		humanc = character	//Let's retypecast the var to be human,
-	if(humanc)
-		var/fakekey = get_display_ckey(character.ckey)
-		GLOB.character_list[character.mobid] = "[fakekey] was [character.real_name] ([migrant_job.title])<BR>"
-		GLOB.character_ckey_list[character.real_name] = character.ckey
-		log_character("[character.ckey] ([fakekey]) - [character.real_name] - [migrant_job.title]")
 
 	GLOB.joined_player_list += character.ckey
 	GLOB.respawncounts[character.ckey] += 1
@@ -308,15 +299,22 @@ SUBSYSTEM_DEF(migrants)
 		// Adding antag datums can move your character to places, so here's a bandaid
 		character.forceMove(spawn_on_location)
 
-	if(!istype(role_instance, /datum/migrant_role/advclass))
-		if(GLOB.adventurer_hugbox_duration)
-			addtimer(CALLBACK(character, TYPE_PROC_REF(/mob/living/carbon/human, adv_hugboxing_start)), 1)
+	if(!ishuman(character))
 		return
+
+	var/mob/living/carbon/human/human_character = character
+
+	var/fakekey = get_display_ckey(human_character.ckey)
+	GLOB.character_list[human_character.mobid] = "[fakekey] was [human_character.real_name] ([migrant_job.title])<BR>"
+	GLOB.character_ckey_list[human_character.real_name] = human_character.ckey
+	log_character("[human_character.ckey] ([fakekey]) - [human_character.real_name] - [migrant_job.title]")
 
 	var/datum/migrant_role/advclass/adv_migrant = role_instance
 	if(adv_migrant.advclass_cat_rolls)
-		SSrole_class_handler.setup_class_handler(character, adv_migrant.advclass_cat_rolls)
-		hugboxify_for_class_selection(character)
+		SSrole_class_handler.setup_class_handler(human_character, adv_migrant.advclass_cat_rolls)
+		human_character.hugboxify_for_class_selection()
+	else if(GLOB.adventurer_hugbox_duration)
+		addtimer(CALLBACK(human_character, TYPE_PROC_REF(/mob/living/carbon/human, adv_hugboxing_start)), 1)
 
 /datum/controller/subsystem/migrants/proc/get_priority_players(list/players, role_type, wave_type)
 	var/list/priority = list()
@@ -324,19 +322,30 @@ SUBSYSTEM_DEF(migrants)
 
 	for(var/client/client as anything in players)
 		var/base_priority = 0
-
-		// Standard role preference priority
+		var/triumph_bonus = 0
+		//Standard role preference priority
 		if(role_type in client.prefs.migrant.role_preferences)
 			base_priority = 1
+			triumph_bonus = get_triumph_selection_bonus(client, wave_type) //Only gains the Triumph Bonus if they want that role.
 
-		// Add triumph contribution bonus
-		var/triumph_bonus = get_triumph_selection_bonus(client, wave_type)
 		var/final_priority = base_priority + triumph_bonus
 
 		if(final_priority > 0)
 			triumph_weighted[client] = final_priority
 
-	// Convert weighted list back to prioritized list
+	//Check if all triumph_weighted values are equal
+	var/all_equal = TRUE
+	var/first_val = -1
+
+	if(length(triumph_weighted))
+		first_val = triumph_weighted[1]
+		for(var/client/client in triumph_weighted)
+			// Check if anything is not equal to the first value in the list
+			if(triumph_weighted[client] != first_val)
+				all_equal = FALSE
+				break
+
+	//Convert weighted list to prioritized list
 	while(length(triumph_weighted))
 		var/client/highest = null
 		var/highest_priority = 0
@@ -349,6 +358,10 @@ SUBSYSTEM_DEF(migrants)
 		if(highest)
 			priority += highest
 			triumph_weighted -= highest
+
+	//Shuffle only if all have equal priority
+	if(all_equal)
+		priority = shuffle(priority)
 
 	return priority
 
@@ -642,16 +655,25 @@ SUBSYSTEM_DEF(migrants)
 	landmarks = shuffle(landmarks)
 	return get_turf(pick(landmarks))
 
-/proc/hugboxify_for_class_selection(mob/living/carbon/human/character)
-	character.advsetup = 1
-	character.invisibility = INVISIBILITY_MAXIMUM
-	character.become_blind("advsetup")
-
+/mob/living/carbon/human/proc/hugboxify_for_class_selection()
+	advsetup = TRUE
+	density = FALSE
+	invisibility = INVISIBILITY_MAXIMUM
+	become_blind("advsetup")
 	if(GLOB.adventurer_hugbox_duration)
-		///FOR SOME FUCKING REASON THIS REFUSED TO WORK WITHOUT A FUCKING TIMER IT JUST FUCKED SHIT UP
-		addtimer(CALLBACK(character, TYPE_PROC_REF(/mob/living/carbon/human, adv_hugboxing_start)), 1)
+		adv_hugboxing_start()
 
-/proc/grant_lit_torch(mob/living/carbon/human/character)
+/mob/living/carbon/human/proc/finish_class_hugbox()
+	advsetup = FALSE
+	density = initial(density)
+	invisibility = initial(invisibility)
+	cure_blind("advsetup")
+
+	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in hud_used?.static_inventory //locate() still iterates over contents
+	if(GET_IT_OUT)
+		qdel(GET_IT_OUT)
+
+/mob/living/carbon/human/proc/grant_lit_torch()
 	var/obj/item/flashlight/flare/torch/torch = new()
 	torch.spark_act()
-	character.put_in_hands(torch, forced = TRUE)
+	put_in_hands(torch, forced = TRUE)

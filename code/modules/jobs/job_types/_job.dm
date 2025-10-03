@@ -313,12 +313,6 @@
 	if(voicepack_f)
 		spawned.dna?.species.soundpack_f = new voicepack_f()
 
-	if(length(advclass_cat_rolls))
-		spawned.advsetup = TRUE
-		spawned.invisibility = INVISIBILITY_MAXIMUM
-		spawned.density = FALSE
-		spawned.become_blind("advsetup")
-
 	/// WHY WAS THIS ON OUTFIT??? It shouldn't be HERE either
 	if(spawned.familytree_pref != FAMILY_NONE && !spawned.family_datum)
 		SSfamilytree.AddLocal(spawned, spawned.familytree_pref)
@@ -327,6 +321,9 @@
 	for(var/datum/triumph_buy/T in owned_triumph_buys)
 		if(!T.activated)
 			T.on_after_spawn(spawned)
+
+	if(length(advclass_cat_rolls))
+		spawned.hugboxify_for_class_selection()
 
 /// Called by [after_spawn] and run before anything else.
 /// Change your stat values and such here, not in outfits.

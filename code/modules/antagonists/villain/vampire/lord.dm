@@ -61,6 +61,7 @@
 	belt = /obj/item/storage/belt/leather/plaquegold
 	head  = /obj/item/clothing/head/vampire
 	beltl = /obj/item/key/vampire
+	beltr = /obj/item/storage/belt/pouch/coins/veryrich
 	cloak = /obj/item/clothing/cloak/cape/puritan
 	shoes = /obj/item/clothing/shoes/boots
 	backl = /obj/item/storage/backpack/satchel/black
@@ -98,19 +99,20 @@
 	set category = "VAMPIRE"
 
 	var/list/possible = list()
-	for(var/datum/mind/V in SSmapping.retainer.vampires)
-		if(V.special_role == "Vampire Spawn")
+	for(var/mob/living/carbon/human/member in clan?.clan_members)
+		if(member.stat != DEAD && member != src)
+			var/datum/mind/V = member.mind
 			possible[V.current.real_name] = V.current
 	for(var/datum/mind/D in SSmapping.retainer.death_knights)
 		possible[D.current.real_name] = D.current
-	var/name_choice = input(src, "Who to punish?", "PUNISHMENT") as null|anything in possible
+	var/name_choice = browser_input_list(src, "Who to punish?", "PUNISHMENT", possible)
 	if(!name_choice)
 		return
 	var/mob/living/carbon/human/choice = possible[name_choice]
 	if(!choice || QDELETED(choice))
 		return
 	var/punishmentlevels = list("Pause", "Pain", "DESTROY")
-	var/punishment = input(src, "Severity?", "PUNISHMENT") as null|anything in punishmentlevels
+	var/punishment = browser_input_list(src, "Select punishment severity.", "PUNISHMENT", punishmentlevels)
 	if(!punishment)
 		return
 	switch(punishment)

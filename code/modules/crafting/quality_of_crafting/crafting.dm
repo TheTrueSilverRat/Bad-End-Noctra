@@ -14,7 +14,7 @@
 	)
 	attacked_atom = /obj/item/grown/log/tree/stake
 	starting_atom  = /obj/item/rope
-	output = /obj/item/restraints/legcuffs/beartrap
+	output = /obj/item/restraints/legcuffs/beartrap/crafted/makeshift
 	craftdiff = 1
 
 /datum/repeatable_crafting_recipe/crafting/mantrap/create_blacklisted_paths()

@@ -67,6 +67,7 @@
 	else
 		var/datum/migrant_wave/wave = MIGRANT_WAVE(SSmigrants.current_wave)
 		main_dat += "<div style='text-align: center; font-weight: bold; margin-bottom: 10px;'>[wave.name]</div>"
+		main_dat += "<div style='text-align: center; margin-bottom: 10px;'>[wave.greet_text]</div>"
 
 		// Show if this wave was triumph-influenced
 		if(wave.triumph_total > 0)

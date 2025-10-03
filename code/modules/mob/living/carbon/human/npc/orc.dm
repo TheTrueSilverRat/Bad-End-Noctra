@@ -13,6 +13,25 @@
 	possible_rmb_intents = list()
 	bloodpool = 1000 // Not as much vitae from them as humans to avoid vampires cheesing mobs
 
+/mob/living/carbon/human/species/orc/slaved
+	ai_controller = /datum/ai_controller/human_npc
+	dodgetime = 15 //they can dodge easily, but have a cooldown on it
+	canparry = TRUE
+	wander = FALSE
+
+/mob/living/carbon/human/species/orc/slaved/Initialize()
+	. = ..()
+	var/static/list/pet_commands = list(
+				/datum/pet_command/idle,
+				/datum/pet_command/free,
+				/datum/pet_command/follow,
+				/datum/pet_command/attack,
+				/datum/pet_command/protect_owner,
+				/datum/pet_command/aggressive,
+				/datum/pet_command/calm,
+			)
+	AddComponent(/datum/component/obeys_commands, pet_commands)
+
 /mob/living/carbon/human/species/orc/npc
 	ai_controller = /datum/ai_controller/human_npc
 	dodgetime = 15 //they can dodge easily, but have a cooldown on it
