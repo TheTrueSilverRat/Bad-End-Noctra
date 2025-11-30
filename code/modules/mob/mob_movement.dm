@@ -147,6 +147,25 @@ w/**
 			direct = newdir
 			n = get_step(L, direct)
 
+	if(direct & (direct - 1)) // Disallow diagonal movement by forcing a single cardinal direction
+		var/horizontal = direct & (EAST|WEST)
+		var/vertical = direct & (NORTH|SOUTH)
+		var/new_direction = 0
+
+		if((L.dir & horizontal) && vertical) // If we're already facing the horizontal axis, pivot to the vertical component.
+			new_direction = vertical
+		else if((L.dir & vertical) && horizontal) // If we're already facing the vertical axis, pivot to the horizontal component.
+			new_direction = horizontal
+		else if(horizontal)
+			new_direction = horizontal
+		else
+			new_direction = vertical
+
+		direct = new_direction
+		n = get_step(L, direct)
+		if(!n)
+			return FALSE
+
 	var/target_dir = get_dir(L, n)
 
 	//backpedal and strafe slowdown for quick intent
