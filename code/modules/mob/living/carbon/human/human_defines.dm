@@ -107,6 +107,7 @@
 	var/datum/rage/rage_datum = null //teehee
 
 	var/headshot_link = null
+	var/nsfw_headshot_link = null
 	var/flavortext = null
 	var/flavortext_display = null
 	var/ooc_notes = null

@@ -8,18 +8,40 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			return
 		var/mob/user = usr
 		var/list/dat = list()
+		var/updated_display = FALSE
+		if(!flavortext_display && flavortext)
+			var/ft = html_encode(flavortext)
+			ft = replacetext(parsemarkdown_basic(ft), "\n", "<BR>")
+			flavortext_display = ft
+			client?.prefs?.flavortext_display = ft
+			updated_display = TRUE
+		if(!ooc_notes_display && ooc_notes)
+			var/ooc = html_encode(ooc_notes)
+			ooc = replacetext(parsemarkdown_basic(ooc), "\n", "<BR>")
+			ooc_notes_display = ooc
+			client?.prefs?.ooc_notes_display = ooc
+			updated_display = TRUE
+		if(updated_display)
+			client?.prefs?.save_character()
 		if(headshot_link)
 			dat += "<br>"
 			dat += ("<div align='center'><img src='[headshot_link]' width='325px' height='325px'></div>")
-		if(flavortext)
+		if(flavortext_display)
 			dat += "<div align='left' style='line-height: 1.2;'>[flavortext_display]</div>"
-		if(ooc_notes)
+		if(ooc_notes_display)
 			dat += "<br>"
 			dat += "<div align='center'><b>OOC notes</b></div>"
 			dat += "<div align='left' style='line-height: 1.2;'>[ooc_notes_display]</div>"
 		if(ooc_extra)
 			dat += "[ooc_extra]"
-		var/datum/browser/popup = new(user, "[src]", "<center>[src]</center>", 480, 700)
+		if(nsfw_headshot_link)
+			dat += "<br>"
+			dat += "<div align='center'><b>NSFW</b></div>"
+			if(!wear_armor && !wear_shirt)
+				dat += ("<div align='center'><img src='[nsfw_headshot_link]' width='600px'></div>")
+			else
+				dat += "<br><center><i><font color = '#9d0080'; font size = 5>There is more to see but they are not naked...</font></i></center>"
+		var/datum/browser/popup = new(user, "[src]", "<center>[src]</center>", 700, 800)
 
 		popup.set_content(dat.Join())
 		popup.open(FALSE)

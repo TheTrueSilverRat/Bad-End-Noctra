@@ -121,6 +121,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	/// link to a page containing your headshot image
 	var/headshot_link
 
+	/// link to a page containing your NSFW headshot image
+	var/nsfw_headshot_link
+
 	/// link to a page containing your ooc extra image
 	var/ooc_extra_link
 	var/ooc_extra
@@ -445,6 +448,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<br><b>Headshot:</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
 	if(headshot_link != null)
 		dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
+	dat += "<br><b>NSFW Headshot:</b> <a href='?_src_=prefs;preference=nsfw_headshot;task=input'>Change</a>"
+	if(nsfw_headshot_link != null)
+		dat += "<br><img src='[nsfw_headshot_link]' width='100px' height='100px'>"
 	dat += "<br><b>[(length(flavortext) < MINIMUM_FLAVOR_TEXT) ? "<font color = '#802929'>" : ""]Flavortext:[(length(flavortext) < MINIMUM_FLAVOR_TEXT) ? "</font>" : ""]</b><a href='?_src_=prefs;preference=formathelp;task=input'>(?)</a><a href='?_src_=prefs;preference=flavortext;task=input'>Change</a>"
 
 	dat += "<br><b>[(length(ooc_notes) < MINIMUM_OOC_NOTES) ? "<font color = '#802929'>" : ""]OOC Notes:[(length(ooc_notes) < MINIMUM_OOC_NOTES) ? "</font>" : ""]</b><a href='?_src_=prefs;preference=formathelp;task=input'>(?)</a><a href='?_src_=prefs;preference=ooc_notes;task=input'>Change</a>"
@@ -1238,6 +1244,18 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					headshot_link = new_headshot_link
 					to_chat(user, span_notice("Successfully updated headshot picture"))
 					log_game("[user] has set their Headshot image to '[headshot_link]'.")
+				if("nsfw_headshot")
+					to_chat(user, span_notice("["<span class='bold'>Use this only for NSFW portraits. Follow server rules.</span>"]"))
+					to_chat(user, "<span class='notice'>If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser.</span>")
+					var/new_nsfw_headshot_link = input(user, "Input the NSFW headshot link (https, hosts: gyazo, lensdump, imgbox, catbox):", "NSFW Headshot", nsfw_headshot_link) as text|null
+					if(!new_nsfw_headshot_link)
+						return
+					if(!is_valid_nsfw_headshot_link(user, new_nsfw_headshot_link, FALSE))
+						to_chat(user, span_notice("Failed to update NSFW headshot"))
+						return
+					nsfw_headshot_link = new_nsfw_headshot_link
+					to_chat(user, span_notice("Successfully updated NSFW headshot picture"))
+					log_game("[user] has set their NSFW Headshot image to '[nsfw_headshot_link]'.")
 				if("formathelp")
 					var/list/dat = list()
 					dat +="You can use backslash (\\) to escape special characters.<br>"
@@ -1352,6 +1370,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					var/list/dat = list()
 					if(is_valid_headshot_link(null, headshot_link, TRUE))
 						dat += ("<div align='center'><img src='[headshot_link]' width='350px' height='350px'></div>")
+					if(is_valid_nsfw_headshot_link(null, nsfw_headshot_link, TRUE))
+						dat += "<div align='center'><b>NSFW</b></div>"
+						dat += ("<div align='center'><img src='[nsfw_headshot_link]' width='350px' height='350px'></div>")
 					if(flavortext && flavortext_display)
 						dat += "<div align='left' style='line-height: 1.2;'>[flavortext_display]</div>"
 					if(ooc_notes && ooc_notes_display)
@@ -1804,6 +1825,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	/* V: */
 
 	character.headshot_link = headshot_link
+	character.nsfw_headshot_link = nsfw_headshot_link
 	character.flavortext = flavortext
 	character.flavortext_display = flavortext_display
 	character.ooc_notes = ooc_notes
@@ -1998,6 +2020,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		return FALSE
 
 	return TRUE
+
+/datum/preferences/proc/is_valid_nsfw_headshot_link(mob/user, value, silent = FALSE)
+	return is_valid_headshot_link(user, value, silent)
 
 
 /datum/preferences/proc/set_loadout(mob/user, loadout_number, datum/loadout_item/loadout)

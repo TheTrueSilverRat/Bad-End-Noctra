@@ -367,6 +367,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if(!is_valid_headshot_link(null, headshot_link, TRUE))
 		headshot_link = null
 
+	S["nsfw_headshot_link"]		>> nsfw_headshot_link
+	if(!is_valid_nsfw_headshot_link(null, nsfw_headshot_link, TRUE))
+		nsfw_headshot_link = null
+
 	S["pronouns"] >> pronouns
 	S["voice_type"] >> voice_type
 
@@ -494,6 +498,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["body_markings"] , body_markings)
 	// headshot link
 	WRITE_FILE(S["headshot_link"] , headshot_link)
+	WRITE_FILE(S["nsfw_headshot_link"] , nsfw_headshot_link)
 	// flavor text
 	WRITE_FILE(S["flavortext"] , html_decode(flavortext))
 	WRITE_FILE(S["flavortext_display"], flavortext_display)
