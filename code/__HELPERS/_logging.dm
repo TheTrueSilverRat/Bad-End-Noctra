@@ -126,10 +126,6 @@
 	if (CONFIG_GET(flag/log_ooc))
 		WRITE_LOG(GLOB.world_game_log, "\[[TIMETOTEXT4LOGS]\] OOC: [text]")
 
-/proc/log_looc(text)
-	if (CONFIG_GET(flag/log_looc))
-		WRITE_LOG(GLOB.world_game_log, "\[[TIMETOTEXT4LOGS]\] LOOC: [text]")
-
 /proc/log_whisper(text)
 	if (CONFIG_GET(flag/log_whisper))
 		WRITE_LOG(GLOB.world_game_log, "\[[TIMETOTEXT4LOGS]\] WHISPER: [text]")
