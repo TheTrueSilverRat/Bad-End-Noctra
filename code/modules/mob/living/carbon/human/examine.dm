@@ -668,6 +668,26 @@
 			if(body_position == LYING_DOWN && user != src && (user.zone_selected == BODY_ZONE_CHEST))
 				. += "<a href='byond://?src=[REF(src)];check_hb=1'>Listen to Heartbeat</a>"
 
+	if(targetting)
+		var/atom/movable/T = targetting
+		if(T?.loc)
+			var/zone_text = parse_zone(zone_selected)
+			if(zone_selected == BODY_ZONE_PRECISE_GROIN)
+				var/atom/front_turf = get_step(T, T.dir)
+				var/atom/behind_turf = get_step(T, turn(T.dir, 180))
+				var/atom/side_left = get_step(T, turn(T.dir, 90))
+				var/atom/side_right = get_step(T, turn(T.dir, 270))
+				if(behind_turf && src.loc && behind_turf.z == src.loc.z && abs(behind_turf.x - src.loc.x) <= 1 && abs(behind_turf.y - src.loc.y) == 0)
+					zone_text = "ass"
+				else if((side_left && src.loc && side_left.z == src.loc.z && abs(side_left.x - src.loc.x) == 0 && abs(side_left.y - src.loc.y) == 0) || (side_right && src.loc && side_right.z == src.loc.z && abs(side_right.x - src.loc.x) == 0 && abs(side_right.y - src.loc.y) == 0))
+					zone_text = "hips"
+				else if(front_turf && src.loc && front_turf.z == src.loc.z && abs(front_turf.x - src.loc.x) <= 1 && abs(front_turf.y - src.loc.y) == 0)
+					zone_text = "crotch"
+			var/target_text = "[T]'s [zone_text]"
+			if(T == user)
+				target_text = "you"
+			. += span_info("[t_He] seem[p_s()] to be looking at [target_text].")
+
 	if(!HAS_TRAIT(src, TRAIT_FACELESS))
 		. += "<a href='byond://?src=[REF(src)];view_descriptors=1'>Look at Features</a>"
 
