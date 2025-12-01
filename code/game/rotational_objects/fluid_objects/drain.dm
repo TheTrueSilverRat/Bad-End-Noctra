@@ -118,7 +118,7 @@
 			drain_amount = targeted_group.total_reagent_volume
 
 		if(drain_amount > 0)
-			targeted_group.trans_to_seperate_group(collected_fluids, drain_amount, merge = TRUE)
+			targeted_group.trans_to_seperate_group(collected_fluids, drain_amount)
 
 			// Visual effect
 			show_drain_effect(T)

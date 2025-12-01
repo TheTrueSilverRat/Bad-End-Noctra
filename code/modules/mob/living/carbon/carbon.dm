@@ -1367,11 +1367,15 @@
 /// grant undead eyes to a carbon mob.
 /mob/living/carbon/proc/grant_undead_eyes()
 	var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
+	var/eyecolor = eyes.eye_color
+	var/eyesecond = eyes.second_color
 	if(eyes)
 		eyes.Remove(src,1)
 		QDEL_NULL(eyes)
 
 	eyes = new /obj/item/organ/eyes/night_vision/zombie
+	eyes.eye_color = eyecolor
+	eyes.second_color = eyesecond
 	eyes.Insert(src)
 
 /mob/living/carbon/wash(clean_types)

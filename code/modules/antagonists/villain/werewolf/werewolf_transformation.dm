@@ -3,8 +3,6 @@
 	var/mob/living/carbon/human/H = user
 	if(H.stat == DEAD) return
 	if(H.advsetup) return
-	if(HAS_TRAIT(H, TRAIT_SILVER_BLESSED)) return
-
 	// Werewolf transforms at night AND under the sky
 	if(!HAS_TRAIT(user, TRAIT_WEREWOLF_RAGE))
 		if(GLOB.tod == "night")
@@ -12,8 +10,9 @@
 				var/turf/loc = H.loc
 				if(loc.can_see_sky())
 					var/mob/living/carbon/human/human = user
-					if(human.rage_datum?.rage > human.rage_datum.max_rage - 20)
-						to_chat(H, span_userdanger("The moonlight scorns me... It is too late."))
+					if(!is_species(H, /datum/species/werewolf))
+						if(human.rage_datum?.rage > human.rage_datum.max_rage - 20)
+							to_chat(H, span_userdanger("The moonlight scorns me... It is too late."))
 					human.rage_datum?.update_rage(10)
 
 
@@ -21,6 +20,7 @@
 	werewolf_untransform(null, TRUE, gibbed)
 
 /mob/living/carbon/human/proc/werewolf_transform()
+	if(HAS_TRAIT(src, TRAIT_SILVER_BLESSED)) return
 
 	if(HAS_TRAIT(src, TRAIT_WEREWOLF_RAGE))
 		return
@@ -101,6 +101,8 @@
 	W.add_spell(/datum/action/cooldown/spell/undirected/claws)
 	W.add_spell(/datum/action/cooldown/spell/aoe/repulse/howl)
 	W.add_spell(/datum/action/cooldown/spell/woundlick)
+	W.add_spell(/datum/action/cooldown/spell/lunge)
+	W.add_spell(/datum/action/cooldown/spell/throw_target)
 
 	W.rage_datum.grant_to_secondary(W)
 
@@ -141,6 +143,8 @@
 	W.remove_spell(/datum/action/cooldown/spell/undirected/claws)
 	W.remove_spell(/datum/action/cooldown/spell/aoe/repulse/howl)
 	W.remove_spell(/datum/action/cooldown/spell/woundlick)
+	W.remove_spell(/datum/action/cooldown/spell/lunge)
+	W.remove_spell(/datum/action/cooldown/spell/throw_target)
 	W.rage_datum.remove_secondary()
 	W.regenerate_icons()
 

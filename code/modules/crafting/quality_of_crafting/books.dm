@@ -781,6 +781,7 @@
 		/datum/repeatable_crafting_recipe/saltfish,
 		/datum/repeatable_crafting_recipe/raisins,
 		/datum/orderless_slapcraft/food/pie,
+		/datum/orderless_slapcraft/food/tart.
 	)
 
 /obj/item/recipe_book/survival
