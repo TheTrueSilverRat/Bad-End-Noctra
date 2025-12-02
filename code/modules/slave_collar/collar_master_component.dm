@@ -176,4 +176,5 @@ GLOBAL_LIST_EMPTY(collar_masters)
 		return
 	if(target == mindparent.current && pet.used_intent && pet.used_intent.type == INTENT_HARM)
 		to_chat(pet, span_warning("Your collar shocks you for attacking your master!"))
-		shock_pet(pet, 15)
+		// Run the shock asynchronously so we don't block the signal handler on any sleeping subcalls (emotes, etc.)
+		INVOKE_ASYNC(src, PROC_REF(shock_pet), pet, 15)
