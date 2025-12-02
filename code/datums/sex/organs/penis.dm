@@ -1,6 +1,6 @@
 /obj/item/organ/genitals/penis
 	name = "penis"
-	icon_state = "severedtail" //placeholder
+	icon_state = "penis"
 	visible_organ = TRUE
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_PENIS
@@ -60,7 +60,8 @@
 
 /obj/item/penis_fake
 	name = "penis"
-	icon_state = "severedtail" //placeholder
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "penis"
 	var/sheath_type = SHEATH_TYPE_NONE
 	var/erect_state = ERECT_STATE_NONE
 	var/penis_type = PENIS_TYPE_PLAIN

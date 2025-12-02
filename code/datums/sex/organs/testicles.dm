@@ -1,6 +1,6 @@
 /obj/item/organ/genitals/testicles
 	name = "testicles"
-	icon_state = "severedtail" //placeholder
+	icon_state = "ball"
 	visible_organ = TRUE
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_TESTICLES
