@@ -3,6 +3,23 @@
 	if(!user)
 		return
 	var/obj/item/held_item = user.get_active_held_item()
+	// Remove stockings when leg-grabbed and empty-handed
+	if(!held_item && ishuman(user) && legwear_socks)
+		var/has_leg_grab = FALSE
+		for(var/obj/item/I as anything in user.held_items)
+			if(!istype(I, /obj/item/grabbing))
+				continue
+			var/obj/item/grabbing/G = I
+			if(G.grabbed != src)
+				continue
+			if(istype(G.limb_grabbed, /obj/item/bodypart))
+				var/obj/item/bodypart/BP = G.limb_grabbed
+				if(BP.body_zone == BODY_ZONE_L_LEG || BP.body_zone == BODY_ZONE_R_LEG)
+					has_leg_grab = TRUE
+					break
+		if(has_leg_grab)
+			if(try_remove_legwear(user, 40))
+				return
 	if(held_item && (user.zone_selected == BODY_ZONE_PRECISE_MOUTH))
 		if(held_item.get_sharpness() && held_item.wlength == WLENGTH_SHORT)
 			var/datum/bodypart_feature/hair/facial = get_bodypart_feature_of_slot(BODYPART_FEATURE_FACIAL_HAIR)
@@ -58,6 +75,24 @@
 		AddElement(/datum/element/ai_flee_while_in_pain)
 
 	id_check_in_5()
+
+/mob/living/carbon/human/proc/try_remove_legwear(mob/living/user, delay = 50)
+	if(!legwear_socks)
+		return FALSE
+	if(!get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
+		return FALSE
+	src.visible_message(span_notice("[src] begins to take off [legwear_socks]..."))
+	if(do_after(user, delay, target = src))
+		var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
+		if(legwear_socks?.legwears_feature)
+			chest.remove_bodypart_feature(legwear_socks.legwears_feature)
+		legwear_socks.forceMove(get_turf(src))
+		if(iscarbon(user))
+			var/mob/living/carbon/C = user
+			C.put_in_hands(legwear_socks)
+		legwear_socks = null
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/human/Destroy()
 	QDEL_NULL(physiology)
@@ -235,6 +270,8 @@
 		dat += "<tr><td><font color=grey>Obscured</font></td></tr>"
 	else
 		dat += "<tr><td><A href='byond://?src=[REF(src)];item=[ITEM_SLOT_PANTS]'>[(wear_pants && !(wear_pants.item_flags & ABSTRACT)) ? wear_pants : "<font color=grey>Trousers</font>"]</A></td></tr>"
+
+	dat += "<tr><td><A href='byond://?src=[REF(src)];legwearthing=1'>[(legwear_socks && !(legwear_socks.item_flags & ABSTRACT)) ? legwear_socks : "<font color=grey>Legwear</font>"]</A></td></tr>"
 
 	if(obscured & ITEM_SLOT_SHOES)
 		dat += "<tr><td><font color=grey>Obscured</font></td></tr>"

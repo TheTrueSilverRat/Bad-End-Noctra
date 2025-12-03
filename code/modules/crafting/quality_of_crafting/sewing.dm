@@ -169,6 +169,29 @@
 				/obj/item/natural/fibers = 1)
 	category = "Pants"
 
+/datum/repeatable_crafting_recipe/sewing/stockings
+	name = "stockings"
+	output = /obj/item/legwears/white
+	requirements = list(/obj/item/natural/cloth = 1,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 3
+	category = "Pants"
+
+/datum/repeatable_crafting_recipe/sewing/stockings_silk
+	name = "silk stockings"
+	output = /obj/item/legwears/silk/white
+	requirements = list(/obj/item/natural/silk = 1,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 5
+	category = "Pants"
+
+/datum/repeatable_crafting_recipe/sewing/stockings_fishnet
+	name = "fishnet stockings"
+	output = /obj/item/legwears/fishnet/white
+	requirements = list(/obj/item/natural/fibers = 2)
+	craftdiff = 3
+	category = "Pants"
+
 /datum/repeatable_crafting_recipe/sewing/lakkarikilt
 	name = "padded kilt"
 	output = /obj/item/clothing/pants/trou/leather/quiltedkilt

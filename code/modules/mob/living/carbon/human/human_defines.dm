@@ -45,6 +45,7 @@
 	var/shavelevel = 0
 
 	var/socks = "Nude" //Which socks the player wants
+	var/obj/item/legwears/legwear_socks
 
 	//Equipment slots
 	var/obj/item/clothing/skin_armor = null
