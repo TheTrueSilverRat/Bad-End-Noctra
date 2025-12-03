@@ -46,7 +46,7 @@
 			legwears_feature.set_accessory_type(legwears_feature.accessory_type || sprite_acc, color, H, FALSE)
 		legwears_feature.legwear_item = src
 		user.visible_message(span_notice("[user] tries to put [src] on [H]..."))
-		if(do_after(user, 50, needhand = 1, target = H))
+		if(do_after(user, 50, target = H))
 			var/obj/item/bodypart/chest = H.get_bodypart(BODY_ZONE_CHEST)
 			chest.add_bodypart_feature(legwears_feature)
 			user.dropItemToGround(src)
@@ -126,3 +126,14 @@
 
 /obj/item/legwears/fishnet/purple
 	color = "#664357"
+
+//thigh highs
+
+/obj/item/legwears/thigh
+	name = "Thigh highs"
+	desc = "A legwear popular among wenches."
+	icon_state = "thigh"
+
+/obj/item/legwears/thigh/random/Initialize()
+	. = ..()
+	color = pick("#e6e5e5", CLOTHING_SOOT_BLACK, CLOTHING_SKY_BLUE, "#6F0000", "#664357")

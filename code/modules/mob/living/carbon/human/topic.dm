@@ -135,17 +135,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		if(!get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
 			to_chat(usr, span_warning("I can't reach that! Something is covering it."))
 			return
-		if(!legwear_socks)
-			return
-		if(do_after(usr, 50, needhand = 1, target = src))
-			var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
-			if(legwear_socks?.legwears_feature)
-				chest.remove_bodypart_feature(legwear_socks.legwears_feature)
-			legwear_socks.forceMove(get_turf(src))
-			if(iscarbon(usr))
-				var/mob/living/carbon/C = usr
-				C.put_in_hands(legwear_socks)
-			legwear_socks = null
+		try_remove_legwear(usr)
 
 	if(href_list["undiesthing"]) //canUseTopic check for this is handled by mob/Topic()
 		if(!get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
