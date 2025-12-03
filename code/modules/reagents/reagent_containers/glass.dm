@@ -92,6 +92,8 @@
 		return ..()
 	if(!spillable)
 		return
+	if(user.used_intent.type == INTENT_FILL && ishuman(M))
+		return try_milk_human(M, user)
 	if(!reagents?.total_volume)
 		to_chat(user, span_danger("[src] is empty!"))
 		return
@@ -137,6 +139,46 @@
 			to_chat(user, span_notice("I swallow a gulp of [src]."))
 		addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), M, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 		playsound(M.loc, pick(drinksounds), 100, TRUE)
+
+/obj/item/reagent_containers/glass/proc/try_milk_human(mob/living/carbon/human/target, mob/living/user)
+	if(!reagents)
+		return TRUE
+
+	var/obj/item/organ/genitals/breasts/breasts = target.getorganslot(ORGAN_SLOT_BREASTS)
+	if(!breasts)
+		to_chat(user, span_warning("[target] doesn't have anything to milk."))
+		return TRUE
+
+	if(!breasts.lactating)
+		to_chat(user, span_warning("[target] isn't lactating."))
+		return TRUE
+
+	if(!get_location_accessible(target, BODY_ZONE_CHEST))
+		to_chat(user, span_warning("[target]'s chest must be exposed before I can milk them!"))
+		return TRUE
+
+	if(breasts.milk_stored <= 0)
+		to_chat(user, span_warning("[target] is out of milk!"))
+		return TRUE
+
+	if(reagents.holder_full())
+		to_chat(user, span_warning("[src] is full."))
+		return TRUE
+
+	var/free_space = reagents.maximum_volume - reagents.total_volume
+	var/milk_to_take = min(breasts.milk_stored, max(breasts.breast_size * 2, 1), free_space)
+	if(milk_to_take <= 0)
+		return TRUE
+
+	if(!do_after(user, 2 SECONDS, target))
+		return TRUE
+
+	reagents.add_reagent(/datum/reagent/consumable/milk, milk_to_take)
+	breasts.milk_stored = max(breasts.milk_stored - milk_to_take, 0)
+	user.visible_message(span_notice("[user] milks [target] using [src]."), span_notice("I milk [target] using [src]."))
+	playsound(target, pick('sound/vo/mobs/cow/milking (1).ogg', 'sound/vo/mobs/cow/milking (2).ogg'), 50, TRUE, -1)
+	SEND_SIGNAL(target, COMSIG_SEX_ADJUST_AROUSAL, 5)
+	return TRUE
 
 /obj/item/reagent_containers/glass/attack_atom(atom/attacked_atom, mob/living/user)
 	if(user.used_intent.type == INTENT_GENERIC)

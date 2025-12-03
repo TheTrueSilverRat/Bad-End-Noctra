@@ -1226,10 +1226,10 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	if(HAS_TRAIT(H, TRAIT_NOHUNGER))
 		return //hunger is for BABIES
 
+	var/nutrition_hunger_rate = (HUNGER_FACTOR * nutrition_mod)
 	// nutrition decrease and satiety
 	if(H.nutrition > 0 && H.stat != DEAD)
-		var/hunger_rate = (HUNGER_FACTOR * nutrition_mod)
-		H.adjust_nutrition(-hunger_rate)
+		H.adjust_nutrition(-nutrition_hunger_rate)
 
 	if(H.hydration > 0 && H.stat != DEAD)
 		var/hunger_rate = HUNGER_FACTOR
@@ -1259,6 +1259,17 @@ GLOBAL_LIST_EMPTY(patreon_races)
 				H.apply_status_effect(/datum/status_effect/debuff/hungryt4)
 			if(prob(3))
 				playsound(get_turf(H), pick('sound/vo/hungry1.ogg','sound/vo/hungry2.ogg','sound/vo/hungry3.ogg'), 100, TRUE, -1)
+
+	var/obj/item/organ/genitals/breasts/breasts = H.getorganslot(ORGAN_SLOT_BREASTS)
+	if(breasts)
+		if(H.nutrition > NUTRITION_LEVEL_HUNGRY && breasts.lactating && breasts.milk_max > breasts.milk_stored)
+			var/milk_to_make = min(nutrition_hunger_rate, breasts.milk_max - breasts.milk_stored)
+			breasts.milk_stored += milk_to_make
+			H.adjust_nutrition(-milk_to_make)
+		else if(H.nutrition < NUTRITION_LEVEL_STARVING && breasts.lactating && breasts.milk_stored > 0)
+			var/milk_to_take = min(nutrition_hunger_rate, breasts.milk_stored)
+			breasts.milk_stored -= milk_to_take
+			H.adjust_nutrition(milk_to_take)
 
 	switch(H.hydration)
 		if(HYDRATION_LEVEL_THIRSTY to HYDRATION_LEVEL_SMALLTHIRST)
