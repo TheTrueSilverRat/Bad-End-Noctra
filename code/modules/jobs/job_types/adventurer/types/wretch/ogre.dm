@@ -126,7 +126,6 @@
 		H.adjust_skillrank(/datum/skill/combat/unarmed, SKILL_LEVEL_JOURNEYMAN, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, SKILL_LEVEL_EXPERT, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
-		wretch_select_bounty(H)
 
 /datum/outfit/wretch/ogre/mercenary/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -164,7 +163,6 @@
 		H.adjust_skillrank(/datum/skill/combat/unarmed, SKILL_LEVEL_JOURNEYMAN, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, SKILL_LEVEL_EXPERT, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
-		wretch_select_bounty(H)
 
 /datum/outfit/wretch/ogre/warlord/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -201,7 +199,6 @@
 		H.adjust_skillrank(/datum/skill/combat/unarmed, SKILL_LEVEL_JOURNEYMAN, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, SKILL_LEVEL_EXPERT, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
-		wretch_select_bounty(H)
 
 /datum/outfit/wretch/ogre/cook/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -239,4 +236,3 @@
 		H.adjust_skillrank(/datum/skill/misc/riding, SKILL_LEVEL_NOVICE, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/crafting, SKILL_LEVEL_APPRENTICE, TRUE)
 		H.adjust_skillrank(/datum/skill/labor/butchering, SKILL_LEVEL_MASTER, TRUE)
-		wretch_select_bounty(H)
