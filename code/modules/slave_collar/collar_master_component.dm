@@ -15,6 +15,7 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	var/mob/living/remote_control_master_body
 	var/mob/living/carbon/human/remote_control_pet_body
 	var/datum/mind/remote_control_pet_mind
+	var/mob/dead/observer/remote_control_pet_ghost
 
 /datum/component/collar_master/Initialize(...)
 	. = ..()
@@ -217,7 +218,7 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	return TRUE
 
 /datum/component/collar_master/proc/remote_control_pet(mob/living/carbon/human/pet, control_duration = 30 SECONDS)
-	if(!pet || !(pet in my_pets) || pet.stat >= DEAD)
+	if(!pet || !(pet in my_pets) || pet.stat >= DEAD || !pet.mind)
 		return FALSE
 	if(remote_control_timer_id)
 		if(mindparent?.current)
@@ -225,18 +226,28 @@ GLOBAL_LIST_EMPTY(collar_masters)
 		return FALSE
 	if(!mindparent?.current || !mindparent.current.client)
 		return FALSE
+
+	// Push the pet's player into a ghost for the duration.
+	var/datum/mind/pet_mind = pet.mind
+	var/mob/dead/observer/screye/ghost = pet.scry_ghost()
+	if(!ghost)
+		if(mindparent?.current)
+			to_chat(mindparent.current, span_warning("The collar fails to cast the pet's spirit out."))
+		return FALSE
+	ghost.can_reenter_corpse = FALSE
+	to_chat(ghost, span_warning("Your spirit is yanked from your body by the cursed collar! You will be pulled back soon."))
+
 	var/mob/living/master_body = mindparent.current
 	remote_control_master_body = master_body
 	remote_control_pet_body = pet
-	remote_control_pet_mind = pet.mind
-	// Move the master's mind into the pet first, then park the pet's mind in the master's body if possible.
+	remote_control_pet_mind = pet_mind
+	remote_control_pet_ghost = ghost
+
+	// Move the master's mind into the pet.
 	mindparent.transfer_to(pet)
-	if(remote_control_pet_mind && remote_control_pet_mind.current && remote_control_pet_mind != mindparent)
-		remote_control_pet_mind.transfer_to(master_body, TRUE)
 	if(mindparent?.current)
 		to_chat(mindparent.current, span_userdanger("You seize [pet]'s body through the cursed collar for a short while!"))
-	if(remote_control_pet_mind?.current == master_body)
-		to_chat(remote_control_pet_mind.current, span_warning("Your senses are dragged into [master_body], leaving your body to your master."))
+
 	remote_control_timer_id = addtimer(CALLBACK(src, PROC_REF(end_remote_control)), control_duration, TIMER_STOPPABLE)
 	return TRUE
 
@@ -247,14 +258,18 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	var/mob/living/master_body = remote_control_master_body
 	var/mob/living/carbon/human/pet_body = remote_control_pet_body
 	var/datum/mind/pet_mind = remote_control_pet_mind
+	var/mob/dead/observer/pet_ghost = remote_control_pet_ghost
 	remote_control_master_body = null
 	remote_control_pet_body = null
 	remote_control_pet_mind = null
+	remote_control_pet_ghost = null
 	// Return minds to their original homes when possible.
 	if(mindparent && master_body && !QDELETED(master_body) && mindparent.current != master_body)
 		mindparent.transfer_to(master_body, TRUE)
 	if(pet_mind && pet_body && !QDELETED(pet_body) && pet_mind.current != pet_body)
 		pet_mind.transfer_to(pet_body, TRUE)
+	if(pet_ghost && !QDELETED(pet_ghost))
+		pet_ghost.reenter_corpse(TRUE)
 	if(mindparent?.current)
 		to_chat(mindparent.current, span_notice("The collar releases its hold; you return to your own body."))
 	if(pet_mind?.current && pet_mind.current != mindparent?.current)
