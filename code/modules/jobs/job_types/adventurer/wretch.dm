@@ -10,7 +10,6 @@
 	min_pq = 10
 
 	advclass_cat_rolls = list(CTAG_WRETCH = 20)
-	// Permit ogres to roll wretch classes (explicit list to keep it const-safe)
 	allowed_races = list(
 		SPEC_ID_HUMEN,
 		SPEC_ID_DWARF,
@@ -58,5 +57,3 @@
 /datum/job/advclass/wretch
 	abstract_type = /datum/job/advclass/wretch
 	category_tags = list(CTAG_WRETCH)
-	// Base wretch classes are off-limits to ogres; ogre-specific classes override this.
-	blacklisted_species = list(SPEC_ID_OGRE)

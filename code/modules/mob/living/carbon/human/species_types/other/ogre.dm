@@ -136,8 +136,31 @@
 
 /datum/species/ogre/get_skin_list()
 	return sortList(list(
-	"skin1" = "ffe0d1",
-	"skin2" = "fcccb3",
+		"Icecap" = SKIN_COLOR_ICECAP,
+		"Arctic" = SKIN_COLOR_ARCTIC,
+		"Tundra" = SKIN_COLOR_TUNDRA,
+		"Continental" = SKIN_COLOR_CONTINENTAL,
+		"Temperate" = SKIN_COLOR_TEMPERATE,
+		"Coastal" = SKIN_COLOR_COASTAL,
+		"Subtropical" = SKIN_COLOR_SUBTROPICAL,
+		"Tropical Dry" = SKIN_COLOR_TROPICALDRY,
+		"Tropical Wet" = SKIN_COLOR_TROPICALWET,
+		"Desert" = SKIN_COLOR_DESERT,
+		"Oasis" = SKIN_COLOR_OASIS,
+		"Crimsonlands" = SKIN_COLOR_CRIMSONLANDS,
+		"Volcanic" = SKIN_COLOR_VOLCANIC,
+		"Island" = SKIN_COLOR_ISLAND,
+		"Swamp" = SKIN_COLOR_SWAMP,
+		"Taiga" = SKIN_COLOR_TAIGA,
+		"Shellcrest" = SKIN_COLOR_SHELLCREST,
+		"Bloodaxe" = SKIN_COLOR_BLOOD_AXE,
+		"Splitjaw" = SKIN_COLOR_GROONN,
+		"Blackhammer" = SKIN_COLOR_BLACK_HAMMER,
+		"Skullseeker" = SKIN_COLOR_SKULL_SEEKER,
+		"Crescent Fang" = SKIN_COLOR_CRESCENT_FANG,
+		"Murkwalker" = SKIN_COLOR_MURKWALKER,
+		"Shatterhorn" = SKIN_COLOR_SHATTERHORN,
+		"Spiritcrusher" = SKIN_COLOR_SPIRITCRUSHER
 	))
 
 /datum/species/ogre/get_hairc_list()

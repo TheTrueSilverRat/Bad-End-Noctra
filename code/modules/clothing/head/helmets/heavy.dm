@@ -172,43 +172,19 @@
 	sellprice = 0 // See above comment
 
 // Ogre-sized helms
-/obj/item/clothing/head/helmet/ogre
-	name = "ogre helmet"
-	desc = "A towering helm sized for a giant skull."
-	icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
-	icon_state = "merchelmet"
-	item_state = "merchelmet"
-	armor = ARMOR_PLATE_GOOD
-	prevent_crits = ALL_CRITICAL_HITS
-	allowed_race = list(SPEC_ID_OGRE)
-	body_parts_covered = FULL_HEAD
-	slot_flags = ITEM_SLOT_HEAD
-	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
-
-/obj/item/clothing/head/helmet/ogre/merc
-	name = "ogre mercenary helmet"
-	icon_state = "merchelmet"
-	item_state = "merchelmet"
-
-/obj/item/clothing/head/helmet/ogre/warlord
-	name = "ogre warlord helmet"
-	icon_state = "warlhelmet"
-	item_state = "warlhelmet"
-
 /obj/item/clothing/head/roguetown/helmet/heavy/ogre
-	parent_type = /obj/item/clothing/head/helmet/ogre
 	name = "iron barbute"
 	desc = "This one's too large for normal people."
-	icon_state = "merchelmet"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
 	item_state = "merchelmet"
+	allowed_race = list(SPEC_ID_OGRE)
 
 /obj/item/clothing/head/roguetown/helmet/heavy/graggar/ogre
-	parent_type = /obj/item/clothing/head/helmet/ogre/warlord
 	name = "crushing barbute"
 	desc = "KILL! CRUSH! MAIM!"
-	icon_state = "warlhelmet"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
 	item_state = "warlhelmet"
+	allowed_race = list(SPEC_ID_OGRE)
 
 //............... Spangenhelm ............... //
 /obj/item/clothing/head/helmet/heavy/viking

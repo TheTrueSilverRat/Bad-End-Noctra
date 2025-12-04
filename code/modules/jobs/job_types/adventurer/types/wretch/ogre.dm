@@ -8,20 +8,60 @@
 	department_flag = OUTSIDERS
 	faction = FACTION_NEUTRAL
 	bypass_lastclass = TRUE
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK)
+	bypass_class_cat_limits = TRUE
+	roll_chance = 100
 
 /datum/job/advclass/wretch/ogre/dumdum
 	title = "Dum Dum"
 	tutorial = "You left Gronn because you could not find enough to eat there, and mean men kept firing arrows at you! Now you are here, and you are hungry. Time to find food!"
 	display_order = JDO_OGRE
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK)
 	allowed_races = list(SPEC_ID_OGRE)
 	allowed_sexes = list(MALE, FEMALE)
-
-	outfit = /datum/outfit/ogre
+	outfit = /datum/outfit/wretch/ogre
 	give_bank_account = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
-/datum/outfit/ogre/pre_equip(mob/living/carbon/human/H)
+/datum/job/advclass/wretch/ogre/avatar
+	title = "Avatar of Graggar"
+	tutorial = "A hulking avatar of Graggar. Smash, chop, or crush anything in your way."
+	display_order = JDO_OGRE + 0.1
+	allowed_races = list(SPEC_ID_OGRE)
+	allowed_sexes = list(MALE, FEMALE)
+	outfit = /datum/outfit/wretch/ogre/avatar
+	give_bank_account = TRUE
+	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
+
+/datum/job/advclass/wretch/ogre/mercenary
+	title = "Ogre Mercenary"
+	tutorial = "A wandering sell-sword from Gronn. Get paid, get food."
+	display_order = JDO_OGRE + 0.2
+	allowed_races = list(SPEC_ID_OGRE)
+	allowed_sexes = list(MALE, FEMALE)
+	outfit = /datum/outfit/wretch/ogre/mercenary
+	give_bank_account = TRUE
+	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
+
+/datum/job/advclass/wretch/ogre/warlord
+	title = "Ogre Warlord"
+	tutorial = "A war horn calls you to lead and crush."
+	display_order = JDO_OGRE + 0.3
+	allowed_races = list(SPEC_ID_OGRE)
+	allowed_sexes = list(MALE, FEMALE)
+	outfit = /datum/outfit/wretch/ogre/warlord
+	give_bank_account = TRUE
+	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
+
+/datum/job/advclass/wretch/ogre/cook
+	title = "Cook-Cook"
+	tutorial = "A massive cook with an even bigger appetite."
+	display_order = JDO_OGRE + 0.4
+	allowed_races = list(SPEC_ID_OGRE)
+	allowed_sexes = list(MALE, FEMALE)
+	outfit = /datum/outfit/wretch/ogre/cook
+	give_bank_account = TRUE
+
+/datum/outfit/wretch/ogre/pre_equip(mob/living/carbon/human/H)
 	..()
 	armor = /obj/item/clothing/armor/plate/ogre
 	shirt = /obj/item/clothing/shirt/ogre
@@ -44,20 +84,9 @@
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+		wretch_select_bounty(H)
 
-/datum/job/advclass/wretch/ogre/avatar
-	title = "Avatar of Graggar"
-	tutorial = "A hulking avatar of Graggar. Smash, chop, or crush anything in your way."
-	display_order = JDO_OGRE + 0.1
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK)
-	allowed_races = list(SPEC_ID_OGRE)
-	allowed_sexes = list(MALE, FEMALE)
-
-	outfit = /datum/outfit/ogre/avatar
-	give_bank_account = TRUE
-	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
-
-/datum/outfit/ogre/avatar/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/ogre/avatar/pre_equip(mob/living/carbon/human/H)
 	..()
 	armor = /obj/item/clothing/armor/plate/ogre
 	shirt = /obj/item/clothing/shirt/ogre
@@ -97,20 +126,9 @@
 		H.adjust_skillrank(/datum/skill/combat/unarmed, SKILL_LEVEL_JOURNEYMAN, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, SKILL_LEVEL_EXPERT, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
+		wretch_select_bounty(H)
 
-/datum/job/advclass/wretch/ogre/mercenary
-	title = "Ogre Mercenary"
-	tutorial = "A wandering sell-sword from Gronn. Get paid, get food."
-	display_order = JDO_OGRE + 0.2
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK)
-	allowed_races = list(SPEC_ID_OGRE)
-	allowed_sexes = list(MALE, FEMALE)
-
-	outfit = /datum/outfit/ogre/mercenary
-	give_bank_account = TRUE
-	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
-
-/datum/outfit/ogre/mercenary/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/ogre/mercenary/pre_equip(mob/living/carbon/human/H)
 	..()
 	armor = /obj/item/clothing/armor/plate/ogre
 	shirt = /obj/item/clothing/shirt/ogre
@@ -146,20 +164,9 @@
 		H.adjust_skillrank(/datum/skill/combat/unarmed, SKILL_LEVEL_JOURNEYMAN, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, SKILL_LEVEL_EXPERT, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
+		wretch_select_bounty(H)
 
-/datum/job/advclass/wretch/ogre/warlord
-	title = "Ogre Warlord"
-	tutorial = "A war horn calls you to lead and crush."
-	display_order = JDO_OGRE + 0.3
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK)
-	allowed_races = list(SPEC_ID_OGRE)
-	allowed_sexes = list(MALE, FEMALE)
-
-	outfit = /datum/outfit/ogre/warlord
-	give_bank_account = TRUE
-	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
-
-/datum/outfit/ogre/warlord/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/ogre/warlord/pre_equip(mob/living/carbon/human/H)
 	..()
 	armor = /obj/item/clothing/armor/plate/ogre
 	shirt = /obj/item/clothing/shirt/ogre
@@ -194,19 +201,9 @@
 		H.adjust_skillrank(/datum/skill/combat/unarmed, SKILL_LEVEL_JOURNEYMAN, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, SKILL_LEVEL_EXPERT, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
+		wretch_select_bounty(H)
 
-/datum/job/advclass/wretch/ogre/cook
-	title = "Cook-Cook"
-	tutorial = "A massive cook with an even bigger appetite."
-	display_order = JDO_OGRE + 0.4
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK)
-	allowed_races = list(SPEC_ID_OGRE)
-	allowed_sexes = list(MALE, FEMALE)
-
-	outfit = /datum/outfit/ogre/cook
-	give_bank_account = TRUE
-
-/datum/outfit/ogre/cook/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/wretch/ogre/cook/pre_equip(mob/living/carbon/human/H)
 	..()
 	cloak = /obj/item/clothing/cloak/apron/ogre
 	shirt = /obj/item/clothing/shirt/ogre
@@ -242,3 +239,4 @@
 		H.adjust_skillrank(/datum/skill/misc/riding, SKILL_LEVEL_NOVICE, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/crafting, SKILL_LEVEL_APPRENTICE, TRUE)
 		H.adjust_skillrank(/datum/skill/labor/butchering, SKILL_LEVEL_MASTER, TRUE)
+		wretch_select_bounty(H)

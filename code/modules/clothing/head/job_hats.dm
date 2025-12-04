@@ -77,7 +77,6 @@
 	name = "oversized cook hat"
 	desc = "Prepare the slop."
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
-	icon_state = "cookhat"
 	item_state = "cookhat"
 	allowed_race = list(SPEC_ID_OGRE)
 
