@@ -183,6 +183,9 @@
 		if(real_name in GLOB.heretical_players)
 			. += span_userdanger("HERETIC! SHAME!")
 
+		if(HAS_TRAIT(src, TRAIT_INDENTURED) && HAS_TRAIT(user, TRAIT_NOBLE))
+			. += span_notice("A commoner who knows their place.")
+
 		if(user.mind)
 			if(is_zizocultist(user.mind) || is_zizolackey(user.mind))
 				if(virginity)
@@ -212,6 +215,9 @@
 
 			if(HAS_TRAIT(src, TRAIT_THIEVESGUILD) && HAS_TRAIT(user, TRAIT_THIEVESGUILD))
 				. += span_green("A member of the Thieves Guild.")
+
+			if(HAS_TRAIT(user, TRAIT_INDENTURED) && HAS_TRAIT(src, TRAIT_NOBLE))
+				. += span_notice("My master.")
 
 			if((HAS_TRAIT(src, TRAIT_CABAL) && HAS_TRAIT(user, TRAIT_CABAL)) || (src.patron?.type == /datum/patron/inhumen/zizo && HAS_TRAIT(user, TRAIT_CABAL)))
 				. += span_purple("A fellow seeker of Her ascension.")

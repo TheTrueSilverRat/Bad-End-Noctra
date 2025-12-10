@@ -83,6 +83,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_FINGERPRINT_PASSTHROUGH" = TRAIT_FINGERPRINT_PASSTHROUGH,
 		"TRAIT_SOUND_DEBUGGED" = TRAIT_SOUND_DEBUGGED,
 		//Rogue Traits Past here
+		"Indentured" = TRAIT_INDENTURED,
 		"Blessing of Baotha" = TRAIT_CRACKHEAD,
 		"Blessing of Graggar" = TRAIT_ORGAN_EATER,
 		"Blessing of Pestra"= TRAIT_ROT_EATER,
@@ -171,6 +172,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"Recruited" = TRAIT_RECRUITED,
 		"Recognized" = TRAIT_RECOGNIZED,
 		"Member of the Oratorium Throni Vacui" = TRAIT_INQUISITION,
+		"Indentured" = TRAIT_INDENTURED,
 	),
 	/obj/item/bodypart = list(
 		"TRAIT_PARALYSIS" = TRAIT_PARALYSIS
@@ -207,6 +209,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_HATEWOMEN = "Double damage against female mobs.",
 	TRAIT_SEEDKNOW = span_info("I know which seeds grow which crops."),
 	TRAIT_NOBLE = span_blue("I'm of noble blood."),
+	TRAIT_INDENTURED = span_warning("The Baothan brand marks me as property of the nobility."),
 	TRAIT_EMPATH = "I can notice when people are stressed.",
 	TRAIT_BREADY = "Defensive stance does not passively fatigue me.",
 	TRAIT_MEDIUMARMOR = "I can move freely in medium armor.",

@@ -12,3 +12,17 @@
 	icon_state = "slave_seal"
 	glows = TRUE
 	default_colors = COLOR_RED
+
+/datum/sprite_accessory/brand/indentured_womb
+	name = "Baothan Womb Mark"
+	icon = 'icons/roguetown/misc/baotha_marking.dmi'
+	icon_state = "marking"
+	color_keys = 0
+	layer = BODY_ADJ_LAYER
+	relevant_layers = null
+
+/datum/sprite_accessory/brand/indentured_womb/get_icon_state(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	var/mob/living/carbon/human/H = owner
+	if(istype(H) && H.gender == FEMALE)
+		return "marking_f"
+	return "marking_m"

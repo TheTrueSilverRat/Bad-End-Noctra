@@ -115,3 +115,9 @@
 	body_zone = BODY_ZONE_CHEST
 	accessory_colors = COLOR_RED
 	accessory_type = /datum/sprite_accessory/brand/vampire_seal
+
+/datum/bodypart_feature/indentured_brand
+	name = "Indentured Brand"
+	feature_slot = BODYPART_FEATURE_BRAND
+	body_zone = BODY_ZONE_CHEST
+	accessory_type = /datum/sprite_accessory/brand/indentured_womb
