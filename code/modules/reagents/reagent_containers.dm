@@ -82,6 +82,7 @@
 /obj/item/reagent_containers/proc/add_initial_reagents()
 	if(list_reagents)
 		reagents.add_reagent_list(list_reagents)
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
 	return ..()
@@ -90,16 +91,11 @@
 	if(!iscarbon(eater))
 		return FALSE
 	var/mob/living/carbon/C = eater
-	
-	var/obj/item/bodypart/head/dullahan/eaterrelay
-	if(ishuman(src))
-		var/mob/living/carbon/human = src
-		if(!human.get_bodypart_shallow(BODY_ZONE_HEAD))
-			if(isdullahan(src))
-				var/datum/species/dullahan/dullahan = human.dna.species
-				eaterrelay = dullahan.my_head
-			else
-				return FALSE
+
+	if(ishuman(C))
+		var/mob/living/carbon/human/human_eater = C
+		if(!human_eater.get_bodypart(BODY_ZONE_HEAD))
+			return FALSE
 
 	var/covered = ""
 	if(C.is_mouth_covered(head_only = 1))
@@ -107,11 +103,8 @@
 	else if(C.is_mouth_covered(mask_only = 1))
 		covered = "mask"
 	if(C != user)
-		if((C.mobility_flags & MOBILITY_STAND) && eaterrelay)
-			if(get_dir(eater, user) != eater.dir)
-				to_chat(user, span_warning("I must stand in front of [C.p_them()]."))
-				return FALSE
-		else if(eaterrelay && (get_turf(eaterrelay) != get_turf(user) && !user.is_holding(eaterrelay)))
+		if(isturf(eater.loc) && C.body_position != LYING_DOWN && (get_dir(eater, user) != eater.dir))
+			to_chat(user, span_warning("I must stand in front of [C.p_them()]."))
 			return FALSE
 	if(covered)
 		if(!silent)
@@ -253,11 +246,6 @@
 /obj/item/reagent_containers/proc/apply_initial_label()
 	return
 
-/obj/item/reagent_containers/proc/add_initial_reagents()
-	if(list_reagents)
-		reagents.add_reagent_list(list_reagents)
-	update_appearance(UPDATE_OVERLAYS)
-
 /obj/item/reagent_containers/AltClick(mob/user)
 	if(!user.Adjacent(src) || !has_variable_transfer_amount)
 		return
@@ -286,28 +274,6 @@
 	amount_per_transfer_from_this = possible_transfer_amounts[index]
 	balloon_alert(user, "transferring [UNIT_FORM_STRING(amount_per_transfer_from_this)].")
 	mode_change_message(user)
-
-/obj/item/reagent_containers/proc/canconsume(mob/eater, mob/user, silent = FALSE)
-	if(!iscarbon(eater))
-		return FALSE
-	var/mob/living/carbon/C = eater
-	var/covered = ""
-	if(C.is_mouth_covered(head_only = 1))
-		covered = "headgear"
-	else if(C.is_mouth_covered(mask_only = 1))
-		covered = "mask"
-	if(C != user)
-		if(isturf(eater.loc))
-			if(C.body_position != LYING_DOWN)
-				if(get_dir(eater, user) != eater.dir)
-					to_chat(user, "<span class='warning'>I must stand in front of [C.p_them()].</span>")
-					return FALSE
-	if(covered)
-		if(!silent)
-			var/who = (isnull(user) || eater == user) ? "my" : "[eater.p_their()]"
-			to_chat(user, "<span class='warning'>I have to remove [who] [covered] first!</span>")
-		return FALSE
-	return TRUE
 
 /obj/item/reagent_containers/proc/bartender_check(atom/target)
 	. = FALSE

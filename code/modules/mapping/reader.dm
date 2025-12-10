@@ -899,6 +899,11 @@ GLOBAL_LIST_EMPTY(map_model_default)
 	var/list/members = model[1]
 	var/list/members_attributes = model[2]
 
+	// Guard against malformed model entries lacking the expected turf/area slots.
+	if(!islist(members) || !islist(members_attributes) || members.len < 2 || members_attributes.len < members.len)
+		WARNING("Skipping malformed map model at [AREACOORD(crds)] (members:[members.len], attrs:[members_attributes.len]). Check map key definitions.")
+		return
+
 	// We use static lists here because it's cheaper then passing them around
 	var/static/list/default_list = GLOB.map_model_default
 	////////////////

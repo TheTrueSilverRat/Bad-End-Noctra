@@ -155,16 +155,20 @@
 		if(ispath(user.rmb_intent?.type, /datum/rmb_intent/weak))
 			do_crit = FALSE
 
+	var/mouth_hit = (bclass in GLOB.fracture_bclasses) && istype(src, /obj/item/bodypart/head) && (zone_precise == BODY_ZONE_PRECISE_MOUTH || zone_precise == BODY_ZONE_HEAD)
+
 	if(do_crit)
 		var/crit_attempt = try_crit(bclass, dam, user, zone_precise, silent, crit_message, reduce_crit)
 		if(crit_attempt)
+			if(mouth_hit && ishuman(owner))
+				var/mob/living/carbon/human/H = owner
+				H.lose_teeth(dam)
 			return crit_attempt
-	if(zone_precise == BODY_ZONE_PRECISE_MOUTH && (bclass in GLOB.fracture_bclasses)) /
+
+	if(mouth_hit)
 		if(ishuman(owner))
 			var/mob/living/carbon/human/H = owner
 			H.lose_teeth(dam)
-	return dynwound
-
 	return manage_dynamic_wound(bclass, dam)
 
 /// Add or upgrade a dynamic wound, returns the wound if added or upgraded

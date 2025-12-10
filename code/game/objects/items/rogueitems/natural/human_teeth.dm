@@ -46,10 +46,6 @@
 
 		to_chat(src, span_warning("MY MOUTH HURTS!"))
 		src.decay_lost_teeth()
-		if(src.teeth < 12)
-			if(src.client)
-				src.cached_accent = src.client.prefs.char_accent
-			src.char_accent = "Toothless accent"
 
 /mob/living/carbon/human/proc/flying_teeth(var/amount, var/gold = FALSE)
 	for(var/i, i < amount, i++)
@@ -94,9 +90,3 @@
 		src.teeth--
 		if(src.teeth == 0)
 			break
-
-	if(src.teeth < 12)
-		if(src.client)
-			src.cached_accent = src.client.prefs.char_accent
-		src.char_accent = "Toothless accent"
-
