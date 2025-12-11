@@ -74,6 +74,7 @@
 		to_chat(src, span_notice("You tune in to [pet]'s surroundings."))
 	else
 		to_chat(src, span_notice("You stop listening through [pet]'s collar."))
+	CM.log_collar_action(src, "Listen", list(pet))
 	CM.last_command_time = world.time
 
 /mob/proc/collar_master_shock()
@@ -90,6 +91,7 @@
 		if(!pet || !(pet in CM.my_pets) || pet.stat >= UNCONSCIOUS)
 			continue
 		CM.shock_pet(pet, 15)
+	CM.log_collar_action(src, "Shock", CM.temp_selected_pets.Copy())
 
 /mob/proc/collar_master_send_message()
 	set name = "Send Message"
@@ -108,6 +110,7 @@
 		if(!pet || !(pet in CM.my_pets))
 			continue
 		CM.send_message(pet, message)
+	CM.log_collar_action(src, "Send Message", CM.temp_selected_pets.Copy(), html_encode(message))
 
 /mob/proc/collar_master_force_surrender()
 	set name = "Force Surrender"
@@ -123,6 +126,7 @@
 		if(!pet || !(pet in CM.my_pets))
 			continue
 		CM.force_surrender(pet)
+	CM.log_collar_action(src, "Force Surrender", CM.temp_selected_pets.Copy())
 
 /mob/proc/collar_master_force_strip()
 	set name = "Force Strip"
@@ -138,6 +142,7 @@
 		if(!pet || !(pet in CM.my_pets))
 			continue
 		CM.force_strip(pet)
+	CM.log_collar_action(src, "Force Strip", CM.temp_selected_pets.Copy())
 
 /mob/proc/collar_master_clothing()
 	set name = "Clothing Permission"
@@ -156,6 +161,7 @@
 			CM.permit_clothing(pet, TRUE)
 		else
 			CM.permit_clothing(pet, FALSE)
+	CM.log_collar_action(src, "Toggle Clothing Permission", CM.temp_selected_pets.Copy())
 
 /mob/proc/collar_master_toggle_speech()
 	set name = "Toggle Speech"
@@ -171,6 +177,7 @@
 		if(!pet || !(pet in CM.my_pets))
 			continue
 		CM.toggle_speech(pet)
+	CM.log_collar_action(src, "Toggle Speech", CM.temp_selected_pets.Copy())
 
 /mob/proc/collar_master_force_love()
 	set name = "Force Love"
@@ -186,6 +193,7 @@
 		if(!pet || !(pet in CM.my_pets))
 			continue
 		CM.force_love(pet)
+	CM.log_collar_action(src, "Force Love", CM.temp_selected_pets.Copy())
 
 /mob/proc/collar_master_force_say()
 	set name = "Force Say"
@@ -204,6 +212,7 @@
 		if(!pet || !(pet in CM.my_pets))
 			continue
 		CM.force_say(pet, message)
+	CM.log_collar_action(src, "Force Say", CM.temp_selected_pets.Copy(), html_encode(message))
 
 /mob/proc/collar_master_force_emote()
 	set name = "Force Emote"
@@ -222,6 +231,7 @@
 		if(!pet || !(pet in CM.my_pets))
 			continue
 		CM.force_emote(pet, message)
+	CM.log_collar_action(src, "Force Emote", CM.temp_selected_pets.Copy(), html_encode(message))
 
 /mob/proc/collar_master_toggle_arousal()
 	set name = "Toggle Arousal"
@@ -237,6 +247,7 @@
 		if(!pet || !(pet in CM.my_pets))
 			continue
 		CM.toggle_arousal(pet)
+	CM.log_collar_action(src, "Toggle Arousal", CM.temp_selected_pets.Copy())
 
 /mob/proc/collar_master_scry()
 	set name = "Scry Pet"
@@ -254,6 +265,7 @@
 		to_chat(src, span_warning("The collar refuses to share that pet's sight."))
 		return
 	CM.last_command_time = world.time
+	CM.log_collar_action(src, "Scry", list(pet))
 
 /mob/proc/collar_master_remote_control()
 	set name = "Remote Control"
@@ -271,6 +283,7 @@
 		to_chat(src, span_warning("The collar cannot link you to that pet right now."))
 		return
 	CM.last_command_time = world.time
+	CM.log_collar_action(src, "Remote Control", list(pet))
 
 /mob/proc/collar_master_release_pet()
 	set name = "Release Pet"
@@ -285,7 +298,8 @@
 	if(confirm != "Yes")
 		return
 	CM.last_command_time = world.time
-	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
+	var/list/releasing = CM.temp_selected_pets.Copy()
+	for(var/mob/living/carbon/human/pet in releasing)
 		if(!pet || !(pet in CM.my_pets))
 			continue
 		var/obj/item/clothing/neck/roguetown/cursed_collar/collar = pet.get_item_by_slot(ITEM_SLOT_NECK)
@@ -294,6 +308,7 @@
 			pet.dropItemToGround(collar, force = TRUE)
 		CM.cleanup_pet(pet)
 	CM.temp_selected_pets.Cut()
+	CM.log_collar_action(src, "Release Pet", releasing)
 
 /mob/proc/collar_master_help()
 	set name = "Collar Help"
@@ -306,4 +321,5 @@
 	var/datum/component/collar_master/CM = mind?.GetComponent(/datum/component/collar_master)
 	if(!CM)
 		return
+	CM.log_collar_action(src, "Release All Pets", CM.my_pets.Copy())
 	qdel(CM)
