@@ -48,7 +48,7 @@
 	steps_until_interaction -= 1
 	if(steps_until_interaction <= 0)
 		steps_until_interaction = initial(steps_until_interaction)
-		maybe_do_interaction()
+		addtimer(CALLBACK(src, PROC_REF(maybe_do_interaction)), 0)
 	update_visuals()
 
 /datum/component/bellyriding/proc/try_buckle_victim(mob/living/carbon/human/victim, mob/user)
