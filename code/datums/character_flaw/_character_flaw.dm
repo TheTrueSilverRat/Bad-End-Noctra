@@ -26,6 +26,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Chronic Arthritis" = /datum/charflaw/chronic_arthritis,
 	"Luxless" = /datum/charflaw/lux_taken,
 	"Witless Pixie" = /datum/charflaw/witless_pixie,
+	"Indentured" = /datum/charflaw/indentured,
 	"Random Flaw or No Flaw"=/datum/charflaw/randflaw,
 	"Guaranteed No Flaw (3 TRI)"=/datum/charflaw/noflaw,
 ))
@@ -125,6 +126,22 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		H.get_random_flaw()
 	else
 		H.set_flaw(/datum/charflaw/eznoflaw)
+
+/datum/charflaw/indentured
+	name = "Indentured"
+	desc = "Branded in service to the nobility."
+
+/datum/charflaw/indentured/on_mob_creation(mob/user)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	ADD_TRAIT(H, TRAIT_INDENTURED, ROUNDSTART_TRAIT)
+
+/datum/charflaw/indentured/on_remove()
+	if(!ishuman(owner))
+		return
+	var/mob/living/carbon/human/H = owner
+	REMOVE_TRAIT(H, TRAIT_INDENTURED, ROUNDSTART_TRAIT)
 
 /datum/charflaw/eznoflaw
 	name = "No Flaw"

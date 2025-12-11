@@ -181,6 +181,25 @@
 		"Zanguine" = SKIN_COLOR_ZANGUINE, // - (Dark violet)
 		"Ash" = SKIN_COLOR_ASH, // - (Pale blue)
 		"Arlenneth" = SKIN_COLOR_ARLENNETH, // - (Lavender blue)
+		"Jehoel" = SKIN_COLOR_JEHOEL,
+		"Urvix" = SKIN_COLOR_URVIX,
+		"Sarvyra" = SKIN_COLOR_SARVYRA,
+		"Vheslyn" = SKIN_COLOR_VHESLYN,
+		"Nessyss" = SKIN_COLOR_NESSYSS,
+		"Helixia" = SKIN_COLOR_HELIXIA,
+		"Nymsea" = SKIN_COLOR_NYMSEA,
+		"Vodyanev" = SKIN_COLOR_ABYSS,
+		"Calvus" = SKIN_COLOR_CALVUS,
+		"Voibion" = SKIN_COLOR_VOIBION,
+		"Chyerno" = SKIN_COLOR_CHYERNO,
+		"Drema"	= SKIN_COLOR_DREMA,
+		"Chir"	= SKIN_COLOR_CHIR,
+		"Vesyl"	= SKIN_COLOR_VESYL,
+		"Krosec" = SKIN_COLOR_KROSEC,
+		"Asza" = SKIN_COLOR_ASZA,
+		"Krizzsha" = SKIN_COLOR_KRIZZSHA,
+		"Tosiz" = SKIN_COLOR_TOSIZ,
+		"Velothel" = SKIN_COLOR_VELOTHEL,
 	))
 
 	return skin_colors

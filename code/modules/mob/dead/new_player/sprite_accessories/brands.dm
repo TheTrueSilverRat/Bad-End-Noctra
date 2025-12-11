@@ -17,9 +17,16 @@
 	name = "Baothan Womb Mark"
 	icon = 'icons/roguetown/misc/baotha_marking.dmi'
 	icon_state = "marking"
-	color_keys = 0
-	layer = BODY_ADJ_LAYER
-	relevant_layers = null
+	glows = TRUE
+	// sit below pants/stockings so clothing hides it
+	layer = LEG_DAMAGE_LAYER
+	relevant_layers = list(LEG_DAMAGE_LAYER)
+
+/datum/sprite_accessory/brand/indentured_womb/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	// push lower toward the groin
+	for(var/mutable_appearance/appearance as anything in appearance_list)
+		appearance.pixel_y -= 1
+	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_PANTS)
 
 /datum/sprite_accessory/brand/indentured_womb/get_icon_state(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	var/mob/living/carbon/human/H = owner

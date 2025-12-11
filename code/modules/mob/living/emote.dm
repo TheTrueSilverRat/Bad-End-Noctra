@@ -20,7 +20,7 @@
 
 	emote("pray", intentional = TRUE)
 
-/datum/emote/living/pray/run_emote(mob/user, params, type_override, intentional)
+/datum/emote/living/pray/run_emote(mob/user, params, type_override, intentional, targetted, forced)
 	if(HAS_TRAIT(user, TRAIT_ATHEISM_CURSE))
 		to_chat(user, span_danger("Praying is for fools."))
 		return
@@ -79,8 +79,8 @@
 	else
 		. = FALSE
 
-/datum/emote/living/custom/run_emote(mob/user, params, type_override = null, intentional = FALSE)
-	if(!can_run_emote(user, TRUE, intentional))
+/datum/emote/living/custom/run_emote(mob/user, params, type_override = null, intentional = FALSE, targetted, forced)
+	if(!can_run_emote(user, !forced, intentional))
 		return FALSE
 	else if(QDELETED(user))
 		return FALSE
@@ -114,8 +114,8 @@
 /datum/emote/living/subtle/can_run_emote(mob/user, status_check, intentional)
 	. = ..() && intentional
 
-/datum/emote/living/subtle/run_emote(mob/user, params, type_override = null, intentional = FALSE)
-	if(!can_run_emote(user, TRUE, intentional))
+/datum/emote/living/subtle/run_emote(mob/user, params, type_override = null, intentional = FALSE, targetted, forced)
+	if(!can_run_emote(user, !forced, intentional))
 		return FALSE
 	if(is_banned_from(user.ckey, "Emote"))
 		to_chat(user, "<span class='boldwarning'>I cannot send custom emotes (banned).</span>")

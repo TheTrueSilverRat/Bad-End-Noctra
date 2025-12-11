@@ -225,6 +225,32 @@
 
 /datum/sex_session/proc/perform_sex_action(mob/living/carbon/human/action_target, arousal_amt, pain_amt, giving)
 	SEND_SIGNAL(action_target, COMSIG_SEX_RECEIVE_ACTION, arousal_amt, pain_amt, giving, force, speed)
+	apply_goodlover_thrust_bonus(action_target, giving)
+
+/datum/sex_session/proc/apply_goodlover_thrust_bonus(mob/living/carbon/human/action_target, giving)
+	if(!giving)
+		return
+	if(!action_target)
+		return
+	var/mob/living/carbon/human/partner = (action_target == user ? target : user)
+	if(!partner)
+		return
+
+	var/mob/living/carbon/human/goodlover
+	if(HAS_TRAIT(action_target, TRAIT_GOODLOVER))
+		goodlover = action_target
+	else if(HAS_TRAIT(partner, TRAIT_GOODLOVER))
+		goodlover = partner
+	if(!goodlover)
+		return
+
+	var/mob/living/carbon/human/recipient = (goodlover == action_target ? partner : action_target)
+	if(!recipient || recipient.stat == DEAD)
+		return
+
+	recipient.adjustBruteLoss(-1, TRUE)
+	if(recipient.blood_volume < BLOOD_VOLUME_NORMAL)
+		recipient.blood_volume = min(recipient.blood_volume + 1, BLOOD_VOLUME_NORMAL)
 
 /datum/sex_session/proc/handle_passive_ejaculation(mob/living/carbon/human/handler)
 	if(!handler)

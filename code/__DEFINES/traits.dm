@@ -196,6 +196,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NO_BITE "no_bite" //prevents biting
 #define TRAIT_HARDDISMEMBER		"hard_dismember"
 #define TRAIT_FOREIGNER "Foreigner" // is this guy a foreigner?
+#define TRAIT_GOODLOVER "Good lover" // passionate partner whose touch soothes in bed
 #define TRAIT_INDENTURED "Indentured" // branded servant of the nobility
 #define TRAIT_NOAMBUSH "no_ambush" //! mob cannot be ambushed for any reason
 #define TRAIT_CLAN_LEADER "clan_leader"

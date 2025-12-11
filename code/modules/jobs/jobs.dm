@@ -87,6 +87,7 @@ GLOBAL_LIST_INIT(apprentices_positions, list(
 	/datum/job/bapprentice::title,
 	/datum/job/mageapprentice::title,
 	/datum/job/servant::title,
+	/datum/job/courtesan::title,
 	/datum/job/tapster::title,
 	/datum/job/gaffer_assistant::title,
 	/datum/job/clinicapprentice::title,

@@ -302,17 +302,18 @@
 		return
 	if(get_dist(src, leash_pet) > 5)
 		var/leash_break_message = "The leash snapped free from [leash_pet]!"
-		for(var/mob/viewing in viewers(leash_pet, null))
-			if(viewing == leash_master)
-				to_chat(leash_master, "<span class='warning'>The leash snapped free from your pet!</span>")
-			if(viewing == leash_pet)
-				to_chat(leash_pet, "<span class='warning'>Your leash has popped from your collar!</span>")
-			else
-				viewing.show_message("<span class='warning'>[leash_break_message]</span>", 1)
+		if(!HAS_TRAIT(leash_pet, TRAIT_INDENTURED))
+			for(var/mob/viewing in viewers(leash_pet, null))
+				if(viewing == leash_master)
+					to_chat(leash_master, "<span class='warning'>The leash snapped free from your pet!</span>")
+				if(viewing == leash_pet)
+					to_chat(leash_pet, "<span class='warning'>Your leash has popped from your collar!</span>")
+				else
+					viewing.show_message("<span class='warning'>[leash_break_message]</span>", 1)
 
-		leash_pet.apply_effect(20, EFFECT_KNOCKDOWN, 0)
-		leash_pet.adjustOxyLoss(5)
-		leash_pet.remove_status_effect(/datum/status_effect/leash_pet)
+			leash_pet.apply_effect(20, EFFECT_KNOCKDOWN, 0)
+			leash_pet.adjustOxyLoss(5)
+			leash_pet.remove_status_effect(/datum/status_effect/leash_pet)
 
 //Drop the leash, and the leash effects stop
 /obj/item/leash/dropped(mob/user, silent)

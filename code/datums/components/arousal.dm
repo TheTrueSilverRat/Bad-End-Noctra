@@ -216,18 +216,27 @@
 /datum/component/arousal/proc/after_intimate_climax(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return
-	/*
+	if(!user || !target)
+		return
+
+	var/mob/living/carbon/human/goodlover
+	var/mob/living/carbon/human/recipient
+
 	if(HAS_TRAIT(target, TRAIT_GOODLOVER))
-		if(!user.mob_timers["cumtri"])
-			user.mob_timers["cumtri"] = world.time
-			user.adjust_triumphs(1)
-			to_chat(user, span_love("Our loving is a true TRIUMPH!"))
-	if(HAS_TRAIT(user, TRAIT_GOODLOVER))
-		if(!target.mob_timers["cumtri"])
-			target.mob_timers["cumtri"] = world.time
-			target.adjust_triumphs(1)
-			to_chat(target, span_love("Our loving is a true TRIUMPH!"))
-	*/
+		goodlover = target
+		recipient = user
+	else if(HAS_TRAIT(user, TRAIT_GOODLOVER))
+		goodlover = user
+		recipient = target
+
+	if(!goodlover || !recipient)
+		return
+
+	var/cooldown_id = "goodlover_cumtri"
+	if(!recipient.mob_timers[cooldown_id] || MOBTIMER_FINISHED(recipient, cooldown_id, 10 MINUTES))
+		recipient.mob_timers[cooldown_id] = world.time
+		recipient.adjust_triumphs(1, reason = "Afterglow with a good lover")
+		to_chat(recipient, span_love("Our loving is a true triumph."))
 
 /datum/component/arousal/proc/set_charge(amount)
 	var/empty = (charge < CHARGE_FOR_CLIMAX)
