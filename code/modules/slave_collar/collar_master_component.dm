@@ -210,7 +210,7 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	if(!islist(pet.faction))
 		pet.faction = list()
 	pet.faction |= "[REF(mindparent.current)]"
-	pet.apply_status_effect(/datum/status_effect/in_love, mindparent.current)
+	pet.apply_status_effect(/datum/status_effect/in_love, null, mindparent.current)
 	to_chat(pet, span_love("Overwhelming adoration for [mindparent.current] floods your mind."))
 	to_chat(mindparent.current, span_notice("[pet] is bound to you by the collar's twisted affection."))
 	return TRUE
