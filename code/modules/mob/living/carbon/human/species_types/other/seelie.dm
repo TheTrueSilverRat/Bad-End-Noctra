@@ -1,8 +1,3 @@
-/*==============*
-*              *
-*    Seelie    *
-*              *
-*==============*/
 #define SEELIE_WING_TRAIT "seelie_nowings"
 
 /mob
@@ -16,16 +11,15 @@
 /datum/species/seelie
 	name = "Seelie"
 	id = SPEC_ID_SEELIE
-	desc = "Tiny fae sprites whose mischief and magic are better suited to aiding others than swinging a hammer. \
-	They flit about on gossamer wings and radiate a faint glow, but their bodies are fragile."
+	desc = "Tiny fae sprites whose mischief and magic are better suited to aiding others than swinging a hammer. They flit about on gossamer wings, but their bodies are fragile. NOTE: Due to a roundstart assignment issue, please join as a Seelie via latejoin. You will not be able to select a role before the round starts."
 
 	skin_tone_wording = "Elemental Connection"
 
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
 	inherent_traits = list(TRAIT_TINY, TRAIT_NOMOBSWAP, TRAIT_NOFALLDAMAGE1)
 
-	specstats_m = list(STATKEY_STR = -6, STATKEY_PER = 4, STATKEY_INT = 2, STATKEY_CON = -6, STATKEY_END = -1, STATKEY_SPD = 7, STATKEY_LCK = 2)
-	specstats_f = list(STATKEY_STR = -6, STATKEY_PER = 4, STATKEY_INT = 2, STATKEY_CON = -6, STATKEY_END = -1, STATKEY_SPD = 7, STATKEY_LCK = 2)
+	specstats_m = list(STATKEY_STR = -6, STATKEY_PER = 4, STATKEY_INT = 2, STATKEY_CON = -6, STATKEY_END = -1, STATKEY_SPD = 7)
+	specstats_f = list(STATKEY_STR = -6, STATKEY_PER = 4, STATKEY_INT = 2, STATKEY_CON = -6, STATKEY_END = -1, STATKEY_SPD = 7)
 
 	allowed_pronouns = PRONOUNS_LIST_NO_IT
 
@@ -109,7 +103,6 @@
 
 /datum/species/seelie/on_species_gain(mob/living/carbon/C, datum/species/old_species, datum/preferences/pref_load)
 	. = ..()
-	C.set_light(2, 1, 1.5, LIGHTING_DEFAULT_FALLOFF_CURVE, "#d4fcac", TRUE)
 	C.pass_flags |= (PASSTABLE | PASSMOB)
 	C.transform = matrix() * 0.6
 	C.update_transform()
@@ -135,30 +128,20 @@
 	if(!C.getorganslot(ORGAN_SLOT_BREASTS))
 		var/obj/item/organ/genitals/breasts/B = new /obj/item/organ/genitals/breasts()
 		B.Insert(C, TRUE, TRUE)
-	C.seelie_aura = TRUE
-	C.start_seelie_aura_loop()
 	C.verbs |= list(
-		/mob/living/carbon/human/proc/seelie_exit_container,
-		/mob/living/carbon/human/proc/Turnlight,
-		/mob/living/carbon/proc/switchaura,
+		/mob/living/carbon/human/proc/seelie_exit_container
 	)
 
 /datum/species/seelie/on_species_loss(mob/living/carbon/C)
 	. = ..()
-	C.set_light(0, 0, null)
-	C.set_light_on(FALSE)
 	C.pass_flags &= ~(PASSTABLE | PASSMOB)
 	C.transform = matrix()
 	C.update_transform()
 	REMOVE_TRAIT(C, TRAIT_MOVE_FLOATING, "[type]")
 	REMOVE_TRAIT(C, TRAIT_PACIFISM, "[type]")
 	C.remove_movespeed_modifier("seelie_move")
-	C.stop_seelie_aura_loop()
-	C.clear_seelie_aura_effects()
 	C.verbs -= list(
-		/mob/living/carbon/human/proc/seelie_exit_container,
-		/mob/living/carbon/human/proc/Turnlight,
-		/mob/living/carbon/proc/switchaura,
+		/mob/living/carbon/human/proc/seelie_exit_container
 	)
 
 /datum/species/seelie/check_roundstart_eligible()

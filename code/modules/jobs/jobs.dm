@@ -71,7 +71,6 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	/datum/job/cook::title,
 	/datum/job/carpenter::title,
 	/datum/job/jester::title,
-	/datum/job/seelie::title,
 	/datum/job/hunter::title,
 	/datum/job/fisher::title,
 	/datum/job/bard::title,
@@ -115,6 +114,7 @@ GLOBAL_LIST_INIT(allmig_positions, list(
 	/datum/job/mercenary::title,
 	/datum/job/bandit::title,
 	/datum/job/wretch::title,
+	/datum/job/seelie::title,
 	))
 
 GLOBAL_LIST_INIT(roguewar_positions, list(

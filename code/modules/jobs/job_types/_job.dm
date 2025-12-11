@@ -233,10 +233,6 @@
 			peopleknowme += X
 
 /datum/job/proc/special_job_check(mob/dead/new_player/player)
-	if(player?.client && player.client.prefs)
-		var/datum/preferences/P = player.client.prefs
-		if(P.pref_species?.id == SPEC_ID_SEELIE && !istype(src, /datum/job/seelie))
-			return FALSE
 	return TRUE
 
 // I hate this codebase. Required due to patron handling needing patron to be set before outfits.
