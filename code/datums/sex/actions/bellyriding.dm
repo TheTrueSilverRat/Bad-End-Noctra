@@ -14,8 +14,8 @@
 	return FALSE
 
 /datum/sex_action/bellyriding/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	// Only show if either participant is currently using a bellyriding harness with the other.
-	return has_harness_link(user, target)
+	// Hidden from the main interactions list; use the dedicated tab instead.
+	return FALSE
 
 /datum/sex_action/bellyriding/proc/get_session(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	return get_sex_session(user, target) || get_sex_session(target, user)

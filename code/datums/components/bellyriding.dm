@@ -1,21 +1,17 @@
 /datum/component/bellyriding
 	/// Who is currently attached to us?
-	var/mob/living/carbon/human/current_victim
+	var/mob/living/carbon/human/current_victim = null
 	/// How many steps until we try another interaction tick.
 	var/steps_until_interaction = 4
 	/// Last action we successfully ran, used to bias repeats that are still valid.
 	var/last_action_type
+	/// Is our ability to do interactions enabled?
+	var/enable_interactions = TRUE
+	/// Our tied ability.
+	var/datum/action/innate/toggle_bellyriding_heehee_pp/stored_action = new
 
 	// Stored visuals for the current victim so we can restore them.
-	var/matrix/old_victim_transform
 	var/old_victim_layer
-	var/old_victim_pixel_x
-	var/old_victim_pixel_y
-	var/victim_scaled = FALSE
-
-	// Stored visuals for the wearer.
-	var/matrix/old_wearer_transform
-	var/wearer_scaled = FALSE
 
 	// Stored state so we can restore the wearer after we finish buckling.
 	var/old_can_buckle
@@ -29,18 +25,13 @@
 	RegisterSignal(parent, COMSIG_MOUSEDROPPED_ONTO, PROC_REF(on_mousedropped_onto))
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_step))
 	RegisterSignal(parent, COMSIG_ATOM_DIR_CHANGE, PROC_REF(update_visuals))
-	RegisterSignal(parent, COMSIG_LIVING_RESIST, PROC_REF(on_wearer_resist))
-	RegisterSignal(buckle_relay, COMSIG_ATOM_ATTACK_HAND, PROC_REF(on_attack_hand))
+	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, PROC_REF(on_attack_hand))
 	RegisterSignal(parent, COMSIG_MOVABLE_UNBUCKLE, PROC_REF(on_any_unbuckle))
 
 /datum/component/bellyriding/Destroy(force)
-	unbuckle_victim(TRUE)
-	return ..()
-
-/datum/component/bellyriding/proc/on_wearer_resist(datum/_source)
-	SIGNAL_HANDLER
-	// Wearer can free their victim via resist.
 	unbuckle_victim()
+	QDEL_NULL(stored_action)
+	return ..()
 
 /datum/component/bellyriding/proc/on_mousedropped_onto(datum/_source, atom/movable/dropped, mob/user)
 	SIGNAL_HANDLER
@@ -86,6 +77,9 @@
 		return
 
 	store_old_state(victim)
+	if(!can_buckle(victim, user))
+		restore_old_state(victim)
+		return
 
 	var/torturer_message = span_warning("You start fastening [victim] to your harness...")
 	var/victim_message = span_warning("[wearer] starts fastening you to [wearer.p_their()] harness!")
@@ -94,7 +88,7 @@
 	user.visible_message(observer_message, torturer_message, ignored_mobs = list(victim))
 	to_chat(victim, victim_message)
 
-	if(!do_after(user, 3 SECONDS, victim))
+	if(!do_after(user, 3 SECONDS, victim) || !can_buckle(victim, user))
 		restore_old_state(victim)
 		return
 
@@ -106,11 +100,10 @@
 		restore_old_state(victim)
 		return
 
+	stored_action.Grant(wearer)
 	wearer.add_movespeed_modifier(MOVESPEED_ID_BELLYRIDE, multiplicative_slowdown = 0.8)
 	current_victim = victim
 	RegisterSignal(current_victim, COMSIG_PARENT_QDELETING, PROC_REF(on_victim_deleted))
-	RegisterSignal(current_victim, COMSIG_MOVABLE_MOVED, PROC_REF(on_victim_move))
-	apply_victim_scaling()
 	update_visuals()
 
 /datum/component/bellyriding/proc/try_unbuckle_victim(mob/living/carbon/human/user)
@@ -149,11 +142,12 @@
 
 	restore_old_state(victim)
 	wearer.remove_movespeed_modifier(MOVESPEED_ID_BELLYRIDE)
+	stored_action.Remove(wearer)
 
 	if(victim && !QDELETED(victim))
 		victim.reset_offsets("bellyride")
 		UnregisterSignal(victim, COMSIG_PARENT_QDELETING)
-		UnregisterSignal(victim, COMSIG_MOVABLE_MOVED)
+		victim.Knockdown(0.1 SECONDS, TRUE)
 
 /datum/component/bellyriding/proc/store_old_state(mob/living/carbon/human/victim)
 	var/mob/living/carbon/human/wearer = parent
@@ -163,43 +157,37 @@
 	wearer.can_buckle = TRUE
 	wearer.buckle_requires_restraints = TRUE
 	wearer.max_buckled_mobs = max(wearer.max_buckled_mobs + 1, 1)
-	if(!old_wearer_transform)
-		old_wearer_transform = matrix(wearer.transform)
-	var/matrix/wearer_scaled_matrix = matrix(old_wearer_transform)
-	wearer_scaled_matrix.Scale(0.9)
-	wearer.transform = wearer_scaled_matrix
-	wearer_scaled = TRUE
 	if(victim)
-		old_victim_transform = matrix(victim.transform)
 		old_victim_layer = victim.layer
-		old_victim_pixel_x = victim.pixel_x
-		old_victim_pixel_y = victim.pixel_y
 
 /datum/component/bellyriding/proc/restore_old_state(mob/living/carbon/human/victim)
 	var/mob/living/carbon/human/wearer = parent
 	wearer.can_buckle = old_can_buckle
 	wearer.buckle_requires_restraints = old_buckle_requires_restraints
-	if(old_max_buckled_mobs)
+	if(!isnull(old_max_buckled_mobs))
 		wearer.max_buckled_mobs = old_max_buckled_mobs
-	if(old_wearer_transform)
-		wearer.transform = old_wearer_transform
-	old_wearer_transform = null
-	wearer_scaled = FALSE
+	old_max_buckled_mobs = null
 	if(victim)
-		if(old_victim_transform)
-			victim.transform = old_victim_transform
 		if(!isnull(old_victim_layer))
 			victim.layer = old_victim_layer
-		if(!isnull(old_victim_pixel_x))
-			victim.pixel_x = old_victim_pixel_x
-		if(!isnull(old_victim_pixel_y))
-			victim.pixel_y = old_victim_pixel_y
-	old_victim_transform = null
 	old_victim_layer = null
-	old_victim_pixel_x = null
-	old_victim_pixel_y = null
-	victim_scaled = FALSE
-	victim_scaled = FALSE
+
+/datum/component/bellyriding/proc/can_buckle(mob/living/carbon/human/victim, mob/user)
+	var/mob/living/carbon/human/wearer = parent
+	if(!istype(victim) || DOING_INTERACTION_WITH_TARGET(user, wearer))
+		return FALSE
+
+	if(current_victim)
+		to_chat(user, span_warning("There's already someone strapped to the harness."))
+		return FALSE
+	if(!victim.handcuffed || !victim.legcuffed)
+		to_chat(user, span_warning("[victim] needs to be both handcuffed and legcuffed first!"))
+		return FALSE
+	if(victim.mob_size > wearer.mob_size)
+		to_chat(user, span_warning("[victim] is too large for you to strap down like this!"))
+		return FALSE
+
+	return TRUE
 
 /datum/component/bellyriding/proc/update_visuals()
 	if(!current_victim)
@@ -233,7 +221,7 @@
 
 /datum/component/bellyriding/proc/maybe_do_interaction()
 	var/mob/living/carbon/human/wearer = parent
-	if(!current_victim || wearer.stat != CONSCIOUS || !prob(25))
+	if(!current_victim || wearer.stat != CONSCIOUS || !enable_interactions)
 		return
 	if(current_victim.buckled != wearer)
 		unbuckle_victim(TRUE)
@@ -245,34 +233,49 @@
 	if(!ensure_sex_session())
 		return
 
-	var/list/candidates = list(/datum/sex_action/bellyriding/groin_rub)
-	if(current_victim.getorganslot(ORGAN_SLOT_PENIS))
-		candidates += /datum/sex_action/bellyriding/frot
-	if(current_victim.getorganslot(ORGAN_SLOT_VAGINA))
-		candidates += /datum/sex_action/bellyriding/vaginal
-	if(current_victim.getorganslot(ORGAN_SLOT_ANUS))
-		candidates += /datum/sex_action/bellyriding/anal
+	var/fallback_action_type = /datum/sex_action/bellyriding/frot
+	var/datum/sex_action/fallback_action = SEX_ACTION(fallback_action_type)
+	if(!fallback_action || !fallback_action.can_perform(wearer, current_victim))
+		fallback_action_type = /datum/sex_action/bellyriding/groin_rub
 
-	var/action_type = null
-	if(last_action_type)
-		var/datum/sex_action/previous_action = SEX_ACTION(last_action_type)
-		if(previous_action?.can_perform(wearer, current_victim))
-			action_type = last_action_type
+	var/datum/sex_action/previous_action = SEX_ACTION(last_action_type)
+	if(isnull(last_action_type) || !previous_action || !previous_action.can_perform(wearer, current_victim))
+		last_action_type = fallback_action_type
+		goto do_the_violate
 
-	if(!action_type)
-		shuffle_inplace(candidates)
-		for(var/choice in candidates)
-			var/datum/sex_action/action = SEX_ACTION(choice)
-			if(action.can_perform(wearer, current_victim))
-				action_type = choice
+	if(last_action_type == fallback_action_type)
+		if(prob(80))
+			goto do_the_violate
+
+		var/list/possible_actions = list(/datum/sex_action/bellyriding/anal, /datum/sex_action/bellyriding/vaginal)
+		shuffle_inplace(possible_actions)
+		for(var/candidate_type in possible_actions)
+			var/datum/sex_action/candidate = SEX_ACTION(candidate_type)
+			if(candidate && candidate.can_perform(wearer, current_victim))
+				last_action_type = candidate_type
 				break
 
-	if(!action_type)
+		goto do_the_violate
+
+	else if(prob(0.5))
+		var/obj/item/organ/genitals/penis/penis = wearer.getorganslot(ORGAN_SLOT_PENIS)
+		var/penis_name = "cock"
+		if(penis)
+			penis_name = penis.name
+		wearer.visible_message(
+			span_love("[wearer]'s [penis_name] slips out of [current_victim]'s orifice!"),
+			span_love("Your [penis_name] slips out of [current_victim]'s hole!"),
+			ignored_mobs = list(current_victim)
+		)
+		to_chat(current_victim, span_love("[wearer]'s [penis_name] slips out of your hole!"))
+		playsound(current_victim, pick('sound/vo/kiss (1).ogg', 'sound/vo/kiss (2).ogg'), 50, TRUE, -6)
+		last_action_type = null
 		return
 
-	var/datum/sex_action/chosen_action = SEX_ACTION(action_type)
-	chosen_action.on_perform(wearer, current_victim)
-	last_action_type = action_type
+	do_the_violate:
+	var/datum/sex_action/chosen_action = SEX_ACTION(last_action_type)
+	if(chosen_action)
+		ASYNC chosen_action.on_perform(wearer, current_victim)
 
 /datum/component/bellyriding/proc/ensure_sex_session()
 	if(!current_victim)
@@ -286,18 +289,6 @@
 		LAZYADD(GLOB.sex_sessions, session)
 	return session
 
-/datum/component/bellyriding/proc/apply_victim_scaling()
-	if(!current_victim || victim_scaled)
-		return
-
-	if(!old_victim_transform)
-		old_victim_transform = matrix(current_victim.transform)
-
-	var/matrix/scaled_transform = matrix(old_victim_transform)
-	scaled_transform.Scale(0.9)
-	current_victim.transform = scaled_transform
-	victim_scaled = TRUE
-
 /datum/component/bellyriding/proc/on_any_unbuckle(datum/source, atom/movable/M, force)
 	if(M == current_victim)
 		unbuckle_victim(TRUE)
@@ -306,7 +297,33 @@
 	SIGNAL_HANDLER
 	unbuckle_victim(TRUE)
 
-/datum/component/bellyriding/proc/on_victim_move(datum/_source, ...)
-	SIGNAL_HANDLER
-	// Victim successfully moved: end the bellyride.
-	unbuckle_victim(TRUE)
+/datum/action/innate/toggle_bellyriding_heehee_pp
+	name = "Toggle Bellyriding Interactions"
+	desc = "Toggle whether to actually perform bellyriding interactions on your victim or not."
+	button_icon = 'icons/mob/actions/roguespells.dmi'
+	button_icon_state = "shieldsparkles"
+	active = TRUE
+
+/datum/action/innate/toggle_bellyriding_heehee_pp/Activate()
+	var/datum/component/bellyriding/comp = owner.GetComponent(/datum/component/bellyriding)
+	if(!comp)
+		return
+	comp.enable_interactions = TRUE
+	active = TRUE
+	build_all_button_icons(UPDATE_BUTTON_BACKGROUND)
+
+	if(comp.current_victim)
+		to_chat(comp.current_victim, span_notice("[owner] repositions you, your rear pressing against [owner.p_their()] eager cock.. Oh no."))
+		to_chat(owner, span_notice("You reposition [comp.current_victim] to rest against your eager cock."))
+
+/datum/action/innate/toggle_bellyriding_heehee_pp/Deactivate()
+	var/datum/component/bellyriding/comp = owner.GetComponent(/datum/component/bellyriding)
+	if(!comp)
+		return
+	comp.enable_interactions = FALSE
+	active = FALSE
+	build_all_button_icons(UPDATE_BUTTON_BACKGROUND)
+
+	if(comp.current_victim)
+		to_chat(comp.current_victim, span_notice("[owner] moves you out of [owner.p_their()] cock's way.. relief at last."))
+		to_chat(owner, span_notice("You move [comp.current_victim] out of your cock's way.. for now."))
