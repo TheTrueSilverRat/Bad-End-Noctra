@@ -39,6 +39,12 @@
 	if(HAS_TRAIT(src, TRAIT_OLDPARTY) && HAS_TRAIT(user, TRAIT_OLDPARTY) && user != src)
 		user.add_stress(/datum/stress_event/saw_old_party)
 
+	if(HAS_TRAIT(src, TRAIT_ALLURE))
+		if(user == src)
+			user.add_stress(/datum/stress_event/allure_self)
+		else
+			user.add_stress(/datum/stress_event/allure)
+
 /mob/living/carbon/human/examine(mob/user)
 	var/ignore_pronouns = FALSE
 	if(user != src && !user.mind?.do_i_know(null, real_name))
@@ -107,27 +113,6 @@
 		if(GLOB.lord_titles[real_name]) //should be tied to known persons but can't do that until there is a way to recognise new people
 			. += span_notice("[m3] been granted the title of \"[GLOB.lord_titles[name]]\".")
 
-		if(dna.species.use_skintones)
-			var/skin_tone_wording = dna.species.skin_tone_wording ? lowertext(dna.species.skin_tone_wording) : "skin tone"
-			var/list/skin_tones = dna.species.get_skin_list()
-			var/skin_tone_seen = "incomprehensible"
-			if(skin_tone)
-				//AGGHHHHH this is stupid
-				for(var/tone in skin_tones)
-					if(src.skin_tone == skin_tones[tone])
-						skin_tone_seen = lowertext(tone)
-						break
-			var/slop_lore_string = "."
-			if(ishumannorthern(user))
-				var/mob/living/carbon/human/racist = user
-				var/list/user_skin_tones = racist.dna.species.get_skin_list()
-//				var/user_skin_tone_seen = "incomprehensible"	gives unused warning now, sick of seeing it
-				for(var/tone in user_skin_tones)
-					if(racist.skin_tone == user_skin_tones[tone])
-//						user_skin_tone_seen = lowertext(tone)	gives unused warning now, sick of seeing it
-						break
-			. += "<span class='info'>[capitalize(m2)] [skin_tone_wording] is [skin_tone_seen][slop_lore_string]</span>"
-
 		if(ishuman(user))
 			var/mob/living/carbon/human/stranger = user
 			var/is_male = FALSE
@@ -144,6 +129,9 @@
 				. += span_necrosis(span_bold("[self_inspect ? "I am" : "[t_He] is"] hideous."))
 			if(HAS_TRAIT(src, TRAIT_FAT))
 				. += span_boldwarning(span_bold("[self_inspect ? "I am" : "[t_He] is"] very obese!"))
+			if(HAS_TRAIT(src, TRAIT_ALLURE))
+				//Handsome only if male, beautiful in all other pronouns.
+				. += span_love(span_bold("[self_inspect ? "I have" : "[t_He] has"] quite a tempting appeal"))
 		if(length(GLOB.tennite_schisms))
 			var/datum/tennite_schism/S = GLOB.tennite_schisms[1]
 			var/user_side = (WEAKREF(user) in S.supporters_astrata) ? "astrata" : (WEAKREF(user) in S.supporters_challenger) ? "challenger" : null

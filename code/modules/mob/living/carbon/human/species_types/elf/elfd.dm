@@ -10,27 +10,22 @@
 	race = /datum/species/elf/dark
 
 /datum/species/elf/dark
-	name = "Dark Elf"
+	name = "Drow"
 	id = SPEC_ID_DROW
-	desc = "Zizo's conquered. \
+	desc = "Drow are dark elves who dwell primarily in the Underdark beneath Faerûn. \
 	\n\n\
-	These elves hail from an underground expanse of newly-reborn empires. \
-	They lead harsh, matriarchal lives under the watchful gaze of Zizo, \
-	the vast majority hoping to one day achieve such power and domination for themselves. \
-	Zizo's spawn, the last snow elves, integrated themselves- whether gleefully or resentfully- within the dark elf culture \
-	their grandmother had carved through conquest. \
+	Long ago exiled from elven society, most drow live in cruel, theocratic city-states devoted to the Spider Queen, Lolth. \
+	n\n\
+	Their culture emphasizes ambition, betrayal, and survival.. \
 	\n\n\
-	To most in Psydonia, a dark elf is nothing more than a servant of Zizo waiting to betray for power, \
-	leading most dark elves to remain within their safe underground strongholds. Those who breach the surface \
-	rarely receive fair treatment. \
-	Dark elves over 500 years old may remember their Ravoxian empire of old, yet few remain who were not killed or converted. \
+	Though often feared on the surface, not all drow follow Lolth—some reject her tyranny and seek redemption or freedom in the world above. \
+	n\n\
+	(+1 Perception, +2 Speed, +1 Fortune, Allure, Darkvision, Sunlight Sensitivity, Elvish Language). \
 	\n\n\
-	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
-
-	skin_tone_wording = "Parent House"
+	THIS IS A DISCRIMINATED SPECIES. PLAY AT YOUR OWN RISK."
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,OLDGREY)
-	inherent_traits = list(TRAIT_NOMOBSWAP)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_DARKLING, TRAIT_ALLURE)
 	use_skintones = 1
 	disliked_food = NONE
 	liked_food = NONE
@@ -45,7 +40,7 @@
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
 		ORGAN_SLOT_HEART = /obj/item/organ/heart,
 		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
-		ORGAN_SLOT_EYES = /obj/item/organ/eyes/elf,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes/night_vision,
 		ORGAN_SLOT_EARS = /obj/item/organ/ears/elf,
 		ORGAN_SLOT_TONGUE = /obj/item/organ/tongue,
 		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
@@ -125,8 +120,8 @@
 		OFFSET_BREASTS = list(0, 0),\
 	)
 
-	specstats_m = list(STATKEY_STR = -1, STATKEY_PER = -1, STATKEY_INT = 1, STATKEY_CON = 0, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
-	specstats_f = list(STATKEY_STR = 1, STATKEY_PER = -1, STATKEY_INT = 1, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = 1, STATKEY_LCK = 0)
+	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 1)
+	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 1)
 	enflamed_icon = "widefire"
 
 	body_markings = list(
@@ -182,28 +177,20 @@
 
 /datum/species/elf/dark/get_skin_list()
 	return sortList(list(
-		"Maggot" = SKIN_COLOR_MAGGOT, // - (Pale blue)
-		"Cocoon" = SKIN_COLOR_COCOON, // - (Pale purple)
-		"Ashen" = SKIN_COLOR_ASHEN, // - (Pale grey)
-		"Spider Venom" = SKIN_COLOR_SPIDER_VENOM, // - (Deep grey)
-		"Jackpoison" = SKIN_COLOR_JACKPOISON, // - (Grey-purple)
-		"Homunculus" = SKIN_COLOR_HOMUNCULUS, // - (Grey-blue)
-		"Arachnid Ichor" = SKIN_COLOR_ARACHNID_ICHOR, // - (Black-blue)
-		"Zizo Descendant" = SKIN_COLOR_SNOW_ELF, // - (Pale white)
-		"Gloomhaven" = SKIN_COLOR_GLOOMHAVEN, // - (Pink)
-	))
-
-/datum/species/elf/dark/get_hairc_list()
-	return sortList(list(
-	"black - oil" = "181a1d",
-	"black - cave" = "201616",
-	"black - rogue" = "2b201b",
-	"black - midnight" = "1d1b2b",
-
-	"white - cavedew" = "dee9ed",
-	"white - spiderweb" = "f4f4f4",
-
-	"red - ruby" = "880016"
+		"Pale Blue"       = SKIN_TONE_DROW_PALE_BLUE,       // #9796a9
+		"Pale Purple"     = SKIN_TONE_DROW_PALE_PURPLE,     // #897489
+		"Pale Grey"       = SKIN_TONE_DROW_PALE_GREY,       // #938f9c
+		"Deep Grey"       = SKIN_TONE_DROW_DEEP_GREY,       // #737373
+		"Grey-Purple"     = SKIN_TONE_DROW_GREY_PURPLE,     // #6a616d
+		"Grey-Blue"       = SKIN_TONE_DROW_GREY_BLUE,       // #5f5f70
+		"Black-Blue"      = SKIN_TONE_DROW_BLACK_BLUE,      // #2F2F38
+		"Very Pale"       = SKIN_TONE_DROW_VERY_PALE,       // #fff0e9
+		"Light Purple"    = SKIN_TONE_DROW_LIGHT_PURPLE,    // #a191a1
+		"Mid Purple"      = SKIN_TONE_DROW_MID_PURPLE,      // #897489
+		"Dark Purple"     = SKIN_TONE_DROW_DARK_PURPLE,     // #5f5f70
+		"Depth Grey-Blue" = SKIN_TONE_DROW_DEPTH_GREY_BLUE, // #5f5f70
+		"Pink"            = SKIN_TONE_DROW_PINK,            // #897489
+		"Very Pale"		  = SKIN_COLOR_DROW_PALE,	       // #fff0e9
 
 	))
 
@@ -218,5 +205,3 @@
 
 /datum/species/elf/dark/after_creation(mob/living/carbon/human/C)
 	C.dna.species.accent_language = C.dna.species.get_accent(native_language, 2)
-	if(C.skin_tone == SKIN_COLOR_SNOW_ELF)
-		exotic_bloodtype = /datum/blood_type/human/cursed_elf

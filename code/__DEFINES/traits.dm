@@ -635,3 +635,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_DENDOR_LORDING "trait_dendor_lording"
 
 #define TRAIT_NYMPHO_CURSE "Nymphs Curse"
+
+// Other RMH traits:
+#define TRAIT_ALLURE "Allure"
+#define TRAIT_DARKLING "Darkling"

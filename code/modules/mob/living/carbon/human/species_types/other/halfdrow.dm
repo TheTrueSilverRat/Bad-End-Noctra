@@ -14,21 +14,19 @@
 		"Humen Accent" = "Imperial",
 		"Dark Elf Accent" = "Elfish"
 	)
-	desc = "The child of a Dark Elf and Humen. \
+	desc = "Half-Drow are born from unions between drow and surface folk, most often humans or elves. \
 	\n\n\
-	The distinction between Half-Elves and 'Half-Drow' has been a subject of debate for centuries. \
-	While similar in physicality and longevity to their non-drow cousins, their origins cause them to face discrimination akin to their elven side. \
+	They inherit the physical traits of the drow but often lack full acceptance in either Underdark or surface societies. \
 	\n\n\
-	Groups of half-elves and half-drow have been known to congregate together and consider themselves one species. \
-	According to some radical academic scholars, they might be one and the same species indeed- yet the people of Psydonia certainly do not believe the same at large. \
-	\n\
-	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
-
-	skin_tone_wording = "Half-Drow Identity"
+	Some Half-Drow struggle against prejudice and suspicion, while others leverage their mixed heritage to navigate both worlds. \
+	\n\n\
+	(+2 Fortune, +1 To Two Stats Of Choice, Allure, Darkvision, Elvish Language). \
+	\n\n\
+	THIS IS A DISCRIMINATED SPECIES. PLAY AT YOUR OWN RISK."
 	default_color = "FFFFFF"
 
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
-	inherent_traits = list(TRAIT_NOMOBSWAP)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_DARKLING, TRAIT_ALLURE)
 
 	use_skintones = TRUE
 	possible_ages = NORMAL_AGES_LIST_CHILD
@@ -76,8 +74,8 @@
 		OFFSET_UNDIES = list(0,0),\
 	)
 
-	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 1, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 1, STATKEY_LCK = 0)
-	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 1, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 1, STATKEY_LCK = 0)
+	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 1, STATKEY_LCK = 2)
+	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 1, STATKEY_LCK = 2)
 
 	enflamed_icon = "widefire"
 
@@ -85,7 +83,7 @@
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
 		ORGAN_SLOT_HEART = /obj/item/organ/heart,
 		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
-		ORGAN_SLOT_EYES = /obj/item/organ/eyes/elf/less,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes/night_vision,
 		ORGAN_SLOT_EARS = /obj/item/organ/ears/elf,
 		ORGAN_SLOT_TONGUE = /obj/item/organ/tongue,
 		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
@@ -156,40 +154,20 @@
 
 /datum/species/human/halfdrow/get_skin_list()
 	return sortList(list(
-		"Zizo-Cursed" = SKIN_COLOR_ZIZO_CURSED, // - (Pale)
-		"Parasite-Taineted" = SKIN_COLOUR_PARASITE_TAINTED, // - (Light purple)
-		"Mushroom-Minded" = SKIN_COLOR_MUSHROOM_MINDED, // - (Mid purple)
-		"Cave-Attuned" = SKIN_COLOR_CAVE_ATTUNED, // - (Deep purple)
-		"Fungus-Stained" = SKIN_COLOR_FUNGUS_STAINED, // - (Pink)
-		"Depth-Departed" = SKIN_COLOR_DEPTH_DEPARTED, // - (Grey-blue)
-	))
-
-/datum/species/human/halfdrow/get_hairc_list()
-	return sortList(list(
-	"black - oil" = "181a1d",
-	"black - cave" = "201616",
-	"black - rogue" = "2b201b",
-	"black - midnight" = "1d1b2b",
-
-	"brown - mud" = "362e25",
-	"brown - oats" = "584a3b",
-	"brown - grain" = "58433b",
-	"brown - soil" = "48322a",
-
-	"red - berry" = "b23434",
-	"red - wine" = "82534c",
-	"red - sunset" = "82462b",
-	"red - blood" = "822b2b",
-	"red - maroon" = "612929",
-
-	"blond - pale" = "9d8d6e",
-	"blond - dirty" = "88754f",
-	"blond - drywheat" = "d5ba7b",
-	"blond - strawberry" = "c69b71",
-
-	"white - ice" = "f4f4f4",
-	"white - cavedew" = "dee9ed",
-	"white - spiderweb" = "f4f4f4"
+		"Pale Blue"       = SKIN_TONE_DROW_PALE_BLUE,       // #9796a9
+		"Pale Purple"     = SKIN_TONE_DROW_PALE_PURPLE,     // #897489
+		"Pale Grey"       = SKIN_TONE_DROW_PALE_GREY,       // #938f9c
+		"Deep Grey"       = SKIN_TONE_DROW_DEEP_GREY,       // #737373
+		"Grey-Purple"     = SKIN_TONE_DROW_GREY_PURPLE,     // #6a616d
+		"Grey-Blue"       = SKIN_TONE_DROW_GREY_BLUE,       // #5f5f70
+		"Black-Blue"      = SKIN_TONE_DROW_BLACK_BLUE,      // #2F2F38
+		"Very Pale"       = SKIN_TONE_DROW_VERY_PALE,       // #fff0e9
+		"Light Purple"    = SKIN_TONE_DROW_LIGHT_PURPLE,    // #a191a1
+		"Mid Purple"      = SKIN_TONE_DROW_MID_PURPLE,      // #897489
+		"Dark Purple"     = SKIN_TONE_DROW_DARK_PURPLE,     // #5f5f70
+		"Depth Grey-Blue" = SKIN_TONE_DROW_DEPTH_GREY_BLUE, // #5f5f70
+		"Pink"            = SKIN_TONE_DROW_PINK,            // #897489
+		"Very Pale"		  = SKIN_COLOR_DROW_PALE,	       // #fff0e9
 
 	))
 
@@ -211,8 +189,33 @@
 		C.dna.species.native_language = C.accent
 	C.dna.species.accent_language = C.dna.species.get_accent(C.dna.species.native_language, 2)
 
-	if(C.skin_tone == SKIN_COLOR_ZIZO_CURSED)
-		exotic_bloodtype = /datum/blood_type/human/cursed_elf
 	C.grant_language(/datum/language/elvish)
 	to_chat(C, "<span class='info'>I can speak Elvish with ,e before my speech.</span>")
 
+	var/list/choices = list(
+		"Strength"     = STATKEY_STR,
+		"Perception"  = STATKEY_PER,
+		"Intelligence"= STATKEY_INT,
+		"Constitution"= STATKEY_CON,
+		"Endurance"   = STATKEY_END,
+		"Speed"       = STATKEY_SPD,
+		"Fortune"     = STATKEY_LCK
+	)
+
+	var/choice = input(
+		C.client,
+		"Choose one attribute to gain +1:",
+		"Half-Drow Versatility"
+	) as null|anything in choices
+
+	if(!choice)
+		return
+
+	switch(choices[choice])
+		if(STATKEY_STR) C.base_strength++
+		if(STATKEY_PER) C.base_perception++
+		if(STATKEY_INT) C.base_intelligence++
+		if(STATKEY_CON) C.base_constitution++
+		if(STATKEY_END) C.base_endurance++
+		if(STATKEY_SPD) C.base_speed++
+		if(STATKEY_LCK) C.base_fortune++

@@ -10,19 +10,18 @@
 	race = /datum/species/human/northern
 
 /datum/species/human/northern
-	name = "Humen"
+	name = "Human"
 	id = SPEC_ID_HUMEN
-	desc = "Humenity, created in Psydon's image. \
+	desc = "Humans are the most numerous and diverse people of Faerûn. \
+	n\n\
+	Found in every land from the Sword Coast to Kara-Tur, human cultures vary wildly in language, customs, and beliefs. \
 	\n\n\
-	Humens come from a vast swathe of cultures and ethnicities all around Psydonia, most of which \
-	have historically been at odds with both one another and other species. \
-	With their tenacity and overwhelming population, humens tend to outnumber the other species drastically. \
-	Their saturation leads to most world maps representing humen borders and states over other species'. \
+	Their short lifespans drive them to ambition, innovation, and conquest, allowing human nations to rise and fall with remarkable speed. \
 	\n\n\
-	Humens tend to find fortune easier than the other species, \
-	and are so diverse that no other trait is dominant..."
+	While they lack the innate magic or longevity of other races, humans compensate with adaptability and determination, shaping much of Faerûn’s history through sheer will and population. \
+	\n\n\
+	(+1 To All Stats)."
 
-	skin_tone_wording = "Ancestry"
 
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
@@ -75,8 +74,8 @@
 		OFFSET_UNDIES = list(0,0),\
 	)
 
-	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_INT = 0, STATKEY_CON = 1, STATKEY_END = 2, STATKEY_SPD = 0, STATKEY_LCK = 1)
-	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_INT = 0, STATKEY_CON = 1, STATKEY_END = 2, STATKEY_SPD = 0, STATKEY_LCK = 1)
+	specstats_m = list(STATKEY_STR = 1, STATKEY_PER = 1, STATKEY_INT = 1, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = 1, STATKEY_LCK = 1)
+	specstats_f = list(STATKEY_STR = 1, STATKEY_PER = 1, STATKEY_INT = 1, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = 1, STATKEY_LCK = 1)
 
 	enflamed_icon = "widefire"
 
@@ -135,50 +134,25 @@
 
 /datum/species/human/northern/get_skin_list()
 	return sortList(list(
-		"Ice Cap" = SKIN_COLOR_ICECAP, // - (Pale)
-		"Arctic" = SKIN_COLOR_ARCTIC, // - (White 1)
-		"Tundra" = SKIN_COLOR_TUNDRA, // - (White 2)
-		"Continental" = SKIN_COLOR_CONTINENTAL, // - (White 3)
-		"Temperate" = SKIN_COLOR_TEMPERATE, // - (White 4)
-		"Coastal" = SKIN_COLOR_COASTAL, // - (Latin)
-		"Subtropical" = SKIN_COLOR_SUBTROPICAL, // - (Mediterranean)
-		"Tropical Dry" = SKIN_COLOR_TROPICALDRY, // - (Mediterranean 2)
-		"Tropical Wet" = SKIN_COLOR_TROPICALWET, // - (Latin 2)
-		"Desert" = SKIN_COLOR_DESERT, //  - (Middle-east 1)
-		"Oasis" = SKIN_COLOR_OASIS, // - (Middle-east 2)
-		"Crimson Lands" = SKIN_COLOR_CRIMSONLANDS, // - (Black)
-		"Volcanic" = SKIN_COLOR_VOLCANIC, // - Melanesian
-		"Island" = SKIN_COLOR_ISLAND, // - Polynesian
-		"Taiga" = SKIN_COLOR_TAIGA, // - Native American 1
-		"Swamp" = SKIN_COLOR_SWAMP, // - Native American 2
+		"Pale"         = SKIN_TONE_PALE,
+		"White 1"      = SKIN_TONE_WHITE1,
+		"White 2"      = SKIN_TONE_WHITE2,
+		"White 3"      = SKIN_TONE_WHITE3,
+		"White 4"      = SKIN_TONE_WHITE4,
+		"Tan"          = SKIN_TONE_TAN,
+		"Mediterranean 1" = SKIN_TONE_MEDIT1,
+		"Mediterranean 2" = SKIN_TONE_MEDIT2,
+		"Latin"        = SKIN_TONE_LATIN,
+		"Middle-east 1" = SKIN_TONE_MID_EAST1,
+		"Middle-east 2" = SKIN_TONE_MID_EAST2,
+		"Native American 1" = SKIN_TONE_NATIVE1,
+		"Native American 2" = SKIN_TONE_NATIVE2,
+		"Polynesian"   = SKIN_TONE_POLYNESIAN,
+		"Melanesian"   = SKIN_TONE_MELANESIAN,
+		"Black 1"      = SKIN_TONE_BLACK1,
+		"Black 2"      = SKIN_TONE_BLACK2,
+		"Black 3"      = SKIN_TONE_BLACK3,
 
-	))
-
-/datum/species/human/northern/get_hairc_list()
-	return sortList(list(
-	"blond - pale" = "9d8d6e",
-	"blond - dirty" = "88754f",
-	"blond - drywheat" = "d5ba7b",
-	"blond - strawberry" = "c69b71",
-
-	"brown - mud" = "362e25",
-	"brown - oats" = "584a3b",
-	"brown - grain" = "58433b",
-	"brown - soil" = "48322a",
-	"brown - bark" = "2d1300",
-
-	"black - oil" = "181a1d",
-	"black - cave" = "201616",
-	"black - rogue" = "2b201b",
-	"black - midnight" = "1d1b2b",
-
-	"red - berry" = "b23434",
-	"red - wine" = "82534c",
-	"red - sunset" = "82462b",
-	"red - blood" = "822b2b",
-	"red - maroon" = "612929",
-
-	"orange - rust" = "bc5e35"
 	))
 
 /datum/species/human/northern/get_possible_names(gender = MALE)

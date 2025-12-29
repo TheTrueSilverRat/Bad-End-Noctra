@@ -36,7 +36,6 @@
 	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 
 	allowed_pronouns = PRONOUNS_LIST
-	skin_tone_wording = "Ancestry"
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR, HAIR ,FACEHAIR, LIPS, STUBBLE, OLDGREY)
 	default_features = MANDATORY_FEATURE_LIST
@@ -232,15 +231,22 @@
 
 /datum/species/demihuman/get_skin_list()
 	return sortList(list(
-		"Ice Cap" = SKIN_COLOR_ICECAP, // - (Pale)
-		"Arctic" = SKIN_COLOR_ARCTIC, // - (White 1)
-		"Tundra" = SKIN_COLOR_TUNDRA, // - (White 2)
-		"Continental" = SKIN_COLOR_CONTINENTAL, // - (White 3)
-		"Temperate" = SKIN_COLOR_TEMPERATE, // - (White 4)
-		"Coastal" = SKIN_COLOR_COASTAL, // - (Latin)
-		"Subtropical" = SKIN_COLOR_SUBTROPICAL, // - (Mediterranean)
-		"Tropical Dry" = SKIN_COLOR_TROPICALDRY, // - (Mediterranean 2)
-		"Tropical Wet" = SKIN_COLOR_TROPICALWET, // - (Latin 2)
-		"Desert" = SKIN_COLOR_DESERT, //  - (Middle-east)
-		"Crimson Lands" = SKIN_COLOR_CRIMSONLANDS, // - (Black)
+		"Pale"         = SKIN_TONE_PALE,
+		"White 1"      = SKIN_TONE_WHITE1,
+		"White 2"      = SKIN_TONE_WHITE2,
+		"White 3"      = SKIN_TONE_WHITE3,
+		"White 4"      = SKIN_TONE_WHITE4,
+		"Tan"          = SKIN_TONE_TAN,
+		"Mediterranean 1" = SKIN_TONE_MEDIT1,
+		"Mediterranean 2" = SKIN_TONE_MEDIT2,
+		"Latin"        = SKIN_TONE_LATIN,
+		"Middle-east 1" = SKIN_TONE_MID_EAST1,
+		"Middle-east 2" = SKIN_TONE_MID_EAST2,
+		"Native American 1" = SKIN_TONE_NATIVE1,
+		"Native American 2" = SKIN_TONE_NATIVE2,
+		"Polynesian"   = SKIN_TONE_POLYNESIAN,
+		"Melanesian"   = SKIN_TONE_MELANESIAN,
+		"Black 1"      = SKIN_TONE_BLACK1,
+		"Black 2"      = SKIN_TONE_BLACK2,
+		"Black 3"      = SKIN_TONE_BLACK3,
 	))

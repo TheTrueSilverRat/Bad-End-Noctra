@@ -32,7 +32,6 @@
 
 	possible_ages = NORMAL_AGES_LIST
 
-	skin_tone_wording = "Tribal Identity"
 	default_color = "9cc2e2"
 	use_skintones = TRUE
 

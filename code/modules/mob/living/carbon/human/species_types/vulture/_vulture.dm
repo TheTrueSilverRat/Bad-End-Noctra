@@ -24,7 +24,6 @@
 
 	possible_ages = NORMAL_AGES_LIST
 
-	skin_tone_wording = "Spawn"
 	default_color = "3e3e3e"
 	use_skintones = TRUE
 

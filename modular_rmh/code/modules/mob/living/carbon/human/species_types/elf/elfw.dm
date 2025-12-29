@@ -4,19 +4,21 @@
 	*				*
 	*===============*/
 
-/mob/living/carbon/human/species/elf/snow
-	race = /datum/species/elf/snow
+/mob/living/carbon/human/species/elf/wood
+	race = /datum/species/elf/wood
 
-/datum/species/elf/snow
-	name = "High Elf"
+/datum/species/elf/wood
+	name = "Wood Elf"
 	id = SPEC_ID_ELF
-	desc = "High Elves, also called Sun Elves or Moon Elves depending on lineage, are deeply tied to Faerûn’s arcane traditions. \
+	desc = "Wood Elves, often called Wild Elves by outsiders, \
 	n\n\
-	Their societies value magic, art, and refinement, and many of the Realms’ greatest spells, cities, and magical institutions were shaped by elven hands. \
+	live in Faerûn’s forests and wilderness, shunning large cities in favor of hidden settlements among the trees. \
 	n\n\
-	Though often aloof, High Elves see themselves as caretakers of ancient knowledge, burdened by memories of fallen empires such as Myth Drannor. \
+	They are fierce defenders of nature and skilled hunters, moving silently through terrain others find impassable. \
 	n\n\
-	(+1 Perception, 2+ Intelligence, +1 Speed, Elvish Language)."
+	More reclusive than High Elves, Wood Elves rely on speed, stealth, and instinct rather than arcane mastery. \
+	n\n\
+	(+2 Perception, 1+ Endurance, +2 Speed, Elvish Language)."
 
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,OLDGREY)
@@ -32,6 +34,7 @@
 
 	customizers = list(
 		/datum/customizer/organ/ears/elf,
+		/datum/customizer/organ/horns/wood_elf,
 		/datum/customizer/organ/eyes/humanoid,
 		/datum/customizer/bodypart_feature/hair/head/humanoid,
 		/datum/customizer/bodypart_feature/hair/facial/humanoid,
@@ -113,8 +116,8 @@
 		OFFSET_BREASTS = list(0, 1),\
 	)
 
-	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 2, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 1, STATKEY_LCK = 0)
-	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 2, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 1, STATKEY_LCK = 0)
+	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 1, STATKEY_SPD = 2, STATKEY_LCK = 0)
+	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 1, STATKEY_SPD = 2, STATKEY_LCK = 0)
 	enflamed_icon = "widefire"
 
 	body_markings = list(
@@ -150,10 +153,10 @@
 		/datum/body_marking/eyeliner,
 	)
 
-/datum/species/elf/snow/check_roundstart_eligible()
+/datum/species/elf/wood/check_roundstart_eligible()
 	return TRUE
 
-/datum/species/elf/snow/get_span_language(datum/language/message_language)
+/datum/species/elf/wood/get_span_language(datum/language/message_language)
 	if(!message_language)
 		return
 //	if(message_language.type == /datum/language/elvish)
@@ -162,7 +165,7 @@
 //		return list(SPAN_SELF)
 	return message_language.spans
 
-/datum/species/elf/snow/get_skin_list()
+/datum/species/elf/wood/get_skin_list()
 	return sortList(list(
 		"Pale"         = SKIN_TONE_PALE,
 		"White 1"      = SKIN_TONE_WHITE1,
@@ -182,20 +185,16 @@
 		"Black 1"      = SKIN_TONE_BLACK1,
 		"Black 2"      = SKIN_TONE_BLACK2,
 		"Black 3"      = SKIN_TONE_BLACK3,
-		"High Elf Pale"         = SKIN_TONE_HIGH_ELF_PALE,
-		"High Elf Warm"         = SKIN_TONE_HIGH_ELF_WARM,
-		"High Elf Golden"       = SKIN_TONE_HIGH_ELF_GOLDEN,
-		"High Elf Light Beige"  = SKIN_TONE_HIGH_ELF_LIGHT_BEIGE,
 	))
 
-/datum/species/elf/snow/get_possible_names(gender = MALE)
+/datum/species/elf/wood/get_possible_names(gender = MALE)
 	var/static/list/male_names = world.file2list('strings/rt/names/elf/elfwm.txt')
 	var/static/list/female_names = world.file2list('strings/rt/names/elf/elfwf.txt')
 	return (gender == FEMALE) ? female_names : male_names
 
-/datum/species/elf/snow/get_possible_surnames(gender = MALE)
+/datum/species/elf/wood/get_possible_surnames(gender = MALE)
 	var/static/list/last_names = world.file2list('strings/rt/names/elf/elfwlast.txt')
 	return last_names
 
-/datum/species/elf/snow/after_creation(mob/living/carbon/C)
+/datum/species/elf/wood/after_creation(mob/living/carbon/C)
 	C.dna.species.accent_language = C.dna.species.get_accent(C.dna.species.native_language, 1)

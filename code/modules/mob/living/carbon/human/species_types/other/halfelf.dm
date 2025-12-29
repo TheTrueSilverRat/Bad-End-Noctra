@@ -14,27 +14,18 @@
 		"Humen Accent" = "Imperial",
 		"Elf Accent" = "Elfish"
 	)
-	desc = "The child of an Elf and a Humen. \
+	desc = "Half-Elves are born of human and elven unions, inheriting traits from both worlds yet fully belonging to neither. \
 	\n\n\
-	Half-Elves are generally frowned upon by more conservative peoples, \
-	although as species tensions lower, more and more half-elves are being born- \
-	to the point that some scholars worry someday \
-	it may be impossible to distinguish the two species. \
+	In Faerûn, they are often natural diplomats, wanderers, or intermediaries, capable of moving between cultures with ease. \
 	\n\n\
-	Half-Elves are extraordinarily diverse, as they combine both Humen and Elvish culture. \
-	It is widely considered that Half-Elf culture is simply a melting pot of \
-	various others condensing into one vibrant entity. \
+	Their adaptability and charm make them well-suited to social roles, though many struggle with identity and acceptance. \
 	\n\n\
-	With their longevity spanning too long for a human and too short for an elf, they tend to congregate together. \
-	Depending on their heritage, Half-Elves tend to gain species traits \
-	depending on how strong their fathers, or mothers, genes were. \
-	Half-Elves typically struggle to find their own identity."
+	(+2 Fortune, +1 To Two Stats Of Choice, Allure, Elvish Language)."
 
-	skin_tone_wording = "Half-Elven Identity"
 
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
-	inherent_traits = list(TRAIT_NOMOBSWAP)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_ALLURE)
 
 	use_skintones = TRUE
 	possible_ages = NORMAL_AGES_LIST_CHILD
@@ -82,8 +73,8 @@
 		OFFSET_UNDIES = list(0,0),\
 	)
 
-	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 1, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 1, STATKEY_LCK = 0)
-	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 1, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 1, STATKEY_LCK = 0)
+	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 0, STATKEY_LCK = 2)
+	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 0, STATKEY_LCK = 2)
 
 	enflamed_icon = "widefire"
 
@@ -162,48 +153,24 @@
 
 /datum/species/human/halfelf/get_skin_list()
 	return sortList(list(
-		"Timber-Gronn" = SKIN_COLOR_TIMBER_GRONN, // - (White 1)
-		"Solar-Hue" = SKIN_COLOR_SOLAR_HUE, // - (White 2)
-		"Walnut-Stine" = SKIN_COLOR_WALNUT_STINE, // - (White 3)
-		"Amber-Stained" = SKIN_COLOR_AMBER_STAINED, // - (White 4)
-		"Joshua-Aligned" = SKIN_COLOR_JOSHUA_ALIGNED, // - (Middle-Eastern 1)
-		"Acacia-Crossed" = SKIN_COLOR_ACACIA_CROSSED, // - (Middle Eastern 2)
-		"Arid-Birthed" = SKIN_COLOR_ARID_BIRTHED, // - (Black)
-		"Redwood-Rooted" = SKIN_COLOR_REDWOOD_ROOTED, // - (Mediterranean 1)
-		"Drifted-Wood" = SKIN_COLOR_DRIFTED_WOOD, // - (Mediterranean 2)
-		"Vine-Wrapped" = SKIN_COLOR_VINE_WRAPPED, // - (Latin 2)
-		"Sage-Bloomed" = SKIN_COLOR_SAGE_BLOOMED, // - (Black 2)
-		"Mangrove-Cradled" = SKIN_COLOR_MANGROVE_CRADLED, // - (Native American 1)
-		"Tundra-Kissed" = SKIN_COLOR_TUNDRA_KISSED, // - (Native American 2)
-		"Ocean-Born" = SKIN_COLOR_OCEAN_BORN, // - (Polynesian)
-		"Basalt-Birthed" = SKIN_COLOR_BASALT_BIRTHED, // - (Melanesian)
-	))
-
-/datum/species/human/halfelf/get_hairc_list()
-	return sortList(list(
-	"black - oil" = "181a1d",
-	"black - cave" = "201616",
-	"black - rogue" = "2b201b",
-	"black - midnight" = "1d1b2b",
-
-	"brown - mud" = "362e25",
-	"brown - oats" = "584a3b",
-	"brown - grain" = "58433b",
-	"brown - soil" = "48322a",
-
-	"red - berry" = "b23434",
-	"red - wine" = "82534c",
-	"red - sunset" = "82462b",
-	"red - blood" = "822b2b",
-	"red - maroon" = "612929",
-
-	"blond - pale" = "9d8d6e",
-	"blond - dirty" = "88754f",
-	"blond - drywheat" = "d5ba7b",
-	"blond - strawberry" = "c69b71",
-
-	"green - leaf" = "2f3c2e",
-	"green - moss" = "3b3c2a"
+		"Pale"         = SKIN_TONE_PALE,
+		"White 1"      = SKIN_TONE_WHITE1,
+		"White 2"      = SKIN_TONE_WHITE2,
+		"White 3"      = SKIN_TONE_WHITE3,
+		"White 4"      = SKIN_TONE_WHITE4,
+		"Tan"          = SKIN_TONE_TAN,
+		"Mediterranean 1" = SKIN_TONE_MEDIT1,
+		"Mediterranean 2" = SKIN_TONE_MEDIT2,
+		"Latin"        = SKIN_TONE_LATIN,
+		"Middle-east 1" = SKIN_TONE_MID_EAST1,
+		"Middle-east 2" = SKIN_TONE_MID_EAST2,
+		"Native American 1" = SKIN_TONE_NATIVE1,
+		"Native American 2" = SKIN_TONE_NATIVE2,
+		"Polynesian"   = SKIN_TONE_POLYNESIAN,
+		"Melanesian"   = SKIN_TONE_MELANESIAN,
+		"Black 1"      = SKIN_TONE_BLACK1,
+		"Black 2"      = SKIN_TONE_BLACK2,
+		"Black 3"      = SKIN_TONE_BLACK3,
 	))
 
 /datum/species/human/halfelf/get_possible_names(gender = MALE)
@@ -226,3 +193,42 @@
 	C.grant_language(/datum/language/elvish)
 	to_chat(C, "<span class='info'>I can speak Elvish with ,e before my speech.</span>")
 
+/datum/species/human/halfelf/after_creation(mob/living/carbon/human/C)
+	..()
+
+	if(!C.client)
+		return
+
+	var/list/choices = list(
+		"Strength"      = STATKEY_STR,
+		"Perception"   = STATKEY_PER,
+		"Intelligence" = STATKEY_INT,
+		"Constitution" = STATKEY_CON,
+		"Endurance"    = STATKEY_END,
+		"Speed"        = STATKEY_SPD,
+		"Fortune"      = STATKEY_LCK
+	)
+
+	var/picks_remaining = 2
+
+	while(picks_remaining > 0 && choices.len)
+		var/choice = input(
+			C.client,
+			"Choose an attribute to gain +1 ([picks_remaining] remaining):",
+			"Half-Elf Versatility"
+		) as null|anything in choices
+
+		if(!choice)
+			break
+
+		switch(choices[choice])
+			if(STATKEY_STR) C.base_strength++
+			if(STATKEY_PER) C.base_perception++
+			if(STATKEY_INT) C.base_intelligence++
+			if(STATKEY_CON) C.base_constitution++
+			if(STATKEY_END) C.base_endurance++
+			if(STATKEY_SPD) C.base_speed++
+			if(STATKEY_LCK) C.base_fortune++
+
+		choices -= choice
+		picks_remaining--

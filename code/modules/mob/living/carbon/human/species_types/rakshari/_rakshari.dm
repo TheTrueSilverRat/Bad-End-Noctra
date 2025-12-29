@@ -23,7 +23,6 @@
 	\n\n\
 	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 
-	skin_tone_wording = "Tribal Identity"
 	use_skintones = TRUE
 	default_color = "FFFFFF"
 
@@ -180,10 +179,10 @@
 
 /datum/species/rakshari/get_skin_list()
 	return sortList(list(
-		"Mountain Rakshari" = SKIN_COLOR_MOUNTAIN_ELF, // - (White 3)
-		"City Rakshari" = SKIN_COLOR_COASTAL_ELF, // - (White 4)
-		"Desert Rakshari" = SKIN_COLOR_WOOD_ELF, // - (Mediterranean 1)
-		"Deep Desert Rakshari" = SKIN_COLOR_JUNGLE_ELF, // - (Latin)
+		"Mountain Rakshari" = SKIN_TONE_WHITE3, // - (White 3)
+		"City Rakshari" = SKIN_TONE_WHITE4, // - (White 4)
+		"Desert Rakshari" = SKIN_TONE_MEDIT1, // - (Mediterranean 1)
+		"Deep Desert Rakshari" = SKIN_TONE_LATIN, // - (Latin)
 		"Oasis Rakshari" = SKIN_COLOR_HOMUNCULUS, // - (Grey-blue)
 		"Oasis Shade Rakshari" = SKIN_COLOR_NIGHTSHADE, // - (Black-blue)
 		"Quicksand Rakshari" = SKIN_COLOR_QUICKSAND, // Orange, apparently sphynx cats can be orange, who knew!

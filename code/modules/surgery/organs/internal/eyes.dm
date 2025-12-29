@@ -136,7 +136,7 @@
 
 
 /obj/item/organ/eyes/night_vision
-	name = "shadow eyes"
+	name = "dark vision eyes"
 	desc = ""
 	see_in_dark = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE

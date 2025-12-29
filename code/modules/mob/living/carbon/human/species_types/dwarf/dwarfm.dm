@@ -26,7 +26,6 @@
 	Despite their cultural praise, a long-standing feud remains between dwarves and elves \
 	stemming from old industrial practices."
 
-	skin_tone_wording = "Ore Attunement"
 
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, YOUNGBEARD, STUBBLE, OLDGREY)
