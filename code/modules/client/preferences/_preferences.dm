@@ -1720,6 +1720,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						randomise_appearance_prefs(RANDOMIZE_UNDERWEAR | RANDOMIZE_HAIRSTYLE)
 						accessory = "Nothing"
 						detail = "Nothing"
+						to_chat(user, span_notice("In this land, men enjoy many rights women do not.<br>Women are considered property of either their husbands or fathers, and slavers tend to target those with neither."))
 				if("domhand")
 					if(domhand == 1)
 						domhand = 2
