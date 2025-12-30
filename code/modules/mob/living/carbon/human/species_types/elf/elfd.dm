@@ -25,7 +25,7 @@
 	THIS IS A DISCRIMINATED SPECIES. PLAY AT YOUR OWN RISK."
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,OLDGREY)
-	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_DARKLING, TRAIT_ALLURE)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_ALLURE)
 	use_skintones = 1
 	disliked_food = NONE
 	liked_food = NONE
@@ -205,3 +205,20 @@
 
 /datum/species/elf/dark/after_creation(mob/living/carbon/human/C)
 	C.dna.species.accent_language = C.dna.species.get_accent(native_language, 2)
+
+/datum/species/elf/dark/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+	. = ..()
+
+	spawn(5)
+		if(!C || QDELETED(C))
+			return
+
+		if(!C.GetComponent(/datum/component/darkling))
+			C.AddComponent(/datum/component/darkling)
+
+/datum/species/elf/dark/on_species_loss(mob/living/carbon/human/C)
+	. = ..()
+
+	var/datum/component/darkling/D = C.GetComponent(/datum/component/darkling)
+	if(D)
+		qdel(D)

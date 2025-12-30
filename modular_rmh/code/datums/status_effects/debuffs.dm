@@ -394,11 +394,11 @@
 // Underdwellers Debuffs
 /datum/status_effect/debuff/darkling_glare
 	id = "darkling_glare"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/darkling_glare
-	effectedstats = list("perception" = -1)
+	alert_type = /atom/movable/screen/alert/status_effect/darkling_glare
+	effectedstats = list(STATKEY_PER = -1)
 	duration = 10 SECONDS
 
-/atom/movable/screen/alert/status_effect/debuff/darkling_glare
+/atom/movable/screen/alert/status_effect/darkling_glare
 	name = "Sunlight Sensitivity"
 	desc = "It's too bright for my kind!"
 	icon_state = "stressb"

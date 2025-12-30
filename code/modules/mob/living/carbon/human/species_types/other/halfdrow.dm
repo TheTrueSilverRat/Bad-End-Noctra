@@ -26,7 +26,7 @@
 	default_color = "FFFFFF"
 
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
-	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_DARKLING, TRAIT_ALLURE)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_ALLURE)
 
 	use_skintones = TRUE
 	possible_ages = NORMAL_AGES_LIST_CHILD
@@ -192,30 +192,51 @@
 	C.grant_language(/datum/language/elvish)
 	to_chat(C, "<span class='info'>I can speak Elvish with ,e before my speech.</span>")
 
-	var/list/choices = list(
-		"Strength"     = STATKEY_STR,
-		"Perception"  = STATKEY_PER,
-		"Intelligence"= STATKEY_INT,
-		"Constitution"= STATKEY_CON,
-		"Endurance"   = STATKEY_END,
-		"Speed"       = STATKEY_SPD,
-		"Fortune"     = STATKEY_LCK
-	)
+/datum/species/human/halfdrow/on_species_gain(mob/living/carbon/human/C, datum/species/old_species)
+	. = ..()
 
-	var/choice = input(
-		C.client,
-		"Choose one attribute to gain +1:",
-		"Half-Drow Versatility"
-	) as null|anything in choices
+	spawn(10)
+		if(!C || !C.client)
+			return
 
-	if(!choice)
-		return
+		var/list/choices = list(
+			"Strength"      = STATKEY_STR,
+			"Perception"   = STATKEY_PER,
+			"Intelligence" = STATKEY_INT,
+			"Constitution" = STATKEY_CON,
+			"Endurance"    = STATKEY_END,
+			"Speed"        = STATKEY_SPD,
+			"Fortune"      = STATKEY_LCK
+		)
 
-	switch(choices[choice])
-		if(STATKEY_STR) C.base_strength++
-		if(STATKEY_PER) C.base_perception++
-		if(STATKEY_INT) C.base_intelligence++
-		if(STATKEY_CON) C.base_constitution++
-		if(STATKEY_END) C.base_endurance++
-		if(STATKEY_SPD) C.base_speed++
-		if(STATKEY_LCK) C.base_fortune++
+		var/choice = input(
+			C,
+			"Choose an attribute to gain +1:",
+			"Half-Drow Heritage"
+		) as null|anything in choices
+
+		if(!choice)
+			return
+
+		switch(choices[choice])
+			if(STATKEY_STR) C.base_strength++
+			if(STATKEY_PER) C.base_perception++
+			if(STATKEY_INT) C.base_intelligence++
+			if(STATKEY_CON) C.base_constitution++
+			if(STATKEY_END) C.base_endurance++
+			if(STATKEY_SPD) C.base_speed++
+			if(STATKEY_LCK) C.base_fortune++
+
+	spawn(5)
+		if(!C || QDELETED(C))
+			return
+
+		if(!C.GetComponent(/datum/component/darkling))
+			C.AddComponent(/datum/component/darkling)
+
+/datum/species/human/halfdrow/on_species_loss(mob/living/carbon/human/C)
+	. = ..()
+
+	var/datum/component/darkling/D = C.GetComponent(/datum/component/darkling)
+	if(D)
+		qdel(D)

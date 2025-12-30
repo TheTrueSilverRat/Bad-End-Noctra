@@ -193,11 +193,22 @@
 	C.grant_language(/datum/language/elvish)
 	to_chat(C, "<span class='info'>I can speak Elvish with ,e before my speech.</span>")
 
-/datum/species/human/halfelf/after_creation(mob/living/carbon/human/C)
-	..()
+/mob/living/carbon/human
+	var/halfelf_stats_picked = FALSE
 
-	if(!C.client)
+/datum/species/human/halfelf/on_species_gain(mob/living/carbon/human/C, datum/species/old_species)
+	. = ..()
+
+	if(!istype(C) || C.halfelf_stats_picked)
 		return
+
+	spawn(10)
+		if(C && C.client && !C.halfelf_stats_picked)
+			pick_halfelf_stats(C)
+
+
+/datum/species/human/halfelf/proc/pick_halfelf_stats(mob/living/carbon/human/C)
+	C.halfelf_stats_picked = TRUE
 
 	var/list/choices = list(
 		"Strength"      = STATKEY_STR,
@@ -213,13 +224,13 @@
 
 	while(picks_remaining > 0 && choices.len)
 		var/choice = input(
-			C.client,
+			C,
 			"Choose an attribute to gain +1 ([picks_remaining] remaining):",
 			"Half-Elf Versatility"
 		) as null|anything in choices
 
 		if(!choice)
-			break
+			return
 
 		switch(choices[choice])
 			if(STATKEY_STR) C.base_strength++

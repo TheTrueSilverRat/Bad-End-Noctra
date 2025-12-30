@@ -3831,6 +3831,7 @@
 #include "modular_rmh\code\datums\religion\patrons\evil.dm"
 #include "modular_rmh\code\datums\religion\patrons\good.dm"
 #include "modular_rmh\code\datums\religion\patrons\neutral.dm"
+#include "modular_rmh\code\datums\status_effects\buffs.dm"
 #include "modular_rmh\code\datums\status_effects\debuffs.dm"
 #include "modular_rmh\code\datums\stress\negative_events.dm"
 #include "modular_rmh\code\datums\stress\positive_events.dm"
