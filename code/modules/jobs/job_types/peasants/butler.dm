@@ -18,7 +18,7 @@
 	allowed_races = RACES_BUTLER
 
 	outfit = /datum/outfit/butler
-	give_bank_account = 30 // Along with the pouch, enough to purchase some ingredients from the farm and give hard working servants a silver here and there. Still need the assistance of the crown's coffers to do anything significant
+	give_bank_account = 30
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
 	exp_type = list(EXP_TYPE_LIVING)
@@ -27,10 +27,10 @@
 	)
 
 	jobstats = list(
-		STATKEY_STR = -1,
+		STATKEY_STR = 2,
 		STATKEY_INT = 2,
-		STATKEY_PER = 1,
-		STATKEY_END = 1
+		STATKEY_CON = 2,
+		STATKEY_END = 2
 	)
 
 	skills = list(
@@ -52,15 +52,61 @@
 
 	traits = list(
 		TRAIT_KNOWKEEPPLANS,
-		TRAIT_ROYALSERVANT
+		TRAIT_ROYALSERVANT,
+		TRAIT_CRITICAL_RESISTANCE,
+		TRAIT_NOPAINSTUN,
+		TRAIT_HARDDISMEMBER,
+		TRAIT_EMPATH,
 	)
 
 /datum/job/butler/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
-	if(length(GLOB.keep_doors) > 0)
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), spawned), 5 SECONDS)
 
-	spawned.adjust_skillrank(/datum/skill/misc/music, pick(0,0,2,3), TRUE)
+	var/mob/living/carbon/human/H = spawned
+	var/client/chooser = player_client || H?.client
+	if(!H || QDELETED(H) || !chooser)
+		return
+
+	if(length(GLOB.keep_doors) > 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 5 SECONDS)
+
+	H.adjust_skillrank(/datum/skill/misc/music, pick(0, 0, 2, 3), TRUE)
+
+	var/list/weapons = list("Pikeman", "Fencer", "Longsword", "Sabre", "Knife")
+	var/weapon_choice = input(chooser, "Choose your weapon.", "TAKE UP ARMS") as null|anything in weapons
+	if(!weapon_choice)
+		return
+
+	switch(weapon_choice)
+		if("Pikeman")
+			give_or_drop(H, /obj/item/weapon/polearm/spear/billhook)
+			give_or_drop(H, /obj/item/weapon/sword/arming)
+			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+
+		if("Fencer")
+			give_or_drop(H, /obj/item/weapon/sword/rapier)
+			H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+
+		if("Longsword")
+			give_or_drop(H, /obj/item/weapon/sword/long)
+			H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+
+		if("Sabre")
+			give_or_drop(H, /obj/item/weapon/sword/sabre)
+			H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+
+		if("Knife")
+			give_or_drop(H, /obj/item/weapon/knife/dagger/steel)
+			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+
+/datum/job/butler/proc/give_or_drop(mob/living/carbon/human/H, path)
+	if(!H || QDELETED(H) || !path)
+		return
+
+	var/obj/item/I = new path(H.drop_location())
+	if(!H.put_in_hands(I))
+		to_chat(H, span_warning("My hands are full. [I] drops to the floor."))
 
 /datum/outfit/butler
 	name = "Butler"
@@ -76,6 +122,7 @@
 
 /datum/outfit/butler/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
 	. = ..()
+
 	if(equipped_human.gender == MALE)
 		armor = /obj/item/clothing/armor/leather/jacket/tailcoat/lord
 		shirt = /obj/item/clothing/shirt/undershirt/formal
@@ -86,4 +133,3 @@
 		cloak = /obj/item/clothing/cloak/apron/maid
 		belt = /obj/item/storage/belt/leather/cloth_belt
 		pants = /obj/item/clothing/pants/tights/colored/white
-
