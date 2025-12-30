@@ -61,21 +61,48 @@
 		clear_fullscreen("blind")
 //		remove_client_colour(/datum/client_colour/monochrome/blind)
 
+/**
+  * Make the mobs vision blurry
+  */
+/mob/proc/blur_eyes(amount)
+	if(amount>0)
+		eye_blurry = max(amount, eye_blurry)
+	update_eye_blur()
+
 /mob/proc/psydo_nyte()
 	sleep(2)
-	overlay_fullscreen("LIVES", /atom/movable/screen/fullscreen/zezuspsyst)
+	overlay_fullscreen("LYVES", /atom/movable/screen/fullscreen/zezuspsyst)
 	sleep(2)
-	clear_fullscreen("LIVES")
+	clear_fullscreen("LYVES")
+
+/**
+  * Adjust the current blurriness of the mobs vision by amount
+  */
+/mob/proc/adjust_blurriness(amount)
+	eye_blurry = max(eye_blurry+amount, 0)
+	update_eye_blur()
+
+///Set the mobs blurriness of vision to an amount
+/mob/proc/set_blurriness(amount)
+	eye_blurry = max(amount, 0)
+	update_eye_blur()
 
 ///Apply the blurry overlays to a mobs clients screen
 /mob/proc/update_eye_blur()
 	if(!client)
 		return
-	var/atom/movable/plane_master_controller/game_plane_master_controller = hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
-	if(eye_blurry)
-		game_plane_master_controller.add_filter("eye_blur", 1, gauss_blur_filter(clamp(eye_blurry * 0.1, 0.6, 3)))
-	else
-		game_plane_master_controller.remove_filter("eye_blur")
+	var/atom/movable/screen/plane_master/floor/OT = locate(/atom/movable/screen/plane_master/floor) in client.screen
+	var/atom/movable/screen/plane_master/game_world/GW = locate(/atom/movable/screen/plane_master/game_world) in client.screen
+	if(GW)
+		GW.backdrop(src)
+	if(OT)
+		OT.backdrop(src)
+	GW = locate(/atom/movable/screen/plane_master/game_world_fov_hidden) in client.screen
+	if(GW)
+		GW.backdrop(src)
+	GW = locate(/atom/movable/screen/plane_master/game_world_above) in client.screen
+	if(GW)
+		GW.backdrop(src)
 
 ///Adjust the drugginess of a mob
 /mob/proc/adjust_drugginess(amount)

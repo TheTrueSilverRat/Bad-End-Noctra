@@ -961,6 +961,7 @@
 	set_nutrition(NUTRITION_LEVEL_FED + 50)
 	bodytemperature = BODYTEMP_NORMAL
 	set_blindness(0)
+	set_blurriness(0)
 	set_dizziness(0)
 	cure_nearsighted()
 	cure_blind()
@@ -2273,6 +2274,8 @@
 			SetUnconscious(var_value)
 		if("sleeping")
 			SetSleeping(var_value)
+		if("eye_blurry")
+			set_blurriness(var_value)
 		if("eye_blind")
 			set_blindness(var_value)
 		if("eye_damage")
