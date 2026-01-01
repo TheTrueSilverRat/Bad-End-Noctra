@@ -91,6 +91,9 @@
 		if(hud_used.fov.alpha == 0)
 			return
 	//! IMPORTANT: If Animations break remove this, tested most seemed fine
+/*  /* Vrell - This breaks anything that resized the player. So yes, we will be removing this.
+	Not sure wtf this did in the first place other than causing the scaling bug, since nothing changed
+	on my cursory testing after cutting it out (or cutting out the entire function for that matter.) */
 	var/image/I = image(src, src)
 
 	I.plane = GAME_PLANE_UPPER
@@ -101,6 +104,7 @@
 	client.images += I
 	client.hidden_images += I
 	I.appearance_flags = KEEP_TOGETHER
+*/
 
 /*	if(hud_used && hud_used.fov_blocker)
 		fov_blocker
