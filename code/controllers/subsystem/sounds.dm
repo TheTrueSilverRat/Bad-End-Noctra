@@ -187,6 +187,8 @@ SUBSYSTEM_DEF(sounds)
 /// Cache and return a single sound.
 /datum/controller/subsystem/sounds/proc/get_sound_length(file_path)
 	. = 0
+	if(isnull(file_path))
+		return
 	if(!istext(file_path))
 		if(!isfile(file_path))
 			CRASH("rustg_sound_length error: Passed non-text object")

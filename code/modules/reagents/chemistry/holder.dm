@@ -907,6 +907,8 @@
 	return english_list(out, "something")
 
 /datum/reagents/proc/expose_temperature(temperature, coeff=0.02)
+	if(QDELETED(src) || !reagent_list)
+		return
 	if(istype(my_atom,/obj/item/reagent_containers))
 		var/obj/item/reagent_containers/RCs = my_atom
 		if(RCs.reagent_flags & NO_REACT) //stasis holders IE cryobeaker

@@ -30,6 +30,7 @@
 /obj/structure/channel_connector/heater/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	qdel(internal_reagents)
+	internal_reagents = null
 	return ..()
 
 /obj/structure/channel_connector/heater/examine(mob/user)
@@ -85,6 +86,8 @@
 	return ..()
 
 /obj/structure/channel_connector/heater/process()
+	if(!internal_reagents || QDELETED(internal_reagents))
+		return
 	if(!on || !fuel_left)
 		if(on)
 			on = FALSE
@@ -126,7 +129,7 @@
 		. += mutable_appearance(icon, "heater_flame")
 		. += emissive_appearance(icon, "heater_flame", alpha = 200)
 
-	if(internal_reagents?.total_volume > 0)
+	if(internal_reagents && !QDELETED(internal_reagents) && internal_reagents.total_volume > 0)
 		var/datum/reagent/molten_metal/metal = internal_reagents.get_reagent(/datum/reagent/molten_metal)
 		var/datum/material/largest = metal?.largest_metal
 		if(largest)
