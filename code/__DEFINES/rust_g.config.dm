@@ -1,1 +1,0 @@
-#define RUST_G "./librust_g.so"
