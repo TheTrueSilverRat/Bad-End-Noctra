@@ -2034,8 +2034,11 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/glass/bottle/waterskin,
-/obj/item/kitchen/rollingpin,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
 /turf/open/floor/blocks/stonered/tiny,
 /area/indoors/town/rmh)
 "bfF" = (
@@ -2917,6 +2920,7 @@
 	pixel_x = -4;
 	pixel_y = 36
 	},
+/obj/item/cooking/pan,
 /turf/open/floor/concrete,
 /area/indoors/town/apothecary)
 "bCW" = (
@@ -7467,7 +7471,11 @@
 	pixel_x = 5;
 	pixel_y = 38
 	},
-/obj/item/cooking/pan,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
 /turf/open/floor/blocks/stonered/tiny,
 /area/indoors/town/apothecary)
 "dNo" = (
@@ -14143,6 +14151,7 @@
 	pixel_x = 7;
 	pixel_y = 39
 	},
+/obj/item/reagent_containers/glass/bottle/waterskin,
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/indoors/town/rmh)
 "huh" = (
@@ -19895,6 +19904,11 @@
 "ktm" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
 /turf/open/floor/blocks/stonered/tiny,
 /area/indoors/town/rmh/garrison)
 "ktt" = (
@@ -21356,6 +21370,14 @@
 	},
 /obj/structure/table/wood/reinf_long,
 /obj/item/weapon/knife/villager,
+/obj/item/kitchen/spoon,
+/obj/item/reagent_containers/glass/bowl{
+	pixel_x = -5
+	},
+/obj/item/kitchen/spoon,
+/obj/item/reagent_containers/glass/bowl{
+	pixel_x = -5
+	},
 /turf/open/floor/blocks/stonered,
 /area/indoors/town/rmh)
 "lkf" = (
@@ -25214,18 +25236,11 @@
 	pixel_y = 0
 	},
 /obj/structure/closet/crate/chest/crate,
-/obj/item/reagent_containers/glass/bowl{
-	pixel_x = -5
-	},
-/obj/item/reagent_containers/glass/bowl{
-	pixel_x = -5
-	},
-/obj/item/reagent_containers/glass/bowl{
-	pixel_x = -5
-	},
-/obj/item/kitchen/spoon,
-/obj/item/kitchen/spoon,
-/obj/item/kitchen/spoon,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
 /turf/open/floor/blocks/stonered,
 /area/indoors/town/rmh)
 "nkn" = (
@@ -29260,6 +29275,15 @@
 	},
 /turf/open/floor/cobble,
 /area/indoors/town/rmh/garrison)
+"pkd" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
+/turf/open/floor/blocks/stonered/tiny,
+/area/indoors/town/rmh/farm)
 "pkj" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/mineral/random/high,
@@ -39722,6 +39746,10 @@
 	pixel_x = 3;
 	pixel_y = 5
 	},
+/obj/item/kitchen/rollingpin{
+	pixel_x = -6;
+	pixel_y = 3
+	},
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/indoors/town/rmh)
 "uCl" = (
@@ -44183,6 +44211,11 @@
 	layer = 2.9;
 	pixel_y = 2
 	},
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/powder/flour,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/indoors/town/rmh/crafters_guild)
 "wYF" = (
@@ -211358,7 +211391,7 @@ tXT
 lnz
 hMW
 kPN
-hMW
+pkd
 qxp
 snm
 snm
