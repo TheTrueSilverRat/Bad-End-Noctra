@@ -61,9 +61,6 @@
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), spawned), 5 SECONDS)
 
-	if(spawned.dna.species.id != SPEC_ID_TIEFLING)
-		ADD_TRAIT(spawned, TRAIT_NOBLE, TRAIT_GENERIC)
-
 	if(alert("Do you wish to be recognized as a non-foreigner?", "", "Yes", "No") == "Yes")
 		REMOVE_TRAIT(spawned, TRAIT_FOREIGNER, TRAIT_GENERIC)
 
