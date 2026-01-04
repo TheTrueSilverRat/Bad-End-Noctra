@@ -36,11 +36,11 @@
 	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] [chosen_verb] over [target]"))
 	playsound(user, 'sound/misc/mat/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 
-	sex_session.perform_sex_action(user, 2, 4, TRUE)
+	sex_session.perform_sex_action(user, user, 2, 4, 2, src)
 
-/datum/sex_action/masturbate/penis_over/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/masturbate/penis_over/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip)
 	user.visible_message(span_love("[user] cums over [target]'s body!"))
-	return "onto"
+	return ORGASM_LOCATION_ONTO
 
 /datum/sex_action/masturbate/penis_over/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()

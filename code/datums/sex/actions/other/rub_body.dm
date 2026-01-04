@@ -22,7 +22,7 @@
 	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] rubs [target]'s body..."))
 	user.make_sucking_noise()
 
-	sex_session.perform_sex_action(target, 0.5, 0, TRUE)
+	sex_session.perform_sex_action(target, user, 0.5, 0, 0.5, src)
 	sex_session.handle_passive_ejaculation(target)
 
 /datum/sex_action/rub_body/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

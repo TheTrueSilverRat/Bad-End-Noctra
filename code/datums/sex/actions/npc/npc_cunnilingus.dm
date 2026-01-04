@@ -9,11 +9,6 @@
 /datum/sex_action/npc/npc_cunnilingus/shows_on_menu(mob/living/user, mob/living/target)
 	return FALSE
 
-/*/datum/sex_action/npc/npc_cunnilingus/can_perform(mob/living/user, mob/living/target)
-	if(user.seeksfuck) //should filter down to only npcs with seeksfuck behavior.
-		return TRUE
-	return FALSE*/
-
 /datum/sex_action/npc/npc_cunnilingus/on_start(mob/living/user, mob/living/target)
 	. = ..()
 	user.visible_message(span_warning("[user] starts licking [target]'s cunt..."))
@@ -25,11 +20,16 @@
 	user.make_sucking_noise()
 	do_thrust_animate(user, target)
 
-	sex_session.perform_sex_action(target, 2, 3, TRUE)
+	sex_session.perform_sex_action(target, user, 2, 3,  2, src)
 
-/datum/sex_action/npc/npc_cunnilingus/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	target.visible_message(span_love("[target] cums into [user]'s mouth!"))
-	return "into"
+/datum/sex_action/npc/npc_cunnilingus/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip)
+	if(must_flip)
+		target.visible_message(span_love("[user] squirts girlcum into [target]'s mouth!"))
+		return ORGASM_LOCATION_ORAL
+	else //I mean it's never gonna happen but ok
+		target.visible_message(span_love("[user] cums from sucking [target]'s pussy somehow!"))
+		return ORGASM_LOCATION_SELF
+
 
 
 /datum/sex_action/npc/npc_cunnilingus/on_finish(mob/living/user, mob/living/target)
@@ -41,14 +41,4 @@
 	sex_locks |= new /datum/sex_session_lock(target, ORGAN_SLOT_VAGINA)
 	sex_locks |= new /datum/sex_session_lock(user, BODY_ZONE_PRECISE_MOUTH)
 
-///datum/sex_action/npc/npc_cunnilingus/is_finished(mob/living/user, mob/living/target)
-	/*if(target.sexcon.finished_check())
-		if(issimple(user))
-			var/mob/living/simple_animal/hostile/retaliate/rogue/simpleuser = user
-			simpleuser.stoppedfucking(target)
-		else
-			var/mob/living/carbon/human/humanuser = user
-			humanuser.stoppedfucking(target)
 
-		return TRUE
-	return FALSE*/

@@ -19,7 +19,7 @@
 		return FALSE
 	if(check_sex_lock(user, BODY_ZONE_PRECISE_MOUTH)) //don't make me regret not locking your feet out while they are getting licked
 		return FALSE
-	if(!check_location_accessible(user, user, BODY_ZONE_PRECISE_MOUTH))
+	if(!check_location_accessible(target, user, BODY_ZONE_PRECISE_MOUTH))
 		return FALSE
 	return TRUE
 
@@ -31,6 +31,9 @@
 	var/datum/sex_session/sex_session = get_sex_session(user, target)
 	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] licks [target]'s feet..."))
 	user.make_sucking_noise()
+	sex_session.perform_sex_action(user, target, 0.5, 0, 0, src)
+
+	sex_session.perform_sex_action(target, user, 0.25, 0, 0, src)
 
 /datum/sex_action/foot_lick/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()

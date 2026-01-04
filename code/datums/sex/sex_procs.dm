@@ -43,10 +43,9 @@
 	if(!target)
 		return
 	var/datum/sex_session/old_session = get_sex_session(src, target)
-	if(old_session)
-		if(target.client && client)
-			old_session.show_ui()
-		return
+	if(old_session && !QDELETED(old_session))
+		old_session.show_ui()
+		return old_session
 
 
 	var/datum/sex_session/session = new /datum/sex_session(src, target)

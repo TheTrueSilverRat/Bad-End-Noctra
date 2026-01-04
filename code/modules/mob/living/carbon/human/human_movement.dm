@@ -43,7 +43,7 @@
 				C.step_action()
 
 		if(wear_neck)
-			if(body_position != LYING_DOWN)
+			if(body_position != LYING_DOWN && istype(wear_neck, /obj/item/clothing))
 				var/obj/item/clothing/N = wear_neck
 				N.step_action()
 

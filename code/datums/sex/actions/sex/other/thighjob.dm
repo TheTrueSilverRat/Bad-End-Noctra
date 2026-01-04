@@ -33,7 +33,7 @@
 	playsound(user, 'sound/misc/mat/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 	do_thrust_animate(target, user)
 
-	sex_session.perform_sex_action(target, 2, 4, TRUE)
+	sex_session.perform_sex_action(target, user, 2, 4, 2, src)
 	sex_session.handle_passive_ejaculation(target)
 
 /datum/sex_action/sex/other/thighjob/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

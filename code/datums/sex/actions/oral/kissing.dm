@@ -19,7 +19,7 @@
 		return FALSE
 	if(!check_location_accessible(user, target, BODY_ZONE_PRECISE_MOUTH))
 		return FALSE
-	if(!check_location_accessible(user, user, BODY_ZONE_PRECISE_MOUTH))
+	if(!check_location_accessible(target, user, BODY_ZONE_PRECISE_MOUTH))
 		return FALSE
 	return TRUE
 
@@ -32,10 +32,10 @@
 	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] makes out with [target]..."))
 	user.make_sucking_noise()
 
-	sex_session.perform_sex_action(user, 1, 2, TRUE)
-	sex_session.handle_passive_ejaculation()
+	sex_session.perform_sex_action(user, target, 1, 2, 0, src)
+	sex_session.handle_passive_ejaculation(user)
 
-	sex_session.perform_sex_action(target, 1, 2, TRUE)
+	sex_session.perform_sex_action(target, user, 1, 2, 0, src)
 	sex_session.handle_passive_ejaculation(target)
 
 /datum/sex_action/kissing/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

@@ -17,7 +17,7 @@
 		return FALSE
 	if(!check_location_accessible(user, target, BODY_ZONE_CHEST, TRUE))
 		return FALSE
-	if(!check_location_accessible(user, user, BODY_ZONE_PRECISE_MOUTH))
+	if(!check_location_accessible(target, user, BODY_ZONE_PRECISE_MOUTH))
 		return FALSE
 	if(!target.getorganslot(ORGAN_SLOT_BREASTS))
 		return FALSE
@@ -36,7 +36,7 @@
 	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] sucks [target]'s nipples..."))
 	user.make_sucking_noise()
 
-	sex_session.perform_sex_action(target, 1, 3, TRUE)
+	sex_session.perform_sex_action(target, user, 1, 3, 0.1, src)
 	sex_session.handle_passive_ejaculation(target)
 
 	var/obj/item/organ/genitals/filling_organ/breasts/breasts = target.getorganslot(ORGAN_SLOT_BREASTS)

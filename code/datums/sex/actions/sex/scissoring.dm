@@ -41,10 +41,10 @@
 	playsound(target, 'sound/misc/mat/segso.ogg', 50, TRUE, -2, ignore_walls = FALSE)
 	do_thrust_animate(user, target)
 
-	sex_session.perform_sex_action(user, 1, 4, TRUE)
+	sex_session.perform_sex_action(user, target, 1, 4, 1, src)
 	sex_session.handle_passive_ejaculation()
 
-	sex_session.perform_sex_action(target, 1, 4, TRUE)
+	sex_session.perform_sex_action(target, user, 1, 4, 1, src)
 	sex_session.handle_passive_ejaculation(target)
 
 /datum/sex_action/scissoring/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

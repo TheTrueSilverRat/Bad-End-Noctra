@@ -81,7 +81,7 @@
 	var/knot_on_finish = FALSE
 	/// Whether this action can trigger knots
 	var/can_knot = FALSE
-	///basically for actions being done by the user where the target is the inserter set this to true
+	///basically for actions being done by the user where the target is the inserter set this to true // for example: riding, blowing, titjobbing etc
 	var/flipped = FALSE
 	/// Used for determining if the user should be gagged
 	var/gags_user = FALSE
@@ -308,19 +308,19 @@
 		qdel(lock)
 	sex_locks.Cut()
 
-/datum/sex_action/proc/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/proc/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip = FALSE) //must_flip is for handling partner's message
 	return
 
-/datum/sex_action/proc/check_sex_lock(mob/locked, organ_slot, obj/item/item)
+/datum/sex_action/proc/check_sex_lock(mob/locked, organ_slot, obj/item/item) //free for all for now
 	if(!organ_slot && !item)
 		return FALSE
 	for(var/datum/sex_session_lock/lock as anything in GLOB.locked_sex_objects)
-		if(lock in sex_locks)
-			continue
-		if(lock.locked_host != locked)
-			continue
-		if(lock.locked_item != item && lock.locked_organ_slot != organ_slot)
-			continue
+		//if(lock in sex_locks)
+		//	continue
+		//if(lock.locked_host != locked)
+		//	continue
+		//if((lock.locked_item != item && !item) || (lock.locked_organ_slot != organ_slot) && !organ_slot)
+		//	continue
 		return TRUE
 	return FALSE
 

@@ -28,7 +28,7 @@
 	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] fingers [target]'s butt..."))
 	playsound(user, 'sound/misc/mat/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 
-	sex_session.perform_sex_action(target, 2, 6, TRUE)
+	sex_session.perform_sex_action(target, user, 2, 6, 2, src)
 	sex_session.handle_passive_ejaculation(target)
 
 /datum/sex_action/masturbate/other/anus/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

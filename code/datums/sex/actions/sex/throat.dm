@@ -39,20 +39,25 @@
 	playsound(target, 'sound/misc/mat/segso.ogg', 50, TRUE, -2, ignore_walls = FALSE)
 	do_thrust_animate(user, target)
 
-	sex_session.perform_sex_action(user, 2, 0, TRUE)
+	sex_session.perform_sex_action(user, target, 2, 0, 2.5, src)
 
 	if(sex_session.considered_limp(user))
-		sex_session.perform_sex_action(target, 0, 2, FALSE)
+		sex_session.perform_sex_action(target, user, 0.2, 2, 0.2, src)
 	else
 		var/oxyloss = 1.3
-		sex_session.perform_sex_action(target, 0, 7, FALSE)
+		sex_session.perform_sex_action(target, user, 0.5, 7, 0.5, src)
 		sex_session.perform_deepthroat_oxyloss(target, oxyloss)
 	sex_session.handle_passive_ejaculation()
 
-/datum/sex_action/sex/throat/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	user.visible_message(span_love("[user] cums into [target]'s throat!"))
-	user.virginity = FALSE
-	return "oral"
+/datum/sex_action/sex/throat/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip)
+	if(must_flip)
+		user.visible_message(span_love("[user] shudders in orgasm from being throatfucked!"))
+		user.virginity = FALSE
+		return ORGASM_LOCATION_SELF
+	else
+		user.visible_message(span_love("[user] cums into [target]'s throat!"))
+		user.virginity = FALSE
+		return ORGASM_LOCATION_ORAL
 
 
 /datum/sex_action/sex/throat/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

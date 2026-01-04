@@ -40,10 +40,10 @@
 	target.make_sucking_noise()
 	do_thrust_animate(user, target)
 
-	sex_session.perform_sex_action(user, 1, 3, TRUE)
+	sex_session.perform_sex_action(user, target, 1, 3, 1, src)
 	sex_session.handle_passive_ejaculation()
 
-	sex_session.perform_sex_action(target, 0, 2, FALSE)
+	sex_session.perform_sex_action(target, user, 0.5, 2, 0, src)
 	sex_session.handle_passive_ejaculation(target)
 
 /datum/sex_action/facesitting/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

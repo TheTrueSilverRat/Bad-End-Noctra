@@ -39,10 +39,10 @@
 	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] frots cocks together with [target]."))
 	playsound(user, 'sound/misc/mat/fingering.ogg', 20, TRUE, -2, ignore_walls = FALSE)
 
-	sex_session.perform_sex_action(user, 1, 4, TRUE)
+	sex_session.perform_sex_action(user, target, 1, 4, 1, src)
 	sex_session.handle_passive_ejaculation()
 
-	sex_session.perform_sex_action(target, 1, 4, TRUE)
+	sex_session.perform_sex_action(target, user, 1, 4, 1, src)
 	sex_session.handle_passive_ejaculation(target)
 
 /datum/sex_action/frotting/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

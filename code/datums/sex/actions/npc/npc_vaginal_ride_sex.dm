@@ -7,11 +7,6 @@
 /datum/sex_action/npc/npc_vaginal_ride_sex/shows_on_menu(mob/living/user, mob/living/target)
 	return FALSE
 
-/*/datum/sex_action/npc/npc_vaginal_ride_sex/can_perform(mob/living/user, mob/living/target)
-	if(user.seeksfuck) //should filter down to only npcs with seeksfuck behavior.
-		return TRUE
-	return FALSE*/
-
 /datum/sex_action/npc/npc_vaginal_ride_sex/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.visible_message(span_warning("[user] gets on top of [target] and begins riding [target.p_them()] with [user.p_their()] cunt!"))
@@ -27,29 +22,25 @@
 		do_onomatopoeia(user)
 
 	if(sex_session.considered_limp(target))
-		sex_session.perform_sex_action(target, 1.2, 3, TRUE)
+		sex_session.perform_sex_action(target, user, 1.2, 3, 1.2, src)
 	else
-		sex_session.perform_sex_action(target, 2.4, 7, TRUE)
+		sex_session.perform_sex_action(target, user, 2.4, 7, 2.4, src)
 	sex_session.handle_passive_ejaculation(target)
 
-	sex_session.perform_sex_action(target, 2, 4, FALSE)
+	sex_session.perform_sex_action(target, user, 2, 4, FALSE)
 
-/datum/sex_action/npc/npc_vaginal_ride_sex/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	target.visible_message(span_love("[target] cums into [user]'s cunt!"))
-	target.virginity = FALSE
-	return "into"
+/datum/sex_action/npc/npc_vaginal_ride_sex/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip)
+	if(must_flip)
+		user.visible_message(span_love("[user] cums into [target]'s pussy!"))
+		user.virginity = FALSE
+		target.virginity = FALSE
+		return ORGASM_LOCATION_INTO
+	else
+		user.visible_message(span_love("[user] creams themselves around [target]'s dick!"))
+		user.virginity = FALSE
+		target.virginity = FALSE
+		return ORGASM_LOCATION_ONTO
 
 /datum/sex_action/npc/npc_vaginal_ride_sex/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.visible_message(span_warning("[user] gets off [target]."))
-
-///datum/sex_action/npc/npc_vaginal_ride_sex/is_finished(mob/living/user, mob/living/target)
-	/*if(user.sexcon.finished_check())
-		if(issimple(user))
-			var/mob/living/simple_animal/hostile/retaliate/rogue/simpleuser = user
-			simpleuser.stoppedfucking(target)
-		else
-			var/mob/living/carbon/human/humanuser = user
-			humanuser.stoppedfucking(target)
-		return TRUE
-	return FALSE*/

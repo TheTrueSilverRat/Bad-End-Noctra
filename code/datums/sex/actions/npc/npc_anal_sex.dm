@@ -24,32 +24,29 @@
 	playsound(target, sex_session.get_force_sound(), 50, TRUE, -2, ignore_walls = FALSE)
 	do_thrust_animate(user, target)
 
-	sex_session.perform_sex_action(user, 2, 0, TRUE)
+	sex_session.perform_sex_action(user, target, 2, 0, 2, src)
 
 	if(sex_session.considered_limp())
-		sex_session.perform_sex_action(target, 1.2, 4, FALSE)
+		sex_session.perform_sex_action(target, user, 1.2, 4, 1.2, src)
 	else
-		sex_session.perform_sex_action(target, 2.4, 9, FALSE)
+		sex_session.perform_sex_action(target, user, 2.4, 9, 2.4, src)
 	sex_session.handle_passive_ejaculation(target)
 
 
-/datum/sex_action/npc/npc_anal_sex/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	user.visible_message(span_love("[user] cums into [target]'s butt!"))
-	target.virginity = FALSE
-	return "into"
+/datum/sex_action/npc/npc_anal_sex/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip)
+	if(must_flip)
+		user.visible_message(span_love("[user] cums with their butt from [target]'s cock!"))
+		user.virginity = FALSE
+		target.virginity = FALSE
+		return ORGASM_LOCATION_SELF
+	else
+		user.visible_message(span_love("[user] cums into [target]'s butt!"))
+		user.virginity = FALSE
+		target.virginity = FALSE
+		return ORGASM_LOCATION_INTO
 
 /datum/sex_action/npc/npc_anal_sex/on_finish(mob/living/user, mob/living/target)
 	. = ..()
 	user.visible_message(span_warning("[user] pulls [user.p_their()] cock out of [target]'s butt."))
 
 
-///datum/sex_action/npc/npc_anal_sex/is_finished(mob/living/user, mob/living/target)
-	/*if(user.sexcon.finished_check())
-		if(issimple(user))
-			var/mob/living/simple_animal/hostile/retaliate/rogue/simpleuser = user
-			simpleuser.stoppedfucking(target)
-		else
-			var/mob/living/carbon/human/humanuser = user
-			humanuser.stoppedfucking(target)
-		return TRUE
-	return FALSE*/

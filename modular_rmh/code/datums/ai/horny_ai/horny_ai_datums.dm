@@ -140,8 +140,7 @@
 			var/mob/living/carbon/carbon_target = target_living
 			target_restrained = carbon_target.handcuffed || carbon_target.legcuffed
 		if(!carbon_mob.pulling && !target_restrained)
-			if(carbon_mob.get_active_held_item())
-				carbon_mob.drop_all_held_items()
+			carbon_mob.drop_all_held_items()
 			var/sel_zone
 			if(prob(30)) // chance to gag
 				sel_zone = BODY_ZONE_PRECISE_MOUTH

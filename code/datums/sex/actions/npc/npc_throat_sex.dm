@@ -19,32 +19,26 @@
 	playsound(target, 'sound/misc/mat/segso.ogg', 50, TRUE, -2, ignore_walls = FALSE)
 	do_thrust_animate(user, target)
 
-	sex_session.perform_sex_action(user, 2, 0, TRUE)
+	sex_session.perform_sex_action(user, target, 2, 0, 2, src)
 
 	if(sex_session.considered_limp(user))
-		sex_session.perform_sex_action(target, 0, 2, FALSE)
+		sex_session.perform_sex_action(target, user, 0, 2, 2, src)
 	else
-		sex_session.perform_sex_action(target, 0, 7, FALSE)
+		sex_session.perform_sex_action(target, user, 0, 7, 2, src)
 	sex_session.handle_passive_ejaculation()
 
-/datum/sex_action/npc/npc_throat_sex/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	user.visible_message(span_love("[user] cums into [target]'s throat!"))
-	return "into"
+/datum/sex_action/npc/npc_throat_sex/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip)
+	if(must_flip)
+		user.visible_message(span_love("[user] shudders in orgasm from being throatfucked!"))
+		user.virginity = FALSE
+		return ORGASM_LOCATION_SELF
+	else
+		user.visible_message(span_love("[user] cums into [target]'s throat!"))
+		user.virginity = FALSE
+		return ORGASM_LOCATION_ORAL
 
 
 /datum/sex_action/npc/npc_throat_sex/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.visible_message(span_warning("[user] pulls [user.p_their()] cock out of [target]'s throat."))
 
-
-///datum/sex_action/npc/npc_throat_sex/is_finished(mob/living/user, mob/living/target)
-	/*if(user.sexcon.finished_check())
-		if(issimple(user))
-			var/mob/living/simple_animal/hostile/retaliate/rogue/simpleuser = user
-			simpleuser.stoppedfucking(target)
-		else
-			var/mob/living/carbon/human/humanuser = user
-			humanuser.stoppedfucking(target)
-
-		return TRUE
-	return FALSE*/

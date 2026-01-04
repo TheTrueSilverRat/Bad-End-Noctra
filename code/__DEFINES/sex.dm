@@ -33,6 +33,8 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define COMSIG_SEX_HOLE_AFTER_INSERT "sex_hole_after_insert"						// fires when we insert an object into a *hole*
 #define COMSIG_SEX_HOLE_BEFORE_REMOVE "sex_hole_before_remove"						// fires when we remove an object from a *hole*
 #define COMSIG_SEX_HOLE_AFTER_REMOVE "sex_hole_after_remove"						// fires when we remove an object from a *hole*
+#define COMSIG_SEX_ADJUST_ORGASM_PROG "sex_adjust_orgasm_prog"                  // (amount) - Adjust orgasm prog level
+#define COMSIG_SEX_SET_ORGASM_PROG "sex_set_orgasm_prog"                        // (amount) - Set orgasm prog to specific value
 
 // Knotting Component Signals
 /// Attempts to knot a target. Args: (target, force_level)
@@ -88,6 +90,7 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define MAX_AROUSAL 500
 #define PASSIVE_EJAC_THRESHOLD 108
 #define ACTIVE_EJAC_THRESHOLD 100
+#define MAX_ORGASM_PROG 120
 #define SEX_MAX_CHARGE 400
 #define CHARGE_FOR_CLIMAX 100
 #define VISIBLE_AROUSAL_THRESHOLD 20
@@ -232,6 +235,12 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define KINK_SUBMISSIVE "Submissive"
 #define KINK_TEASING "Teasing"
 #define KINK_VISUAL_EFFECTS "Visual Effects"
+
+
+#define ORGASM_LOCATION_INTO "into"
+#define ORGASM_LOCATION_ONTO "onto"
+#define ORGASM_LOCATION_ORAL "oral"
+#define ORGASM_LOCATION_SELF "self"
 
 /proc/build_sex_actions()
 	. = list()

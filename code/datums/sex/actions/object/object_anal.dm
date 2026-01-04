@@ -73,13 +73,13 @@
 			pain_amt = -8 //liquid ease pain i guess
 			target.heal_bodypart_damage(0,1,0,TRUE) //water on burn i guess.
 
-	sex_session.perform_sex_action(user, 2, pain_amt, FALSE)
+	sex_session.perform_sex_action(user, target, 2, pain_amt, 2, src)
 	sex_session.handle_passive_ejaculation()
 
-/datum/sex_action/object_fuck/object_anal/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/object_fuck/object_anal/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip)
 	user.visible_message(span_love("[user] cums with their ass!"))
 	user.virginity = FALSE
-	return "self"
+	return ORGASM_LOCATION_SELF
 
 /datum/sex_action/object_fuck/object_anal/on_finish(mob/living/user, mob/living/target)
 	. = ..()

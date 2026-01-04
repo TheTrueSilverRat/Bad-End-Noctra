@@ -907,6 +907,8 @@
 	return english_list(out, "something")
 
 /datum/reagents/proc/expose_temperature(temperature, coeff=0.02)
+	if(QDELETED(src) || !reagent_list)
+		return
 	if(istype(my_atom,/obj/item/reagent_containers))
 		var/obj/item/reagent_containers/RCs = my_atom
 		if(RCs.reagent_flags & NO_REACT) //stasis holders IE cryobeaker
@@ -925,7 +927,8 @@
 	for(var/datum/reagent/R as anything in reagent_list)
 		R.on_temp_change(increased)
 	handle_reactions()
-	SEND_SIGNAL(my_atom, COMSIG_REAGENTS_EXPOSE_TEMPERATURE, null, chem_temp)
+	if(my_atom && !QDELETED(my_atom))
+		SEND_SIGNAL(my_atom, COMSIG_REAGENTS_EXPOSE_TEMPERATURE, null, chem_temp)
 
 /**
  * Multiplies reagents inside this holder by a specific amount

@@ -37,7 +37,7 @@
 	if(user.has_kink(KINK_ONOMATOPOEIA))
 		do_onomatopoeia(user)
 
-	sex_session.perform_sex_action(user, 2, 0, TRUE)
+	sex_session.perform_sex_action(user, user, 2, 0, 2, src)
 
 	sex_session.handle_passive_ejaculation()
 

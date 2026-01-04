@@ -37,7 +37,7 @@
 	user.visible_message(sex_session.spanify_force("[user] [sex_session.get_generic_force_adjective()] jerks [target]'s cock with [user.p_their()] feet..."))
 	playsound(user, 'sound/misc/mat/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 
-	sex_session.perform_sex_action(target, 2, 4, TRUE)
+	sex_session.perform_sex_action(target, user, 2, 4, 2, src)
 	sex_session.handle_passive_ejaculation(target)
 
 /datum/sex_action/sex/other/footjob/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

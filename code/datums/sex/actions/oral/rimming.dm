@@ -1,5 +1,5 @@
 /datum/sex_action/rimming
-	name = "Rim them"
+	name = "Lick their anus"
 	gags_user = TRUE
 
 /datum/sex_action/rimming/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
@@ -15,7 +15,7 @@
 		return FALSE
 	if(!check_location_accessible(user, target, BODY_ZONE_PRECISE_GROIN, TRUE))
 		return FALSE
-	if(!check_location_accessible(user, user, BODY_ZONE_PRECISE_MOUTH))
+	if(!check_location_accessible(target, user, BODY_ZONE_PRECISE_MOUTH))
 		return FALSE
 	if(check_sex_lock(target, ORGAN_SLOT_ANUS))
 		return FALSE
@@ -33,7 +33,7 @@
 	user.make_sucking_noise()
 	do_thrust_animate(user, target)
 
-	sex_session.perform_sex_action(target, 2, 0, TRUE)
+	sex_session.perform_sex_action(target, user, 2, 0, 1.5, src)
 	sex_session.handle_passive_ejaculation(target)
 
 /datum/sex_action/rimming/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)

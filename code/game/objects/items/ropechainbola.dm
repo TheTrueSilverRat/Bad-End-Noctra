@@ -114,7 +114,7 @@
 		target.set_handcuffed(cuffs)
 
 		target.update_handcuffed()
-		return TRUE
+		return FALSE
 	else
 		if(target.legcuffed)
 			return FALSE
@@ -130,7 +130,7 @@
 		target.add_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, multiplicative_slowdown = legcuff_multiplicative_slowdown)
 
 		target.update_inv_legcuffed()
-		return TRUE
+		return FALSE
 
 /obj/item/rope/chain
 	name = "chain"

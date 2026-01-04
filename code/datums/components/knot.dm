@@ -214,7 +214,7 @@
 		var/obj/item/organ/genitals/penis/penis = top.getorganslot(ORGAN_SLOT_PENIS)
 		var/datum/sex_session/session = get_sex_session(top, btm)
 		if(session)
-			session.perform_sex_action(btm, penis?.organ_size > DEFAULT_PENIS_SIZE ? 6.0 : 3.0, 2, FALSE)
+			session.perform_sex_action(btm, penis?.organ_size > DEFAULT_PENIS_SIZE ? 6.0 : 3.0, 2, 3, FALSE)
 			var/datum/component/arousal/btm_arousal = btm.GetComponent(/datum/component/arousal)
 			btm_arousal?.try_ejaculate()
 		if(prob(50))
@@ -415,6 +415,9 @@
 	var/turf/turf = get_turf(btm)
 	turf.add_liquid(/datum/reagent/consumable/milk, 5)
 
+	btm.reset_pull_offsets()
+	top.reset_pull_offsets()
+
 /datum/component/knotting/proc/knot_exit(keep_top_status = FALSE, keep_btm_status = FALSE)
 	var/mob/living/carbon/human/top = knotted_owner
 	var/mob/living/carbon/human/btm = knotted_recipient
@@ -434,6 +437,9 @@
 	knotted_owner = null
 	knotted_recipient = null
 	knotted_status = KNOTTED_NULL
+
+	btm.reset_pull_offsets()
+	top.reset_pull_offsets()
 
 #undef KNOTTED_NULL
 #undef KNOTTED_AS_TOP

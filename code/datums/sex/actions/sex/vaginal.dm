@@ -44,18 +44,25 @@
 	if(user.has_kink(KINK_ONOMATOPOEIA))
 		do_onomatopoeia(user)
 
-	sex_session.perform_sex_action(user, 2, 0, TRUE)
+	sex_session.perform_sex_action(user, target, 2, 0, 2, src)
 
 	if(sex_session.considered_limp(user))
-		sex_session.perform_sex_action(target, 1.2, 4, FALSE)
+		sex_session.perform_sex_action(target, user, 1.2, 4, 1.2, src)
 	else
-		sex_session.perform_sex_action(target, 2.4, 9, FALSE)
+		sex_session.perform_sex_action(target, user, 2.4, 9, 2.4, src)
 	sex_session.handle_passive_ejaculation(target)
 
-/datum/sex_action/sex/vaginal/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	user.visible_message(span_love("[user] cums into [target]'s pussy!"))
-	user.virginity = FALSE
-	return "into"
+/datum/sex_action/sex/vaginal/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target, must_flip)
+	if(must_flip)
+		user.visible_message(span_love("[user] creams themselves around [target]'s dick!"))
+		user.virginity = FALSE
+		target.virginity = FALSE
+		return ORGASM_LOCATION_ONTO
+	else
+		user.visible_message(span_love("[user] cums into [target]'s pussy!"))
+		user.virginity = FALSE
+		target.virginity = FALSE
+		return ORGASM_LOCATION_INTO
 
 
 /datum/sex_action/sex/vaginal/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
