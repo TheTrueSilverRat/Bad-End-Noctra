@@ -154,8 +154,7 @@
 	)
 
 	pack_traits = list(
-		TRAIT_MEDIUMARMOR,
-		TRAIT_NOBLE,
+		TRAIT_MEDIUMARMOR
 	)
 
 	pack_contents = list(

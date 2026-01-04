@@ -29,10 +29,6 @@
 		/datum/skill/combat/bows = 2
 	)
 
-	traits = list(
-		TRAIT_NOBLE
-	)
-
 /datum/job/advclass/pilgrim/noble/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
 	spawned.adjust_skillrank(/datum/skill/misc/music, pick(1, 2), TRUE)
