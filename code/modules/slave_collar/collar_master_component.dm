@@ -16,6 +16,10 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	var/mob/living/carbon/human/remote_control_pet_body
 	var/datum/mind/remote_control_pet_mind
 	var/mob/dead/observer/remote_control_pet_ghost
+	var/list/remote_control_master_skills
+	var/list/remote_control_master_experience
+	var/list/remote_control_pet_skills
+	var/list/remote_control_pet_experience
 	var/list/forced_arousal_timers = list()
 
 /datum/component/collar_master/Initialize(...)
@@ -227,7 +231,7 @@ GLOBAL_LIST_EMPTY(collar_masters)
 /datum/component/collar_master/proc/force_emote(mob/living/carbon/human/pet, message)
 	if(!pet || !(pet in my_pets) || !message)
 		return FALSE
-	pet.emote("me", 1, message, FALSE, TRUE, TRUE)
+	pet.emote("me", 1, message, TRUE, TRUE, TRUE, TRUE)
 	return TRUE
 
 /datum/component/collar_master/proc/toggle_arousal(mob/living/carbon/human/pet)
@@ -331,6 +335,12 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	remote_control_pet_body = pet
 	remote_control_pet_mind = pet_mind
 	remote_control_pet_ghost = ghost
+	var/datum/skill_holder/master_skills = master_body.ensure_skills()
+	var/datum/skill_holder/pet_skills = pet.ensure_skills()
+	remote_control_master_skills = master_skills.known_skills.Copy()
+	remote_control_master_experience = master_skills.skill_experience.Copy()
+	remote_control_pet_skills = pet_skills.known_skills.Copy()
+	remote_control_pet_experience = pet_skills.skill_experience.Copy()
 
 	// Move the master's mind into the pet.
 	mindparent.transfer_to(pet)
@@ -352,6 +362,14 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	remote_control_pet_body = null
 	remote_control_pet_mind = null
 	remote_control_pet_ghost = null
+	var/list/master_skills_snapshot = remote_control_master_skills
+	var/list/master_experience_snapshot = remote_control_master_experience
+	var/list/pet_skills_snapshot = remote_control_pet_skills
+	var/list/pet_experience_snapshot = remote_control_pet_experience
+	remote_control_master_skills = null
+	remote_control_master_experience = null
+	remote_control_pet_skills = null
+	remote_control_pet_experience = null
 	// Return minds to their original homes when possible.
 	if(mindparent && master_body && !QDELETED(master_body) && mindparent.current != master_body)
 		mindparent.transfer_to(master_body, TRUE)
@@ -359,6 +377,14 @@ GLOBAL_LIST_EMPTY(collar_masters)
 		pet_mind.transfer_to(pet_body, TRUE)
 	if(pet_ghost && !QDELETED(pet_ghost))
 		pet_ghost.reenter_corpse(TRUE)
+	if(master_body && !QDELETED(master_body) && master_skills_snapshot)
+		var/datum/skill_holder/master_skills = master_body.ensure_skills()
+		master_skills.known_skills = master_skills_snapshot.Copy()
+		master_skills.skill_experience = master_experience_snapshot ? master_experience_snapshot.Copy() : list()
+	if(pet_body && !QDELETED(pet_body) && pet_skills_snapshot)
+		var/datum/skill_holder/pet_skills = pet_body.ensure_skills()
+		pet_skills.known_skills = pet_skills_snapshot.Copy()
+		pet_skills.skill_experience = pet_experience_snapshot ? pet_experience_snapshot.Copy() : list()
 	if(mindparent?.current)
 		to_chat(mindparent.current, span_notice("The collar releases its hold; you return to your own body."))
 	if(pet_mind?.current && pet_mind.current != mindparent?.current)

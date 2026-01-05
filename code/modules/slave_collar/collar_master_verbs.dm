@@ -226,6 +226,10 @@
 	var/message = input(src, "Force your pet to emote:", "Collar Command") as text|null
 	if(!message)
 		return
+	message = trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN))
+	message = parsemarkdown_basic(message, limited = TRUE, barebones = TRUE)
+	if(!length(message))
+		return
 	CM.last_command_time = world.time
 	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
 		if(!pet || !(pet in CM.my_pets))
