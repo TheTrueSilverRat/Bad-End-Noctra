@@ -1,4 +1,4 @@
 <!-- Most valid html will work in here, excluding images. -->
-<center>Bad End Theatre Discord Server: <a href="https://discord.gg/wxENv6xqsw">https://discord.gg/wxENv6xqsw</a></center>
+<center>Discord Server: <a href="https://discord.gg/wxENv6xqsw">Bad End Theatre</center>
 <center>* TECHNICAL DISPLAY PLAYTEST *</center>
 <!-- We're no longer so unstable, also it's shit advertising. -->
