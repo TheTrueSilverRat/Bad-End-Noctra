@@ -388,16 +388,6 @@
 	H.mind.special_items["Needle"] = /obj/item/needle
 	H.mind.special_items["Thread"] = /obj/item/natural/bundle/fibers/full
 
-/datum/quirk/bleublood
-	name = "Noble Lineage"
-	desc = "I am of noble blood."
-	value = 3
-
-/datum/quirk/bleublood/on_spawn()
-	var/mob/living/carbon/human/H = quirk_holder
-	ADD_TRAIT(H, TRAIT_NOBLE, QUIRK_TRAIT)
-	H.adjust_skillrank_up_to(/datum/skill/misc/reading, 2, TRUE)
-
 /datum/quirk/richpouch
 	name = "Rich Pouch"
 	desc = "I have a pouch full of mammons."
