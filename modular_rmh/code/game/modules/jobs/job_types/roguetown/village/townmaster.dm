@@ -82,6 +82,7 @@ GLOBAL_LIST_EMPTY(townmaster_titles)
 	head = /obj/item/clothing/head/crown/serpcrown
 	backr = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/leather/plaquegold
+	backpack_contents = list(/obj/item/storage/keyring/captain)
 	beltl = /obj/item/weapon/knife/dagger/steel/special
 	beltr = /obj/item/weapon/sword/rapier
 	scabbards = list(/obj/item/weapon/scabbard/knife/royal, /obj/item/weapon/scabbard/sword/royal)

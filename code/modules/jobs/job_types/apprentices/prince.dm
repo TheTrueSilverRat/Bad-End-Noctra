@@ -51,10 +51,11 @@
 	exp_types_granted = list(EXP_TYPE_NOBLE)
 
 /datum/job/advclass/heir/daring
-	title = "Daring Twit"
-	tutorial = "You're a somebody, someone important. It only makes sense you want to make a name for yourself, to gain your own glory so people see how great you really are beyond your bloodline. Plus, if you're beloved by the people for your exploits you'll be chosen! Probably. Shame you're as useful and talented as a squire, despite your delusions to the contrary."
+	title = "Heir"
+	tutorial = "You are the heir of a noble line, raised with the certainty that greatness is your birthright."
 	outfit = /datum/outfit/heir/daring
 	category_tags = list(CTAG_HEIR)
+	allowed_sexes = (MALE)
 
 	jobstats = list(
 		STATKEY_STR = 1,
@@ -66,12 +67,12 @@
 
 	skills = list(
 		/datum/skill/combat/axesmaces = 1,
-		/datum/skill/combat/bows = 2,
-		/datum/skill/combat/crossbows = 2,
-		/datum/skill/combat/swords = 2,
-		/datum/skill/combat/wrestling = 2,
-		/datum/skill/combat/unarmed = 2,
-		/datum/skill/combat/knives = 1,
+		/datum/skill/combat/bows = 3,
+		/datum/skill/combat/crossbows = 3,
+		/datum/skill/combat/swords = 3,
+		/datum/skill/combat/wrestling = 3,
+		/datum/skill/combat/unarmed = 3,
+		/datum/skill/combat/knives = 3,
 		/datum/skill/misc/swimming = 2,
 		/datum/skill/misc/climbing = 2,
 		/datum/skill/misc/athletics = 1,
@@ -87,8 +88,8 @@
 /datum/outfit/heir/daring
 	name = "Daring Twit (Prince)"
 	pants = /obj/item/clothing/pants/tights
-	shirt = /obj/item/clothing/shirt/undershirt/colored/guard
-	armor = /obj/item/clothing/armor/chainmail
+	shirt = /obj/item/clothing/shirt/dress/royal/prince
+	belt = /obj/item/storage/belt/leather
 	shoes = /obj/item/clothing/shoes/nobleboot
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/weapon/sword
@@ -97,10 +98,11 @@
 	backr = /obj/item/storage/backpack/satchel
 
 /datum/job/advclass/heir/aristocrat
-	title = "Sheltered Aristocrat"
-	tutorial = "Life has been kind to you; you've an entire keep at your disposal, servants to wait on you, and a whole retinue of guards to guard you. You've nothing to prove; just live the good life and you'll be a lord someday, too. A lack of ambition translates into a lacking skillset beyond schooling, though, and your breaks from boredom consist of being a damsel or court gossip."
+	title = "Noble woman"
+	tutorial = "Life has been kind to you. A keep lies at your disposal with servants to obey and guards to protect you. Yet none of it is truly yours. As a woman you are not expected to inherit. Your fate is alliance not rule and your value is measured in marriage prospects rather than merit. You are raised to be presentable and obedient."
 	outfit = /datum/outfit/heir/aristocrat
 	category_tags = list(CTAG_HEIR)
+	allowed_sexes = (FEMALE)
 	jobstats = list(
 		STATKEY_PER = 2,
 		STATKEY_STR = -1,
@@ -110,8 +112,6 @@
 	)
 
 	skills = list(
-		/datum/skill/combat/bows = 1,
-		/datum/skill/combat/wrestling = 1,
 		/datum/skill/combat/unarmed = 1,
 		/datum/skill/combat/knives = 1,
 		/datum/skill/misc/swimming = 2,
