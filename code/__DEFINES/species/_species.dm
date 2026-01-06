@@ -15,6 +15,7 @@
 #define SPEC_ID_TRITON "triton"
 #define SPEC_ID_MEDICATOR "medicator"
 #define SPEC_ID_HALFLING "halfling"
+#define SPEC_ID_OGRE "ogre"
 
 #define SPEC_ID_ORC	"orc"
 #define SPEC_ID_GOBLIN	"goblin"
@@ -38,6 +39,7 @@
 	SPEC_ID_KOBOLD,\
 	SPEC_ID_HOLLOWKIN,\
 	SPEC_ID_HALF_ORC,\
+	SPEC_ID_OGRE,\
 	SPEC_ID_ORC,\
 	SPEC_ID_GOBLIN,\
 	SPEC_ID_ROUSMAN,\
@@ -265,6 +267,7 @@
 	SPEC_ID_KOBOLD,\
 	SPEC_ID_RAKSHARI,\
 	SPEC_ID_HOLLOWKIN,\
+	SPEC_ID_OGRE,\
 )
 
 /// Species that use the base human body, adjusted or otherwise

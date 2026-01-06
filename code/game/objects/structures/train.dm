@@ -81,10 +81,9 @@
 		qdel(departing_mob)
 		return "Cannot cryo [mob_name]: no assigned job. Deleting early."
 	log_game("Cryo successful for [mob_name], adjusting job [J.title].")
+	J.adjust_current_positions(-1)
 	if(J.parent_job)
 		J.parent_job.adjust_current_positions(-1)
-	else
-		J.adjust_current_positions(-1)
 	for(var/obj/structure/resurrection_rune/rr in GLOB.global_resurrunes)
 
 		if(departing_mob in rr.resrunecontroler.linked_users)
