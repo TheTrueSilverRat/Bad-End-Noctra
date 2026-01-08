@@ -41,7 +41,8 @@
 	)
 
 	traits = list(
-		TRAIT_SEEPRICES
+		TRAIT_SEEPRICES,
+		TRAIT_MERCHANT_GUILD
 	)
 
 /datum/outfit/merchant

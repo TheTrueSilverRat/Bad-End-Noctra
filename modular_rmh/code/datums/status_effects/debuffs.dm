@@ -263,7 +263,7 @@
 	id = "bigboobs"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/bigboobs
 	examine_text = span_notice("They have massive MAGICAL GOODS!")
-	effectedstats = list("constitution" = 3, "speed" = -1)
+	effectedstats = list("speed" = -1)
 	duration = 10 MINUTES
 	var/initialpenis
 	var/initialbutt
@@ -369,12 +369,14 @@
 /atom/movable/screen/alert/status_effect/darkling_glare
 	name = "Sunlight Sensitivity"
 	desc = "It's too bright for my kind!"
-	icon_state = "stressb"
+	icon = 'modular_rmh/icons/mob/screen_alert.dmi'
+	icon_state = "blackeye"
 
 // Emberwine
 /atom/movable/screen/alert/status_effect/emberwine
 	name = "Aphrodisiac"
 	desc = "The warmth is spreading through my body..."
+	icon = 'modular_rmh/icons/mob/screen_alert.dmi'
 	icon_state = "emberwine"
 
 /datum/status_effect/debuff/emberwine
@@ -382,3 +384,18 @@
 	effectedstats = list("strength" = -1, "endurance" = -2, "speed" = -2, "intelligence" = -3)
 	duration = 1 MINUTES
 	alert_type = /atom/movable/screen/alert/status_effect/emberwine
+
+//Aphrodisiac
+
+/atom/movable/screen/alert/status_effect/aphrodisiac
+	name = "Aphrodisiac"
+	desc = "A dull heat coils low in my abdomen..."
+	icon = 'modular_rmh/icons/mob/screen_alert.dmi'
+	icon_state = "emberwine"
+
+/datum/status_effect/debuff/aphrodisiac
+	id = "aphrodisiac"
+	effectedstats = list("strength" = -2, "endurance" = -3, "speed" = -3, "intelligence" = -5)
+	duration = 1 MINUTES
+	alert_type = /atom/movable/screen/alert/status_effect/aphrodisiac
+

@@ -62,9 +62,10 @@
 		cast_on.mind.remove_antag_datum(/datum/antagonist/zombie)
 		cast_on.death()
 
-	var/datum/component/rot/rot = cast_on.GetComponent(/datum/component/rot)
+	var/datum/component/rot/rot = cast_on.GetComponent(/datum/component/rot/corpse)
 	if(rot)
 		rot.amount = 0
+		rot.last_process = world.time
 
 	for(var/obj/item/bodypart/rotty in cast_on.bodyparts)
 		rotty.rotted = FALSE

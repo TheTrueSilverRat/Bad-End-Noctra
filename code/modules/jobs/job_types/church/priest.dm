@@ -42,6 +42,7 @@
 
 	traits = list(
 		TRAIT_RITUALIST,
+		TRAIT_CHOSEN,
 	)
 
 	skills = list(

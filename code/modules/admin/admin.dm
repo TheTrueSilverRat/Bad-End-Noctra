@@ -1059,6 +1059,7 @@
 		if(is_priest_job(HL.mind.assigned_role))
 			HL.mind.set_assigned_role(/datum/job/villager)
 			HL.job = "Ex-Priest"
+			REMOVE_TRAIT(HL, TRAIT_CHOSEN, JOB_TRAIT)
 
 
 			HL.verbs -= /mob/living/carbon/human/proc/coronate_lord
@@ -1072,6 +1073,7 @@
 	priest_job?.add_spells(M)
 	M.mind.set_assigned_role(/datum/job/priest)
 	M.job = "Priest"
+	ADD_TRAIT(M, TRAIT_CHOSEN, JOB_TRAIT)
 	M.set_patron(/datum/patron/divine/astrata)
 	var/holder = M.patron?.devotion_holder
 	if(holder)

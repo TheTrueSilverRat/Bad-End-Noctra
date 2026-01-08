@@ -81,6 +81,16 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	if(pet)
 		INVOKE_ASYNC(src, PROC_REF(cleanup_pet), pet)
 
+/datum/component/collar_master/proc/on_master_death(datum/source)
+	SIGNAL_HANDLER
+	if(remote_control_pet_body)
+		INVOKE_ASYNC(src, PROC_REF(end_remote_control))
+
+/datum/component/collar_master/proc/on_master_deleted(datum/source, force)
+	SIGNAL_HANDLER
+	if(remote_control_pet_body)
+		INVOKE_ASYNC(src, PROC_REF(end_remote_control))
+
 /datum/component/collar_master/proc/shock_pet(mob/living/carbon/human/pet, intensity = 10)
 	if(!pet || !(pet in my_pets))
 		return FALSE
@@ -335,6 +345,8 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	remote_control_pet_body = pet
 	remote_control_pet_mind = pet_mind
 	remote_control_pet_ghost = ghost
+	RegisterSignal(master_body, COMSIG_MOB_DEATH, PROC_REF(on_master_death))
+	RegisterSignal(master_body, COMSIG_PARENT_QDELETING, PROC_REF(on_master_deleted))
 	var/datum/skill_holder/master_skills = master_body.ensure_skills()
 	var/datum/skill_holder/pet_skills = pet.ensure_skills()
 	remote_control_master_skills = master_skills.known_skills.Copy()
@@ -358,6 +370,8 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	var/mob/living/carbon/human/pet_body = remote_control_pet_body
 	var/datum/mind/pet_mind = remote_control_pet_mind
 	var/mob/dead/observer/pet_ghost = remote_control_pet_ghost
+	if(master_body)
+		UnregisterSignal(master_body, list(COMSIG_MOB_DEATH, COMSIG_PARENT_QDELETING))
 	remote_control_master_body = null
 	remote_control_pet_body = null
 	remote_control_pet_mind = null

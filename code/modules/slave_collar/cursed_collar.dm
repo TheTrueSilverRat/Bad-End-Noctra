@@ -74,3 +74,12 @@
 /obj/item/clothing/neck/roguetown/cursed_collar/Destroy()
 	REMOVE_TRAIT(src, TRAIT_NODROP, "cursed_collar")
 	return ..()
+
+/datum/anvil_recipe/cursed_collar
+	name = "Cursed collar"
+	recipe_name = "a cursed collar"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/neck/roguetown/cursed_collar
+	craftdiff = 2
+	i_type = "Valuables"
+	category = "Valuables"

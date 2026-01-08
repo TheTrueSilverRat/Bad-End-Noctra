@@ -54,16 +54,23 @@
 					var/turf/tur = get_turf(H)
 					if(unlinked.maxHealth - unlinked.health >= RUNE_DAMAGE_THRESHOLD || unlinked.is_dead() || istype(tur, /turf/open/lava) || istype(tur, /turf/open/lava/acid))
 						if(!(unlinked in resurrecting))
-							if(!can_rune_revive(unlinked.mind))
+							if(!can_rune_revive(unlinked.mind, unlinked))
 								continue
 							resurrecting |= unlinked
 							to_chat(unlinked.mind.get_ghost(TRUE, TRUE), span_blue("An alien force suddenly <b>YANKS</b> you back to life!"))
 							addtimer(CALLBACK(src, PROC_REF(start_revival), unlinked, FALSE), 1 SECONDS)
 
-/datum/resurrection_rune_controller/proc/can_rune_revive(datum/mind/mind)
+/datum/resurrection_rune_controller/proc/can_rune_revive(datum/mind/mind, mob/living/carbon/body = null)
 	if(!mind)
 		return FALSE
-	return !mind.rune_revive_used
+	if(mind.rune_revive_used)
+		return FALSE
+	if(body && HAS_TRAIT(body, TRAIT_CHOSEN))
+		return TRUE
+	var/mob/living/carbon/current = mind.current
+	if(istype(current) && HAS_TRAIT(current, TRAIT_CHOSEN))
+		return TRUE
+	return is_priest_job(mind.assigned_role)
 
 
 /datum/resurrection_rune_controller/proc/spawn_new_body(datum/mind/mind)
@@ -79,6 +86,8 @@
 	mind.current = body //little hack
 	mind.transfer_to(body)
 	mind.grab_ghost(TRUE)
+	if(is_priest_job(mind.assigned_role))
+		ADD_TRAIT(body, TRAIT_CHOSEN, JOB_TRAIT)
 	mind.rune_revive_used = TRUE
 	body.flash_act()
 	resurrecting -= mind
@@ -125,7 +134,7 @@
 
 	if(!(target in linked_users)) //sanity check
 		return
-	if(!can_rune_revive(target.mind))
+	if(!can_rune_revive(target.mind, target))
 		return
 
 	var/turf/tur = get_turf(target)
@@ -136,7 +145,7 @@
 	return
 
 /datum/resurrection_rune_controller/proc/start_revival(mob/living/carbon/user, is_linked = TRUE)
-	if(!can_rune_revive(user?.mind))
+	if(!can_rune_revive(user?.mind, user))
 		resurrecting -= user
 		return
 	if(is_linked)
@@ -161,7 +170,7 @@
 		resurrecting -= user
 		return
 	var/datum/mind/mind = body.mind
-	if(!can_rune_revive(mind))
+	if(!can_rune_revive(mind, body))
 		resurrecting -= user
 		return
 	body.visible_message(span_blue("With a loud pop, [body.name] suddenly disappears!"))

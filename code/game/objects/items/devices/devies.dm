@@ -32,6 +32,9 @@
 	usage_prompt = "Summon GOLDFACE"
 
 /obj/item/gem_device/goldface/on_use(mob/living/user)
+	if(!HAS_MIND_TRAIT(user, TRAIT_MERCHANT_GUILD))
+		to_chat(user, span_warning("The gem refuses to answer your call."))
+		return FALSE
 	var/turf/step_turf = get_step(get_turf(user), user.dir)
 	do_sparks(3, TRUE, step_turf)
 	new /obj/structure/fake_machine/merchantvend(step_turf)

@@ -161,6 +161,7 @@
 #define span_artery(str) ("<span class='artery'>" + str + "</span>")
 #define span_hellspeak(str) ("<span class='hellspeak'>" + str + "</span>")
 #define span_love(str) ("<span class='love'>" + str + "</span>")
+#define span_aphrodisiac(str) ("<span class='aphrodisiac'>" + str + "</span>")
 
 /* Complex Spans */
 /// Ones where span_X isn't just the class

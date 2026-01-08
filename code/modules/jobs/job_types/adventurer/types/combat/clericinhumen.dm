@@ -3,6 +3,7 @@
 	tutorial = "Clerics are wandering warriors of the Inhumen Gods, zealots whom demonstrated martial talent.\
 	Protected by stolen armor and unholy zeal, they are a force to be reckoned with."
 	allowed_races = RACES_PLAYER_ALL
+	allowed_patrons = ALL_PROFANE_PATRONS
 	outfit = /datum/outfit/adventurer/inhumencleric
 	category_tags = list(CTAG_ADVENTURER)
 	total_positions = 4

@@ -180,4 +180,6 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 .bone					{color: #e3dac9;}
 
 .silver					{color: #c0c0c0;}
+
+.aphrodisiac			{color: #FF00B4;}
 </style>"}

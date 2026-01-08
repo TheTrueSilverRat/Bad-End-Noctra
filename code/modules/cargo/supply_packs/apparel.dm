@@ -159,6 +159,11 @@
 	cost = 35
 	contains = /obj/item/clothing/neck/leathercollar
 
+/datum/supply_pack/apparel/cursed_collar
+	name = "Cursed Collar"
+	cost = 10
+	contains = /obj/item/clothing/neck/roguetown/cursed_collar
+
 // CLOAK
 
 /datum/supply_pack/apparel/tabard

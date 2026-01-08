@@ -1,19 +1,16 @@
 /datum/job/men_at_arms
 	title = "Men-at-arms"
-	tutorial = "Chosen by the Captain and King, you're not like those shit stinking City Watchmen. \
-	Like a hound on a leash, you stand vigilant for your masters. \
-	You live better than the rest of the taffers in this kingdom-- \
-	infact, you take shifts manning the gate with your brethren, assuming the gatemaster isn't there, \
-	keeping the savages out, keeping the shit-covered knaves away from your foppish superiors. \
-	It will be a cold day in hell when you and your compatriots are slain, and nobody in this town will care. \
-	The nobility needs good men, and they only come in a pair of pairs."
+	tutorial = "You are a member of the town guard. \
+	You've proven yourself worthy to the Captain and now you've got yourself a salary... \
+	as long as you keep the peace that is."
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_MENATARMS
 	faction = FACTION_TOWN
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 3
+	spawn_positions = 3
 	bypass_lastclass = TRUE
+	allowed_sexes = (MALE)
 
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	blacklisted_species = list(SPEC_ID_HALFLING)
@@ -42,7 +39,7 @@
 	pants = /obj/item/clothing/pants/trou/leather/guard
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
-	beltl = /obj/item/storage/keyring/manorguard
+	beltl = /obj/item/storage/keyring/captain
 
 /datum/outfit/watchman/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
 	. = ..()
@@ -71,7 +68,7 @@
 	)
 
 	skills = list(
-		/datum/skill/combat/polearms = 4,
+		/datum/skill/combat/polearms = 3,
 		/datum/skill/combat/swords = 3,
 		/datum/skill/combat/knives = 3,
 		/datum/skill/combat/axesmaces = 3,
@@ -119,7 +116,7 @@
 	)
 
 	skills = list(
-		/datum/skill/combat/swords = 4,
+		/datum/skill/combat/swords = 3,
 		/datum/skill/combat/knives = 3,
 		/datum/skill/combat/axesmaces = 3,
 		/datum/skill/combat/wrestling = 3,
@@ -133,7 +130,6 @@
 
 	traits = list(
 		TRAIT_MEDIUMARMOR,
-		TRAIT_DODGEEXPERT,
 		TRAIT_KNOWBANDITS
 	)
 
@@ -168,8 +164,8 @@
 	skills = list(
 		/datum/skill/combat/axesmaces = 3,
 		/datum/skill/combat/knives = 2,
-		/datum/skill/combat/bows = 4,
-		/datum/skill/combat/crossbows = 4,
+		/datum/skill/combat/bows = 3,
+		/datum/skill/combat/crossbows = 3,
 		/datum/skill/combat/wrestling = 3,
 		/datum/skill/combat/unarmed = 3,
 		/datum/skill/misc/swimming = 2,
@@ -181,7 +177,6 @@
 
 	traits = list(
 		TRAIT_KNOWBANDITS,
-		TRAIT_DODGEEXPERT
 	)
 
 /datum/outfit/watchman/ranger

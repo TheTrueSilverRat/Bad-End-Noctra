@@ -47,9 +47,12 @@
 		was_zombie.become_rotman = FALSE
 		target.mind.remove_antag_datum(/datum/antagonist/zombie)
 		target.death()
-	var/datum/component/rot/rot = target.GetComponent(/datum/component/rot)
+	var/datum/component/rot/rot = target.GetComponent(/datum/component/rot/corpse)
+	if(!rot)
+		rot = target.GetComponent(/datum/component/rot/simple)
 	if(rot)
 		rot.amount = 0
+		rot.last_process = world.time
 	if(iscarbon(target))
 		var/mob/living/carbon/stinky = target
 		for(var/obj/item/bodypart/rotty in stinky.bodyparts)

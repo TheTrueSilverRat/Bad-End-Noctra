@@ -171,6 +171,9 @@
 		if(real_name in GLOB.heretical_players)
 			. += span_userdanger("HERETIC! SHAME!")
 
+		if(HAS_TRAIT(src, TRAIT_CHOSEN))
+			. += span_notice("the ordained voice of the ten.")
+
 		if(HAS_TRAIT(src, TRAIT_INDENTURED) && HAS_TRAIT(user, TRAIT_NOBLE))
 			. += span_notice("A commoner who knows their place.")
 

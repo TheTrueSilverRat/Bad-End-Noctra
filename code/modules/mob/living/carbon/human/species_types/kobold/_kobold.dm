@@ -10,22 +10,21 @@
 /datum/species/kobold
 	name = "Kobold"
 	id = SPEC_ID_KOBOLD
-	desc = "Speculated to have originated from the dank depths of Subterra, \
-	Kobolds are a species of stout sea-faring and mountain-dwelling lizardfolk infamous for their skills in trap-making, \
-	their habit of hoarding grandiose amounts of trinkets and artifacts, and their opportunism.\
-	\n\n\
-	They are often in servitude to great beasts such as dragons and giants - trapping their lairs and utilizing pack tactics to dispose of ambitious adventurers and thieves alike. \
-	But in their lonesome, Kobolds are generally weak and quick to die, as they noticeably lack the meaningful amount of constitution, strength, and endurance that other species usually have. \
-	\n\n\
-	WARNING: THIS IS A HEAVILY DISCRIMINATED AGAINST CHALLENGE SPECIES WITH ACTIVE SPECIES DETRIMENTS. YOU CAN AND WILL DIE A LOT; PLAY AT YOUR OWN RISK!"
+	desc = "Every society has the lowest common denominator; And Kobolds are exactly that. Though they share their appearance with the dragons of myth, a fact they will quite often bring up and cite as part of their numerous religions, most scholars agree that their origins are much more likely to be simply reptilian in nature. \
+	Many societies don't even consider these creatures to be 'humane' or 'mortal', instead relegating them to simple pests and vermins, like the rous or other creechers that inhabit the woods at night. \
+	However, in the far dredges of the world, where numbers are few and able hands are desperately needed, there exists a need for anyone who would work; Thus, kobolds find their homes as workers and indentured servants as the lowest of the low. \
+	It is hard to say that a kobold, then, can excel in anything- Even the most simple of jobs oftentimes slips past their dull, lackluster intelligence. \
+	These creatures are suited to live just about everywhere, but succeed in doing little more than simply surviving in almost any biome. They're extremely quick on their feet, a trait from being primarily prey creatures for so long, with eyes that are able to perceive the world around them far better than that of the normal hume.. \
+	But that is where their positive features end. They are slow-witted, stupid at the best of times, obscenely weak in both strength and body, and many religious folk state they are almost entirely overlooked by the Ten. \
+	These creatures exist only to suffer; And though they suffer more than most of the other races, it is the Kobold way to hold to any thread of survival for as long as one can hold it."
 
 	default_color = "FFFFFF"
 
 	species_traits = list(NO_UNDERWEAR)
-	inherent_traits = list(TRAIT_TINY, TRAIT_DARKVISION)
+	inherent_traits = list(TRAIT_TINY)
 
-	specstats_m = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
-	specstats_f = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
+	specstats_m = list(STATKEY_STR = -4, STATKEY_PER = 2, STATKEY_INT = -4, STATKEY_CON = -4, STATKEY_END = -2, STATKEY_SPD = 4, STATKEY_LCK = 0)
+	specstats_f = list(STATKEY_STR = -4, STATKEY_PER = 2, STATKEY_INT = -4, STATKEY_CON = -4, STATKEY_END = -2, STATKEY_SPD = 4, STATKEY_LCK = 0)
 
 	// allowed_pronouns = PRONOUNS_LIST_IT_ONLY // Чтобы могли брать любые местоимения
 

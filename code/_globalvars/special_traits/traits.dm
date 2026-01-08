@@ -679,6 +679,7 @@
 	weight = 50
 
 /datum/special_trait/illicit_merchant/on_apply(mob/living/carbon/human/character, silent)
+	ADD_TRAIT(character, TRAIT_MERCHANT_GUILD, "[type]")
 	character.mind.special_items["Merchant Key"] = /obj/item/key/merchant
 	character.mind.special_items["GOLDFACE Gem"] = /obj/item/gem_device/goldface
 

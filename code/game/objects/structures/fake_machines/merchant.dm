@@ -52,12 +52,20 @@
 	set_light(0)
 	return ..()
 
+/obj/item/fake_machine/merchant/proc/has_guild_merchant_in_view()
+	for(var/mob/living/nearby in oview(7, src))
+		if(HAS_MIND_TRAIT(nearby, TRAIT_MERCHANT_GUILD))
+			return TRUE
+	return FALSE
+
 /obj/item/fake_machine/merchant/process()
 	if(world.time > next_airlift)
 		next_airlift = world.time + rand(2 MINUTES, 3 MINUTES)
 #ifdef TESTSERVER
 		next_airlift = world.time + 5 SECONDS
 #endif
+		if(!has_guild_merchant_in_view())
+			return
 		var/play_sound = FALSE
 		for(var/D in GLOB.alldirs)
 			var/budgie = 0
@@ -138,6 +146,9 @@
 
 /obj/structure/fake_machine/merchantvend/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin))
+		if(!HAS_MIND_TRAIT(user, TRAIT_MERCHANT_GUILD))
+			to_chat(user, span_warning("The GOLDFACE ignores you."))
+			return
 		var/money = I.get_real_price()
 		budget += money
 		qdel(I)
@@ -149,6 +160,9 @@
 /obj/structure/fake_machine/merchantvend/Topic(href, href_list)
 	. = ..()
 	if(!ishuman(usr))
+		return
+	if(!HAS_MIND_TRAIT(usr, TRAIT_MERCHANT_GUILD))
+		to_chat(usr, span_warning("Only guild merchants can operate the GOLDFACE."))
 		return
 	if(!usr.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH) || locked())
 		return
@@ -220,6 +234,9 @@
 	if(.)
 		return
 	if(!ishuman(user))
+		return
+	if(!HAS_MIND_TRAIT(user, TRAIT_MERCHANT_GUILD))
+		to_chat(user, span_warning("Only guild merchants can operate the GOLDFACE."))
 		return
 	if(locked())
 		to_chat(user, "<span class='warning'>It's locked. Of course.</span>")

@@ -12,7 +12,7 @@
 	spawn_positions = 4
 	bypass_lastclass = TRUE
 
-	allowed_races = RACES_PLAYER_NONHERETICAL
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/monk
 	give_bank_account = TRUE

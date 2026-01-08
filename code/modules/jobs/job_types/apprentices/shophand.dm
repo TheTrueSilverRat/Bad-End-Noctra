@@ -7,8 +7,8 @@
 	department_flag = COMPANY
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 3
+	spawn_positions = 3
 	display_order = JDO_SHOPHAND
 	give_bank_account = 10
 	bypass_lastclass = TRUE
