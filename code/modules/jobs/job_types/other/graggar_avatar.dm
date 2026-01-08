@@ -42,6 +42,33 @@
 	if(spawned.dna?.species?.id != SPEC_ID_OGRE)
 		spawned.set_species(/datum/species/ogre)
 	to_chat(spawned, span_warning("Do what comes naturally."))
+	addtimer(CALLBACK(src, PROC_REF(offer_weapon_choice), spawned, player_client), 1)
+
+/datum/job/graggar_avatar/proc/offer_weapon_choice(mob/living/carbon/human/H, client/player_client)
+	var/client/chooser = player_client || H?.client
+	if(!H || QDELETED(H) || !chooser)
+		return
+
+	var/list/weapons = list(
+		"CRUSHER" = /obj/item/weapon/mace/goden/steel/ogre/graggar,
+		"EXECUTIONER" = /obj/item/weapon/greataxe/steel/doublehead/graggar/ogre,
+		"None"
+	)
+	var/weapon_choice = input(chooser, "Choose your weapon.", "WEAPON SELECTION") as null|anything in weapons
+	if(!weapon_choice || weapon_choice == "None")
+		return
+
+	var/path = weapons[weapon_choice]
+	if(path)
+		give_or_drop(H, path)
+
+/datum/job/graggar_avatar/proc/give_or_drop(mob/living/carbon/human/H, path)
+	if(!H || QDELETED(H) || !path)
+		return
+
+	var/obj/item/I = new path(H.drop_location())
+	if(!H.put_in_hands(I))
+		to_chat(H, span_warning("My hands are full. [I] drops to the floor."))
 
 /datum/outfit/graggar_avatar
 	name = "Avatar of Graggar"
@@ -54,9 +81,11 @@
 	wrists = /obj/item/clothing/wrists/bracers/ogre
 	neck = /obj/item/clothing/neck/gorget/ogre
 	belt = /obj/item/storage/belt/leather/ogre
-	backr = /obj/item/weapon/greataxe/steel/doublehead/graggar
-	backl = /obj/item/storage/backpack/satchel
+	beltr = /obj/item/weapon/knife/cleaver/ogre
+	backl = /obj/item/weapon/sword/long/greatsword/zwei/ogre
+	backr = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
-		/obj/item/storage/belt/pouch/coins/poor = 1,
+		/obj/item/weapon/mace/cudgel/ogre = 1,
 		/obj/item/rope/chain = 1,
+		/obj/item/flashlight/flare/torch/lantern = 1
 	)

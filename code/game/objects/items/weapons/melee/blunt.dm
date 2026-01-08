@@ -447,6 +447,18 @@
 	sellprice = 15
 	wdefense = MEDIOCRE_PARRY
 
+/obj/item/weapon/mace/cudgel/ogre
+	name = "Head Knockah"
+	desc = "A bell ringer repurposed by a crafty set of hands. Its size can only be wielded effectively by a giant."
+	force = 25
+	icon = 'icons/roguetown/weapons/64.dmi'
+	icon_state = "ogre_cudgel"
+	minstr = 13
+	SET_BASE_PIXEL(-16, -16)
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
+	bigboy = TRUE
+
 /obj/item/weapon/mace/cudgel/getonmobprop(tag)
 	. = ..()
 	if(tag)
@@ -583,6 +595,26 @@
 				return list("shrink" = 0.7,"sx" = 5,"sy" = -2,"nx" = -5,"ny" = -2,"wx" = -5,"wy" = -2,"ex" = 5,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -24,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
+
+/obj/item/weapon/mace/goden/steel/ogre
+	name = "Mace of Malum"
+	desc = "Sometimes an ogre comes across an abandoned blacksmith's forge and finds an intact anvil. Few minds but an ogre's can think to use a tool of pure creation to beat people to paste."
+	icon = 'icons/roguetown/weapons/64.dmi'
+	icon_state = "ogre_anvil"
+	force = 20
+	force_wielded = 40
+	minstr = 15
+	max_integrity = 260
+
+/obj/item/weapon/mace/goden/steel/ogre/graggar
+	name = "Ogre's Mace"
+	desc = "Only a giant can effectively make use of this weapon. It has fed one at the expense of many lives."
+	icon_state = "ogre_mace"
+	force = 25
+	force_wielded = 45
+	minstr = 15
+	max_blade_int = 250
+	max_integrity = 280
 
 //................ Psydonian Grand Mace ............... //
 /obj/item/weapon/mace/goden/psydon

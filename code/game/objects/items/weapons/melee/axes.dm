@@ -596,6 +596,15 @@
 	blade_dulling = DULLING_BASHCHOP
 	sellprice = 0 // Graggarite axe, nobody wants this
 
+/obj/item/weapon/greataxe/steel/doublehead/graggar/ogre
+	name = "executioner's folly"
+	desc = "Attempts have been made to cut off an ogre's head. Those who try forget how easily they break their chains, and how thick their necks are."
+	icon = 'icons/roguetown/weapons/64.dmi'
+	icon_state = "ogre_axe"
+	force = 20
+	force_wielded = 40
+	max_blade_int = 200
+
 /obj/item/weapon/greataxe/dreamscape
 	force = 10
 	force_wielded = 35

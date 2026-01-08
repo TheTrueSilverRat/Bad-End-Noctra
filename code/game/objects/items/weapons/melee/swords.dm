@@ -1176,6 +1176,17 @@
 	melting_material = /datum/material/iron
 	melt_amount = 225
 
+/obj/item/weapon/sword/long/greatsword/zwei/ogre
+	name = "Better Sword"
+	desc = "The mind of an ogre does not see trash in a field of discarded swords and corpses. It sees material to make a new weapon with a light snack."
+	icon = 'icons/roguetown/weapons/64.dmi'
+	icon_state = "ogre_sword"
+	minstr = 15
+	force = 20
+	force_wielded = 35
+	max_blade_int = 250
+	max_integrity = 260
+
 /obj/item/weapon/sword/long/greatsword/zwei/getonmobprop(tag)
 	. = ..()
 	if(tag)

@@ -143,18 +143,8 @@
 	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 	apply_prefs_to(mannequin, TRUE)
 
+
 	if(previewJob)
-		if(length(previewJob.allowed_races) == 1)
-			var/only_race = previewJob.allowed_races[1]
-			if(mannequin.dna?.species?.id != only_race)
-				var/species_type
-				for(var/species_name in GLOB.species_list)
-					var/path = GLOB.species_list[species_name]
-					if(initial(path.id) == only_race)
-						species_type = path
-						break
-				if(species_type)
-					mannequin.set_species(species_type, icon_update = TRUE)
 		mannequin.job = previewJob.title
 		mannequin.dress_up_as_job(previewJob, TRUE)
 
