@@ -43,6 +43,9 @@
 		)
 
 ///
+/mob/living/simple_animal/hostile/retaliate/saiga/horse/male
+	gender = "male"
+
 /mob/living/simple_animal/hostile/retaliate/saiga/horse/kid
 	icon = 'modular_rmh/icons/mob/monster/horse.dmi'
 	name = "foal"
@@ -84,3 +87,5 @@
 	var/obj/item/natural/saddle/S = new(src)
 	ssaddle = S
 	update_appearance(UPDATE_OVERLAYS)
+/mob/living/simple_animal/hostile/retaliate/saiga/horse/kid/boy
+	gender = "male"

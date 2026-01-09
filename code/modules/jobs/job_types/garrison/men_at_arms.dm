@@ -10,7 +10,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	bypass_lastclass = TRUE
-	allowed_sexes = (MALE)
+	allowed_sexes = list(MALE)
 
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	blacklisted_species = list(SPEC_ID_HALFLING)

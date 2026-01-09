@@ -34,7 +34,7 @@
 		shoes = /obj/item/clothing/shoes/boots
 		beltl = /obj/item/storage/keyring/manorguard
 		backl = /obj/item/storage/backpack/satchel
-		backpack_contents = list(/obj/item/recipe_book/cooking = 1, /obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/rope/chain = 2)
+		backpack_contents = list(/obj/item/recipe_book/cooking = 1, /obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/rope/chain = 2, /obj/item/needle = 1)
 	else
 		armor = /obj/item/clothing/shirt/dress/maid/servant
 		shoes = /obj/item/clothing/shoes/simpleshoes
@@ -44,7 +44,7 @@
 		head = /obj/item/clothing/head/maidband
 		beltl = /obj/item/storage/keyring/manorguard
 		backl = /obj/item/storage/backpack/satchel
-		backpack_contents = list(/obj/item/recipe_book/cooking = 1, /obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/rope/chain = 2)
+		backpack_contents = list(/obj/item/recipe_book/cooking = 1, /obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/rope/chain = 2, /obj/item/needle = 1)
 		neck = /obj/item/clothing/neck/leathercollar
 
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
@@ -54,7 +54,7 @@
 	H.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/music, pick(0,1,1), TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)

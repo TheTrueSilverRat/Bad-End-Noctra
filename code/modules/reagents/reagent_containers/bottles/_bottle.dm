@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	var/custom_icon = FALSE
 
 /obj/item/reagent_containers/glass/bottle/Initialize()
-	if(!custom_icon)
+	if(!custom_icon && icon == 'icons/roguetown/items/glass_reagent_container.dmi' && icon_state == "clear_bottle1")
 		icon_state = "clear_bottle[rand(1,4)]"
 	return ..()
 

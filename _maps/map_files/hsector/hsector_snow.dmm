@@ -747,7 +747,7 @@
 	dir = 1;
 	color = "#522f26"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks/stonered/tiny,
 /area/under/town/rmh/basement)
 "auN" = (
@@ -966,7 +966,7 @@
 /obj/structure/fluff/railing/corner{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "aAp" = (
@@ -1317,7 +1317,7 @@
 /obj/structure/table/wood/reinf_long{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/inn,
 /area/indoors/town/rmh/town_hall)
 "aLm" = (
@@ -1407,7 +1407,7 @@
 /obj/effect/decal/wood/herringbone2{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/two,
 /area/under/town/rmh/basement)
 "aNP" = (
@@ -1622,7 +1622,7 @@
 	pixel_y = -8;
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "aTF" = (
@@ -2659,7 +2659,7 @@
 /obj/structure/table/wood/reinf_long{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/lord/right,
 /area/indoors/town/rmh/town_hall)
 "btm" = (
@@ -3197,7 +3197,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "bHz" = (
@@ -3459,7 +3459,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement)
 "bNN" = (
@@ -3844,7 +3844,7 @@
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
 /obj/structure/fluff/railing/corner/south_east,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/town_hall)
 "bWD" = (
@@ -4461,7 +4461,7 @@
 	dir = 6;
 	color = "#3b3b3b"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement)
 "ckE" = (
@@ -5174,7 +5174,7 @@
 	dir = 4;
 	color = "#3b3b3b"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement)
 "cCu" = (
@@ -5528,7 +5528,7 @@
 "cMz" = (
 /obj/structure/carpet/green,
 /obj/structure/carpet/green,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/green,
 /area/indoors/town/rmh/town_hall)
 "cMN" = (
@@ -5853,7 +5853,7 @@
 	dir = 10;
 	icon_state = "cobbleedgealt-s"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/remains/bigrat,
 /turf/open/floor/blocks,
 /area/under/town/rmh/sewer)
@@ -5934,7 +5934,7 @@
 	ceiling_protected = 1
 	})
 "cXu" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood,
 /area/indoors/cave/rmh_cave/mine)
 "cXB" = (
@@ -6522,7 +6522,7 @@
 	dir = 2;
 	color = "#3b3b3b"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement)
 "dkg" = (
@@ -6908,7 +6908,7 @@
 "dqN" = (
 /obj/structure/fermentation_keg,
 /obj/machinery/light/fueled/wallfire/candle/l,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement)
 "dqP" = (
@@ -7286,7 +7286,7 @@
 "dzq" = (
 /obj/machinery/light/fueled/firebowl/standing,
 /obj/effect/decal/wood/herringbone2,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/two,
 /area/under/town/rmh/basement)
 "dzv" = (
@@ -7592,6 +7592,7 @@
 	pixel_y = 7
 	},
 /obj/structure/fluff/railing/corner/south_west,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "dHb" = (
@@ -8332,7 +8333,7 @@
 /area/indoors/town/rmh/tavern)
 "dXq" = (
 /obj/machinery/light/fueled/torchholder/r,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/under/town/rmh/basement)
 "dXB" = (
@@ -8370,7 +8371,7 @@
 /turf/open/floor/hexstone,
 /area/indoors/town/rmh/bank)
 "dZI" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement)
 "dZK" = (
@@ -8558,7 +8559,7 @@
 	})
 "edf" = (
 /obj/structure/spider/stickyweb,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/mine)
 "edm" = (
@@ -8828,7 +8829,7 @@
 	dir = 4;
 	color = "#522f26"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks/stonered,
 /area/under/town/rmh/basement)
 "ele" = (
@@ -9021,7 +9022,7 @@
 	dir = 10;
 	icon_state = "cobbleedgealt-n"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/under/town/rmh/sewer)
 "epR" = (
@@ -9192,8 +9193,12 @@
 /turf/open/transparent/openspace,
 /area/outdoors/rmh_air)
 "etx" = (
-/obj/structure/stairs{
-	dir = 1
+/obj/effect/decal/edge{
+	icon_state = "stairs";
+	icon = 'icons/obj/stairs.dmi';
+	name = "wooden stairs";
+	dir = 1;
+	plane = -8
 	},
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/woodturned,
@@ -9560,7 +9565,7 @@
 	plane = -6;
 	pixel_y = 7
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/town_hall)
 "eCx" = (
@@ -10016,7 +10021,6 @@
 	dir = 1;
 	color = "#3b3b3b"
 	},
-/obj/item/bin/water,
 /obj/structure/mirror,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement)
@@ -10036,9 +10040,11 @@
 	density = 0;
 	opacity = 0
 	},
-/obj/item/paper/scroll,
-/obj/item/paper,
-/obj/item/paper,
+/obj/item/paper/scroll{
+	pixel_y = 6;
+	pixel_x = -8
+	},
+/obj/item/tablecloth/silk,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "eOx" = (
@@ -10576,7 +10582,7 @@
 	name = "Caves & Mines"
 	})
 "ffa" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/rmh/town_hall)
 "ffc" = (
@@ -10712,11 +10718,6 @@
 /obj/structure/fluff/railing/corner{
 	dir = 9
 	},
-/obj/structure/mannequin{
-	pixel_y = 16;
-	anchored = 1;
-	density = 0
-	},
 /turf/open/floor/tile/harem2,
 /area/indoors/town/rmh/town_hall)
 "fjo" = (
@@ -10760,7 +10761,7 @@
 	dir = 1
 	},
 /obj/structure/fluff/walldeco/maidendrape,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/two,
 /area/under/town/rmh/basement)
 "fkL" = (
@@ -11020,7 +11021,7 @@
 	color = "#021563";
 	hover_color = "#8a6b6b"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/under/town/rmh/basement)
 "frM" = (
@@ -11040,7 +11041,7 @@
 /area/indoors/town/rmh/town_hall)
 "frV" = (
 /obj/structure/fluff/railing/border/east,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "fsb" = (
@@ -11085,7 +11086,7 @@
 /obj/structure/fluff/railing/corner{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "fvC" = (
@@ -11878,7 +11879,7 @@
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "fSE" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/chest/wicker,
 /turf/open/floor/blocks,
 /area/under/town/rmh/basement)
@@ -12028,7 +12029,7 @@
 "fWo" = (
 /obj/structure/fluff/railing/border/east,
 /obj/machinery/light/fueled/wallfire/candle,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/rmh/town_hall)
 "fWx" = (
@@ -12528,7 +12529,7 @@
 	alpha = 0;
 	mouse_opacity = 0
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks/stonered,
 /area/under/town/rmh/basement)
 "gik" = (
@@ -12623,6 +12624,7 @@
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
 /obj/structure/fluff/railing/corner/north_east,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/town_hall)
 "gjO" = (
@@ -12763,6 +12765,7 @@
 	color = "#3b3b3b"
 	},
 /obj/structure/fluff/railing/border/east,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement)
 "gnH" = (
@@ -12793,7 +12796,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "goB" = (
@@ -13410,7 +13413,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem2,
 /area/indoors/town/rmh/town_hall)
 "gDK" = (
@@ -13712,6 +13715,7 @@
 /obj/item/natural/bundle/stick{
 	pixel_y = 14
 	},
+/obj/item/reagent_containers/glass/bucket/wooden/alter,
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement)
 "gNF" = (
@@ -13761,7 +13765,7 @@
 /turf/open/water/swamp,
 /area/outdoors/bog)
 "gOU" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/retaliate/smallrat,
 /turf/open/floor/cobble/alt,
 /area/under/town/rmh/sewer)
@@ -13800,7 +13804,7 @@
 	dir = 2;
 	color = "#3b3b3b"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/brick,
 /area/under/town/rmh/basement)
 "gQg" = (
@@ -13824,7 +13828,7 @@
 /area/indoors/town/rmh/farm)
 "gQA" = (
 /obj/structure/fluff/railing/border/north,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/rmh/town_hall)
 "gQC" = (
@@ -14147,7 +14151,7 @@
 /area/indoors/town/rmh/magician)
 "gYv" = (
 /obj/structure/fluff/railing/corner/south_east,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/town_hall)
 "gYK" = (
@@ -14336,6 +14340,7 @@
 	color = "#3b3b3b"
 	},
 /obj/structure/fluff/railing/corner/south_east,
+/obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement)
 "hbR" = (
@@ -14387,11 +14392,8 @@
 	pixel_x = -8;
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
-/obj/effect/decal/cleanable/generic{
-	name = "papers";
-	icon = 'modular_rmh/icons/obj/items/decoration.dmi';
-	icon_state = "paper";
-	dir = 1
+/obj/effect/decal/cleanable/dirt/paper{
+	dir = 4
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
@@ -15011,6 +15013,9 @@
 /obj/structure/chair/wood/alt/fancy{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt/paper{
+	dir = 8
+	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "hsJ" = (
@@ -15076,6 +15081,7 @@
 /area/indoors)
 "huC" = (
 /obj/structure/curtain/red,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/lord/right{
 	dir = 1
 	},
@@ -15370,7 +15376,8 @@
 	density = 0
 	},
 /obj/structure/fake_machine/vendor/inn_rmh{
-	pixel_x = -32
+	pixel_x = -32;
+	density = 0
 	},
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/tavern)
@@ -15395,7 +15402,7 @@
 	dir = 8;
 	color = "#3b3b3b"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement)
 "hEm" = (
@@ -15495,7 +15502,7 @@
 /turf/open/floor/blocks,
 /area/indoors/cave/underhamlet)
 "hGq" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/two,
 /area/under/town/rmh/basement)
 "hGy" = (
@@ -15607,7 +15614,7 @@
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/crafters_guild)
 "hKo" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/royalblack,
 /area/indoors/town/rmh/town_hall)
 "hKr" = (
@@ -15847,6 +15854,10 @@
 /area/under/underdark/rmh{
 	name = "Caves & Mines"
 	})
+"hRk" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/under/town/rmh/basement)
 "hRm" = (
 /obj/structure/flora/grass/herb/matricaria{
 	pixel_x = 5;
@@ -15902,7 +15913,7 @@
 /turf/closed/wall/mineral/decostone/cand,
 /area/indoors/town/rmh/chapel/basement)
 "hRY" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/mine)
 "hSc" = (
@@ -16004,7 +16015,7 @@
 /turf/open/floor/grass/cold,
 /area/outdoors/rmh_field)
 "hUY" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem2,
 /area/indoors/town/rmh/town_hall)
 "hUZ" = (
@@ -16117,10 +16128,9 @@
 /turf/open/floor/ruinedwood/turned,
 /area/indoors/town/rmh)
 "hXy" = (
-/turf/closed/mineral/bedrock/cold{
-	name = "solid rock"
-	},
-/area/outdoors/river)
+/obj/structure/fluff/statue/small,
+/turf/closed/wall/mineral/decostone/cand,
+/area/indoors/town/rmh/town_hall)
 "hXE" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/cobble,
@@ -16232,7 +16242,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_x = 32
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement)
 "hZI" = (
@@ -16275,7 +16285,7 @@
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/indoors/town/rmh/merchant)
 "iao" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/closed/mineral/random/med,
 /area/indoors/cave/rmh_cave/mine)
 "iaq" = (
@@ -16382,7 +16392,7 @@
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
 /obj/structure/fluff/railing/corner/south_east,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "idt" = (
@@ -16744,7 +16754,7 @@
 	dir = 1;
 	color = "#3b3b3b"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/brick,
 /area/under/town/rmh/basement)
 "imM" = (
@@ -17873,7 +17883,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/rmh)
 "iMx" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/landmark/start/jester,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
@@ -17975,6 +17985,7 @@
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
 /obj/machinery/light/fueled/wallfire/candle,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "iPy" = (
@@ -18579,7 +18590,7 @@
 /area/outdoors/rmh_field/north_mountain)
 "jch" = (
 /obj/structure/fermentation_keg/random/beer,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement)
 "jcj" = (
@@ -18977,7 +18988,7 @@
 	pixel_y = 8;
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "jnn" = (
@@ -20126,7 +20137,7 @@
 /turf/open/floor/blocks/stonered,
 /area/indoors/town/rmh)
 "jTN" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/landmark/start/hand,
 /turf/open/floor/carpet/purple,
 /area/indoors/town/rmh/town_hall)
@@ -20688,7 +20699,7 @@
 /obj/effect/decal/cobbleedge{
 	dir = 6
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/under/town/rmh/basement)
 "khE" = (
@@ -21171,7 +21182,7 @@
 	dir = 10;
 	icon_state = "cobbleedgealt-s"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/blocks,
 /area/under/town/rmh/sewer)
@@ -21314,7 +21325,7 @@
 /turf/open/floor/cobble/alt,
 /area/under/town/rmh/basement)
 "kyS" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/town_hall)
 "kyZ" = (
@@ -21492,7 +21503,7 @@
 	pixel_x = 16;
 	dir = 2
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/town_hall)
 "kDB" = (
@@ -21518,7 +21529,7 @@
 	dir = 10;
 	icon_state = "cobbleedgealt-s"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/blocks,
 /area/under/town/rmh/sewer)
@@ -21537,6 +21548,9 @@
 	pixel_y = 0;
 	pixel_x = -8;
 	icon = 'icons/turf/constructed/misc.dmi'
+	},
+/obj/item/paper{
+	pixel_y = -6
 	},
 /obj/item/natural/feather,
 /obj/item/reagent_containers/glass/carafe/water,
@@ -22600,7 +22614,7 @@
 /area/outdoors/rmh_air)
 "lei" = (
 /obj/structure/fluff/railing/corner/south_east,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "lem" = (
@@ -23036,6 +23050,7 @@
 "lpC" = (
 /obj/structure/fluff/railing/border/north,
 /obj/machinery/light/fueled/wallfire/candle/r,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "lpH" = (
@@ -23242,7 +23257,7 @@
 /turf/open/floor/grass/cold,
 /area/outdoors/town/rmh)
 "ltF" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement)
 "ltK" = (
@@ -23923,7 +23938,7 @@
 /turf/open/floor/cobblerock/snow,
 /area/outdoors/town/rmh)
 "lNH" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "lNL" = (
@@ -23948,7 +23963,7 @@
 	name = "Caves & Mines"
 	})
 "lOh" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/indoors/town/rmh/town_hall)
 "lOF" = (
@@ -24145,7 +24160,7 @@
 	pixel_y = -8;
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "lTB" = (
@@ -24313,7 +24328,7 @@
 	},
 /area/outdoors/town/rmh/roofs)
 "lYd" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/retaliate/bogbug{
 	name = "cave bug";
 	color = "#707070"
@@ -24347,7 +24362,7 @@
 	color = "#7a684b";
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/town_hall)
 "lZx" = (
@@ -24363,11 +24378,8 @@
 /turf/open/floor/cobblerock,
 /area/indoors/cave/underhamlet)
 "lZM" = (
-/obj/effect/decal/cleanable/generic{
-	name = "papers";
-	icon = 'modular_rmh/icons/obj/items/decoration.dmi';
-	icon_state = "paper"
-	},
+/obj/structure/fluff/railing/border/north,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "lZQ" = (
@@ -24490,7 +24502,7 @@
 /turf/open/floor/sandstone,
 /area/under/town/rmh/basement)
 "mcW" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/closed/wall/mineral/stone/moss/blue,
 /area/indoors/cave/rmh_cave/mine)
 "mda" = (
@@ -24638,7 +24650,7 @@
 /area/outdoors/rmh_field/north_mountain)
 "mfC" = (
 /obj/structure/fluff/railing/corner/south_east,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "mfK" = (
@@ -25961,7 +25973,7 @@
 /obj/machinery/light/fueled/torchholder/hotspring{
 	pixel_x = -32
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "mJV" = (
@@ -26186,7 +26198,7 @@
 "mPM" = (
 /obj/structure/fluff/railing/border/east,
 /obj/structure/fluff/railing/border/west,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "mPT" = (
@@ -26650,7 +26662,7 @@
 /turf/open/floor/cobble,
 /area/indoors/cave/underhamlet)
 "neB" = (
-/obj/structure/ladder/unbreakable,
+/obj/structure/ladder/hatch,
 /turf/open/floor/metal,
 /area/indoors/cave/underhamlet)
 "neG" = (
@@ -26955,7 +26967,7 @@
 /obj/structure/fluff/railing/corner{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/rmh/town_hall)
 "nlC" = (
@@ -27027,7 +27039,7 @@
 	dir = 10;
 	icon_state = "cobbleedge-e"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/under/town/rmh/basement)
 "nos" = (
@@ -27323,7 +27335,7 @@
 "nvV" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /obj/structure/table/wood/plain/alto,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "nwm" = (
@@ -27492,7 +27504,7 @@
 	pixel_x = 8;
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "nBm" = (
@@ -28061,7 +28073,7 @@
 	dir = 10;
 	icon_state = "cobbleedgealt-s"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/under/town/rmh/sewer)
 "nNG" = (
@@ -28164,10 +28176,8 @@
 /turf/open/water/swamp/deep,
 /area/outdoors/bog)
 "nPJ" = (
-/obj/effect/decal/cleanable/generic{
-	name = "papers";
-	icon = 'modular_rmh/icons/obj/items/decoration.dmi';
-	icon_state = "paper"
+/obj/effect/decal/cleanable/dirt/paper{
+	dir = 8
 	},
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
@@ -29012,6 +29022,7 @@
 	},
 /obj/structure/fluff/railing/corner/south_east,
 /obj/structure/fluff/railing/corner/south_west,
+/obj/effect/spawner/guaranteed_map_spawner/listed/steward_keys,
 /turf/open/floor/tile/harem2,
 /area/indoors/town/rmh/town_hall)
 "okp" = (
@@ -29037,7 +29048,7 @@
 /turf/open/floor/concrete,
 /area/under/town/basement)
 "olh" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/retaliate/spider{
 	name = "cavespider";
 	melee_damage_lower = 7;
@@ -29442,7 +29453,7 @@
 /area/indoors/town/rmh/magician)
 "ouV" = (
 /obj/structure/fluff/railing/corner/north_east,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "ouY" = (
@@ -29652,7 +29663,7 @@
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
 /obj/structure/fluff/railing/corner/north_east,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "oyp" = (
@@ -29688,7 +29699,7 @@
 /obj/effect/decal/wood/herringbone2{
 	dir = 10
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/under/town/rmh/basement)
 "oyY" = (
@@ -29931,6 +29942,14 @@
 /obj/structure/flora/newleaf/snow,
 /turf/open/floor/grass/cold,
 /area/outdoors/rmh_field)
+"oEx" = (
+/obj/structure/fluff/railing/wood/north{
+	plane = -6;
+	pixel_y = 7
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood,
+/area/indoors/town/rmh/town_hall)
 "oED" = (
 /obj/structure/chair/stool/bar,
 /turf/open/floor/dirt/road/snowy,
@@ -29978,7 +29997,7 @@
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
 /obj/structure/fluff/railing/corner/south_west,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "oFW" = (
@@ -30430,7 +30449,7 @@
 /obj/structure/chair/wood/alt/fancy{
 	dir = 2
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/town_hall)
 "oQn" = (
@@ -30777,7 +30796,7 @@
 "oZY" = (
 /obj/structure/fluff/railing/wood/east,
 /obj/structure/fluff/railing/corner/south_west,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/town_hall)
 "pan" = (
@@ -31116,6 +31135,7 @@
 	name = "Caves & Mines"
 	})
 "pir" = (
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/lord/corner{
 	dir = 1
 	},
@@ -31746,7 +31766,7 @@
 /area/outdoors/rmh_field/druid)
 "pzt" = (
 /obj/structure/table/wood/reinf_long,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/lord/corner{
 	dir = 8
 	},
@@ -31757,11 +31777,9 @@
 	name = "Caves & Mines"
 	})
 "pzH" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic{
-	name = "papers";
-	icon = 'modular_rmh/icons/obj/items/decoration.dmi';
-	icon_state = "paper"
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/paper{
+	dir = 4
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
@@ -31984,7 +32002,7 @@
 	dir = 10;
 	icon_state = "cobbleedge-w"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/under/town/rmh/basement)
 "pHf" = (
@@ -32050,7 +32068,7 @@
 /obj/effect/decal/carpet/kover_black{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "pJU" = (
@@ -32919,7 +32937,7 @@
 /turf/open/floor/wood,
 /area/indoors)
 "qdA" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/brownbrick,
 /area/indoors/town/rmh/town_hall)
 "qdJ" = (
@@ -32972,7 +32990,7 @@
 	density = 0;
 	opacity = 0
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "qfx" = (
@@ -33204,7 +33222,7 @@
 /turf/open/floor/churchrough,
 /area/indoors/town/rmh/chapel)
 "qlJ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/green,
 /area/under/town/rmh/basement)
 "qlM" = (
@@ -33721,7 +33739,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/rmh/town_hall)
 "qxl" = (
@@ -33759,7 +33777,7 @@
 /obj/effect/decal/wood/herringbone2{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/under/town/rmh/basement)
 "qyn" = (
@@ -33769,10 +33787,11 @@
 /area/outdoors/rmh_field/west)
 "qyr" = (
 /obj/structure/chair/stool/bar,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement)
 "qyx" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/item/weapon/pick/copper,
 /turf/open/floor/cobblerock,
 /area/indoors/cave/rmh_cave/mine)
@@ -33786,7 +33805,7 @@
 	pixel_x = 16;
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "qzo" = (
@@ -34556,7 +34575,7 @@
 /turf/open/floor/metal/barograte,
 /area/indoors/town/rmh/bank)
 "qQe" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/item/rope{
 	name = "frayed rope"
 	},
@@ -34683,7 +34702,7 @@
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/under/town/rmh/basement)
 "qUc" = (
@@ -34811,6 +34830,7 @@
 	pixel_y = 0;
 	pixel_x = 32
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/brick,
 /area/under/town/rmh/basement)
 "qWG" = (
@@ -35145,7 +35165,7 @@
 /area/outdoors/rmh_field/north)
 "rdJ" = (
 /obj/machinery/light/fueled/firebowl/standing,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/under/town/rmh/basement)
 "rdK" = (
@@ -35806,7 +35826,7 @@
 /obj/structure/fluff/railing/corner{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/indoors/town/rmh/town_hall)
 "ruo" = (
@@ -35943,7 +35963,7 @@
 	ceiling_protected = 1
 	})
 "rxg" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/naturalstone,
 /area/outdoors/rmh_air)
 "rxo" = (
@@ -36028,7 +36048,7 @@
 /turf/open/floor/tile,
 /area/indoors/town/rmh/town_hall)
 "rzd" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock/snow,
 /area/indoors/cave/rmh_cave/mine)
 "rzJ" = (
@@ -36328,6 +36348,8 @@
 	color = "#3b3b3b"
 	},
 /obj/structure/fluff/railing/corner/south_west,
+/obj/machinery/light/fueled/wallfire/candle/r,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement)
 "rGt" = (
@@ -36361,7 +36383,7 @@
 /area/indoors/town/rmh)
 "rGT" = (
 /obj/structure/fluff/railing/corner/north_east,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "rGV" = (
@@ -36536,7 +36558,7 @@
 	dir = 8;
 	color = "#3b3b3b"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/brick,
 /area/under/town/rmh/basement)
 "rMm" = (
@@ -36687,7 +36709,7 @@
 	color = "#522f26";
 	pixel_y = 0
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks/stonered,
 /area/under/town/rmh/basement)
 "rOQ" = (
@@ -36851,7 +36873,7 @@
 /area/indoors/town/rmh)
 "rSj" = (
 /obj/machinery/light/fueled/torchholder/metal_torch/north,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/under/town/rmh/basement)
 "rSs" = (
@@ -37330,7 +37352,7 @@
 /area/outdoors/rmh_field/camp)
 "seW" = (
 /obj/structure/fermentation_keg,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/under/town/rmh/basement)
 "sfc" = (
@@ -37546,7 +37568,7 @@
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement)
 "slq" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/town_hall)
 "slD" = (
@@ -38043,6 +38065,7 @@
 "sAv" = (
 /obj/structure/closet/crate/drawer/random,
 /obj/structure/carpet/purple,
+/obj/item/key/vault,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/bank)
 "sAV" = (
@@ -38060,7 +38083,7 @@
 /turf/open/floor/grass/cold,
 /area/outdoors/town/rmh)
 "sBj" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/mine)
@@ -38391,7 +38414,7 @@
 	dir = 8;
 	color = "#522f26"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks/stonered,
 /area/under/town/rmh/basement)
 "sJt" = (
@@ -38702,7 +38725,7 @@
 /turf/open/floor/grass/yel,
 /area/outdoors/town/rmh)
 "sRy" = (
-/obj/structure/ladder/unbreakable,
+/obj/structure/ladder,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/twig,
 /area/under/underdark/rmh{
@@ -38735,7 +38758,7 @@
 /area/indoors/town/rmh/crafters_guild)
 "sSi" = (
 /obj/structure/giantfur,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "sSo" = (
@@ -39390,6 +39413,11 @@
 /obj/effect/landmark/start/gaffer,
 /turf/open/floor/ruinedwood/spiral,
 /area/under/town/rmh/basement)
+"tie" = (
+/obj/structure/fluff/railing/border/west,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/woodturned,
+/area/indoors/town/rmh/town_hall)
 "tiz" = (
 /obj/structure/fermentation_keg/random/beer,
 /obj/item/reagent_containers/glass/bucket/wooden/alter{
@@ -40073,7 +40101,7 @@
 /turf/open/floor/grass/yel,
 /area/outdoors/rmh_field/north_mountain)
 "tvx" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/retaliate/bogbug{
 	name = "cave bug";
 	color = "#707070"
@@ -40237,6 +40265,7 @@
 	pixel_x = 8;
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/town_hall)
 "tye" = (
@@ -40794,11 +40823,8 @@
 /turf/open/floor/concrete,
 /area/under/town/rmh/basement)
 "tLV" = (
-/obj/effect/decal/cleanable/generic{
-	name = "papers";
-	icon = 'modular_rmh/icons/obj/items/decoration.dmi';
-	icon_state = "paper";
-	dir = 4
+/obj/effect/decal/cleanable/dirt/paper{
+	dir = 1
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
@@ -40951,7 +40977,7 @@
 /area/outdoors/town/rmh)
 "tOL" = (
 /obj/structure/fluff/railing/corner/north_east,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/rmh/town_hall)
 "tOW" = (
@@ -41018,13 +41044,8 @@
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/bank)
 "tQK" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic{
-	name = "papers";
-	icon = 'modular_rmh/icons/obj/items/decoration.dmi';
-	icon_state = "paper";
-	dir = 1
-	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/paper,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "tQO" = (
@@ -41041,7 +41062,7 @@
 /turf/open/floor/grass/red,
 /area/outdoors/rmh_field/druid)
 "tRi" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock/snow,
 /area/outdoors/rmh_air)
 "tRE" = (
@@ -41676,7 +41697,7 @@
 	color = "#3b3b3b";
 	pixel_y = 0
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement)
 "ueU" = (
@@ -41888,7 +41909,10 @@
 	pixel_x = -8;
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
-/obj/item/dye_pack/royal,
+/obj/item/dye_pack/royal{
+	pixel_y = 9
+	},
+/obj/item/natural/bundle/cloth/full,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "ujx" = (
@@ -42440,10 +42464,6 @@
 	},
 /turf/open/floor/dirt/road/snowy,
 /area/outdoors/rmh_field/west)
-"uxk" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/ruinedwood/herringbone_clear,
-/area/under/town/rmh/basement)
 "uxn" = (
 /obj/structure/fluff/railing/border/west,
 /turf/open/water/cleanshallow/dirt,
@@ -43093,7 +43113,7 @@
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/garrison)
 "uNN" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/lord/left,
 /area/indoors/town/rmh/town_hall)
 "uNV" = (
@@ -43807,7 +43827,7 @@
 /area/indoors/town/rmh/tavern)
 "vhf" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "vic" = (
@@ -43824,7 +43844,8 @@
 	dir = 1;
 	color = "#3b3b3b"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/bin/water,
 /turf/open/floor/tile/harem1,
 /area/under/town/rmh/basement)
 "vim" = (
@@ -44308,7 +44329,7 @@
 /area/outdoors/rmh_field)
 "vvz" = (
 /obj/structure/chair/wood,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/inn,
 /area/indoors/town/rmh/town_hall)
 "vvL" = (
@@ -44412,7 +44433,7 @@
 	dir = 10;
 	icon_state = "cobbleedgealt-e"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/under/town/rmh/sewer)
 "vyI" = (
@@ -44515,12 +44536,7 @@
 /area/indoors/town/rmh/witch)
 "vAT" = (
 /obj/structure/fluff/railing/corner/north_east,
-/obj/effect/decal/cleanable/generic{
-	name = "papers";
-	icon = 'modular_rmh/icons/obj/items/decoration.dmi';
-	icon_state = "paper";
-	dir = 8
-	},
+/obj/effect/decal/cleanable/dirt/paper,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "vBn" = (
@@ -44555,7 +44571,7 @@
 	color = "#7a684b";
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/town_hall)
 "vCc" = (
@@ -44763,7 +44779,7 @@
 /turf/open/floor/dirt/snowy,
 /area/outdoors/rmh_field/west)
 "vJY" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble/alt,
 /area/under/town/rmh/sewer)
 "vKb" = (
@@ -44835,7 +44851,7 @@
 /turf/open/floor/cobblerock/snow,
 /area/indoors/cave/rmh_cave/minotaur)
 "vLZ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/under/town/rmh/basement)
 "vMb" = (
@@ -45112,7 +45128,7 @@
 	mouse_opacity = 0;
 	plane = -4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "vSR" = (
@@ -45214,7 +45230,7 @@
 	dir = 4;
 	color = "#3b3b3b"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/bfloorz,
 /area/indoors/town/rmh/town_hall)
 "vVd" = (
@@ -45720,7 +45736,7 @@
 /turf/open/floor/dirt/snowy,
 /area/outdoors/rmh_field/west)
 "wht" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock,
 /area/indoors/cave/rmh_cave/mine)
 "whQ" = (
@@ -46175,7 +46191,7 @@
 	color = "#522f26";
 	pixel_y = 0
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks/stonered,
 /area/under/town/rmh/basement)
 "wsV" = (
@@ -46248,7 +46264,7 @@
 /obj/structure/fluff/walldeco/painting{
 	pixel_x = 32
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/indoors/town/rmh/town_hall)
 "wuo" = (
@@ -46263,7 +46279,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/rmh/town_hall)
 "wuM" = (
@@ -46532,7 +46548,7 @@
 /turf/closed/wall/mineral/stone,
 /area/outdoors/bog)
 "wBQ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
 "wBZ" = (
@@ -46614,6 +46630,17 @@
 	},
 /turf/open/floor/cobblerock,
 /area/indoors/town/rmh/chapel/basement)
+"wDF" = (
+/obj/effect/decal/cobbleedge{
+	dir = 8;
+	icon_state = "borderfall";
+	pixel_y = 0;
+	pixel_x = -8;
+	icon = 'icons/turf/constructed/misc.dmi'
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/woodturned,
+/area/indoors/town/rmh/town_hall)
 "wDL" = (
 /obj/structure/fluff/railing/wood/east,
 /turf/open/floor/carpet/royalblack,
@@ -46777,7 +46804,7 @@
 	dir = 2;
 	color = "#522f26"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks/stonered,
 /area/under/town/rmh/basement)
 "wIG" = (
@@ -47879,7 +47906,7 @@
 /area/indoors/shelter/woods)
 "xjF" = (
 /obj/structure/chair/wood/alt,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/landmark/start/minor_noble,
 /turf/open/floor/wood,
 /area/indoors/town/rmh/town_hall)
@@ -48227,7 +48254,7 @@
 /turf/open/floor/churchmarble,
 /area/outdoors/rmh_air)
 "xrp" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/twig,
 /area/indoors/cave/rmh_cave/mine)
 "xrx" = (
@@ -48293,6 +48320,14 @@
 /area/indoors/cave/rmh_cave/to_underdark{
 	ceiling_protected = 1
 	})
+"xtr" = (
+/obj/effect/decal/edge{
+	dir = 4;
+	color = "#3b3b3b"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/tile/brick,
+/area/under/town/rmh/basement)
 "xtu" = (
 /obj/structure/fluff/steamvent,
 /turf/open/floor/hexstone,
@@ -48453,7 +48488,7 @@
 /turf/open/floor/churchrough,
 /area/under/rmh_bedrock)
 "xyk" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/retaliate/spider{
 	name = "cavespider";
 	melee_damage_lower = 7;
@@ -48463,7 +48498,6 @@
 /area/indoors/cave/rmh_cave/mine)
 "xyG" = (
 /obj/structure/closet/crate/crafted_closet/steward,
-/obj/effect/spawner/guaranteed_map_spawner/listed/steward_keys,
 /turf/open/floor/tile/tilerg,
 /area/under/town/rmh/bank)
 "xzg" = (
@@ -48611,7 +48645,7 @@
 	name = "underdungeon"
 	})
 "xDf" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/item/storage/sack,
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/mine)
@@ -49661,7 +49695,7 @@
 "xZh" = (
 /obj/structure/closet/crate/drawer/random,
 /obj/item/key/guest,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/town_hall)
 "xZt" = (
@@ -49772,7 +49806,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/indoors/town/rmh/farm)
 "ybB" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/dirt,
 /area/indoors/cave/rmh_cave/mine)
 "ybC" = (
@@ -50136,7 +50170,7 @@
 /obj/structure/chair/wood{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/inn,
 /area/indoors/town/rmh/town_hall)
 "yji" = (
@@ -50179,7 +50213,7 @@
 	pixel_x = -8;
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/town_hall)
 "yjO" = (
@@ -82531,7 +82565,7 @@ igw
 xlb
 igw
 igw
-hXy
+snm
 igw
 xlb
 dxy
@@ -82789,7 +82823,7 @@ rMo
 ydN
 ydN
 ydN
-ydN
+rMo
 xlb
 xlb
 xlb
@@ -84323,7 +84357,7 @@ snm
 snm
 ydN
 qyr
-bhI
+hRk
 mie
 hrn
 ltF
@@ -85104,7 +85138,7 @@ erO
 flq
 ydN
 quj
-hww
+xtr
 qWF
 hww
 gXU
@@ -85352,7 +85386,7 @@ snm
 ydN
 qmL
 qlJ
-uxk
+wGi
 rEB
 ydN
 ydN
@@ -149354,14 +149388,14 @@ gAq
 gAq
 gAq
 aoy
-pmw
 iqf
+pmw
 ruk
 aoy
+hXy
 uDF
 uDF
-uDF
-uDF
+hXy
 aIm
 uWC
 oOO
@@ -149616,7 +149650,7 @@ lOh
 lOh
 aoy
 vOW
-mpC
+wDF
 hdx
 mpC
 pdO
@@ -150902,7 +150936,7 @@ lmf
 dxH
 iPj
 hsp
-lZM
+tLV
 idl
 aIm
 btY
@@ -151667,7 +151701,7 @@ wwh
 pZb
 dId
 lOF
-vqM
+wBQ
 eaW
 uDF
 lOF
@@ -215400,7 +215434,7 @@ lzI
 acK
 klq
 vOW
-vqM
+wBQ
 rzb
 gYv
 wus
@@ -280687,8 +280721,8 @@ bsZ
 pzt
 iMx
 sLX
-vqM
-vqM
+wBQ
+wBQ
 wBQ
 wBQ
 vqM
@@ -280937,7 +280971,7 @@ auP
 vOW
 oPP
 oPP
-xTE
+lZM
 rzb
 sLX
 lNH
@@ -281191,10 +281225,10 @@ lzI
 lzI
 lzI
 dGP
+tie
+tie
 rss
-rss
-rss
-avg
+fuY
 gAq
 uGy
 lNH
@@ -281704,7 +281738,7 @@ lzI
 lzI
 lzI
 lzI
-auP
+oEx
 hFf
 kQo
 qdA
@@ -281714,7 +281748,7 @@ hmZ
 lOF
 dsV
 lpC
-sLX
+lNH
 lOF
 lKP
 kDr
@@ -346737,7 +346771,7 @@ yaM
 ffa
 ffa
 yaM
-yaM
+ffa
 cSP
 sLX
 lNH
@@ -348276,8 +348310,8 @@ dwF
 dwF
 dwF
 lOF
-yaM
-yaM
+ffa
+ffa
 mGL
 lOF
 dwF

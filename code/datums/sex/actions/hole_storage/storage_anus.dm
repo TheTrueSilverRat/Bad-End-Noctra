@@ -46,7 +46,11 @@
 	if(!dildo)
 		sex_session.stop_current_action()
 		return
-	var/success = SEND_SIGNAL(user, COMSIG_HOLE_TRY_FIT, dildo, hole_id, user, TRUE, FALSE)
+	var/success
+	if(user == target)
+		success = SEND_SIGNAL(user, COMSIG_HOLE_TRY_FIT, dildo, hole_id, target, TRUE, FALSE)
+	else
+		success = SEND_SIGNAL(target, COMSIG_HOLE_TRY_FIT, dildo, hole_id, target, TRUE, FALSE)
 	if(success)
 		user.update_inv_hands()
 		user.update_a_intents()
