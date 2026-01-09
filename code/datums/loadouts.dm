@@ -39,18 +39,6 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 	name = "Natural Wooden Cane"
 	item_path = /obj/item/weapon/mace/cane/natural
 
-/datum/loadout_item/waterskin
-	name = "Waterskin"
-	item_path = /obj/item/reagent_containers/glass/bottle/waterskin
-
-/datum/loadout_item/tent
-	name = "Tent Kit"
-	item_path = /obj/item/tent_kit
-
-/datum/loadout_item/lamptern
-	name = "Lamptern"
-	item_path = /obj/item/flashlight/flare/torch/lantern
-
 //HATS
 /datum/loadout_item/zalad
 	name = "Keffiyeh"
