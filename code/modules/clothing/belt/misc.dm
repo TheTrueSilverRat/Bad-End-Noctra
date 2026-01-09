@@ -4,22 +4,8 @@
 	icon_state = "leather"
 	item_state = "leather"
 	equip_sound = 'sound/blank.ogg'
-	var/empty_when_dropped = TRUE
-
-/obj/item/storage/belt/leather/dropped(mob/living/carbon/human/user)
-	..()
-	if(QDELETED(src))
-		return
-	if(!empty_when_dropped)
-		return
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		var/list/things = STR.contents()
-		for(var/obj/item/I in things)
-			STR.remove_from_storage(I, get_turf(src))
 
 /obj/item/storage/belt/leather/assassin // Assassin's super edgy and cool belt can carry normal items (for poison vial, lockpick).
-	empty_when_dropped = FALSE
 	component_type = /datum/component/storage/concrete/grid/belt/assassin
 
 	populate_contents = list(
@@ -423,7 +409,6 @@
 	var/max_storage = 8
 	sewrepair = TRUE
 	component_type = /datum/component/storage/concrete/grid/belt/knife_belt
-	empty_when_dropped = FALSE
 
 /obj/item/storage/belt/leather/knifebelt/attack_atom(atom/attacked_atom, mob/living/user)
 	if(!isturf(attacked_atom))
