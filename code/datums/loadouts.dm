@@ -39,6 +39,18 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 	name = "Natural Wooden Cane"
 	item_path = /obj/item/weapon/mace/cane/natural
 
+/datum/loadout_item/waterskin
+	name = "Waterskin"
+	item_path = /obj/item/reagent_containers/glass/bottle/waterskin
+
+/datum/loadout_item/tent
+	name = "Tent Kit"
+	item_path = /obj/item/tent_kit
+
+/datum/loadout_item/lamptern
+	name = "Lamptern"
+	item_path = /obj/item/flashlight/flare/torch/lantern
+
 //HATS
 /datum/loadout_item/zalad
 	name = "Keffiyeh"
@@ -126,6 +138,10 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 	name = "Cloth Vest"
 	item_path = /obj/item/clothing/shirt/clothvest/colored/random
 
+/datum/loadout_item/jacket
+	name = "Tanned Jacket"
+	item_path = /obj/item/clothing/armor/leather/jacket
+
 //SHOES
 
 /datum/loadout_item/babouche
@@ -144,6 +160,10 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 	name = "Cloth Anklets"
 	item_path = /obj/item/clothing/shoes/boots/clothlinedanklets
 
+/datum/loadout_item/simpleshoes
+	name = "Shoes"
+	item_path = /obj/item/clothing/shoes/simpleshoes
+
 //SHIRTS
 
 /datum/loadout_item/robe
@@ -152,7 +172,7 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 
 /datum/loadout_item/longshirt
 	name = "Shirt"
-	item_path = /obj/item/clothing/shirt
+	item_path = /obj/item/clothing/shirt/undershirt
 
 /datum/loadout_item/shortshirt
 	name = "Short-sleeved Shirt"
@@ -194,6 +214,10 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 /datum/loadout_item/skirt
 	name = "Skirt"
 	item_path = /obj/item/clothing/pants/skirt
+
+/datum/loadout_item/wtrousers
+	name = "Work Trousers"
+	item_path = /obj/item/clothing/pants/trou
 
 //ACCESSORIES
 
@@ -256,6 +280,18 @@ GLOBAL_LIST_INIT(loadout_items, subtypesof(/datum/loadout_item))
 /datum/loadout_item/cowbell
 	name = "Cowbell"
 	item_path = /obj/item/catbell/cow
+
+/datum/loadout_item/rucksack
+	name = "Rucksack"
+	item_path = /obj/storage/backpack/backpack/bagpack
+
+/datum/loadout_item/ragmask
+	name = "Rag Mask"
+	item_path = /obj/item/clothing/shepherd/rag
+/datum/loadout_item/wrappings1
+	name = "Bandage Wraps"
+	item_path = /obj/item/clothing/gloves/bandages
+
 //ARMOR
 /datum/loadout_item/bellyriding_harness
 	name = "Bellyriding Harness"
