@@ -72,7 +72,7 @@
 	cloak = /obj/item/clothing/cloak/stabard/colored/dungeon
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/whip/antique
-	beltl = /obj/item/storage/keyring/dungeoneer
+	beltl = /obj/item/storage/keyring/captain
 	backr = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/clothing/head/menacing = 1
