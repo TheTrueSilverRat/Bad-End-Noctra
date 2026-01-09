@@ -87,6 +87,7 @@
 	ADD_TRAIT(H, TRAIT_BEAUTIFUL, QUIRK_TRAIT)
 
 //positive
+/*
 /datum/quirk/duelist
 	name = "Sword Training"
 	desc = "I sword training and stashed a short sword."
@@ -96,6 +97,7 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_skillrank_up_to(/datum/skill/combat/swords, 3, TRUE)
 	H.mind.special_items["Short Sword"] = /obj/item/weapon/sword/short
+*/
 
 /*/datum/quirk/fence
 	name = "Fencer"
@@ -110,6 +112,7 @@
 	H.verbs += list(/mob/living/carbon/human/proc/declare_duel)
 	H.cmode_music = 'sound/music/combat_combattante.ogg'*/
 
+/*
 /datum/quirk/training2
 	name = "Mace Training"
 	desc = "I have mace training and stashed a mace."
@@ -119,7 +122,9 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_skillrank_up_to(/datum/skill/combat/axesmaces, 3, TRUE)
 	H.mind.special_items["Mace"] = /obj/item/weapon/mace/spiked
+*/
 
+/*
 /datum/quirk/training4
 	name = "Polearms Training"
 	desc = "I have polearm training and stashed a spear."
@@ -129,7 +134,9 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind.special_items["Spear"] = /obj/item/weapon/polearm/spear
+*/
 
+/*
 /datum/quirk/training5
 	name = "Knife Training"
 	desc = "I have knife training and stashed a parrying dagger."
@@ -139,7 +146,9 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_skillrank_up_to(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.special_items["Dagger"] = /obj/item/weapon/knife/dagger/steel
+*/
 
+/*
 /datum/quirk/training6
 	name = "Axe Training"
 	desc = "I have training with axes and am a capable jumberjack. I've also stashed a copper axe."
@@ -150,6 +159,7 @@
 	H.adjust_skillrank_up_to(/datum/skill/combat/axesmaces, 3, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/labor/lumberjacking, 3, TRUE)
 	H.mind.special_items["Axe"] = /obj/item/weapon/axe/copper
+*/
 
 /*/datum/quirk/training7
 	name = "Firearms Training"
@@ -160,6 +170,7 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_skillrank_up_to(/datum/skill/combat/firearms, 3, TRUE)*/
 
+/*
 /datum/quirk/training8
 	name = "Shield Training"
 	desc = "I have shield training and stashed a shield. As long as I have a shield in one hand I can catch arrows with ease."
@@ -170,7 +181,9 @@
 	H.adjust_skillrank_up_to(/datum/skill/combat/shields, 3, TRUE)
 	H.mind.special_items["Shield"] = /obj/item/weapon/shield/wood
 	//ADD_TRAIT(H, TRAIT_SHIELDEXPERT, QUIRK_TRAIT)
+*/
 
+/*
 /datum/quirk/training9
 	name = "Unarmed Training"
 	desc = "I have journeyman unarmed training and stashed some dusters."
@@ -181,6 +194,7 @@
 	H.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 3, TRUE)
 	//H.mind.special_items["Dusters"] = /obj/item/weapon/duster
+*/
 
 /*/datum/quirk/pugilist
 	name = "Fists of iron"
@@ -205,6 +219,7 @@
 	//H.mind.special_items["Patch Kit"] = /obj/item/storage/fancy/ifak
 	//H.mind.special_items["Surgery Kit"] = /obj/item/storage/fancy/skit
 */
+/*
 /datum/quirk/greenthumb
 	name = "Green Thumb"
 	desc = "I've always been rather good at tending to plants, and I have some powerful fertilizer stashed away and a women of ill repute. (Raises skill to journeyman)"
@@ -217,6 +232,7 @@
 	H.mind.special_items["Fertilizer 2"] = /obj/item/fertilizer
 	H.mind.special_items["Fertilizer 3"] = /obj/item/fertilizer
 	H.mind.special_items["Whore"] = /obj/item/weapon/hoe // I too respect a humble farmer.
+*/
 /*
 /datum/quirk/eagle_eyed
 	name = "Eagle Eyed"
@@ -227,6 +243,7 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	H.change_stat("perception", 2)*/
 
+/*
 /datum/quirk/training10
 	name = "Bow Training"
 	desc = "I have journeyman bow training and stashed a bow."
@@ -237,6 +254,7 @@
 	H.adjust_skillrank_up_to(/datum/skill/combat/bows, 3, TRUE)
 	H.mind.special_items["Bow"] = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
 	H.mind.special_items["Quiver"] = /obj/item/ammo_holder/quiver/arrows
+*/
 /*
 /datum/quirk/mule
 	name = "Mule"
@@ -250,6 +268,7 @@
 	H.mind.special_items["Dagger"] = /obj/item/weapon/knife/idagger
 	H.adjust_skillrank_up_to(/datum/skill/combat/knives, 2, TRUE)*/
 
+/*
 /datum/quirk/bookworm
 	name = "Bookworm"
 	desc = "I love books and I became quite skilled at reading and writing. What's more, my mind is much sharper for the experience."
@@ -259,6 +278,7 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_skillrank_up_to(/datum/skill/misc/reading, 4, TRUE)
 	H.change_stat("intelligence", 2)
+*/
 
 /*/datum/quirk/arsonist
 	name = "Arsonist"
@@ -291,6 +311,7 @@
 	var/obj/item/bag = new /obj/item/storage/roguebag/lunch(get_turf(H))
 	H.put_in_hands(bag, forced = TRUE)*/
 
+/*
 /datum/quirk/thief
 	name = "Thief"
 	desc = "Life's not easy around here, but I've made mine a little easier by taking things of others. I am a great at picking pockets and locks. I've stashed some picks nearby."
@@ -301,6 +322,7 @@
 	H.adjust_skillrank_up_to(/datum/skill/misc/stealing, 4, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/misc/lockpicking, 4, TRUE)
 	H.mind.special_items["Lockpicks"] = /obj/item/lockpickring/mundane
+*/
 
 
 /datum/quirk/languagesavant
@@ -328,6 +350,7 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC) //Need to make trait improve hitting people with chairs, mugs, goblets.
 */
+/*
 /datum/quirk/mastercraftsmen // Named this way to absorb the old quirk. Keeps old saves cleaner without them needing to reset quirks.
 	name = "Jack of All Trades"
 	desc = "I've always had steady hands. I'm experienced enough in most fine craftsmanship to make a career out of it, if I can procure my own tools."
@@ -343,7 +366,9 @@
 	H.adjust_skillrank_up_to(/datum/skill/craft/engineering, 3, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/misc/sewing, 3, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/craft/smelting, 3, TRUE)
+*/
 
+/*
 /datum/quirk/masterbuilder
 	name = "Practiced Builder"
 	desc = "I have experience in putting up large structures and foundations for buildings. I can even use a sawmill if I can find one, and I have a handcart and two sacks hidden away for transporting my construction materials."
@@ -358,7 +383,9 @@
 	H.mind.special_items["Handcart"] = /obj/structure/handcart //TO-DO: Implement sawmill and the trait to use it. Giving them a handcart to move materials with.
 	H.mind.special_items["Sack 1"] = /obj/item/storage/sack
 	H.mind.special_items["Sack 2"] = /obj/item/storage/sack
+*/
 
+/*
 /datum/quirk/mastersmith
 	name = "Practiced Smith"
 	desc = "I am a metalworker by trade, and I have the tools for my practice stashed away." // Needs looking at after the smithing rework goes through.
@@ -373,7 +400,9 @@
 	H.mind.special_items["Hammer"] = /obj/item/weapon/hammer
 	H.mind.special_items["Tongs"] = /obj/item/weapon/tongs
 	H.mind.special_items["Coal"] = /obj/item/ore/coal
+*/
 
+/*
 /datum/quirk/mastertailor
 	name = "Practiced Tailor"
 	desc = "I'm particularly skilled in working with needle, thread, and loom. I also have a needle, thread, and scissors hidden away."
@@ -387,6 +416,7 @@
 	H.mind.special_items["Scissors"] = /obj/item/weapon/knife/scissors/steel
 	H.mind.special_items["Needle"] = /obj/item/needle
 	H.mind.special_items["Thread"] = /obj/item/natural/bundle/fibers/full
+*/
 
 /datum/quirk/richpouch
 	name = "Rich Pouch"

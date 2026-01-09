@@ -41,6 +41,7 @@
 	lose_text = span_danger("I feel isolated from others.")
 	medical_record_text = "Patient is highly perceptive of and sensitive to social cues, or may possibly have ESP. Further testing needed."
 
+/*
 /datum/quirk/light_step
 	name = "Light Step"
 	desc = "Years of skulking about have left my steps quiet, and my hunched gait quicker."
@@ -53,7 +54,9 @@
 /datum/quirk/light_step/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_skillrank_up_to(/datum/skill/misc/sneaking, 3, TRUE)
+*/
 
+/*
 /datum/quirk/musician
 	name = "Musician"
 	desc = "I am good at playing music. I've also hidden a lute!"
@@ -67,6 +70,7 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	H.adjust_skillrank_up_to(/datum/skill/misc/music, 3, TRUE)
 	H.mind.special_items["Lute"] = /obj/item/instrument/lute
+*/
 
 /datum/quirk/night_vision
 	name = "Low Light Vision"
