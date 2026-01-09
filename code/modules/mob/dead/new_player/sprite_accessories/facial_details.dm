@@ -116,11 +116,14 @@
 /datum/sprite_accessory/detail/tattoo_lips
 	name = "Tattoo (Lips)"
 	icon_state = "tattoo_lips"
+	use_static = FALSE
 
 /datum/sprite_accessory/detail/tattoo_eye_r
 	name = "Tattoo (r Eye)"
 	icon_state = "tattoo_eye_r"
+	use_static = FALSE
 
 /datum/sprite_accessory/detail/tattoo_eye_l
 	name = "Tattoo (l Eye)"
 	icon_state = "tattoo_eye_l"
+	use_static = FALSE

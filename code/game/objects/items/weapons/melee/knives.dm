@@ -256,6 +256,19 @@
 	wbalance = 0 // Except this one, too huge and used to chop
 	dropshrink = 0.9
 
+/obj/item/weapon/knife/cleaver/ogre
+	name = "Meat Choppah"
+	desc = "Any good cook needs to prep their meat. Chop it, slice it, maybe even kill it before you do all that. Meant for the hands of a giant."
+	icon = 'icons/roguetown/weapons/64.dmi'
+	icon_state = "ogre_cleaver"
+	force = 25
+	wdefense = 4
+	minstr = 13
+	SET_BASE_PIXEL(-16, -16)
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
+	bigboy = TRUE
+
 //................ Hack-Knife ............... //
 /obj/item/weapon/knife/cleaver/combat
 	name = "hack-knife"

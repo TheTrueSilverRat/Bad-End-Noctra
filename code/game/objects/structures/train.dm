@@ -71,17 +71,19 @@
 	var/mob/dead/new_player/newguy = new()
 	newguy.ckey = departing_mob.ckey
 	var/mob_name = departing_mob.real_name
-	var/datum/job/J = SSjob.GetJob(departing_mob.job)
+	var/datum/job/J = departing_mob.mind?.assigned_role
+	if(!J || istype(J, /datum/job/unassigned))
+		J = SSjob.GetJob(departing_mob.job)
 	if(!ishuman(departing_mob))
 		log_game("Cannot cryo [mob_name] ([departing_mob.type]): must be human. Deleting early.")
 		qdel(departing_mob)
 		return "Cannot cryo [mob_name] ([departing_mob.type]): must be human. Deleting early."
-	if(!J || (J == /datum/job/unassigned))
+	if(!J || istype(J, /datum/job/unassigned))
 		log_game("Cannot cryo [mob_name]: no assigned job. Deleting early.")
-		J.adjust_current_positions(-1)
 		qdel(departing_mob)
 		return "Cannot cryo [mob_name]: no assigned job. Deleting early."
 	log_game("Cryo successful for [mob_name], adjusting job [J.title].")
+	J.adjust_current_positions(-1)
 	if(J.parent_job)
 		J.parent_job.adjust_current_positions(-1)
 	for(var/obj/structure/resurrection_rune/rr in GLOB.global_resurrunes)

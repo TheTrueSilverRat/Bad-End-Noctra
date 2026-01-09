@@ -143,6 +143,7 @@
 	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 	apply_prefs_to(mannequin, TRUE)
 
+
 	if(previewJob)
 		mannequin.job = previewJob.title
 		mannequin.dress_up_as_job(previewJob, TRUE)

@@ -1,4 +1,5 @@
 #define COLLAR_TRAIT "collar_master"
+#define FORCED_AROUSAL_DURATION (30 SECONDS)
 
 GLOBAL_LIST_EMPTY(collar_masters)
 
@@ -21,6 +22,7 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	var/list/remote_control_pet_skills
 	var/list/remote_control_pet_experience
 	var/list/forced_arousal_timers = list()
+	var/list/forced_arousal_end_times = list()
 
 /datum/component/collar_master/Initialize(...)
 	. = ..()
@@ -257,6 +259,7 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	to_chat(pet, span_warning("The collar hums, flooding you with relentless arousal."))
 	if(mindparent?.current)
 		to_chat(mindparent.current, span_notice("You set [pet]'s collar to steadily increase their arousal."))
+	forced_arousal_end_times[pet] = world.time + FORCED_AROUSAL_DURATION
 	var/id = addtimer(CALLBACK(src, PROC_REF(ramp_arousal_tick), pet), 2 SECONDS, TIMER_STOPPABLE | TIMER_LOOP)
 	if(id)
 		forced_arousal_timers[pet] = id
@@ -266,13 +269,22 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	if(!pet || QDELETED(pet) || !(pet in my_pets) || pet.stat >= DEAD)
 		stop_forced_arousal(pet)
 		return
+	var/end_time = forced_arousal_end_times[pet]
+	if(end_time && world.time >= end_time)
+		stop_forced_arousal(pet)
+		to_chat(pet, span_notice("The collar's teasing hum dies down, letting your arousal ebb."))
+		if(mindparent?.current)
+			to_chat(mindparent.current, span_notice("[pet]'s collar stops enforcing arousal."))
+		return
 	SEND_SIGNAL(pet, COMSIG_SEX_ADJUST_AROUSAL, 2)
 
 /datum/component/collar_master/proc/stop_forced_arousal(mob/living/carbon/human/pet)
 	if(!forced_arousal_timers[pet])
+		forced_arousal_end_times -= pet
 		return
 	var/id = forced_arousal_timers[pet]
 	forced_arousal_timers -= pet
+	forced_arousal_end_times -= pet
 	if(id)
 		deltimer(id)
 	return TRUE

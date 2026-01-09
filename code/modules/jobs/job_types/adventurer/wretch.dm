@@ -5,8 +5,8 @@
 	job_flags = (JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE | JOB_SHOW_IN_CREDITS)
 	display_order = JDO_WRETCH
 	faction = FACTION_NEUTRAL
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 5
+	spawn_positions = 5
 
 	advclass_cat_rolls = list(CTAG_WRETCH = 20)
 	blacklisted_species = list(SPEC_ID_HALFLING)
