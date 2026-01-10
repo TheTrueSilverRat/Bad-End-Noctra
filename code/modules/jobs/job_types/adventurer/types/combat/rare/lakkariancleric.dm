@@ -5,7 +5,6 @@
 	allowed_patrons = list(/datum/patron/divine/astrata)
 	outfit = /datum/outfit/adventurer/lakkariancleric
 	category_tags = list(CTAG_ADVENTURER)
-	roll_chance = 25
 	total_positions = 2
 
 	exp_types_granted = list(EXP_TYPE_ADVENTURER, EXP_TYPE_COMBAT, EXP_TYPE_CLERIC)
