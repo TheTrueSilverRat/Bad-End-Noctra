@@ -3,7 +3,6 @@
 	tutorial = "Your vigil over the elven cities has long since ended. Though dutiful, the inevitable happened and now you hope these lands have use for your talents."
 	allowed_races = list(SPEC_ID_ELF)
 	total_positions = 1
-	roll_chance = 15
 	outfit = /datum/outfit/adventurer/bladesinger
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
