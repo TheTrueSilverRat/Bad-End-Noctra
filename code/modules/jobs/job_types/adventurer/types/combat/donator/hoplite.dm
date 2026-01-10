@@ -4,7 +4,6 @@
 	allowed_races = list(SPEC_ID_AASIMAR)
 	outfit = /datum/outfit/adventurer/hoplite
 	total_positions = 1
-	roll_chance = 15 // Same as the other very rare classes
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
 
