@@ -287,13 +287,13 @@
 	desc = "A writ of arrival, printed on Grenzelhoftian parchment: one signed not in ink, but blood. Intended for one person and one person only. Press the slip against one's own weeping wounds in order to obtain a fitting signature. Once done, it is ready to be mailed back to the Oratorium."
 
 /obj/item/paper/inqslip/arrival/ortho
-	marquevalue = 4
+	marquevalue = 12 //revert to 4 when server reaches highpop and marques are easier to get
 
 /obj/item/paper/inqslip/arrival/inq
-	marquevalue = 10
+	marquevalue = 30 //revert to 10 when server reaches highpop and marques are easier to get
 
 /obj/item/paper/inqslip/arrival/abso
-	marquevalue = 6
+	marquevalue = 18 //revert to 6 when server reaches highpop and marques are easier to get
 
 /obj/item/paper/inqslip/proc/attemptsign(mob/user, mob/living/carbon/human/M)
 	if(alert(user, "SIGN THE SLIP?", "CONFIRM OR DENY", "YES", "NO") != "NO")
