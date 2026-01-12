@@ -146,11 +146,11 @@ SUBSYSTEM_DEF(gamemode)
 	var/disaster_warning_lead = 10 MINUTES
 	var/list/disaster_event_weights = list(
 		/datum/round_event_control/gobinvade = 3,
-		/datum/round_event_control/lightsout = 3,
-		/datum/round_event_control/town_fire = 2,
-		/datum/round_event_control/hostile_animal_migration = 2,
+		/datum/round_event_control/skellysiege = 3,
+		/datum/round_event_control/lightsout = 1,
+		/datum/round_event_control/hostile_animal_migration = 1,
 		/datum/round_event_control/collapsing_earth = 1,
-		/datum/round_event_control/haunts = 1,
+		/datum/round_event_control/haunts = 3,
 		/datum/round_event_control/disaster_stink = 2,
 		/datum/round_event_control/disaster_arousal = 2,
 		/datum/round_event_control/disaster_thirst = 2,
@@ -778,6 +778,8 @@ SUBSYSTEM_DEF(gamemode)
 		return
 	var/old_min_players = event_control.min_players
 	event_control.min_players = 0
+	message_admins("Disaster Event: [event_control.name] is beginning.")
+	log_admin_private("Disaster Event started: [event_control.name] ([event_control.type]).")
 	event_control.runEvent(random = FALSE, admin_forced = TRUE)
 	event_control.min_players = old_min_players
 
@@ -800,6 +802,8 @@ SUBSYSTEM_DEF(gamemode)
 			return "Your censer dims to a sickly glow. Darkness will fall across the town within ten minutes."
 		if(/datum/round_event_control/town_fire)
 			return "You taste smoke on a still wind. Fire will gnaw at the town within ten minutes."
+		if(/datum/round_event_control/skellysiege)
+			return "Bone rattles in your skull. A skeleton siege will march within ten minutes."
 		if(/datum/round_event_control/hostile_animal_migration)
 			return "In your prayer you hear howls and hoofbeats. A savage migration will reach the town within ten minutes."
 		if(/datum/round_event_control/collapsing_earth)
