@@ -63,6 +63,27 @@
 			L.adjustFireLoss(10) //if we've already hit them, do way less damage
 	explosion(T, -1, exp_heavy, exp_light, exp_flash, 0, flame_range = exp_fire, hotspot_range = exp_hotspot, soundin = explode_sound)
 
+/obj/effect/temp_visual/target/meteor/no_fire
+	exp_fire = 0
+	exp_hotspot = 0
+
+/obj/effect/temp_visual/target/meteor/no_fire/fall(list/hit_atoms)
+	var/turf/T = get_turf(src)
+	playsound(T, 'sound/magic/meteorstorm.ogg', 80, TRUE)
+	new /obj/effect/temp_visual/fireball(T, duration)
+	sleep(duration)
+	if(ismineralturf(T))
+		var/turf/closed/mineral/M = T
+		M.gets_drilled()
+	for(var/mob/living/L in T.contents)
+		if(islist(hit_atoms) && !hit_atoms[L])
+			L.adjustFireLoss(40)
+			to_chat(L, span_userdanger("You're hit by a meteor!"))
+			hit_atoms[L] = TRUE
+		else
+			L.adjustFireLoss(10)
+	explosion(T, -1, exp_heavy, exp_light, exp_flash, 0, flame_range = exp_fire, hotspot_range = exp_hotspot, soundin = explode_sound)
+
 /obj/effect/temp_visual/stone_throw
 	icon = 'icons/roguetown/items/natural.dmi'
 	icon_state = "stonebig1"

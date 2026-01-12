@@ -44,8 +44,8 @@
 		var/list/arousal_data = list()
 		SEND_SIGNAL(H, COMSIG_SEX_GET_AROUSAL, arousal_data)
 		var/current_arousal = arousal_data["arousal"] || 0
-		if(current_arousal < 60)
-			SEND_SIGNAL(H, COMSIG_SEX_SET_AROUSAL, 60)
+		if(current_arousal < 90)
+			SEND_SIGNAL(H, COMSIG_SEX_SET_AROUSAL, 90)
 
 /datum/round_event_control/disaster_thirst
 	name = "Parching Curse"
@@ -86,7 +86,9 @@
 
 /datum/round_event/disaster_meteorstorm
 	var/buildings_to_hit = 3
-	var/max_meteors_per_building = 12
+	var/locations_per_building = 2
+	var/max_meteors_per_location = 6
+	var/meteor_effect_type = /obj/effect/temp_visual/target/meteor/no_fire
 
 /datum/round_event/disaster_meteorstorm/start()
 	. = ..()
@@ -109,8 +111,10 @@
 				open_turfs += T
 		if(!length(open_turfs))
 			continue
-		var/turf/center = pick(open_turfs)
-		cast_meteor_storm(center)
+		open_turfs = shuffle(open_turfs)
+		var/location_limit = min(locations_per_building, open_turfs.len)
+		for(var/j in 1 to location_limit)
+			cast_meteor_storm(open_turfs[j])
 
 /datum/round_event/disaster_meteorstorm/proc/cast_meteor_storm(turf/center)
 	var/list/candidates = list()
@@ -121,6 +125,6 @@
 	if(!length(candidates))
 		return
 	candidates = shuffle(candidates)
-	var/limit = min(max_meteors_per_building, candidates.len)
+	var/limit = min(max_meteors_per_location, candidates.len)
 	for(var/i in 1 to limit)
-		new /obj/effect/temp_visual/target/meteor(candidates[i])
+		new meteor_effect_type(candidates[i])

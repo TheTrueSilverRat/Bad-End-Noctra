@@ -21,7 +21,7 @@
 	var/list/starts
 
 /datum/round_event_control/skellyinvade/canSpawnEvent(players_amt, gamemode, fake_check)
-	if(!LAZYLEN(GLOB.hauntstart))
+	if(!LAZYLEN(get_surface_town_hauntstart()))
 		return FALSE
 
 /datum/round_event/skellyinvade/setup()
@@ -30,9 +30,10 @@
 //	spawncount = 3 + maxi
 
 /datum/round_event/skellyinvade/start()
-	if(LAZYLEN(GLOB.hauntstart))
+	var/list/spawn_locs = get_surface_town_hauntstart()
+	if(LAZYLEN(spawn_locs))
 		for(var/i in 1 to spawncount)
-			var/obj/effect/landmark/events/haunts/_T = pick_n_take(GLOB.hauntstart)
+			var/obj/effect/landmark/events/haunts/_T = pick_n_take(spawn_locs)
 			if(_T)
 				_T = get_turf(_T)
 				if(isfloorturf(_T))

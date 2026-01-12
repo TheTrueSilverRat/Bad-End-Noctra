@@ -20,12 +20,12 @@
 	var/list/starts
 
 /datum/round_event_control/gobinvade/canSpawnEvent(players_amt, gamemode, fake_check)
-	if(!LAZYLEN(GLOB.hauntstart))
+	if(!LAZYLEN(get_surface_town_hauntstart()))
 		return FALSE
 	. = ..()
 
 /datum/round_event/gobinvade/start()
-	var/list/spawn_locs = GLOB.hauntstart.Copy()
+	var/list/spawn_locs = get_surface_town_hauntstart()
 	if(LAZYLEN(spawn_locs))
 		for(var/i in 1 to spawncount)
 			var/obj/effect/landmark/events/haunts/_T = pick_n_take(spawn_locs)

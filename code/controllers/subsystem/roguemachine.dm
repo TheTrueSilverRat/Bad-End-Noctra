@@ -56,6 +56,33 @@ PROCESSING_SUBSYSTEM_DEF(roguemachine)
 	for(var/X in L)
 		if(istype(AR, X))
 			return TRUE
+
+/proc/is_in_roguetown_surface(atom/A)
+	if(!A)
+		return FALSE
+	var/turf/T = get_turf(A)
+	if(!T)
+		return FALSE
+	var/area/AR = get_area(T)
+	if(istype(AR, /area/under/town) || istype(AR, /area/outdoors/exposed/under/town))
+		return FALSE
+	var/list/L = list(/area/outdoors/town,\
+/area/indoors/town,\
+/area/indoors/shelter/town,\
+/area/outdoors/exposed/town)
+	for(var/X in L)
+		if(istype(AR, X))
+			return TRUE
+	return FALSE
+
+/proc/get_surface_town_hauntstart()
+	var/list/starts = list()
+	if(!LAZYLEN(GLOB.hauntstart))
+		return starts
+	for(var/obj/effect/landmark/events/haunts/mark in GLOB.hauntstart)
+		if(is_in_roguetown_surface(mark))
+			starts += mark
+	return starts
 #ifdef TESTING
 /mob/living/verb/maxzcdec()
 	set category = "DEBUGTEST"
