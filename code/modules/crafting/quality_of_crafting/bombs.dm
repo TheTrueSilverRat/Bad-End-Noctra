@@ -1,7 +1,7 @@
 /datum/repeatable_crafting_recipe/bomb
 	abstract_type = /datum/repeatable_crafting_recipe/bomb
 	skillcraft = /datum/skill/craft/bombs
-	craftdiff = 2
+	craftdiff = 4
 	category = "Bombs"
 
 /datum/repeatable_crafting_recipe/bomb/homemade
