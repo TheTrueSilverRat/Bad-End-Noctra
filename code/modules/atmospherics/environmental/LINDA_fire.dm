@@ -216,6 +216,10 @@
 
 				if(ranged_floor == src || (!ranged_floor.burn_power && !falling))
 					continue
+				var/turf/open/open_turf = ranged_floor
+				if(istype(open_turf))
+					if(IS_WET_OPEN_TURF(open_turf) || open_turf.footstep == FOOTSTEP_STONE)
+						continue
 				var/obj/effect/hotspot/located_fire = locate() in ranged_floor
 				if(prob(ranged_floor.spread_chance * modifier) && !located_fire)
 					if(ranged_floor.liquids)
