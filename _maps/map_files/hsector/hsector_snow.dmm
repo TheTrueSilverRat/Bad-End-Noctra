@@ -6085,7 +6085,7 @@
 	icon_state = "signexclamationmark"
 	},
 /turf/open/floor/tile/checkeralt,
-/area/under/town/rmh/bank)
+/area/indoors/town/vault)
 "cXX" = (
 /obj/effect/decal/cobble/mossy{
 	dir = 5
@@ -8017,7 +8017,7 @@
 /area/indoors/cave/underhamlet)
 "dML" = (
 /turf/open/floor/tile/tilerg,
-/area/under/town/rmh/bank)
+/area/indoors/town/vault)
 "dMQ" = (
 /obj/effect/decal/wood/herringbone{
 	dir = 4
@@ -10678,7 +10678,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/tile/tilerg,
-/area/under/town/rmh/bank)
+/area/indoors/town/vault)
 "faG" = (
 /obj/structure/flora/grass/tundra,
 /obj/structure/flora/newtree/snow,
@@ -14804,7 +14804,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/tile/tilerg,
-/area/under/town/rmh/bank)
+/area/indoors/town/vault)
 "hgE" = (
 /obj/structure/fluff/railing/wood/north{
 	layer = 2.7;
@@ -28755,7 +28755,7 @@
 	},
 /obj/item/storage/sack,
 /turf/open/floor/tile/tilerg,
-/area/under/town/rmh/bank)
+/area/indoors/town/vault)
 "nUz" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -39771,7 +39771,7 @@
 	pixel_y = 32
 	},
 /turf/open/floor/tile/tilerg,
-/area/under/town/rmh/bank)
+/area/indoors/town/vault)
 "tco" = (
 /obj/structure/flora/pillar,
 /obj/structure/fluff/walldeco/church/line{
@@ -49204,7 +49204,7 @@
 "xyG" = (
 /obj/structure/closet/crate/crafted_closet/steward,
 /turf/open/floor/tile/tilerg,
-/area/under/town/rmh/bank)
+/area/indoors/town/vault)
 "xzg" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/map_spawner/loot/dungeon/weapons,
