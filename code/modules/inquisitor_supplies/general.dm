@@ -247,14 +247,14 @@
 
 // ✤ EQUIPMENT ✤ BELONGS HERE! JUST BELOW!
 /datum/inqports/equipment/puffer
-	name = "1 Puffer, 4 lead bullets and powder flask"
+	name = "1 Pistol, Bullet pourch and powder flask"
 	item_type = /obj/structure/closet/crate/chest/inqcrate/equipment/puffer
 	marquescost = 16
 	maximum = 1
 
 /obj/structure/closet/crate/chest/inqcrate/equipment/puffer/populate_contents()
-	new /obj/item/gun/ballistic/revolver/grenadelauncher/pistol(src)
-	new /obj/item/storage/belt/pouch/bullets(src)
+	new /obj/item/gun/ballistic/revolver/grenadelauncher/arquebus_pistol(src)
+	new /obj/item/ammo_holder/bullet/bullets(src)
 	new /obj/item/reagent_containers/glass/bottle/aflask(src)
 
 /*
