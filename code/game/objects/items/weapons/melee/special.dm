@@ -67,9 +67,14 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/HU = user
 
-		if(!is_lord_job(HU.mind?.assigned_role))
-			to_chat(user, "<span class='danger'>The rod doesn't obey me.</span>")
-			return
+		if(SSmapping.config.map_name != "Rivermist Hollow")
+			if(!is_lord_job(HU.mind?.assigned_role))
+				to_chat(user, "<span class='danger'>The rod doesn't obey me.</span>")
+				return
+		else
+			if(!is_town_master_job(HU.mind?.assigned_role))
+				to_chat(user, "<span class='danger'>The rod doesn't obey me.</span>")
+				return
 
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target

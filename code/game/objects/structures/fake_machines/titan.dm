@@ -150,10 +150,11 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 			say("I only answer to the Ring's rightful owner!")
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 			return FALSE
-	if(!checked_mob.head || !istype(checked_mob.head, /obj/item/clothing/head/crown/serpcrown))
-		say("You need the crown!")
-		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-		return FALSE
+	else
+		if(!checked_mob.head || !istype(checked_mob.head, /obj/item/clothing/head/crown/serpcrown))
+			say("You need the crown!")
+			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
+			return FALSE
 	return TRUE
 
 /// Check if we are ready to perform a command
