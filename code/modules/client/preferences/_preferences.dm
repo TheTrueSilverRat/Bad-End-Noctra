@@ -1663,6 +1663,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						skin_tone = listy[new_s_tone]
 
 				if("selected_accent")
+/*
 					if(length(pref_species.multiple_accents))
 						change_accent = TRUE
 					else
@@ -1671,6 +1672,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						to_chat(user, "Sorry, this option is unavailable to your race.")
 						selected_accent = ACCENT_DEFAULT
 						return
+*/
 					var/accent
 					accent = browser_input_list(user, "CHOOSE YOUR HERO'S ACCENT", "VOICE OF THE WORLD", GLOB.accent_list, selected_accent)
 					if(accent)
