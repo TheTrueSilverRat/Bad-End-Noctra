@@ -191,6 +191,31 @@
 	if(magcom)
 		magcom.RemoveComponent()
 
+
+//Rivermist Hollow only ring, makes it so it works as a substitute to the Crown for the Throat in that specific map
+/obj/item/clothing/ring/active/nomag/master
+	name = "Town Master's Ring"
+	sellprice = 500 //Make it a really great incentive to steal the Town Master's ring
+	desc = "A ring forged within the bowels of Mt. Decapitation, foretold to contain the tomb of the eldest of Zizo's Necrarchs. Bestowed with enchanted protections against any arcyne rivals. A ring fit for a Lord of Arcyne"
+	cdtime = 5 MINUTES
+	activetime = 60 SECONDS
+
+/obj/item/clothing/ring/active/nomag/master/Initialize()
+	. = ..()
+	if(type == /obj/item/clothing/ring/active/nomag/master && !istype(loc, /mob/living/carbon/human/dummy)) //dummies spawn this in character setup
+		SSroguemachine.crown = src
+
+/obj/item/clothing/ring/active/nomag/master/Destroy()
+	if(SSroguemachine.crown == src)
+		SSroguemachine.crown = null
+	return ..()
+
+/obj/item/clothing/ring/active/nomag/master/proc/anti_stall()
+	visible_message(span_warning("[src] crumbles to dust, the ashes spiriting away in the direction of the Manor."))
+	qdel(src) //Anti-stall
+
+
+
 // ................... Ring of Protection ....................... (rare treasure, not for purchase)
 /obj/item/clothing/ring/gold/protection
 	name = "ring of protection"

@@ -54,6 +54,26 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	REGISTER_REQUIRED_MAP_ITEM(1, INFINITY)
 	become_hearing_sensitive()
 	set_light(5)
+	if(SSmapping.config.map_name == "Rivermist Hollow")
+		desc = "The seat of power for the Sorcerous Lord. If all else fails, yell \"Help!\""
+		command_list = list(
+			"Help",
+			"Summon Ring",
+			"Summon Key",
+			"Make Announcement",
+			"Make Law",
+			"Remove Law",
+			"Make Decree",
+			"Remove Decree",
+			"Purge Laws",
+			"Declare Outlaw",
+			"Pardon Outlaw",
+			"Set Taxes",
+			"Change Position",
+			"Appoint Regent",
+			"SILENCE!!",
+			"Cancel",
+	)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/fake_machine/titan/LateInitialize()
@@ -78,6 +98,18 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 	src.visible_message(span_warning("Ashes circle around the THROAT and the crown rematerialises!"))
 	return new /obj/item/clothing/head/crown/serpcrown(src.loc)
+
+/// FOR RIVERMIST ONLY. Destroys the current ring with a cool message and returns a new ring.
+/obj/structure/fake_machine/titan/proc/recreate_ring()
+	if(SSroguemachine.crown)
+		var/obj/item/clothing/ring/active/nomag/master/old_crown = SSroguemachine.crown
+		old_crown.anti_stall()
+
+	say("The ring is summoned!")
+	playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
+	playsound(src, 'sound/misc/portalactivate.ogg', 100, FALSE, -1)
+	src.visible_message(span_warning("Ashes circle around the THROAT as the ring returns to its rightful owner!"))
+	return new /obj/item/clothing/ring/active/nomag/master(src.loc)
 
 /// Destroys the current master key with a cool message and returns a new key.
 /obj/structure/fake_machine/titan/proc/recreate_key()
@@ -111,12 +143,18 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		return FALSE
 	return TRUE
 
-/// Check if the mob has the crown
+/// Check if the mob has the crown (Added Ring check functions as well)
 /obj/structure/fake_machine/titan/proc/has_crown(mob/living/carbon/human/checked_mob)
-	if(!checked_mob.head || !istype(checked_mob.head, /obj/item/clothing/head/crown/serpcrown))
-		say("You need the crown!")
-		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-		return FALSE
+	if(SSmapping.config.map_name == "Rivermist Hollow")
+		if(!checked_mob.wear_ring || !istype(checked_mob.wear_ring, /obj/item/clothing/ring/active/nomag/master))
+			say("I only answer to the Ring's rightful owner!")
+			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
+			return FALSE
+	else
+		if(!checked_mob.head || !istype(checked_mob.head, /obj/item/clothing/head/crown/serpcrown))
+			say("You need the crown!")
+			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
+			return FALSE
 	return TRUE
 
 /// Check if we are ready to perform a command
@@ -187,8 +225,11 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(findtext(message, "help") && is_valid_mob(user))
 		help()
 		return
-	if(findtext(message, "summon crown") && is_valid_mob(user))
+	if(SSmapping.config.map_name != "Rivermist Hollow" && findtext(message, "summon crown") && is_valid_mob(user))
 		summon_crown(user)
+		return
+	if(SSmapping.config.map_name == "Rivermist Hollow" && findtext(message, "summon ring") && is_valid_mob(user))
+		summon_ring(user)
 		return
 	if(findtext(message, "summon key") && perform_check(user, FALSE))
 		summon_key(user)
@@ -248,6 +289,34 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 
 	var/new_crown = recreate_crown()
 	user.put_in_hands(new_crown)
+
+///Tries summonning the Ring to the user's hands (Will make it summon to the Ring slot later)
+
+/obj/structure/fake_machine/titan/proc/summon_ring(mob/living/carbon/human/user)
+	var/obj/item/clothing/ring/active/nomag/master/crown = SSroguemachine.crown
+
+	if(!crown || !ismob(crown.loc)) //You MUST MUST MUST keep the Crown on a person to prevent it from being summoned (magical interference)
+		var/new_crown = recreate_ring()
+		user.put_in_hands(new_crown)
+		return
+
+	if(ishuman(crown.loc))
+		var/mob/living/carbon/human/crown_holder = crown.loc
+		if(crown_holder.stat != DEAD)
+			if(crown in crown_holder.held_items)
+				say("[crown_holder.real_name] holds the ring!")
+				playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
+				return
+			if(crown_holder.wear_ring == crown)
+				say("[crown_holder.real_name] wears the ring!")
+				playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
+				return
+		else
+			crown_holder.dropItemToGround(crown, TRUE) //If you're dead, forcedrop it, then kill it for the kool message..
+
+	var/new_crown = recreate_ring()
+	user.put_in_hands(new_crown)
+	user.execute_quick_equip()
 
 /// Tries summoning the master key to the user's hand
 /obj/structure/fake_machine/titan/proc/summon_key(mob/living/carbon/human/user)
