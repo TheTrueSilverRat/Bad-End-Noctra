@@ -112,14 +112,6 @@
 		OFFSET_UNDIES = list(0,1),\
 	)
 
-	offset_genitals_m = list(
-		OFFSET_BREASTS = list(0, 0),\
-	)
-
-	offset_genitals_f = list(
-		OFFSET_BREASTS = list(0, 0),\
-	)
-
 	specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 1)
 	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 1, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 1)
 	enflamed_icon = "widefire"

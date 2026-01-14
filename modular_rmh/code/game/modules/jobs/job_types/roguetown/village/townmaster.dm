@@ -63,8 +63,6 @@ GLOBAL_LIST_EMPTY(townmaster_titles)
 		SSfamilytree.AddRoyal(H, FAMILY_MOTHER)
 	to_chat(world, "<b>[span_notice(span_big("[H.real_name] is [ruler_title] of [SSmapping.config.map_name]."))]</b>")
 	to_chat(world, "<br>")
-	if(GLOB.keep_doors.len > 0)
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 7 SECONDS)
 
 /datum/outfit/townmaster/map_override(mob/living/carbon/human/H)
 	if(SSmapping.config.map_name != "Voyage")
@@ -138,7 +136,6 @@ GLOBAL_LIST_EMPTY(townmaster_titles)
 	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 
 /datum/job/roguetown/village/extownmaster //just used to change the lords title
 	title = "Ex-Town Master"

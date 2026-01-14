@@ -37,6 +37,10 @@
 	var/datum/antagonist/vampire/VVictim = victim.mind?.has_antag_datum(/datum/antagonist/vampire)
 
 	if(mind && victim.mind)
+		if(victim.blood_volume <= BLOOD_VOLUME_BAD && !cmode)
+			to_chat(src, "<span class='warning'>You don't want to kill your plaything, do you?</span>")
+			to_chat(src, "<span class='info'; font-size: 5px;>turn on the cmode t odrain them dry.</span>")
+			return
 		if(VVictim)
 			to_chat(src, span_userdanger("<b>YOU TRY TO COMMIT DIABLERIE ON [victim].</b>"))
 		var/zomwerewolf = victim.mind.has_antag_datum(/datum/antagonist/werewolf)

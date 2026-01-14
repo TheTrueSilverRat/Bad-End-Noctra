@@ -123,6 +123,11 @@
 	set category = "Emotes"
 	emote("shrug", intentional = TRUE)
 
+/mob/living/carbon/human/verb/emote_wag()
+	set name = "Wag"
+	set category = "Wags"
+	emote("wag", intentional = TRUE)
+
 /datum/emote/living/carbon/human/wag
 	key = "wag"
 	key_third_person = "wags"

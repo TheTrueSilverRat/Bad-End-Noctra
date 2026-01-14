@@ -50,8 +50,10 @@
 		/datum/skill/misc/stealing = 3
 	)
 
+	mind_traits = list(
+		TRAIT_KNOW_KEEP_DOORS
+	)
 	traits = list(
-		TRAIT_KNOWKEEPPLANS,
 		TRAIT_ROYALSERVANT,
 		TRAIT_CRITICAL_RESISTANCE,
 		TRAIT_NOPAINSTUN,
@@ -66,9 +68,6 @@
 	var/mob/living/carbon/human/H = spawned
 	if(!H || QDELETED(H))
 		return
-
-	if(length(GLOB.keep_doors) > 0)
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 5 SECONDS)
 
 	H.adjust_skillrank(/datum/skill/misc/music, pick(0, 0, 2, 3), TRUE)
 	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(offer_weapon_choice), H, player_client))

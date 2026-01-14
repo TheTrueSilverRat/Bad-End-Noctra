@@ -15,6 +15,9 @@
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 	antag_role = /datum/antagonist/purishep
 
+	mind_traits = list(
+		TRAIT_KNOW_INQUISITION_DOORS
+	)
 	traits = list(
 		TRAIT_NOPAINSTUN,
 		TRAIT_PACIFISM,

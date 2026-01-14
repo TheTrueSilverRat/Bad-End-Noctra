@@ -52,9 +52,6 @@
 	soundpack_m = /datum/voicepack/female
 	soundpack_f = /datum/voicepack/male
 
-	swap_female_clothes = TRUE
-	swap_male_clothes = TRUE
-
 	exotic_bloodtype = /datum/blood_type/human/triton
 	enflamed_icon = "widefire"
 
@@ -102,7 +99,7 @@
 
 	offset_genitals_m = list(
 		OFFSET_PENIS = list(0,0),\
-		OFFSET_BREASTS = list(0,2),\
+		OFFSET_BREASTS = list(0,0),\
 		OFFSET_TESTICLES = list(0,0),\
 		OFFSET_VAGINA = list(0,-1),\
 	)
