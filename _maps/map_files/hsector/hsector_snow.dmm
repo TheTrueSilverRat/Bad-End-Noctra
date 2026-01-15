@@ -9997,7 +9997,7 @@
 /turf/open/floor/herringbone,
 /area/indoors/town/rmh/chapel/basement)
 "eIg" = (
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning/adv,
+/obj/structure/well/fountain/mana,
 /turf/open/floor/cobble,
 /area/indoors/town/rmh/magician)
 "eIn" = (
@@ -14278,6 +14278,12 @@
 	},
 /turf/open/floor/herringbone,
 /area/indoors/cave/underhamlet)
+"gWe" = (
+/obj/structure/mana_pylon{
+	pixel_y = 0
+	},
+/turf/open/floor/cobble,
+/area/indoors/town/rmh/magician)
 "gWk" = (
 /obj/item/natural/stone,
 /turf/open/floor/grass/red,
@@ -34348,6 +34354,12 @@
 	first_time_text = "FORGOTTEN HALLS";
 	name = "underdungeon"
 	})
+"qzR" = (
+/obj/structure/mana_pylon{
+	pixel_y = 0
+	},
+/turf/open/floor/blocks,
+/area/indoors/town/rmh/magician)
 "qzZ" = (
 /turf/open/floor/grass/yel,
 /area/outdoors/rmh_field)
@@ -107032,7 +107044,7 @@ iey
 qVm
 nLw
 dQN
-nyZ
+gWe
 dqT
 oWO
 wEE
@@ -107292,7 +107304,7 @@ dQN
 poQ
 poQ
 nyZ
-nyZ
+gWe
 myI
 snm
 snm
@@ -108320,7 +108332,7 @@ dQN
 nyZ
 nyZ
 poQ
-poQ
+qzR
 myI
 snm
 snm
@@ -108574,7 +108586,7 @@ eXD
 hyW
 nLw
 dQN
-poQ
+qzR
 jMp
 owV
 wEE
