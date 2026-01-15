@@ -1,12 +1,12 @@
 /datum/element/tipped_item
 	element_flags = ELEMENT_DETACH
-	var/max_reagents = 1
-	var/dip_amount = 0.5
-	var/inject_amount = 1
+	var/max_reagents = 6
+	var/dip_amount = 2
+	var/inject_amount = 2
 	var/attack_injects = TRUE
 	var/show_examine = TRUE
 
-/datum/element/tipped_item/Attach(atom/movable/target, _max_reagents = 1, _dip_amount = 0.5, _inject_amount = 1, _attack_injects = TRUE, _show_examine = TRUE)
+/datum/element/tipped_item/Attach(atom/movable/target, _max_reagents = 6, _dip_amount = 2, _inject_amount = 2, _attack_injects = TRUE, _show_examine = TRUE)
 	. = ..()
 	if(!ismovableatom(target))
 		return ELEMENT_INCOMPATIBLE
