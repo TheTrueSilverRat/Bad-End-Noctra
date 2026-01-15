@@ -14965,11 +14965,11 @@
 /turf/open/floor/carpet/red,
 /area/indoors/town/rmh/chapel/basement)
 "hkN" = (
+/obj/effect/mapping_helpers/access/keyset/church/priest,
 /obj/structure/door/stone{
 	lockid = "church";
-	name = s
+	name = "Rune Room"
 	},
-/obj/effect/mapping_helpers/access/keyset/church/priest,
 /turf/open/floor/concrete,
 /area/indoors/town/rmh/chapel/basement)
 "hkV" = (
