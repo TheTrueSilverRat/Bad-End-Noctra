@@ -14965,10 +14965,6 @@
 /turf/open/floor/carpet/red,
 /area/indoors/town/rmh/chapel/basement)
 "hkN" = (
-/obj/structure/door/stone{
-	lockid = "church";
-	name = Rune Roomsss
-	},
 /obj/effect/mapping_helpers/access/keyset/church/priest,
 /obj/structure/door/stone{
 	lockid = "church";
