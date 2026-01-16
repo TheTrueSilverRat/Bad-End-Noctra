@@ -27,6 +27,7 @@
 							/obj/item/natural/rock = 30,
 							/obj/item/natural/stone = 30,
 							/obj/structure/flora/grass/swampweed = 30,
+							/obj/structure/zizo_bane = 2,
 							/obj/item/grown/log/tree/stick = 3,
 							/obj/structure/flora/grass/maneater/real = 2,
 							/obj/structure/essence_node = 0.1,

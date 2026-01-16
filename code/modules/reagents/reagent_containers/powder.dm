@@ -249,6 +249,27 @@
 	M.playsound_local(get_turf(M), 'sound/misc/heroin_rush.ogg', 100, FALSE)
 	M.visible_message(span_warning("Blood runs from [M]'s nose."))
 
+/datum/reagent/sleep_powder
+	name = "sleep powder"
+	description = ""
+	color = "#ddd3df"
+	metabolization_rate = 1
+
+/datum/reagent/sleep_powder/on_mob_metabolize(mob/living/carbon/M)
+	if(!HAS_TRAIT(M, TRAIT_TOXIMMUNE) && !M.cmode)
+		M.apply_status_effect(/datum/status_effect/debuff/knockout)
+	..()
+
+/obj/item/reagent_containers/powder/sleep_powder
+	name = "sleep powder"
+	desc = ""
+	gender = PLURAL
+	icon = 'icons/roguetown/items/produce.dmi'
+	icon_state = "flour"
+	list_reagents = list(/datum/reagent/sleep_powder = 5)
+	grind_results = null
+	volume = 10
+
 /obj/item/reagent_containers/powder/manabloom
 	name = "manabloom dust"
 	desc = "Crushed manabloom useful as a combat measure against mages."

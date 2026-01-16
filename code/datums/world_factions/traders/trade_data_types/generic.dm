@@ -5,6 +5,7 @@
 	initial_wanteds = list(
 		/obj/item/reagent_containers/glass = list(4, INFINITY, ""),
 		/obj/item/storage/bag = list(5, INFINITY, ""),
+		/obj/item/reagent_containers/food/snacks/zizo_bane = list(8, INFINITY, ""),
 	)
 	say_phrases = list(
 		ITEM_REJECTED_PHRASE = list(
