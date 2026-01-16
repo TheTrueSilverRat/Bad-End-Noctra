@@ -403,6 +403,57 @@
 	supports_directions = TRUE
 	craftdiff = 2
 
+/datum/blueprint_recipe/carpentry/torture_table
+	name = "torture table"
+	desc = "A cruel table meant for restraining captives."
+	result_type = /obj/structure/bondage/torture_table
+	required_materials = list(
+		/obj/item/natural/wood/plank = 3,
+		/obj/item/ingot/iron = 1,
+	)
+	supports_directions = TRUE
+	craftdiff = 2
+
+/datum/blueprint_recipe/carpentry/torture_table_lever
+	name = "torture table lever"
+	desc = "A torture table with a built-in lever mechanism."
+	result_type = /obj/structure/bondage/torture_table/lever
+	required_materials = list(
+		/obj/item/natural/wood/plank = 3,
+		/obj/item/ingot/iron = 1,
+	)
+	supports_directions = TRUE
+	craftdiff = 2
+
+/datum/blueprint_recipe/carpentry/x_pillory
+	name = "x-pillory"
+	desc = "A cross-shaped restraint."
+	result_type = /obj/structure/bondage/x_pillory
+	required_materials = list(
+		/obj/item/grown/log/tree/small = 2,
+		/obj/item/ingot/iron = 1,
+	)
+	supports_directions = TRUE
+	craftdiff = 2
+
+/datum/blueprint_recipe/carpentry/gloryhole
+	name = "gloryhole"
+	desc = "A wooden partition with a suspicious hole."
+	result_type = /obj/structure/bondage/gloryhole
+	required_materials = list(
+		/obj/item/natural/wood/plank = 2,
+	)
+	craftdiff = 1
+
+/datum/blueprint_recipe/carpentry/chains
+	name = "chains"
+	desc = "Heavy chains for holding someone in place."
+	result_type = /obj/structure/bondage/chains
+	required_materials = list(
+		/obj/item/rope/chain = 2,
+	)
+	craftdiff = 1
+
 /datum/blueprint_recipe/carpentry/easel
 	name = "wooden easel"
 	desc = "An easel for painting and art."
