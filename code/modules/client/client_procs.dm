@@ -1202,6 +1202,15 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		return inactivity
 	return FALSE
 
+/client/proc/set_manual_afk(state, show_message = TRUE)
+	if(manual_afk == state)
+		return
+	manual_afk = state
+	if(mob)
+		mob.set_afk_indicator(state)
+	if(show_message)
+		to_chat(src, state ? span_notice("You are now AFK.") : span_notice("You are no longer AFK."))
+
 /// Send resources to the client.
 /// Sends both game resources and browser assets.
 /client/proc/send_resources()

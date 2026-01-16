@@ -100,6 +100,14 @@ GLOBAL_LIST_INIT(oocpronouns_required, list(
 				msg_to_send = "<font color='[color2use]'><EM>[keyfield]:</EM></font> <font color='[admin_message_color ? admin_message_color : GLOB.OOC_COLOR]'><span class='message linkify'>[msg]</span></font>"
 			to_chat(C, msg_to_send)
 
+/client/verb/toggle_afk()
+	set name = "AFK"
+	set category = "OOC"
+	set desc = "Toggle AFK status."
+	if(!mob)
+		return
+	set_manual_afk(!manual_afk)
+
 
 /client/proc/lobbyooc(msg as text)
 	set category = "OOC"

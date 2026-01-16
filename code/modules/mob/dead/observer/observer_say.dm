@@ -15,6 +15,8 @@
 	message = trim(copytext(sanitize(message), 1, MAX_MESSAGE_LEN))
 	if(!message)
 		return
+	if(client?.manual_afk)
+		client.set_manual_afk(FALSE, show_message = FALSE)
 
 	var/list/message_mods = list()
 	message = get_message_mods(message, message_mods)
