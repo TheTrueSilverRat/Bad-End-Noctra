@@ -245,8 +245,10 @@
 
 /obj/item/weapon/polearm/spear/steel/assegai
 	name = "steel assegai"
+	desc = "A long spear originating from the southern regions of Lakkari. Lakkarian women in the city of Sekket are taught to use assegai so they can defend themselves against Zalad bandits."
 	icon = 'icons/roguetown/weapons/64/polearms.dmi'
 	icon_state = "assegai_steel"
+	gripsprite = FALSE
 	force_wielded = DAMAGE_SPEAR_WIELD + 2
 
 //................ Psydonian Spear ............... //

@@ -152,10 +152,11 @@
 	buckle_lying = 90
 	max_integrity = 250
 	debris = list(/obj/item/natural/wood/plank = 1)
+	var/buckle_offset_y = 6
 
 /obj/structure/bondage/torture_table/post_buckle_mob(mob/living/M)
 	. = ..()
-	M.set_mob_offsets("bed_buckle", _x = 0, _y = 0)
+	M.set_mob_offsets("bed_buckle", _x = 0, _y = buckle_offset_y)
 
 /obj/structure/bondage/torture_table/post_unbuckle_mob(mob/living/M)
 	. = ..()
