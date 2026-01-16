@@ -56,6 +56,7 @@
 	reload_huds()
 
 	reload_fullscreen() // Reload any fullscreen overlays this mob has.
+	set_afk_indicator(!!client?.manual_afk)
 
 	add_click_catcher()
 

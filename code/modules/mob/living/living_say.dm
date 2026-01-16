@@ -56,6 +56,8 @@
 		message = trim(copytext(sanitize(message), 1, MAX_MESSAGE_LEN))
 	if(!message || message == "")
 		return
+	if(client?.manual_afk)
+		client.set_manual_afk(FALSE, show_message = FALSE)
 
 	if(ic_blocked)
 		//The filter warning message shows the sanitized message though.

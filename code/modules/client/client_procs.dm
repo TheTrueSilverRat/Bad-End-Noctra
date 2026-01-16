@@ -737,6 +737,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	return ..()
 
 /client/Destroy()
+	if(mob)
+		mob.set_afk_indicator(TRUE)
 	STOP_PROCESSING(SSmousecharge, src)
 	if(holder)
 		for(var/I in GLOB.clients)
@@ -1201,6 +1203,15 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	if(inactivity > duration)
 		return inactivity
 	return FALSE
+
+/client/proc/set_manual_afk(state, show_message = TRUE)
+	if(manual_afk == state)
+		return
+	manual_afk = state
+	if(mob)
+		mob.set_afk_indicator(state)
+	if(show_message)
+		to_chat(src, state ? span_notice("You are now AFK.") : span_notice("You are no longer AFK."))
 
 /// Send resources to the client.
 /// Sends both game resources and browser assets.

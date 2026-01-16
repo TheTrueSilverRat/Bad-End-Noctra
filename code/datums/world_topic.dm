@@ -127,13 +127,6 @@
 	user.mention = user.friendly_name
 	return NC.Run(user, input["namecheck"])
 
-/datum/world_topic/adminwho
-	keyword = "adminwho"
-	require_comms_key = TRUE
-
-/datum/world_topic/adminwho/Run(list/input)
-	return ircadminwho()
-
 /datum/world_topic/status
 	keyword = "status"
 
@@ -154,7 +147,7 @@
 	var/list/adm = get_admin_counts()
 	var/list/presentmins = adm["present"]
 	var/list/afkmins = adm["afk"]
-	.["admins"] = presentmins.len + afkmins.len //equivalent to the info gotten from adminwho
+	.["admins"] = presentmins.len + afkmins.len
 	.["gamestate"] = SSticker.current_state
 
 	.["map_name"] = SSmapping.config?.map_name || "Loading..."
