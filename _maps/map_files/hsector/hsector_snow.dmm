@@ -3608,6 +3608,12 @@
 	},
 /turf/open/floor/churchrough,
 /area/indoors/town/rmh)
+"bOb" = (
+/obj/structure/table/map/deshret{
+	dir = 10
+	},
+/turf/open/floor/carpet/royalblack,
+/area/indoors/town/merc_guild)
 "bOk" = (
 /obj/structure/table/map{
 	dir = 10
@@ -3846,7 +3852,10 @@
 /turf/closed/wall/mineral/wooddark,
 /area/indoors/town/rmh/sawmill)
 "bTM" = (
-/turf/open/floor/twig,
+/obj/structure/bed/inn/double,
+/obj/item/bedsheet/double_pelt,
+/obj/effect/landmark/start/gaffer,
+/turf/open/floor/carpet/red,
 /area/indoors/town/merc_guild)
 "bTP" = (
 /obj/effect/decal/cobbleedge/alt{
@@ -5012,6 +5021,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/chevron,
 /area/outdoors/rmh_field/west)
+"ctM" = (
+/obj/structure/table/map/deshret,
+/turf/open/floor/carpet/royalblack,
+/area/indoors/town/merc_guild)
 "ctN" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/cobblerock,
@@ -6279,6 +6292,12 @@
 /obj/item/clothing/cloak/apron/waist,
 /turf/open/floor/cobblerock,
 /area/under/town/rmh/basement)
+"cZG" = (
+/obj/structure/table/map/deshret{
+	dir = 5
+	},
+/turf/open/floor/carpet/royalblack,
+/area/indoors/town/merc_guild)
 "cZJ" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/blocks,
@@ -11003,10 +11022,10 @@
 /turf/open/floor/cobble/snow,
 /area/outdoors/town/rmh)
 "ffl" = (
-/obj/structure/barricade/wooden,
-/obj/structure/barricade/wooden/crude,
-/obj/effect/decal/cleanable/debris/wood,
-/turf/open/floor/ruinedwood,
+/obj/structure/table/map/deshret{
+	dir = 9
+	},
+/turf/open/floor/carpet/royalblack,
 /area/indoors/town/merc_guild)
 "ffY" = (
 /turf/open/floor/churchrough,
@@ -11740,6 +11759,11 @@
 /obj/structure/carpet/blue,
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/bath)
+"fCz" = (
+/obj/structure/chair/wood/alt/fancy,
+/obj/effect/landmark/start/gaffer,
+/turf/open/floor/carpet/royalblack,
+/area/indoors/town/merc_guild)
 "fCJ" = (
 /obj/structure/water_pipe,
 /turf/closed/wall/mineral/pipe,
@@ -13351,12 +13375,11 @@
 /turf/open/floor/wood,
 /area/indoors/town/rmh/merchant)
 "gpE" = (
-/obj/structure/fluff/railing/border{
-	plane = -6
+/obj/structure/door/fancy{
+	name = "Veteran's Chambers"
 	},
-/obj/item/natural/wood/plank,
-/turf/open/floor/ruinedwood/darker,
-/area/indoors/town/merc_guild)
+/turf/open/transparent/openspace,
+/area/outdoors/rmh_air)
 "gpU" = (
 /obj/structure/door/window{
 	name = "Kitchen"
@@ -18406,7 +18429,6 @@
 /turf/open/floor/grass/cold,
 /area/indoors/shelter)
 "iJK" = (
-/obj/item/natural/glass/shard,
 /obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/merc_guild)
@@ -18691,6 +18713,7 @@
 	pixel_y = 10
 	},
 /obj/item/kitchen/rollingpin,
+/obj/item/natural/cloth,
 /turf/open/floor/blocks/stonered/tiny,
 /area/indoors/town/merc_guild)
 "iRe" = (
@@ -23196,6 +23219,7 @@
 	pixel_x = -8
 	},
 /obj/machinery/light/fueled/wallfire/candle/l,
+/obj/item/natural/cloth,
 /turf/open/floor/blocks/stonered/tiny,
 /area/indoors/town/merc_guild)
 "kXU" = (
@@ -24414,6 +24438,10 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/merc_guild)
+"lDA" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/blocks/newstone/alt,
+/area/indoors/town/merc_guild)
 "lDH" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
@@ -24441,7 +24469,8 @@
 /turf/open/transparent/openspace,
 /area/under/town/rmh/sewer)
 "lEr" = (
-/turf/open/floor/ruinedwood,
+/obj/structure/bearpelt,
+/turf/open/floor/blocks/newstone/alt,
 /area/indoors/town/merc_guild)
 "lEW" = (
 /obj/structure/fluff/railing/border{
@@ -27056,6 +27085,12 @@
 /obj/structure/rack/shelf/biggest,
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/indoors/town/rmh/crafters_guild)
+"mNl" = (
+/obj/structure/table/map/deshret{
+	dir = 6
+	},
+/turf/open/floor/carpet/royalblack,
+/area/indoors/town/merc_guild)
 "mNy" = (
 /obj/structure/fluff/customsign{
 	desc = "Баня, массаж и купальня.";
@@ -27542,6 +27577,7 @@
 	dir = 4;
 	color = "#3b3b3b"
 	},
+/obj/effect/landmark/start/matron,
 /turf/open/floor/ruinedwood/spiral,
 /area/under/town/rmh/basement)
 "nac" = (
@@ -27858,8 +27894,14 @@
 /turf/open/floor/twig,
 /area/outdoors/town/rmh)
 "nju" = (
-/obj/item/natural/wood/plank,
-/turf/open/floor/ruinedwood/darker,
+/obj/structure/closet/crate/chest,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/obj/item/reagent_containers/glass/cup/silver,
+/obj/item/kitchen/fork/iron,
+/obj/item/kitchen/spoon/iron,
+/obj/item/reagent_containers/glass/bowl/iron,
+/obj/item/reagent_containers/glass/bottle/wine/sourwine,
+/turf/open/floor/blocks/newstone/alt,
 /area/indoors/town/merc_guild)
 "njL" = (
 /obj/structure/fluff/walldeco/vinez,
@@ -29343,7 +29385,7 @@
 /area/indoors/town/rmh/chapel/basement)
 "nTj" = (
 /obj/effect/decal/cleanable/debris/wood,
-/turf/open/floor/twig,
+/turf/open/floor/blocks/newstone/alt,
 /area/indoors/town/merc_guild)
 "nTr" = (
 /obj/structure/window/openclose/reinforced{
@@ -31272,9 +31314,9 @@
 /obj/structure/door/fancy{
 	name = "Gaffer Living Chamber"
 	},
-/obj/effect/mapping_helpers/access/keyset/town/gaffer,
 /obj/structure/curtain/purple,
 /obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/town/matron,
 /turf/open/floor/woodturned,
 /area/under/town/rmh/basement)
 "oIW" = (
@@ -37223,8 +37265,8 @@
 /area/outdoors/rmh_field)
 "rvz" = (
 /obj/structure/door/green,
-/obj/effect/mapping_helpers/access/keyset/town/mercenary,
 /obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/town/matron,
 /turf/open/floor/concrete,
 /area/under/town/rmh/basement)
 "rvE" = (
@@ -37246,8 +37288,9 @@
 /turf/open/floor/grass/cold,
 /area/outdoors/rmh_field/north)
 "rvZ" = (
-/obj/effect/decal/cleanable/debris/wood,
-/turf/open/floor/ruinedwood,
+/obj/structure/chair/wood/alt/fancy,
+/obj/effect/landmark/start/mercenary,
+/turf/open/floor/carpet/royalblack,
 /area/indoors/town/merc_guild)
 "rwx" = (
 /obj/structure/flora/grass/herb/urtica,
@@ -38895,9 +38938,13 @@
 /turf/open/floor/naturalstone,
 /area/indoors/cave/rmh_cave/mine)
 "skB" = (
-/obj/effect/decal/cleanable/debris/wood,
-/obj/item/reagent_containers/glass/cup,
-/turf/open/floor/ruinedwood/darker,
+/obj/structure/chair/wood/alt/fancy{
+	dir = 8
+	},
+/obj/effect/landmark/start/mercenary{
+	dir = 8
+	},
+/turf/open/floor/carpet/royalblack,
 /area/indoors/town/merc_guild)
 "skC" = (
 /turf/closed/wall/mineral/decowood,
@@ -40808,7 +40855,7 @@
 	pixel_y = 0;
 	pixel_x = 31
 	},
-/turf/open/floor/twig,
+/turf/open/floor/blocks/newstone/alt,
 /area/indoors/town/merc_guild)
 "tgy" = (
 /obj/machinery/light/fueled/torchholder/hotspring{
@@ -41568,6 +41615,7 @@
 	pixel_x = -4;
 	pixel_y = 2
 	},
+/obj/item/natural/cloth,
 /turf/open/floor/blocks/stonered,
 /area/indoors/town/merc_guild)
 "tuT" = (
@@ -43402,7 +43450,7 @@
 "uiM" = (
 /obj/effect/decal/cleanable/debris/wood,
 /obj/effect/decal/cleanable/debris/glass,
-/turf/open/floor/twig,
+/turf/open/floor/blocks/newstone/alt,
 /area/indoors/town/merc_guild)
 "uiS" = (
 /turf/closed/wall/mineral/wooddark/vertical,
@@ -45282,8 +45330,10 @@
 /turf/open/floor/blocks/stonered,
 /area/indoors/town/rmh/tavern)
 "vdj" = (
-/obj/effect/decal/cleanable/debris/wood,
-/turf/open/floor/ruinedwood/darker,
+/obj/structure/table/map/deshret{
+	dir = 1
+	},
+/turf/open/floor/carpet/royalblack,
 /area/indoors/town/merc_guild)
 "vdn" = (
 /obj/structure/fluff/railing/wood/north{
@@ -46721,6 +46771,11 @@
 "vQZ" = (
 /turf/open/floor/cobblerock/snow,
 /area/outdoors/rmh_field/west)
+"vRg" = (
+/obj/structure/chair/wood/alt/fancy,
+/obj/effect/landmark/start/gaffer_assistant,
+/turf/open/floor/carpet/royalblack,
+/area/indoors/town/merc_guild)
 "vRp" = (
 /obj/structure/underworld/barrier,
 /turf/open/floor/cobblerock/snow,
@@ -46835,7 +46890,13 @@
 /turf/closed/wall/mineral/decostone/moss/end,
 /area/indoors/town/church/chapel)
 "vTd" = (
-/turf/open/floor/ruinedwood/turned,
+/obj/structure/closet/crate/drawer,
+/obj/effect/spawner/map_spawner/loot/coin/med,
+/obj/effect/spawner/map_spawner/loot/coin/low,
+/obj/item/reagent_containers/powder/moondust,
+/obj/item/reagent_containers/powder/moondust,
+/obj/item/book/rogue/howtogaffer,
+/turf/open/floor/carpet/red,
 /area/indoors/town/merc_guild)
 "vTg" = (
 /obj/structure/fluff/walldeco/bath/wallpipes/innie{
@@ -48913,7 +48974,8 @@
 /area/indoors/town/merc_guild)
 "wUi" = (
 /obj/structure/trophy/deer,
-/turf/open/floor/ruinedwood,
+/obj/structure/fluff/clock/dense,
+/turf/open/floor/blocks/newstone/alt,
 /area/indoors/town/merc_guild)
 "wUk" = (
 /obj/structure/rack/shelf/big{
@@ -51921,7 +51983,7 @@
 /area/outdoors/rmh_field/north)
 "yhF" = (
 /obj/effect/decal/cleanable/debris/glass,
-/turf/open/floor/ruinedwood/turned,
+/turf/open/floor/blocks/newstone/alt,
 /area/indoors/town/merc_guild)
 "yhV" = (
 /obj/structure/closet/crate/chest/old_crate,
@@ -323134,12 +323196,12 @@ rkB
 hnO
 wLZ
 gco
-gpE
+jpm
 xPF
 waE
 bTM
-rvZ
-bTM
+yfg
+nju
 tDl
 etm
 etm
@@ -323389,13 +323451,13 @@ etm
 etm
 ckE
 xYL
-nju
+wLZ
 xqC
 jpm
 qDF
 prl
 vTd
-bTM
+yfg
 uiM
 srK
 etm
@@ -323645,9 +323707,9 @@ etm
 etm
 etm
 kaJ
-vdj
-wLZ
-vdj
+rvZ
+ffl
+bOb
 jqI
 kQh
 ppi
@@ -323902,15 +323964,15 @@ etm
 etm
 etm
 syT
-wLZ
+fCz
 vdj
-wLZ
+ctM
 wLZ
 wLZ
 uTi
 tgs
 yhF
-vTd
+lDA
 ckE
 etm
 etm
@@ -324159,10 +324221,10 @@ etm
 etm
 etm
 rkB
+vRg
+cZG
+mNl
 wLZ
-wLZ
-wLZ
-nju
 mIu
 kaJ
 ppi
@@ -324416,12 +324478,12 @@ etm
 etm
 etm
 kaJ
-ckE
-skB
 wLZ
+skB
+skB
 iJK
 aby
-ffl
+pvm
 rnE
 pLD
 rnE
@@ -327489,7 +327551,7 @@ etm
 etm
 etm
 etm
-etm
+gpE
 etm
 etm
 etm
