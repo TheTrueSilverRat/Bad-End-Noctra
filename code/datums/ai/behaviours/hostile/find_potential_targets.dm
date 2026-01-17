@@ -140,9 +140,13 @@ GLOBAL_LIST_INIT(target_interested_atoms, typecacheof(list(/mob)))
 
 	if(!LAZYLEN(accepted_targets))
 		finish_action(controller, succeeded = FALSE)
+		return
 
 	// Alright, we found something acceptable, let's use it yeah?
 	var/atom/target = pick_final_target(controller, accepted_targets)
+	if(!target)
+		finish_action(controller, succeeded = FALSE)
+		return
 
 	var/datum/horny_targetting_datum/horny_targetting_datum = controller.blackboard[BB_HORNY_TARGETTING_DATUM]
 	if(!isnull(horny_targetting_datum))
