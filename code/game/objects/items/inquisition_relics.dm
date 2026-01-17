@@ -962,7 +962,7 @@
 	icon_state = "garrote"
 	item_state = "garrote"
 	resistance_flags = INDESTRUCTIBLE
-	choke_damage = 20
+	choke_damage = 2
 	sellprice = 100
 
 /obj/item/clothing/head/inqarticles/blackbag
