@@ -65,14 +65,6 @@
 	message_admins("Name checking [params] from [sender.friendly_name]")
 	return keywords_lookup(params, 1)
 
-/datum/tgs_chat_command/adminwho
-	name = "adminwho"
-	help_text = "Lists administrators currently on the server"
-	admin_only = TRUE
-
-/datum/tgs_chat_command/adminwho/Run(datum/tgs_chat_user/sender, params)
-	return ircadminwho()
-
 GLOBAL_LIST(round_end_notifiees)
 
 /datum/tgs_chat_command/endnotify

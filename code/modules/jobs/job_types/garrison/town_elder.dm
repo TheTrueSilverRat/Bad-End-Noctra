@@ -69,7 +69,7 @@
 
 	var/inputty = input("Make an announcement", "VANDERLIN") as text|null
 	if(inputty)
-		if(!istype(get_area(src), /area/indoors/town/tavern))
+		if(!istype(get_area(src), /area/indoors/town/tavern) && !istype(get_area(src), /area/indoors/town/rmh/tavern))
 			to_chat(src, "<span class='warning'>I need to do this from the tavern.</span>")
 			return FALSE
 		priority_announce("[inputty]", title = "[src.real_name], The Town Elder Speaks", sound = 'sound/misc/bell.ogg')

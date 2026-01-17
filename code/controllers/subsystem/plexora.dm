@@ -410,33 +410,6 @@ SUBSYSTEM_DEF(plexora)
 			continue
 		. += list(list("key" = client.holder?.fakekey || client.key, "avgping" = "[round(client.avgping, 1)]ms"))
 
-/datum/world_topic/plx_adminwho
-	keyword = "PLX_adminwho"
-	require_comms_key = TRUE
-
-/datum/world_topic/plx_adminwho/Run(list/input)
-	. = list()
-	for (var/client/admin as anything in GLOB.admins)
-		if(QDELETED(admin))
-			continue
-		var/admin_info = list(
-			"name" = admin,
-			"ckey" = admin.ckey,
-			"rank" = admin.holder.rank.name,
-			"afk" = admin.is_afk(),
-			"stealth" = !!admin.holder.fakekey,
-			"stealthkey" = admin.holder.fakekey,
-		)
-
-		if(isobserver(admin.mob))
-			admin_info["state"] = "observing"
-		else if(isnewplayer(admin.mob))
-			admin_info["state"] = "lobby"
-		else
-			admin_info["state"] = "playing"
-
-		. += LIST_VALUE_WRAP_LISTS(admin_info)
-
 /datum/world_topic/plx_getbasicplayerdetails
 	keyword = "PLX_getbasicplayerdetails"
 	require_comms_key = TRUE

@@ -12,6 +12,31 @@
 	/obj/item/kitchen/spoon/pewter,
 	/obj/item/kitchen/fork/pewter)
 
+/datum/supply_pack/luxury/soap
+	name = "Imported Soap"
+	cost = 10
+	contains = /obj/item/soap/bath
+
+/datum/supply_pack/luxury/zigbox
+	name = "Imported Zigbox"
+	cost = 45
+	contains = /obj/item/storage/fancy/cigarettes/zig
+
+/datum/supply_pack/luxury/spice // Drugs are more expensive for the Merchant to order in
+	name = "Spice"
+	cost = 30
+	contains = /obj/item/reagent_containers/powder/spice
+
+/datum/supply_pack/luxury/ozium
+	name = "Ozium"
+	cost = 16
+	contains = /obj/item/reagent_containers/powder/ozium
+
+/datum/supply_pack/luxury/moondust
+	name = "Moon Dust"
+	cost = 40
+	contains = /obj/item/reagent_containers/powder/moondust
+
 /datum/supply_pack/luxury/silver_plaque_belt
 	name = "Silver Plaque Belt"
 	cost = 50
@@ -61,3 +86,8 @@
 	name = "Talkstone"
 	cost = 150
 	contains = /obj/item/clothing/neck/talkstone
+
+/datum/supply_pack/instruments/mbox
+	name = "Dwarven Music Box"
+	cost = 150
+	contains = /obj/item/dmusicbox

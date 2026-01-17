@@ -1,131 +1,131 @@
 
 
 /datum/supply_pack/seeds
-	group = "Seeds"
+	group = "Agriculture"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 /datum/supply_pack/seeds/spelt
 	name = "Spelt"
-	cost = 2
-	contains = /obj/item/neuFarm/seed/wheat
+	cost = 5
+	contains = /obj/item/reagent_containers/food/snacks/produce/grain/wheat
+
+/datum/supply_pack/seeds/oats
+	name = "Oats"
+	cost = 3
+	contains = /obj/item/reagent_containers/food/snacks/produce/grain/oat
 
 /datum/supply_pack/seeds/apple
 	name = "Apple"
-	cost = 10
-	contains = /obj/item/neuFarm/seed/apple
+	cost = 4
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/apple
 
 /datum/supply_pack/seeds/weed
 	name = "Pipe Weed"
-	cost = 5
-	contains = /obj/item/neuFarm/seed/westleach
+	cost = 8
+	contains = /obj/item/reagent_containers/food/snacks/produce/westleach
 
 /datum/supply_pack/seeds/sleaf
 	name = "Swamp Weed"
-	cost = 8
-	contains = /obj/item/neuFarm/seed/swampleaf
-
-/datum/supply_pack/seeds/berry
-	name = "Berry"
-	cost = 2
-	contains = /obj/item/neuFarm/seed/berry
+	cost = 16
+	contains = /obj/item/reagent_containers/food/snacks/produce/swampweed
 
 /datum/supply_pack/seeds/onion
 	name = "Onion"
-	cost = 2
-	contains = /obj/item/neuFarm/seed/onion
+	cost = 6
+	contains = /obj/item/reagent_containers/food/snacks/produce/vegetable/onion
 
 /datum/supply_pack/seeds/cabbage
 	name = "Cabbage"
-	cost = 2
-	contains = /obj/item/neuFarm/seed/cabbage
+	cost = 10
+	contains = /obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage
 
 /datum/supply_pack/seeds/potato
 	name = "Potato"
-	cost = 2
-	contains = /obj/item/neuFarm/seed/potato
+	cost = 6
+	contains = /obj/item/reagent_containers/food/snacks/produce/vegetable/potato
 
 /datum/supply_pack/seeds/sunflowers
 	name = "Sunflowers"
-	cost = 8
+	cost = 10
 	contains = /obj/item/neuFarm/seed/sunflower
 
 /datum/supply_pack/seeds/turnip
 	name = "Turnip"
-	cost = 2
-	contains = /obj/item/neuFarm/seed/turnip
+	cost = 4
+	contains = /obj/item/reagent_containers/food/snacks/produce/vegetable/turnip
 
 /datum/supply_pack/seeds/pear
 	name = "Pear"
-	cost = 10
-	contains = /obj/item/neuFarm/seed/pear
+	cost = 8
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/pear
 
 /datum/supply_pack/seeds/poppy
 	name = "Poppy"
-	cost = 15
+	cost = 18
 	contains = /obj/item/neuFarm/seed/poppy
 
 /datum/supply_pack/seeds/plum
 	name = "Plum"
-	cost = 15
-	contains = /obj/item/neuFarm/seed/plum
+	cost = 8
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/plum
 
 /datum/supply_pack/seeds/lemon
 	name = "Lemon"
-	cost = 10
-	contains = /obj/item/neuFarm/seed/lemon
+	cost = 14
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/lemon
 
 /datum/supply_pack/seeds/lime
 	name = "Lime"
-	cost = 10
-	contains = /obj/item/neuFarm/seed/lime
+	cost = 14
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/lime
 
 /datum/supply_pack/seeds/tangerine
 	name = "Tangerine"
-	cost = 10
-	contains = /obj/item/neuFarm/seed/tangerine
+	cost = 16
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/tangerine
 
 /datum/supply_pack/seeds/strawberry
 	name = "Strawberry"
-	cost = 15
-	contains = /obj/item/neuFarm/seed/strawberry
+	cost = 8
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/strawberry
 
 /datum/supply_pack/seeds/blackberry
 	name = "Blackberry"
-	cost = 5
-	contains = /obj/item/neuFarm/seed/blackberry
+	cost = 6
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/blackberry
 
 /datum/supply_pack/seeds/rasberry
 	name = "Rasberry"
-	cost = 5
-	contains = /obj/item/neuFarm/seed/raspberry
+	cost = 6
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/raspberry
 
 /datum/supply_pack/seeds/sugarcane
 	name = "Sugarcane"
-	cost = 15
-	contains = /obj/item/neuFarm/seed/sugarcane
+	cost = 30
+	contains = /obj/item/reagent_containers/food/snacks/produce/sugarcane
 
 /datum/supply_pack/seeds/avocado
 	name = "Avocado"
-	cost = 10
-	contains = /obj/item/neuFarm/seed/avocado
+	cost = 20
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/avocado
 
 /datum/supply_pack/seeds/pineapple
 	name = "Ananas"
 	cost = 10
-	contains = /obj/item/neuFarm/seed/pineapple
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/pineapple
 
 /datum/supply_pack/seeds/mango
 	name = "Mangga"
 	cost = 10
-	contains = /obj/item/neuFarm/seed/mango
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/mango
 
 /datum/supply_pack/seeds/mangosteen
 	name = "Mangosteen"
 	cost = 10
-	contains = /obj/item/neuFarm/seed/mangosteen
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/mangosteen
 
 /datum/supply_pack/seeds/dragonfruit
 	name = "Piyata"
 	cost = 10
-	contains = /obj/item/neuFarm/seed/dragonfruit
+	contains = /obj/item/reagent_containers/food/snacks/produce/fruit/dragonfruit

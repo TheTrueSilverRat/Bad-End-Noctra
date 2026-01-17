@@ -112,7 +112,6 @@
 		/datum/supply_pack/tools/lockpicks,
 		// Materials & Seeds
 		/datum/supply_pack/rawmats/feather,
-		/datum/supply_pack/seeds/berry,
 		/datum/supply_pack/seeds/weed,
 		/datum/supply_pack/seeds/sleaf,
 		// Instruments
@@ -157,7 +156,7 @@
 		/datum/supply_pack/weapons/steel/steppesabre,
 		// Food
 		/datum/supply_pack/food/drinks/spottedhen,
-		/datum/supply_pack/food/roastedcoffee,
+		/datum/supply_pack/food/drinks/roastedcoffee,
 		// Materials
 			// Seeds
 		/datum/supply_pack/seeds/sunflowers,

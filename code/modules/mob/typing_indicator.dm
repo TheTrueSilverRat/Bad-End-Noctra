@@ -3,8 +3,10 @@
 	var/typing
 	var/last_typed
 	var/last_typed_time
+	var/afk_indicator_active = FALSE
 
 	var/static/mutable_appearance/typing_indicator
+	var/static/mutable_appearance/afk_indicator
 
 /mob/proc/set_typing_indicator(state, hudt)
 	if(!typing_indicator)
@@ -26,6 +28,22 @@
 			typing = FALSE
 			hud_typing = FALSE
 			update_vision_cone()
+	return state
+
+/mob/proc/set_afk_indicator(state)
+	if(!afk_indicator)
+		afk_indicator = mutable_appearance('icons/mob/ssd_indicator.dmi', "default0", FLY_LAYER)
+		afk_indicator.alpha = 200
+		afk_indicator.pixel_y = 16
+
+	if(state)
+		if(!afk_indicator_active)
+			add_overlay(afk_indicator)
+			afk_indicator_active = TRUE
+	else
+		if(afk_indicator_active)
+			cut_overlay(afk_indicator)
+			afk_indicator_active = FALSE
 	return state
 
 /mob/living/key_down(_key, client/user)

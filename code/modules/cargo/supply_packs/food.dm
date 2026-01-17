@@ -5,27 +5,32 @@
 
 /datum/supply_pack/food/meat
 	name = "Dry Meat"
-	cost = 10
+	cost = 8
 	contains = /obj/item/reagent_containers/food/snacks/cooked/coppiette
 
 /datum/supply_pack/food/hardtack
 	name = "Hardtack"
-	cost = 6
+	cost = 4
 	contains = /obj/item/reagent_containers/food/snacks/hardtack
+
+/datum/supply_pack/food/sugar
+	name = "Imported Sugar"
+	cost = 10
+	contains = /obj/item/reagent_containers/food/snacks/sugar
 
 /datum/supply_pack/food/cheese
 	name = "Cheese Wheel"
-	cost = 25
+	cost = 20
 	contains = /obj/item/reagent_containers/food/snacks/cheddar
 
 /datum/supply_pack/food/agecheese
 	name = "Aged Cheese Wheel"
-	cost = 35
+	cost = 30
 	contains = /obj/item/reagent_containers/food/snacks/cheddar/aged
 
 /datum/supply_pack/food/salami
 	name = "Salami Stick"
-	cost = 15
+	cost = 12
 	contains = /obj/item/reagent_containers/food/snacks/meat/salami
 
 /datum/supply_pack/food/potato
@@ -55,7 +60,7 @@
 
 /datum/supply_pack/food/honey
 	name = "Honey"
-	cost = 15
+	cost = 12
 	contains = /obj/item/reagent_containers/food/snacks/spiderhoney/honey
 
 /datum/supply_pack/food/eel
@@ -85,47 +90,42 @@
 
 /datum/supply_pack/food/jelly1
 	name = "Apple Jelly"
-	cost = 45
+	cost = 35
 	contains = /obj/item/reagent_containers/food/snacks/jellycake_apple
 
 /datum/supply_pack/food/jelly2
 	name = "Plum Jelly"
-	cost = 45
+	cost = 35
 	contains = /obj/item/reagent_containers/food/snacks/jellycake_plum
 
 /datum/supply_pack/food/jelly3
 	name = "Pear Jelly"
-	cost = 45
+	cost = 35
 	contains = /obj/item/reagent_containers/food/snacks/jellycake_pear
 
 /datum/supply_pack/food/jelly4
 	name = "Lime Jelly"
-	cost = 45
+	cost = 35
 	contains = /obj/item/reagent_containers/food/snacks/jellycake_lime
 
 /datum/supply_pack/food/jelly5
 	name = "Tangerine Jelly"
-	cost = 45
+	cost = 35
 	contains = /obj/item/reagent_containers/food/snacks/jellycake_tangerine
 
 /datum/supply_pack/food/driedtangerine
 	name = "Dried Tangerine"
-	cost = 10
+	cost = 5
 	contains = /obj/item/reagent_containers/food/snacks/tangerine_dried
 
 /datum/supply_pack/food/driedplum
 	name = "Dried Plum"
-	cost = 12
+	cost = 5
 	contains = /obj/item/reagent_containers/food/snacks/plum_dried
-
-/datum/supply_pack/food/roastedcoffee
-	name = "Roasted Coffee"
-	cost = 12
-	contains = /obj/item/reagent_containers/food/snacks/produce/coffeebeansroasted
 
 /datum/supply_pack/food/saltseeds
 	name = "Salted Seeds"
-	cost = 10
+	cost = 3
 	contains = /obj/item/reagent_containers/food/snacks/saltseeds
 
 /datum/supply_pack/food/saltfish
