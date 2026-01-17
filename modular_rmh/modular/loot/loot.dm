@@ -115,6 +115,8 @@
 			/obj/item/clothing/neck/gorget = 1,
 			/obj/item/clothing/head/helmet/kettle = 1,
 			/obj/item/clothing/head/helmet/leather = 2,
+			/obj/item/clothing/armor/leather/studded = 2,
+			/obj/item/clothing/armor/leather/studded/mail = 2,
 			/obj/item/clothing/head/helmet/horned = 1,
 			/obj/item/clothing/head/helmet/skullcap = 1,
 			/obj/item/clothing/head/helmet/winged = 1,

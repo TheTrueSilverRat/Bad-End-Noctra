@@ -126,7 +126,12 @@
 	cost = 50
 	contains = /obj/item/reagent_containers/glass/bottle/black/yaojiu
 
-/datum/supply_pack/food/drinks/tealeaves
-	name = "Ground Tea Leaves"
+/datum/supply_pack/food/drinks/roastedcoffee
+	name = "Roasted Coffee"
 	cost = 10
+	contains = /obj/item/reagent_containers/food/snacks/produce/coffeebeansroasted
+
+/datum/supply_pack/food/drinks/driedtealeaves
+	name = "Dried Tea"
+	cost = 5
 	contains = /obj/item/reagent_containers/food/snacks/produce/tealeaves_ground

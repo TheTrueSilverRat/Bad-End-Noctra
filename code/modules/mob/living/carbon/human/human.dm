@@ -244,6 +244,7 @@
 	create_dna(src)
 	randomize_human(src)
 	dna.initialize_dna()
+	reset_limb_fingerprints()
 
 /mob/living/carbon/human/Stat()
 	..()
@@ -906,6 +907,7 @@
 	copy_bodyparts(target)
 
 	target.dna.transfer_identity(src)
+	reset_limb_fingerprints()
 
 	updateappearance(mutcolor_update = TRUE)
 

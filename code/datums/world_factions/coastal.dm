@@ -61,7 +61,7 @@
 		/datum/supply_pack/food/drinks/beer,
 		/datum/supply_pack/food/drinks/elfbeer,
 		/datum/supply_pack/food/drinks/elfcab,
-		/datum/supply_pack/food/drinks/tealeaves,
+		/datum/supply_pack/food/drinks/driedtealeaves,
 		/datum/supply_pack/food/driedtangerine,
 		/datum/supply_pack/food/driedplum,
 		/datum/supply_pack/food/saltfish,
