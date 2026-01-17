@@ -632,7 +632,29 @@
 	if(additional)
 		examination += span_info(span_green("[getToxLoss()] TOXIN"))
 		examination += span_info(span_blue("[getOxyLoss()] OXYGEN"))
-	examination += "ø ------------ ø</span>"
+
+	examination += "ø ------------ ø" //automatically lists internal organs that have those functions
+	var/mob/living/carbon/human/userino = user
+	if(userino.has_quirk(/datum/quirk/selfawaregeni))
+		for(var/obj/item/organ/genitals/filling_organ/forgan in userino.internal_organs)
+			var/health_status = ""
+			var/health_ratio = (forgan.maxHealth - forgan.damage) / forgan.maxHealth
+			if(forgan.maxHealth - forgan.damage < forgan.maxHealth)
+				health_status = " It looks [round(health_ratio * 100)]% healthy."
+			else
+				health_status = " It looks <span class='green'>OK</span>"
+
+			var/list/stored_items = list()
+			SEND_SIGNAL(userino, COMSIG_HOLE_RETURN_ITEM_LIST_SINGLE, stored_items, forgan.slot)
+			if(forgan.reagents.total_volume)
+				examination += span_info("[user == src ? "my" : "[user.p_their()]"] [pick(forgan.altnames)] are <bold>[forgan.reagents.total_volume]/[forgan.reagents.maximum_volume] liguae</bold> full.[health_status]")
+			else
+				examination += span_info("[user == src ? "my" : "[user.p_their()]"] [pick(forgan.altnames)] has no fluids.[health_status]")
+			if(length(stored_items))
+				examination += span_info("There is <bold>[english_list(stored_items)]</bold> in [user == src ? "my" : "[user.p_their()]"] [pick(forgan.altnames)].")
+			continue
+		examination += "ø ------------ ø</span>"
+
 	if(!silent)
 		to_chat(user, examination.Join("\n"))
 	return examination

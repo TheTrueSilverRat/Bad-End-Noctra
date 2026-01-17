@@ -21,6 +21,8 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	var/list/remote_control_master_experience
 	var/list/remote_control_pet_skills
 	var/list/remote_control_pet_experience
+	var/datum/skill_holder/remote_control_master_skill_holder
+	var/datum/skill_holder/remote_control_pet_skill_holder
 	var/list/forced_arousal_timers = list()
 	var/list/forced_arousal_end_times = list()
 
@@ -99,7 +101,8 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	pet.adjust_stamina(intensity)
 	pet.adjustFireLoss(intensity * 0.2)
 	pet.Knockdown(intensity * 0.2 SECONDS)
-	pet.visible_message(span_danger("[pet]'s collar crackles with electricity!"), span_userdanger("Your collar sears you with a shock!"))
+	var/source = get_pet_command_source(pet)
+	pet.visible_message(span_danger("Electricity crackles from [pet]'s [source]!"), span_userdanger("A shock sears you from your [source]!"))
 	playsound(pet, 'sound/items/stunmace_hit (1).ogg', 50, TRUE)
 	return TRUE
 
@@ -153,6 +156,37 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	log_admin(msg)
 	message_admins(span_adminnotice(msg))
 
+/datum/component/collar_master/proc/get_pet_command_source(mob/living/carbon/human/pet, use_cursed = FALSE)
+	var/has_collar = istype(pet?.get_item_by_slot(ITEM_SLOT_NECK), /obj/item/clothing/neck/roguetown/cursed_collar)
+	var/has_brand = HAS_TRAIT(pet, TRAIT_INDENTURED)
+	if(has_collar && has_brand)
+		return use_cursed ? "cursed collar and brand" : "collar and brand"
+	if(has_brand)
+		return "brand"
+	if(has_collar && use_cursed)
+		return "cursed collar"
+	return "collar"
+
+/datum/component/collar_master/proc/get_pets_command_source(list/pets)
+	var/has_collar = FALSE
+	var/has_brand = FALSE
+	if(islist(pets))
+		for(var/mob/living/carbon/human/pet as anything in pets)
+			if(!pet)
+				continue
+			if(istype(pet.get_item_by_slot(ITEM_SLOT_NECK), /obj/item/clothing/neck/roguetown/cursed_collar))
+				has_collar = TRUE
+			if(HAS_TRAIT(pet, TRAIT_INDENTURED))
+				has_brand = TRUE
+	if(has_collar && has_brand)
+		return "collar and brand"
+	if(has_brand)
+		return "brand"
+	return "collar"
+
+/datum/component/collar_master/proc/is_command_source_plural(source)
+	return source == "collar and brand" || source == "cursed collar and brand"
+
 /datum/component/collar_master/proc/force_surrender(mob/living/carbon/human/pet)
 	if(!pet || !(pet in my_pets))
 		return FALSE
@@ -160,7 +194,8 @@ GLOBAL_LIST_EMPTY(collar_masters)
 		return FALSE
 	pet.Knockdown(50)
 	pet.Stun(50)
-	pet.visible_message(span_warning("[pet] is forced to surrender by their collar!"), span_userdanger("Your collar forces you to submit!"))
+	var/source = get_pet_command_source(pet)
+	pet.visible_message(span_warning("[pet] is forced to surrender by their [source]!"), span_userdanger("You are forced to submit by your [source]!"))
 	playsound(pet, 'sound/misc/surrender.ogg', 80, TRUE)
 	return TRUE
 
@@ -171,7 +206,8 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	for(var/obj/item/I in pet.get_equipped_items())
 		if(!(I.slot_flags & ITEM_SLOT_NECK))
 			pet.dropItemToGround(I, TRUE)
-	to_chat(pet, span_warning("Your collar tingles as it forces you to strip!"))
+	var/source = get_pet_command_source(pet)
+	to_chat(pet, span_warning("A tingle from your [source] forces you to strip!"))
 	return TRUE
 
 /datum/component/collar_master/proc/toggle_speech(mob/living/carbon/human/pet)
@@ -180,11 +216,13 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	if(pet in speech_blocked)
 		UnregisterSignal(pet, COMSIG_MOB_SAY)
 		speech_blocked -= pet
-		to_chat(pet, span_notice("Your collar relaxes; you can speak normally."))
+		var/source = get_pet_command_source(pet)
+		to_chat(pet, span_notice("The grip of your [source] relaxes; you can speak normally."))
 	else
 		RegisterSignal(pet, COMSIG_MOB_SAY, PROC_REF(block_speech))
 		speech_blocked += pet
-		to_chat(pet, span_warning("Your collar locks your voice down to whimpers."))
+		var/source = get_pet_command_source(pet)
+		to_chat(pet, span_warning("The grip of your [source] locks your voice down to whimpers."))
 	return TRUE
 
 /datum/component/collar_master/proc/block_speech(datum/source, list/speech_args)
@@ -192,7 +230,8 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	var/mob/living/carbon/human/pet = source
 	if(!pet)
 		return
-	pet.visible_message(span_emote("[pet] whimpers."), span_warning("You can only whimper through the collar."))
+	var/source_name = get_pet_command_source(pet)
+	pet.visible_message(span_emote("[pet] whimpers."), span_warning("You can only whimper through the [source_name]."))
 	speech_args[SPEECH_MESSAGE] = ""
 
 /datum/component/collar_master/proc/permit_clothing(mob/living/carbon/human/pet, permitted = TRUE)
@@ -207,26 +246,28 @@ GLOBAL_LIST_EMPTY(collar_masters)
 /datum/component/collar_master/proc/send_message(mob/living/carbon/human/pet, message)
 	if(!pet || !(pet in my_pets) || !message)
 		return FALSE
-	to_chat(pet, span_userdanger("<i>Your collar resonates with your master's voice:</i> [message]"))
+	var/source = get_pet_command_source(pet)
+	to_chat(pet, span_userdanger("<i>Your master's voice resonates through your [source]:</i> [message]"))
 	playsound(pet, 'sound/misc/vampirespell.ogg', 50, TRUE)
 	return TRUE
 
 /datum/component/collar_master/proc/force_love(mob/living/carbon/human/pet)
 	if(!pet || !(pet in my_pets) || !mindparent?.current)
 		return FALSE
+	var/source = get_pet_command_source(pet)
 	if(pet.has_status_effect(/datum/status_effect/in_love))
 		pet.remove_status_effect(/datum/status_effect/in_love)
 		if(islist(pet.faction))
 			pet.faction -= "[REF(mindparent.current)]"
-		to_chat(pet, span_notice("The collar releases the enforced affection toward [mindparent.current]."))
-		to_chat(mindparent.current, span_notice("[pet]'s collar no longer twists their heart."))
+		to_chat(pet, span_notice("The enforced affection toward [mindparent.current] fades from your [source]."))
+		to_chat(mindparent.current, span_notice("[pet]'s heart is no longer twisted by the [source]."))
 		return TRUE
 	if(!islist(pet.faction))
 		pet.faction = list()
 	pet.faction |= "[REF(mindparent.current)]"
 	pet.apply_status_effect(/datum/status_effect/in_love, null, mindparent.current)
 	to_chat(pet, span_love("Overwhelming adoration for [mindparent.current] floods your mind."))
-	to_chat(mindparent.current, span_notice("[pet] is bound to you by the collar's twisted affection."))
+	to_chat(mindparent.current, span_notice("[pet] is bound to you by the twisted pull of the [source]."))
 	return TRUE
 
 /datum/component/collar_master/proc/force_say(mob/living/carbon/human/pet, message)
@@ -249,16 +290,17 @@ GLOBAL_LIST_EMPTY(collar_masters)
 /datum/component/collar_master/proc/toggle_arousal(mob/living/carbon/human/pet)
 	if(!pet || !(pet in my_pets))
 		return FALSE
+	var/source = get_pet_command_source(pet)
 	if(forced_arousal_timers[pet])
 		stop_forced_arousal(pet)
-		to_chat(pet, span_notice("The collar eases its constant teasing."))
+		to_chat(pet, span_notice("The teasing from your [source] eases."))
 		if(mindparent?.current)
 			to_chat(mindparent.current, span_notice("[pet]'s enforced arousal is switched off."))
 		return TRUE
 	SEND_SIGNAL(pet, COMSIG_SEX_FREEZE_AROUSAL, FALSE)
-	to_chat(pet, span_warning("The collar hums, flooding you with relentless arousal."))
+	to_chat(pet, span_warning("A hum from your [source] floods you with relentless arousal."))
 	if(mindparent?.current)
-		to_chat(mindparent.current, span_notice("You set [pet]'s collar to steadily increase their arousal."))
+		to_chat(mindparent.current, span_notice("You set [pet]'s [source] to steadily increase their arousal."))
 	forced_arousal_end_times[pet] = world.time + FORCED_AROUSAL_DURATION
 	var/id = addtimer(CALLBACK(src, PROC_REF(ramp_arousal_tick), pet), 2 SECONDS, TIMER_STOPPABLE | TIMER_LOOP)
 	if(id)
@@ -270,23 +312,32 @@ GLOBAL_LIST_EMPTY(collar_masters)
 		stop_forced_arousal(pet)
 		return
 	var/end_time = forced_arousal_end_times[pet]
-	if(!end_time || world.time >= end_time)
+	if(!end_time)
 		stop_forced_arousal(pet)
-		to_chat(pet, span_notice("The collar's teasing hum dies down, letting your arousal ebb."))
+		return
+	if(world.time >= end_time)
+		stop_forced_arousal(pet)
+		var/source = get_pet_command_source(pet)
+		to_chat(pet, span_notice("The teasing hum from your [source] dies down, letting your arousal ebb."))
 		if(mindparent?.current)
-			to_chat(mindparent.current, span_notice("[pet]'s collar stops enforcing arousal."))
+			to_chat(mindparent.current, span_notice("[pet]'s [source] stops enforcing arousal."))
 		return
 	SEND_SIGNAL(pet, COMSIG_SEX_ADJUST_AROUSAL, 2)
 
 /datum/component/collar_master/proc/stop_forced_arousal(mob/living/carbon/human/pet)
-	if(!forced_arousal_timers[pet])
-		forced_arousal_end_times -= pet
-		return
 	var/id = forced_arousal_timers[pet]
 	forced_arousal_timers -= pet
 	forced_arousal_end_times -= pet
 	if(id)
 		deltimer(id)
+	var/list/timers = active_timers
+	if(timers)
+		for(var/datum/timedevent/timer as anything in timers)
+			var/datum/callback/callback = timer.callBack
+			if(!callback || callback.delegate != PROC_REF(ramp_arousal_tick))
+				continue
+			if(length(callback.arguments) && callback.arguments[1] == pet)
+				deltimer(timer)
 	return TRUE
 
 /datum/component/collar_master/proc/cleanup_pet(mob/living/carbon/human/pet)
@@ -307,7 +358,8 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	if(!mindparent?.current)
 		return
 	if(target == mindparent.current && pet.used_intent && pet.used_intent.type == INTENT_HARM)
-		to_chat(pet, span_warning("Your collar shocks you for attacking your master!"))
+		var/source_name = get_pet_command_source(pet)
+		to_chat(pet, span_warning("A shock from your [source_name] strikes you for attacking your master!"))
 		// Run the shock asynchronously so we don't block the signal handler on any sleeping subcalls (emotes, etc.)
 		INVOKE_ASYNC(src, PROC_REF(shock_pet), pet, 15)
 
@@ -322,7 +374,8 @@ GLOBAL_LIST_EMPTY(collar_masters)
 		return FALSE
 	eye.ManualFollow(pet)
 	eye.name = "[viewer.real_name]'s sight"
-	to_chat(viewer, span_notice("You let your senses ride along [pet]'s collar."))
+	var/source = get_pet_command_source(pet)
+	to_chat(viewer, span_notice("You let your senses ride along [pet]'s [source]."))
 	addtimer(CALLBACK(eye, TYPE_PROC_REF(/mob/dead/observer, reenter_corpse)), duration)
 	return TRUE
 
@@ -337,18 +390,19 @@ GLOBAL_LIST_EMPTY(collar_masters)
 		return FALSE
 
 	// Push the pet's player into a ghost for the duration.
+	var/source = get_pet_command_source(pet, TRUE)
 	var/datum/mind/pet_mind = pet.mind
 	var/mob/dead/observer/ghost = create_pet_ghost(pet)
 	if(!ghost)
 		if(mindparent?.current)
-			to_chat(mindparent.current, span_warning("The collar fails to cast the pet's spirit out."))
+			to_chat(mindparent.current, span_warning("The link through the [source] fails to cast the pet's spirit out."))
 		return FALSE
 	ghost.can_reenter_corpse = FALSE
-	to_chat(ghost, span_warning("Your spirit is yanked from your body by the cursed collar! You will be pulled back soon."))
+	to_chat(ghost, span_warning("Your spirit is yanked from your body by the [source]! You will be pulled back soon."))
 	pet_mind.transfer_to(ghost, TRUE)
 	if(pet_mind.current != ghost)
 		if(mindparent?.current)
-			to_chat(mindparent.current, span_warning("The collar fizzles; the link to the pet's spirit fails."))
+			to_chat(mindparent.current, span_warning("The [source] fizzles; the link to the pet's spirit fails."))
 		pet_ghost_cleanup(ghost)
 		return FALSE
 
@@ -361,6 +415,8 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	RegisterSignal(master_body, COMSIG_PARENT_QDELETING, PROC_REF(on_master_deleted))
 	var/datum/skill_holder/master_skills = master_body.ensure_skills()
 	var/datum/skill_holder/pet_skills = pet.ensure_skills()
+	remote_control_master_skill_holder = master_skills
+	remote_control_pet_skill_holder = pet_skills
 	remote_control_master_skills = master_skills.known_skills.Copy()
 	remote_control_master_experience = master_skills.skill_experience.Copy()
 	remote_control_pet_skills = pet_skills.known_skills.Copy()
@@ -369,7 +425,7 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	// Move the master's mind into the pet.
 	mindparent.transfer_to(pet)
 	if(mindparent?.current)
-		to_chat(mindparent.current, span_userdanger("You seize [pet]'s body through the cursed collar for a short while!"))
+		to_chat(mindparent.current, span_userdanger("You seize [pet]'s body through the [source] for a short while!"))
 
 	remote_control_timer_id = addtimer(CALLBACK(src, PROC_REF(end_remote_control)), control_duration, TIMER_STOPPABLE)
 	return TRUE
@@ -396,6 +452,10 @@ GLOBAL_LIST_EMPTY(collar_masters)
 	remote_control_master_experience = null
 	remote_control_pet_skills = null
 	remote_control_pet_experience = null
+	var/datum/skill_holder/master_skills_holder = remote_control_master_skill_holder
+	var/datum/skill_holder/pet_skills_holder = remote_control_pet_skill_holder
+	remote_control_master_skill_holder = null
+	remote_control_pet_skill_holder = null
 	// Return minds to their original homes when possible.
 	if(mindparent && master_body && !QDELETED(master_body) && mindparent.current != master_body)
 		mindparent.transfer_to(master_body, TRUE)
@@ -403,16 +463,21 @@ GLOBAL_LIST_EMPTY(collar_masters)
 		pet_mind.transfer_to(pet_body, TRUE)
 	if(pet_ghost && !QDELETED(pet_ghost))
 		pet_ghost.reenter_corpse(TRUE)
+	if(master_body && !QDELETED(master_body) && master_skills_holder)
+		master_skills_holder.set_current(master_body)
+	if(pet_body && !QDELETED(pet_body) && pet_skills_holder)
+		pet_skills_holder.set_current(pet_body)
 	if(master_body && !QDELETED(master_body) && master_skills_snapshot)
-		var/datum/skill_holder/master_skills = master_body.ensure_skills()
+		var/datum/skill_holder/master_skills = master_skills_holder || master_body.ensure_skills()
 		master_skills.known_skills = master_skills_snapshot.Copy()
 		master_skills.skill_experience = master_experience_snapshot ? master_experience_snapshot.Copy() : list()
 	if(pet_body && !QDELETED(pet_body) && pet_skills_snapshot)
-		var/datum/skill_holder/pet_skills = pet_body.ensure_skills()
+		var/datum/skill_holder/pet_skills = pet_skills_holder || pet_body.ensure_skills()
 		pet_skills.known_skills = pet_skills_snapshot.Copy()
 		pet_skills.skill_experience = pet_experience_snapshot ? pet_experience_snapshot.Copy() : list()
 	if(mindparent?.current)
-		to_chat(mindparent.current, span_notice("The collar releases its hold; you return to your own body."))
+		var/source_name = get_pet_command_source(pet_body, TRUE)
+		to_chat(mindparent.current, span_notice("The [source_name] releases its hold; you return to your own body."))
 	if(pet_mind?.current && pet_mind.current != mindparent?.current)
 		to_chat(pet_mind.current, span_notice("Control of your body snaps back to you."))
 	return TRUE

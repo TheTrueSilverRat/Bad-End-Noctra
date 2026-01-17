@@ -1,12 +1,14 @@
+//this would go to surgery helpers normally.
 /proc/get_organ_blocker(mob/user, location = BODY_ZONE_CHEST)
 	if(iscarbon(user))
 		var/mob/living/carbon/carbon_user = user
 		for(var/obj/item/clothing/equipped_item in carbon_user.get_equipped_items(include_pockets = FALSE))
 			if(zone2covered(location, equipped_item.body_parts_covered))
 				//skips bra items if the location we are looking at is groin
-				//if(equipped_item.is_bra && location == BODY_ZONE_PRECISE_GROIN)
-				//	continue
+				if(equipped_item.is_bra && location == BODY_ZONE_PRECISE_GROIN)
+					continue
 				return equipped_item
+
 /*#define MAX_RANGE_FIND 32
 
 // blocks
@@ -67,7 +69,9 @@
 	flags_inv = HIDEBOOB|HIDEBELLY|HIDEUNDIESTOP
 
 /obj/item
-	var/genitalaccess = FALSE
+	var/genital_access = FALSE
+	///for bra only body armors that allow groin interactions.
+	var/is_bra = FALSE
 
 /obj/item/organ/genitals
 	var/visible_through_clothes = FALSE

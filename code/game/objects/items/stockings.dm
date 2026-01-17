@@ -241,23 +241,25 @@
 				)
 
 // Craft
-/*
 /datum/repeatable_crafting_recipe/sewing/stockings_white
 	name = "stockings (1 fibers, 1 cloth)"
-	result = list(/obj/item/legwears/white)
-	reqs = list(/obj/item/natural/cloth = 1,
+	output = /obj/item/legwears/white
+	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 3
+	category = "Pants"
 
 /datum/repeatable_crafting_recipe/sewing/stockings_white_silk
 	name = "silk stockings (1 fibers, 1 silk)"
-	result = list(/obj/item/legwears/silk/white)
-	reqs = list(/obj/item/natural/silk = 1,
+	output = /obj/item/legwears/silk/white
+	requirements = list(/obj/item/natural/silk = 1,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 5
+	category = "Pants"
 
 /datum/repeatable_crafting_recipe/sewing/stockings_white_fishnet
 	name = "fishnet stockings (2 fibers)"
-	result = list(/obj/item/legwears/fishnet/white)
-	reqs = list(/obj/item/natural/fibers = 2)
-	craftdiff = 3*/
+	output = /obj/item/legwears/fishnet/white
+	requirements = list(/obj/item/natural/fibers = 2)
+	craftdiff = 3
+	category = "Pants"

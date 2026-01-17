@@ -1,8 +1,8 @@
 /obj/item/organ/genitals/filling_organ/anus
 	//absorbs faster than womb, less capacity.
 	name = "anus"
-	//icon = 'modular_stonehedge/licensed-eaglephntm/icons/obj/surgery.dmi'
-	icon_state = "severedtail"
+	icon = 'modular_rmh/icons/eaglephntm/icons/obj/surgery.dmi'
+	icon_state = "anus"
 	dropshrink = 0.5
 	visible_organ = TRUE
 	zone = BODY_ZONE_PRECISE_GROIN

@@ -236,7 +236,7 @@
 					dam += 30
 				else if(istype(user.rmb_intent, /datum/rmb_intent/aimed))
 					dam += 30
-			used = round(max(dam / 3, 1), 1)
+			used = round(max(dam / 2, 1), 1)
 			if(prob(used))
 				LAZYADD(attempted_wounds, /datum/wound/artery/chest)
 

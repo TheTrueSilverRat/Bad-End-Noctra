@@ -196,7 +196,7 @@
 			to_chat(human, span_love("I feel [human.underwear] rub against me..."))
 		SEND_SIGNAL(owner, COMSIG_SEX_ADJUST_AROUSAL, rand(10,20))
 	else if(human.wear_pants)
-		if(human.wear_pants.flags_inv & HIDECROTCH && !human.wear_pants.genitalaccess)
+		if(human.wear_pants.flags_inv & HIDECROTCH && !human.wear_pants.genital_access)
 			if(rand(5))
 				to_chat(human, span_love("I feel [human.wear_pants] rub against me..."))
 			SEND_SIGNAL(owner, COMSIG_SEX_ADJUST_AROUSAL, rand(5,10))

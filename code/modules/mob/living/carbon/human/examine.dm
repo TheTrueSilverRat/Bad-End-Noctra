@@ -636,7 +636,7 @@
 	if(wear_pants)
 		var/obj/item/clothing/pantsies = wear_pants
 		if(pantsies.flags_inv & HIDECROTCH)
-			if(!pantsies.genitalaccess)
+			if(!pantsies.genital_access)
 				if(arousal_data["arousal"] > VISIBLE_AROUSAL_THRESHOLD)
 					if(getorganslot(ORGAN_SLOT_PENIS))
 						organ_desc += "[capitalize(m3)] a visible bulge in [m2] [pantsies.name]."

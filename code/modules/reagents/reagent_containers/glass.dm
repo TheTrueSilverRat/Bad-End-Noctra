@@ -97,7 +97,7 @@
 		var/obj/item/organ/genitals/filling_organ/breasts/tiddies = humanized.getorganslot(ORGAN_SLOT_BREASTS) // tiddy hehe
 		switch(user.zone_selected)
 			if(BODY_ZONE_CHEST) //chest
-				if(humanized.wear_shirt && (humanized.wear_shirt.flags_inv & HIDEBOOB || !humanized.wear_shirt.genitalaccess))
+				if(humanized.wear_shirt && (humanized.wear_shirt.flags_inv & HIDEBOOB || !humanized.wear_shirt.genital_access))
 					to_chat(user, span_warning("[humanized]'s chest must be exposed before I can milk [humanized.p_them()]!"))
 					return TRUE
 				if(!tiddies)
@@ -115,7 +115,7 @@
 					tiddies.reagents.trans_to(src, milk_to_take, transfered_by = user)
 					user.visible_message(span_notice("[user] milks [humanized] into \the [src]."), span_notice("I milk [humanized] into \the [src]."))
 			if(BODY_ZONE_PRECISE_GROIN) //groin
-				if(humanized.wear_pants && (humanized.wear_pants.flags_inv & HIDECROTCH || !humanized.wear_pants.genitalaccess))
+				if(humanized.wear_pants && (humanized.wear_pants.flags_inv & HIDECROTCH || !humanized.wear_pants.genital_access))
 					to_chat(user, span_warning("[humanized]'s groin must be exposed before I can collect [humanized.p_them()] fluids!"))
 					return TRUE
 				var/obj/item/organ/genitals/filling_organ/vagina/vag = humanized.getorganslot(ORGAN_SLOT_VAGINA)

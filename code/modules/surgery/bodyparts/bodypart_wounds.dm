@@ -332,7 +332,7 @@
 					dam += 10
 				if(HAS_TRAIT(src, TRAIT_BRITTLE))
 					dam += 10
-				used = round(damage_dividend * 20 + (dam / 6), 1)
+				used = round(damage_dividend * 20 + (dam / 4), 1)
 				if(HAS_TRAIT(src, TRAIT_CRITICAL_RESISTANCE))
 					used -= 10
 				var/fracture_type = /datum/wound/fracture/chest
@@ -346,7 +346,7 @@
 				dam += 10
 			else if(user && istype(user.rmb_intent, /datum/rmb_intent/aimed))
 				dam += 10
-			used = round(damage_dividend * 20 + (dam / 6), 1)
+			used = round(damage_dividend * (20 + (dam / 3)), 1)
 			if(HAS_TRAIT(src, TRAIT_CRITICAL_RESISTANCE))
 				used -= 10
 			if(prob(used))
@@ -438,7 +438,7 @@
 				return
 			var/dislocation_type
 			var/fracture_type = /datum/wound/fracture/head
-			var/necessary_damage = 0.95
+			var/necessary_damage = 0.97
 			if(resistance)
 				fracture_type = /datum/wound/fracture
 			else if(zone_precise == BODY_ZONE_PRECISE_SKULL)
@@ -450,7 +450,7 @@
 				necessary_damage = 0.9
 			else if(zone_precise == BODY_ZONE_PRECISE_NOSE)
 				fracture_type = /datum/wound/fracture/head/nose
-				necessary_damage = 0.7
+				necessary_damage = 0.6
 			else if(zone_precise == BODY_ZONE_PRECISE_MOUTH)
 				fracture_type = /datum/wound/fracture/mouth
 				necessary_damage = 0.7
@@ -468,7 +468,7 @@
 				else
 					if(istype(user.rmb_intent, /datum/rmb_intent/aimed))
 						dam += 10
-			used = round(damage_dividend * 20 + (dam / 6), 1)
+			used = round(damage_dividend * (20 + (dam / 3)), 1)
 			if(HAS_TRAIT(src, TRAIT_CRITICAL_RESISTANCE))
 				used -= 10
 			if(prob(used))

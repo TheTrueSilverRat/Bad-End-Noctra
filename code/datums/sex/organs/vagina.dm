@@ -1,6 +1,7 @@
 /obj/item/organ/genitals/filling_organ/vagina
 	name = "vagina"
-	icon_state = "severedtail" //placeholder
+	icon = 'modular_rmh/icons/eaglephntm/icons/obj/surgery.dmi'
+	icon_state = "vagina"
 	visible_organ = TRUE
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_VAGINA

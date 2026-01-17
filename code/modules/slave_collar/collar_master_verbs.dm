@@ -1,3 +1,5 @@
+#define COLLAR_COMMAND_CHANNEL_TIME (10 SECONDS)
+
 /mob/proc/collar_master_control_menu()
 	set name = "Collar Control"
 	set category = "Collar Tab"
@@ -56,6 +58,21 @@
 		return
 	call(src, options[choice])()
 
+/mob/proc/collar_master_channel_command(datum/component/collar_master/CM, list/target_pets)
+	if(!CM)
+		return FALSE
+	if(!islist(target_pets))
+		target_pets = list()
+	var/channel_source = CM.get_pets_command_source(target_pets)
+	src.visible_message(
+		span_notice("[src] begins preparing to call upon the [channel_source]."),
+		span_notice("You begin preparing to call upon the [channel_source].")
+	)
+	if(!do_after(src, COLLAR_COMMAND_CHANNEL_TIME, target = src))
+		to_chat(src, span_warning("You lose focus before the [channel_source] answers."))
+		return FALSE
+	return TRUE
+
 /mob/proc/collar_master_listen()
 	set name = "Listen to Pets"
 	set category = "Collar Tab"
@@ -63,16 +80,21 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar is still cooling down!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		var/verb = CM.is_command_source_plural(source) ? "are" : "is"
+		to_chat(src, span_warning("The [source] [verb] still cooling down!"))
 		return
 	var/mob/living/carbon/human/pet = CM.temp_selected_pets[1]
 	if(!pet || pet.stat >= UNCONSCIOUS || !(pet in CM.my_pets))
+		return
+	if(!collar_master_channel_command(CM, list(pet)))
 		return
 	var/now_listening = CM.toggle_listening(pet)
 	if(now_listening)
 		to_chat(src, span_notice("You tune in to [pet]'s surroundings."))
 	else
-		to_chat(src, span_notice("You stop listening through [pet]'s collar."))
+		var/source = CM.get_pets_command_source(list(pet))
+		to_chat(src, span_notice("You stop listening through [pet]'s [source]."))
 	CM.log_collar_action(src, "Listen", list(pet))
 	CM.last_command_time = world.time
 
@@ -83,7 +105,10 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar's power cell is still recharging!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		to_chat(src, span_warning("The [source]'s power cell is still recharging!"))
+		return
+	if(!collar_master_channel_command(CM, CM.temp_selected_pets))
 		return
 	CM.last_command_time = world.time
 	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
@@ -99,10 +124,13 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar's neural link is still recharging!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		to_chat(src, span_warning("The [source]'s neural link is still recharging!"))
 		return
 	var/message = input(src, "What message should echo in your pet's mind?", "Mental Command") as text|null
 	if(!message)
+		return
+	if(!collar_master_channel_command(CM, CM.temp_selected_pets))
 		return
 	CM.last_command_time = world.time
 	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
@@ -118,7 +146,11 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar is still cooling down!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		var/verb = CM.is_command_source_plural(source) ? "are" : "is"
+		to_chat(src, span_warning("The [source] [verb] still cooling down!"))
+		return
+	if(!collar_master_channel_command(CM, CM.temp_selected_pets))
 		return
 	CM.last_command_time = world.time
 	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
@@ -134,7 +166,10 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar's circuits are still cooling down!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		to_chat(src, span_warning("The [source]'s circuits are still cooling down!"))
+		return
+	if(!collar_master_channel_command(CM, CM.temp_selected_pets))
 		return
 	CM.last_command_time = world.time
 	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
@@ -150,7 +185,10 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar's behavioral circuits need time to recalibrate!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		to_chat(src, span_warning("The [source]'s behavioral circuits need time to recalibrate!"))
+		return
+	if(!collar_master_channel_command(CM, CM.temp_selected_pets))
 		return
 	CM.last_command_time = world.time
 	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
@@ -169,7 +207,10 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar's vocal inhibitors need time to cycle!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		to_chat(src, span_warning("The [source]'s vocal inhibitors need time to cycle!"))
+		return
+	if(!collar_master_channel_command(CM, CM.temp_selected_pets))
 		return
 	CM.last_command_time = world.time
 	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
@@ -185,7 +226,10 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar's heart sigils are still pulsing!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		to_chat(src, span_warning("The [source]'s heart sigils are still pulsing!"))
+		return
+	if(!collar_master_channel_command(CM, CM.temp_selected_pets))
 		return
 	CM.last_command_time = world.time
 	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
@@ -201,10 +245,13 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar's voice modulator is still warming up!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		to_chat(src, span_warning("The [source]'s voice modulator is still warming up!"))
 		return
 	var/message = input(src, "Force your pet to say:", "Collar Command") as text|null
 	if(!message)
+		return
+	if(!collar_master_channel_command(CM, CM.temp_selected_pets))
 		return
 	CM.last_command_time = world.time
 	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
@@ -220,7 +267,8 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar's emotive circuit hums; wait a moment."))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		to_chat(src, span_warning("The [source]'s emotive circuit hums; wait a moment."))
 		return
 	var/message = input(src, "Force your pet to emote:", "Collar Command") as text|null
 	if(!message)
@@ -228,6 +276,8 @@
 	message = trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN))
 	message = parsemarkdown_basic(message, limited = TRUE, barebones = TRUE)
 	if(!length(message))
+		return
+	if(!collar_master_channel_command(CM, CM.temp_selected_pets))
 		return
 	CM.last_command_time = world.time
 	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
@@ -243,7 +293,10 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar's tease nodes are still cycling!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		to_chat(src, span_warning("The [source]'s tease nodes are still cycling!"))
+		return
+	if(!collar_master_channel_command(CM, CM.temp_selected_pets))
 		return
 	CM.last_command_time = world.time
 	for(var/mob/living/carbon/human/pet in CM.temp_selected_pets)
@@ -259,13 +312,17 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar's vision is still refocusing!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		to_chat(src, span_warning("The [source]'s vision is still refocusing!"))
 		return
 	var/mob/living/carbon/human/pet = CM.temp_selected_pets[1]
 	if(!pet || !(pet in CM.my_pets))
 		return
+	if(!collar_master_channel_command(CM, list(pet)))
+		return
 	if(!CM.scry_pet(pet))
-		to_chat(src, span_warning("The collar refuses to share that pet's sight."))
+		var/source = CM.get_pets_command_source(list(pet))
+		to_chat(src, span_warning("The [source] refuses to share that pet's sight."))
 		return
 	CM.last_command_time = world.time
 	CM.log_collar_action(src, "Scry", list(pet))
@@ -277,13 +334,17 @@
 	if(!CM || !length(CM.temp_selected_pets))
 		return
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar's circuits are still recalibrating!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		to_chat(src, span_warning("The [source]'s circuits are still recalibrating!"))
 		return
 	var/mob/living/carbon/human/pet = CM.temp_selected_pets[1]
 	if(!pet || !(pet in CM.my_pets))
 		return
+	if(!collar_master_channel_command(CM, list(pet)))
+		return
 	if(!CM.remote_control_pet(pet, 30 SECONDS))
-		to_chat(src, span_warning("The collar cannot link you to that pet right now."))
+		var/source = CM.get_pets_command_source(list(pet))
+		to_chat(src, span_warning("The [source] cannot link you to that pet right now."))
 		return
 	CM.last_command_time = world.time
 	CM.log_collar_action(src, "Remote Control", list(pet))
@@ -297,7 +358,9 @@
 		return
 
 	if(world.time < CM.last_command_time + CM.command_cooldown)
-		to_chat(src, span_warning("The collar is still cooling down!"))
+		var/source = CM.get_pets_command_source(CM.temp_selected_pets)
+		var/verb = CM.is_command_source_plural(source) ? "are" : "is"
+		to_chat(src, span_warning("The [source] [verb] still cooling down!"))
 		return
 
 	var/list/releasing = list()
@@ -317,6 +380,8 @@
 	if(confirm != "Yes")
 		return
 
+	if(!collar_master_channel_command(CM, releasing))
+		return
 	CM.last_command_time = world.time
 
 	var/blocked_any = (length(releasing) != length(releasable))
@@ -347,5 +412,9 @@
 	var/datum/component/collar_master/CM = mind?.GetComponent(/datum/component/collar_master)
 	if(!CM)
 		return
+	if(!collar_master_channel_command(CM, CM.my_pets))
+		return
 	CM.log_collar_action(src, "Release All Pets", CM.my_pets.Copy())
 	qdel(CM)
+
+#undef COLLAR_COMMAND_CHANNEL_TIME

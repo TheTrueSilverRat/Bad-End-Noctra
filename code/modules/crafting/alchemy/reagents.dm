@@ -51,6 +51,11 @@
 		M.adjustFireLoss(-7*REM, 0)
 		M.adjustOxyLoss(-5, 0)
 		M.adjustCloneLoss(-7*REM, 0)
+	if(istype(M, /mob/living/carbon/human/species/werewolf))
+		var/mob/living/carbon/human/human = M
+		var/obj/item/clothing/werewolf_armor = human.skin_armor
+		if(werewolf_armor)
+			werewolf_armor.repair_damage(werewolf_armor.max_integrity * 0.02)
 	..()
 	. = 1
 
