@@ -180,6 +180,8 @@
 	if(!no_spill)
 		for(var/obj/item/reagent_containers/I in A.contents)
 			if(I.reagents && I.spillable)
+				var/turf/I_loc = get_turf(A)
+				I_loc.add_liquid_from_reagents(I.reagents, amount = 3)
 				I.reagents.remove_all(3)
 
 /datum/component/storage/proc/attack_self(datum/source, mob/M)

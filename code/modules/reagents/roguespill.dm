@@ -1,7 +1,8 @@
 /obj/item/storage/equipped(mob/user, slot)
 	. = ..()
+	var/datum/component/storage/stocomp = GetComponent(/datum/component/storage)
 	for(var/obj/item/reagent_containers/I in contents)
-		if(I.reagents && I.spillable)
+		if(I.reagents && I.spillable && !stocomp.no_spill)
 			RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(check_spill), override = TRUE)
 			break
 
@@ -10,6 +11,8 @@
 	if(istype(L))
 		for(var/obj/item/reagent_containers/I in contents)
 			if(I.reagents && I.spillable)
+				var/turf/I_loc = get_turf(L)
+				I_loc.add_liquid_from_reagents(I.reagents, amount = 3)
 				I.reagents.remove_all(3)
 
 /obj/item/storage/dropped(mob/user)
@@ -19,6 +22,8 @@
 
 /obj/item/reagent_containers/on_enter_storage(datum/component/storage/concrete/S)
 	..()
+	if(S.no_spill)
+		return
 	if(spillable)
 		if(S)
 			var/atom/real_location = S.real_location()

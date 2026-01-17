@@ -51,15 +51,15 @@
 		user.update_inv_hands()
 		user.update_a_intents()
 		if(self)
-			to_chat(user, sex_session.spanify_force("I stuff the [dildo] in my pussy..."))
+			to_chat(user, sex_session.spanify_force("I stuff \the [dildo] in my pussy..."))
 		else
-			user.visible_message(sex_session.spanify_force("I stuff the [dildo] in [target]'s pussy..."))
+			user.visible_message(sex_session.spanify_force("I stuff \the [dildo] in [target]'s pussy..."))
 
 	else
 		if(self)
-			to_chat(user, sex_session.spanify_force("I fail to stuff the [dildo] in my pussy."))
+			to_chat(user, sex_session.spanify_force("I fail to stuff \the [dildo] in my pussy."))
 		else
-			user.visible_message(sex_session.spanify_force("I fail to stuff the [dildo] in [target]'s pussy."))
+			user.visible_message(sex_session.spanify_force("I fail to stuff \the [dildo] in [target]'s pussy."))
 			sex_session.stop_current_action()
 			return
 	sex_session.perform_sex_action(user, 0.5, pain_amt, !self)

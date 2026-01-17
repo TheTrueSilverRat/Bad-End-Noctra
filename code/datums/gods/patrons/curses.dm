@@ -193,7 +193,7 @@
 	var/datum/component/arousal/owner_arousal = owner.GetComponent(/datum/component/arousal)
 
 	if(owner.wear_pants)
-		if(owner.wear_pants.flags_inv & HIDECROTCH && !owner.wear_pants.genitalaccess)
+		if(owner.wear_pants.flags_inv & HIDECROTCH && !owner.wear_pants.genital_access)
 			owner_arousal?.arousal += 1
 
 	if(!MOBTIMER_FINISHED(owner, "nympho_curse", rand(15,90) SECONDS)) //this isn't how mob timers work
@@ -207,7 +207,7 @@
 		owner_arousal?.arousal += rand(15,60)
 
 	else if(owner.wear_pants)
-		if(owner.wear_pants.flags_inv & HIDECROTCH && !owner.wear_pants.genitalaccess)
+		if(owner.wear_pants.flags_inv & HIDECROTCH && !owner.wear_pants.genital_access)
 			to_chat(owner, span_love("PANT"))
 			if(rand(5))
 				to_chat(owner, span_love("I feel my [owner.wear_pants] rub against me..."))

@@ -204,6 +204,6 @@
 			src.last_used = world.time
 
 /obj/item/dildo/gold
-	color = "#A0A075"
+	color = "#b38f1b"
 	dildo_material = "golden"
 	sellprice = 50

@@ -183,7 +183,7 @@
 
 		//do undress here
 		if(human_target.wear_pants)
-			if(human_target.wear_pants.flags_inv & HIDECROTCH && !human_target.wear_pants.genitalaccess)
+			if(human_target.wear_pants.flags_inv & HIDECROTCH && !human_target.wear_pants.genital_access)
 				if(!do_after(basic_mob, 1 SECONDS, human_target))
 					if(!human_target.cmode) //pants off if not in cmode
 						basic_mob.visible_message(span_danger("[basic_mob] manages to rip [human_target]'s [human_target.wear_pants.name] off!"))
