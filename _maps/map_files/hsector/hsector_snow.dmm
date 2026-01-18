@@ -472,9 +472,6 @@
 	layer = 2.7;
 	pixel_y = 7
 	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
 /turf/open/floor/ruinedwood,
 /area/outdoors/town/rmh)
 "amT" = (
@@ -589,10 +586,6 @@
 /turf/open/floor/cobble,
 /area/indoors/cave/rmh_cave/greenskins)
 "apl" = (
-/obj/structure/flora/tree/fir/festive{
-	pixel_x = 0;
-	pixel_y = -24
-	},
 /obj/structure/fluff/railing/corner{
 	dir = 9
 	},
@@ -1337,20 +1330,6 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/blocks,
 /area/under/town/rmh/sewer)
-"aKh" = (
-/obj/effect/decal/edge{
-	dir = 1;
-	color = "#522f26"
-	},
-/obj/effect/decal/edge{
-	dir = 2;
-	color = "#522f26"
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
-/turf/open/floor/tile/harem,
-/area/indoors/town/rmh/tavern)
 "aKm" = (
 /turf/open/floor/churchmarble,
 /area/indoors/town/rmh/chapel/basement)
@@ -1856,9 +1835,6 @@
 	pixel_y = 8;
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 46
-	},
 /turf/open/floor/carpet,
 /area/indoors/town/rmh/tavern)
 "aXm" = (
@@ -2195,22 +2171,28 @@
 	},
 /turf/open/floor/blocks/stonered,
 /area/indoors/town/rmh/merchant)
-"bfe" = (
-/obj/structure/fluff/railing/wood,
-/obj/structure/flora/grass/bush_meagre/tundra,
-/obj/structure/fluff/festive_garlands/random,
-/turf/open/floor/grass/cold,
-/area/outdoors/town/rmh)
 "bfv" = (
 /obj/effect/decal/edge_corner{
 	dir = 8;
 	color = "#522f26";
 	pixel_y = 0
 	},
-/obj/structure/rack/shelf,
 /obj/effect/decal/edge{
 	dir = 4;
 	color = "#522f26"
+	},
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bottle/jagdtrunk{
+	pixel_x = -6;
+	pixel_y = 18
+	},
+/obj/item/reagent_containers/glass/bottle/elfred{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/glass/bottle/kgunsake{
+	pixel_x = 8;
+	pixel_y = 17
 	},
 /turf/open/floor/blocks/stonered,
 /area/indoors/town/rmh/tavern)
@@ -2456,9 +2438,6 @@
 	icon_state = "borderfall";
 	pixel_y = 8;
 	icon = 'icons/turf/constructed/misc.dmi'
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 46
 	},
 /turf/open/floor/carpet,
 /area/indoors/town/rmh/tavern)
@@ -4407,12 +4386,6 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh)
-"cfF" = (
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
-	},
-/turf/open/floor/cobble/snow,
-/area/outdoors/town/rmh)
 "cfI" = (
 /obj/effect/decal/mossy{
 	dir = 4;
@@ -5132,9 +5105,6 @@
 	pixel_y = -32;
 	name = "adventure's guild flag"
 	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/tavern)
 "cwj" = (
@@ -5507,6 +5477,9 @@
 /area/indoors/town/rmh/merchant)
 "cGw" = (
 /obj/structure/window,
+/obj/structure/fluff/littlebanners{
+	pixel_y = -6
+	},
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/tavern)
 "cGz" = (
@@ -5967,6 +5940,12 @@
 /obj/structure/bars/passage/shutter{
 	redstone_id = "innshutter"
 	},
+/obj/structure/table/wood{
+	dir = 2;
+	icon_state = "longtable";
+	pixel_y = 0;
+	layer = 2.813
+	},
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/tavern)
 "cQx" = (
@@ -6013,10 +5992,6 @@
 /obj/effect/landmark/quest_spawner/medium,
 /turf/open/floor/dirt/snowy,
 /area/outdoors/rmh_field/north_mountain)
-"cRA" = (
-/obj/structure/flora/tree/fir/festive,
-/turf/open/floor/tile/diamond/blue,
-/area/indoors/town/rmh/merchant)
 "cRD" = (
 /obj/effect/decal/edge{
 	dir = 4;
@@ -7231,9 +7206,6 @@
 	dir = 4;
 	color = "#3b3b3b"
 	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/tavern)
 "drz" = (
@@ -8230,9 +8202,6 @@
 /obj/effect/decal/edge{
 	dir = 2;
 	color = "#3b3b3b"
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
 	},
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/tavern)
@@ -9800,9 +9769,6 @@
 	pixel_x = 2;
 	pixel_y = 7
 	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
-	},
 /turf/open/floor/church,
 /area/indoors/town/rmh/library)
 "eyv" = (
@@ -10086,26 +10052,6 @@
 	first_time_text = "FORGOTTEN HALLS";
 	name = "underdungeon"
 	})
-"eFU" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bottle/jagdtrunk{
-	pixel_x = -6;
-	pixel_y = 18
-	},
-/obj/item/reagent_containers/glass/bottle/black/shejiu{
-	pixel_x = 6;
-	pixel_y = 14
-	},
-/obj/item/reagent_containers/glass/bottle/elfred{
-	pixel_x = -4;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/glass/bottle/vial/genderpot{
-	pixel_x = 8;
-	pixel_y = -6
-	},
-/turf/open/floor/wood,
-/area/indoors/town/rmh/tavern)
 "eFY" = (
 /obj/effect/decal/remains/mole,
 /obj/effect/spawner/map_spawner/loot/decrepit_equipment_spawner,
@@ -11284,13 +11230,6 @@
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/farm)
-"fmY" = (
-/obj/machinery/light/fueled/firebowl,
-/obj/structure/fluff/festive_flags/random{
-	pixel_y = -12
-	},
-/turf/open/floor/metal/alt,
-/area/outdoors/town/rmh)
 "fna" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/turned,
@@ -12270,9 +12209,6 @@
 /obj/structure/fluff/walldeco/steward{
 	name = "bank";
 	pixel_y = 32
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
 	},
 /turf/open/floor/cobble/snow,
 /area/outdoors/town/rmh)
@@ -13988,7 +13924,6 @@
 "gDM" = (
 /obj/structure/flora/grass/tundra,
 /obj/structure/fluff/railing/wood,
-/obj/structure/fluff/festive_garlands/random,
 /turf/open/floor/grass/cold,
 /area/outdoors/town/rmh)
 "gDV" = (
@@ -14607,9 +14542,6 @@
 	icon_state = "borderfall";
 	pixel_y = 8;
 	icon = 'icons/turf/constructed/misc.dmi'
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 46
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/tavern)
@@ -15599,6 +15531,12 @@
 /obj/structure/bars/passage/shutter{
 	redstone_id = "innshutter"
 	},
+/obj/structure/table/wood{
+	dir = 2;
+	icon_state = "longtable";
+	pixel_y = 0;
+	layer = 2.813
+	},
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/tavern)
 "hri" = (
@@ -16087,9 +16025,6 @@
 	})
 "hFD" = (
 /obj/structure/bookcase,
-/obj/structure/fluff/festive_flags/random{
-	pixel_y = -16
-	},
 /turf/open/floor/tile/bfloorz,
 /area/indoors/town/rmh/tavern)
 "hFY" = (
@@ -16671,10 +16606,6 @@
 "hVK" = (
 /turf/open/transparent/openspace,
 /area/indoors/town/rmh/bath)
-"hVT" = (
-/obj/structure/flora/tree/fir/festive,
-/turf/open/floor/cobble/alt,
-/area/indoors/town/rmh/garrison)
 "hWc" = (
 /obj/structure/table/wood/reinf_long{
 	pixel_y = 1
@@ -17361,9 +17292,6 @@
 "imh" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/library)
@@ -18121,9 +18049,6 @@
 /obj/structure/chair/wood/alt/fancy/chair4{
 	dir = 8
 	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
-	},
 /turf/open/floor/church,
 /area/indoors/town/rmh/library)
 "iCs" = (
@@ -18143,18 +18068,6 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobble,
 /area/indoors/town/rmh/garrison/wall)
-"iCM" = (
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
-/turf/open/floor/concrete,
-/area/outdoors/town/rmh)
-"iCQ" = (
-/obj/machinery/light/fueled/candle/floorcandle/alt{
-	pixel_y = 14
-	},
-/turf/open/transparent/openspace,
-/area/indoors/town/rmh/garrison)
 "iCR" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass/cold,
@@ -19253,9 +19166,6 @@
 	icon_state = "borderfall";
 	pixel_y = 8;
 	icon = 'icons/turf/constructed/misc.dmi'
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 46
 	},
 /obj/effect/landmark/start/bard{
 	dir = 8
@@ -20627,9 +20537,6 @@
 "jMt" = (
 /obj/structure/bookcase,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
-/obj/structure/fluff/festive_flags/random{
-	pixel_y = -16
-	},
 /turf/open/floor/tile/bfloorz,
 /area/indoors/town/rmh/tavern)
 "jMy" = (
@@ -21151,9 +21058,6 @@
 	icon_state = "borderfall";
 	pixel_y = 8;
 	icon = 'icons/turf/constructed/misc.dmi'
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 46
 	},
 /turf/open/floor/carpet,
 /area/indoors/town/rmh/tavern)
@@ -21773,10 +21677,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/indoors/town/rmh/farm)
-"kpK" = (
-/obj/structure/flora/tree/fir/festive,
-/turf/open/floor/churchmarble,
-/area/indoors/town/church/chapel)
 "kpM" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobblerock,
@@ -22007,9 +21907,6 @@
 /area/indoors/town/rmh/crafters_guild)
 "kwA" = (
 /obj/effect/decal/wood/herringbone,
-/obj/structure/fluff/festive_flags/random{
-	pixel_y = -16
-	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/indoors/town/rmh/tavern)
 "kwF" = (
@@ -22579,9 +22476,6 @@
 	icon = 'icons/turf/constructed/misc.dmi'
 	},
 /obj/structure/fluff/railing/corner/north_east,
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 46
-	},
 /turf/open/floor/carpet,
 /area/indoors/town/rmh/tavern)
 "kKx" = (
@@ -28849,9 +28743,6 @@
 	dir = 2;
 	color = "#3b3b3b"
 	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/tavern)
 "nIu" = (
@@ -28968,12 +28859,6 @@
 /obj/item/bin/water/gross,
 /turf/open/floor/cobble/alt,
 /area/under/town/rmh/basement)
-"nKx" = (
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
-/turf/open/floor/cobble,
-/area/outdoors/town/rmh)
 "nKG" = (
 /obj/structure/handcart{
 	dir = 8
@@ -29278,12 +29163,6 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/carpet/red,
 /area/indoors/town/rmh/crafters_guild)
-"nRa" = (
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
-	},
-/turf/open/floor/church,
-/area/indoors/town/rmh/library)
 "nRc" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
@@ -29352,6 +29231,12 @@
 	},
 /obj/structure/bars/passage/shutter{
 	redstone_id = "innshutter"
+	},
+/obj/structure/table/wood{
+	dir = 2;
+	icon_state = "longtable";
+	pixel_y = 0;
+	layer = 2.813
 	},
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/tavern)
@@ -29456,9 +29341,6 @@
 "nVm" = (
 /obj/structure/fluff/littlebanners/bluered{
 	pixel_y = 28
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
 	},
 /turf/open/floor/cobble/snow,
 /area/outdoors/town/rmh)
@@ -30121,9 +30003,6 @@
 /obj/structure/fluff/walldeco/steward{
 	name = "bank";
 	pixel_y = 32
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
 	},
 /turf/open/floor/cobble/alt,
 /area/outdoors/town/rmh)
@@ -30828,12 +30707,6 @@
 	},
 /turf/open/floor/wood,
 /area/indoors/town/rmh/tavern)
-"oyR" = (
-/obj/structure/fluff/festive_flags/random{
-	pixel_y = -16
-	},
-/turf/open/floor/cobble/alt,
-/area/outdoors/town/rmh)
 "oyW" = (
 /obj/effect/decal/wood/herringbone2{
 	dir = 10
@@ -31283,8 +31156,19 @@
 /turf/open/floor/blocks,
 /area/under/town/rmh/sewer)
 "oId" = (
-/obj/structure/rack/shelf,
-/obj/effect/landmark/start/tapster,
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bottle/claybottle/whitewine{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/bottle/beer/voddena{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/glass/bottle/black/yaojiu{
+	pixel_y = -5;
+	pixel_x = -4
+	},
 /turf/open/floor/ruinedwood/herringbone,
 /area/indoors/town/rmh/tavern)
 "oIm" = (
@@ -31822,9 +31706,6 @@
 	pixel_y = 7
 	},
 /obj/structure/flora/tree/fir/snowy,
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
 /turf/open/floor/dirt/snowy,
 /area/outdoors/town/rmh)
 "oUb" = (
@@ -31849,9 +31730,6 @@
 /area/outdoors/rmh_field/druid)
 "oVC" = (
 /obj/structure/fluff/railing/corner/south_west,
-/obj/structure/fluff/festive_flags/random{
-	pixel_y = -16
-	},
 /obj/structure/fluff/customsign{
 	desc = "Пять спальных комнат и выпивка с едой";
 	name = "TAVERN";
@@ -32742,9 +32620,6 @@
 "ptm" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
-	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/library)
 "pto" = (
@@ -33832,15 +33707,6 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/indoors/town/rmh)
-"pUC" = (
-/obj/structure/stairs{
-	dir = 8
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
-/turf/open/floor/ruinedwood,
-/area/indoors/town/rmh/tavern)
 "pUK" = (
 /turf/open/floor/tile/masonic/inverted,
 /area/indoors/inq)
@@ -34564,13 +34430,6 @@
 	plane = -6
 	},
 /obj/structure/flora/grass/tundra,
-/turf/open/floor/grass/cold,
-/area/outdoors/town/rmh)
-"qnN" = (
-/obj/structure/flora/grass/bush/wall/tall/tundra,
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
 /turf/open/floor/grass/cold,
 /area/outdoors/town/rmh)
 "qnX" = (
@@ -35569,10 +35428,13 @@
 /turf/open/floor/grass/cold,
 /area/outdoors/exposed/town/rmh/farm)
 "qJN" = (
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
+/obj/structure/window/harem3{
+	name = "tall window"
 	},
-/turf/open/floor/carpet,
+/obj/structure/fluff/littlebanners{
+	pixel_y = -6
+	},
+/turf/open/floor/ruinedwood,
 /area/indoors/town/rmh/tavern)
 "qJP" = (
 /obj/structure/flora/ausbushes/ywflowers,
@@ -36376,9 +36238,6 @@
 	pixel_y = 7
 	},
 /obj/structure/fluff/walldeco/sign/merchantsign,
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
 /turf/open/floor/ruinedwood,
 /area/outdoors/town/rmh)
 "raD" = (
@@ -36595,9 +36454,6 @@
 /area/outdoors/rmh_air)
 "rhF" = (
 /obj/structure/fluff/railing/corner/south_east,
-/obj/structure/fluff/festive_flags/random{
-	pixel_y = -16
-	},
 /obj/structure/fluff/customsign{
 	desc = "Пять спальных комнат и выпивка с едой";
 	name = "TAVERN";
@@ -38066,9 +37922,6 @@
 /obj/machinery/light/fueled/wallfire/candle/l{
 	pixel_y = -32
 	},
-/obj/structure/fluff/festive_flags/random{
-	pixel_y = -16
-	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/indoors/town/rmh/tavern)
 "rOs" = (
@@ -38348,12 +38201,6 @@
 	},
 /turf/open/floor/cobble,
 /area/indoors/town/rmh/chapel/basement)
-"rTw" = (
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
-/turf/open/floor/cobblerock,
-/area/outdoors/town/rmh)
 "rTz" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/under/town/basement)
@@ -38367,9 +38214,6 @@
 /obj/effect/decal/edge{
 	dir = 6;
 	color = "#522f26"
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/tavern)
@@ -39264,12 +39108,6 @@
 /obj/structure/carpet/blue,
 /turf/open/floor/churchrough,
 /area/indoors/town/rmh/merchant)
-"ssw" = (
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
-	},
-/turf/open/floor/woodturned,
-/area/indoors/town/rmh/library)
 "ssL" = (
 /obj/structure/flora/pillar,
 /obj/effect/wisp/prestidigitation{
@@ -39395,30 +39233,6 @@
 /area/under/underdark/rmh{
 	name = "Caves & Mines"
 	})
-"swN" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bottle/gronnmead{
-	pixel_y = 17;
-	pixel_x = -5
-	},
-/obj/item/reagent_containers/glass/bottle/kgunsake{
-	pixel_x = 8;
-	pixel_y = 17
-	},
-/obj/item/reagent_containers/glass/bottle/claybottle/whitewine{
-	pixel_x = 6;
-	pixel_y = 9
-	},
-/obj/item/reagent_containers/glass/bottle/beer/voddena{
-	pixel_x = -5;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/glass/bottle/black/yaojiu{
-	pixel_y = -5;
-	pixel_x = -4
-	},
-/turf/open/floor/wood,
-/area/indoors/town/rmh/tavern)
 "sxh" = (
 /obj/structure/stairs{
 	dir = 4
@@ -40306,20 +40120,6 @@
 	},
 /turf/open/floor/cobblerock/snow,
 /area/outdoors/town/rmh)
-"sTe" = (
-/obj/structure/fluff/railing/wood/north{
-	layer = 2.7;
-	pixel_y = 7
-	},
-/obj/effect/decal/edge{
-	dir = 2;
-	color = "#3b3b3b"
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
-/turf/open/floor/wood,
-/area/indoors/town/rmh/tavern)
 "sTf" = (
 /obj/structure/rack/shelf/biggest,
 /turf/open/floor/blocks/newstone,
@@ -40605,12 +40405,6 @@
 	plane = -6
 	},
 /turf/open/floor/cobblerock/snow,
-/area/outdoors/town/rmh)
-"tad" = (
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
-/turf/open/floor/grass/cold,
 /area/outdoors/town/rmh)
 "tae" = (
 /obj/structure/closet/crate/chest/wicker,
@@ -41830,12 +41624,6 @@
 	},
 /turf/open/floor/twig,
 /area/indoors/town/rmh/farm)
-"tyB" = (
-/obj/machinery/light/fueled/candle/floorcandle/alt{
-	pixel_y = 14
-	},
-/turf/open/floor/blocks,
-/area/indoors/town/rmh/cell)
 "tyG" = (
 /obj/item/bedsheet/double_pelt,
 /obj/structure/fluff/pillow/red{
@@ -42116,12 +41904,6 @@
 	},
 /turf/open/floor/blocks/newstone/alt,
 /area/indoors/town/rmh/crafters_guild)
-"tEN" = (
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
-/turf/open/floor/woodturned,
-/area/indoors/town/rmh/tavern)
 "tER" = (
 /obj/effect/spawner/map_spawner/treeorstump,
 /turf/open/floor/dirt/snowy,
@@ -42290,9 +42072,6 @@
 /obj/effect/decal/edge{
 	dir = 2;
 	color = "#3b3b3b"
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
@@ -43532,16 +43311,6 @@
 	},
 /turf/open/floor/carpet/red,
 /area/indoors/town/rmh/chapel/basement)
-"ukg" = (
-/obj/effect/decal/edge{
-	dir = 10;
-	color = "#522f26"
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
-/turf/open/floor/woodturned,
-/area/indoors/town/rmh/tavern)
 "ukh" = (
 /obj/structure/fluff/railing/corner/south_east,
 /obj/effect/decal/edge{
@@ -43832,9 +43601,6 @@
 	layer = 2.7;
 	pixel_y = 7
 	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
 /turf/open/floor/dirt/snowy,
 /area/outdoors/town/rmh)
 "usr" = (
@@ -43885,9 +43651,6 @@
 	icon_state = "borderfall";
 	pixel_y = 8;
 	icon = 'icons/turf/constructed/misc.dmi'
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 46
 	},
 /turf/open/floor/carpet,
 /area/indoors/town/rmh/tavern)
@@ -45014,9 +44777,6 @@
 	layer = 2.7;
 	pixel_y = 7
 	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
 /turf/open/floor/dirt/snowy,
 /area/outdoors/town/rmh)
 "uWe" = (
@@ -45327,6 +45087,7 @@
 	color = "#522f26";
 	pixel_y = 0
 	},
+/obj/effect/landmark/start/tapster,
 /turf/open/floor/blocks/stonered,
 /area/indoors/town/rmh/tavern)
 "vdj" = (
@@ -45499,9 +45260,6 @@
 /obj/item/storage/keyring{
 	pixel_x = 4;
 	pixel_y = -7
-	},
-/obj/structure/fluff/festive_flags/random{
-	pixel_y = -16
 	},
 /turf/open/floor/tile/bfloorz,
 /area/indoors/town/rmh/tavern)
@@ -46526,9 +46284,6 @@
 	dir = 2;
 	color = "#3b3b3b"
 	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
 /turf/open/floor/tile/harem1,
 /area/indoors/town/rmh/tavern)
 "vKp" = (
@@ -47499,12 +47254,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock,
 /area/indoors/cave/rmh_cave/mine)
-"whQ" = (
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = -16
-	},
-/turf/open/floor/cobblerock/alt,
-/area/outdoors/town/rmh)
 "whR" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/water/cleanshallow/dirt,
@@ -49641,12 +49390,6 @@
 "xid" = (
 /turf/open/floor/carpet/royalblack,
 /area/indoors/town/rmh/crafters_guild)
-"xiI" = (
-/obj/structure/fluff/festive_flags/random{
-	pixel_y = 47
-	},
-/turf/open/floor/concrete,
-/area/outdoors/town/rmh)
 "xiS" = (
 /turf/closed/wall/mineral/stone/window/moss,
 /area/indoors/town/rmh/garrison/wall)
@@ -49749,9 +49492,6 @@
 	icon_state = "borderfall";
 	pixel_y = 8;
 	icon = 'icons/turf/constructed/misc.dmi'
-	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 46
 	},
 /turf/open/floor/woodturned,
 /area/indoors/town/rmh/tavern)
@@ -50417,13 +50157,6 @@
 /obj/item/trash/candle,
 /turf/open/floor/dirt/snowy,
 /area/outdoors/rmh_field)
-"xCw" = (
-/obj/structure/bookcase/random_recipes,
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
-	},
-/turf/open/floor/church,
-/area/indoors/town/rmh/library)
 "xCy" = (
 /obj/structure/giantfur{
 	pixel_y = -3;
@@ -51227,9 +50960,6 @@
 /obj/structure/fluff/littlebanners/bluered{
 	pixel_y = 28
 	},
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
-	},
 /turf/open/floor/cobblerock/snow,
 /area/outdoors/town/rmh)
 "xSM" = (
@@ -51789,12 +51519,6 @@
 "yef" = (
 /turf/closed/wall/mineral/roofwall/middle,
 /area/indoors/town/rmh/crafters_guild)
-"yek" = (
-/obj/structure/fluff/festive_garlands/random{
-	pixel_y = 52
-	},
-/turf/open/floor/cobblerock/snow,
-/area/outdoors/town/rmh)
 "yep" = (
 /obj/structure/flora/grass/tundra,
 /turf/open/floor/dirt/snowy,
@@ -77478,7 +77202,7 @@ gSo
 mGQ
 eTt
 wXm
-tyB
+hyJ
 hyJ
 geE
 lVG
@@ -143018,7 +142742,7 @@ xSs
 aBI
 klo
 klo
-hVT
+klo
 mTZ
 hwk
 nXz
@@ -143530,7 +143254,7 @@ jrV
 jrV
 kET
 fWD
-iCQ
+teC
 qtx
 klo
 mTZ
@@ -146883,7 +146607,7 @@ rqu
 txW
 qMr
 qMr
-fmY
+wwh
 dbs
 lCY
 oNu
@@ -146897,7 +146621,7 @@ hId
 hId
 ojD
 dbs
-xiI
+rCS
 qKb
 qKb
 qKb
@@ -147140,7 +146864,7 @@ mOG
 dIU
 qMr
 eUR
-iCM
+rCS
 saS
 kAv
 vaH
@@ -147397,7 +147121,7 @@ mex
 mex
 oza
 eUR
-iCM
+rCS
 bwP
 tNu
 guH
@@ -147654,7 +147378,7 @@ mOG
 oKj
 eUR
 eef
-iCM
+rCS
 saS
 pvo
 gko
@@ -147911,7 +147635,7 @@ mOG
 gyZ
 ggO
 ggO
-fmY
+wwh
 dbs
 vqS
 qfL
@@ -147925,7 +147649,7 @@ icg
 icg
 hVw
 dbs
-xiI
+rCS
 sjM
 qKb
 ggO
@@ -148965,7 +148689,7 @@ mOG
 mOG
 mOG
 mOG
-rTw
+mOG
 iyx
 hSt
 tZD
@@ -149479,7 +149203,7 @@ mAp
 ggO
 ggO
 vuN
-rTw
+mOG
 opn
 nrI
 xSY
@@ -149736,7 +149460,7 @@ ggO
 ggO
 ggO
 ggO
-rTw
+mOG
 opn
 kPV
 jAw
@@ -149983,7 +149707,7 @@ qKb
 ggO
 rIZ
 ggO
-whQ
+qKb
 qpk
 boW
 dZd
@@ -149993,7 +149717,7 @@ qpk
 ggO
 ehl
 ggO
-rTw
+mOG
 opn
 wxU
 wvS
@@ -150240,7 +149964,7 @@ dId
 ggO
 ggO
 ggO
-whQ
+qKb
 yfA
 mfo
 vTG
@@ -150497,12 +150221,12 @@ rCS
 aMb
 nac
 qKb
-whQ
+qKb
 qpk
 eCb
 qua
 oyM
-tEN
+lix
 qpk
 skC
 vTG
@@ -150754,8 +150478,8 @@ dId
 aMb
 mOG
 qKb
-whQ
-vTG
+qKb
+qJN
 hZI
 iYq
 tGt
@@ -150766,7 +150490,7 @@ hWc
 lix
 qpk
 rVr
-pUC
+rVr
 qpk
 wbS
 oBg
@@ -151011,7 +150735,7 @@ dId
 nac
 nZb
 ggO
-nKx
+aMb
 cGw
 iDm
 iDm
@@ -151268,8 +150992,8 @@ mOG
 mOG
 aMb
 ggO
-nKx
-vTG
+aMb
+qJN
 hxf
 hxf
 nKd
@@ -151525,7 +151249,7 @@ tLw
 mOG
 jYe
 ggO
-nKx
+aMb
 yfA
 xPC
 jco
@@ -151766,7 +151490,7 @@ aIm
 btY
 evu
 gvt
-cfF
+cnh
 oAH
 lCI
 lCI
@@ -152039,8 +151763,8 @@ aMb
 hsJ
 hqy
 svA
-oyR
-vTG
+ggO
+qJN
 lix
 lix
 lix
@@ -152553,8 +152277,8 @@ qKb
 hsJ
 hqy
 svA
-oyR
-vTG
+ggO
+qJN
 yls
 xjL
 oag
@@ -152794,7 +152518,7 @@ aIm
 btY
 evu
 wZq
-yek
+dId
 cnh
 xOE
 obo
@@ -152814,7 +152538,7 @@ epR
 qpk
 wJb
 cmV
-aKh
+vBn
 qpk
 pDt
 xIQ
@@ -153067,7 +152791,7 @@ qKb
 mOG
 uwA
 mOG
-rTw
+mOG
 yfA
 nnp
 cna
@@ -153324,14 +153048,14 @@ mOG
 mOG
 mOG
 mOG
-rTw
-vTG
+mOG
+qJN
 eqH
 cna
 vxB
 nSx
 nRr
-eFU
+lbI
 kwA
 dXa
 kUW
@@ -153581,14 +153305,14 @@ mOG
 mOG
 aMb
 mOG
-whQ
+qKb
 cGw
 aCO
 kLV
 vBn
 vOD
 fXr
-swN
+lbI
 kwA
 qpk
 mfo
@@ -153838,8 +153562,8 @@ mOG
 mOG
 aMb
 dId
-whQ
-vTG
+qKb
+qJN
 rVr
 wYw
 lvM
@@ -154613,7 +154337,7 @@ lyL
 sBe
 lyL
 lyL
-tad
+lyL
 gQC
 wIi
 tUJ
@@ -154870,7 +154594,7 @@ myx
 lyL
 hqU
 sBe
-tad
+lyL
 gQC
 cfj
 tUJ
@@ -155127,7 +154851,7 @@ pbL
 myx
 myx
 lyL
-tad
+lyL
 gQC
 eng
 vdh
@@ -155379,12 +155103,12 @@ aMb
 aMb
 aMb
 cnh
-qnN
+jkg
 evu
 myx
 lyL
 myx
-tad
+lyL
 qpk
 skC
 skC
@@ -155896,7 +155620,7 @@ ovl
 nEs
 iCR
 myx
-tad
+lyL
 evu
 lyL
 myx
@@ -157143,7 +156867,7 @@ pNs
 lDW
 siQ
 jRV
-kpK
+fOI
 xAH
 oRO
 oRO
@@ -157161,7 +156885,7 @@ dId
 qMr
 her
 vzt
-bfe
+qqp
 aMb
 mOG
 uaO
@@ -158211,7 +157935,7 @@ tEC
 mDs
 fHU
 cmW
-cRA
+cmW
 xRg
 acE
 oXI
@@ -160755,7 +160479,7 @@ snm
 snm
 snm
 guZ
-xCw
+skD
 skD
 iow
 lWo
@@ -161012,7 +160736,7 @@ snm
 snm
 snm
 pan
-nRa
+pSX
 hSN
 iow
 lWo
@@ -161526,7 +161250,7 @@ snm
 gbj
 fOs
 hoc
-ssw
+hjx
 dmZ
 oPW
 oPW
@@ -215788,7 +215512,7 @@ avq
 dzo
 xWJ
 urg
-qJN
+urg
 skC
 lzI
 lzI
@@ -216045,7 +215769,7 @@ gqN
 thd
 tNN
 rVr
-pUC
+rVr
 skC
 lzI
 lzI
@@ -216813,7 +216537,7 @@ jcC
 jcC
 jcC
 jcC
-sTe
+alm
 yfA
 aHH
 hlZ
@@ -217327,7 +217051,7 @@ jcC
 jcC
 jcC
 jcC
-sTe
+alm
 yfA
 nDq
 oBG
@@ -217584,7 +217308,7 @@ jcC
 jcC
 uze
 jcC
-sTe
+alm
 yfA
 uoL
 qUI
@@ -218871,7 +218595,7 @@ aFJ
 aFJ
 qGP
 lix
-ukg
+vPl
 jMh
 sHw
 sHw
