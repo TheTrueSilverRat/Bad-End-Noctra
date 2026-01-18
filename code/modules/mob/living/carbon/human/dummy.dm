@@ -9,6 +9,9 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 
 /mob/living/carbon/human/dummy/Initialize()
 	. = ..()
+	var/datum/component/arousal/arousal = GetComponent(/datum/component/arousal)
+	if(arousal)
+		qdel(arousal)
 	// Can we PLEASE get a consistent way to wipe these dummies no matter how we spawn in?
 	GLOB.human_list -= src
 	GLOB.carbon_list -= src
