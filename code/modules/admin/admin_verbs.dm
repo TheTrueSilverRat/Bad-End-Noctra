@@ -82,6 +82,9 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/datum/admins/proc/give_all_triumphs,
 	/datum/admins/proc/toggleenter,		/*toggles whether people can join the current game*/
 	/datum/admins/proc/toggleguests,	/*toggles whether guests can join the current game*/
+	/client/proc/whitelist_add,
+	/client/proc/whitelist_remove,
+	/client/proc/whitelist_check,
 	/datum/admins/proc/announce,		/*priority announce something to all clients.*/
 	/datum/admins/proc/set_admin_notice, /*announcement all clients see when joining the server.*/
 	/datum/admins/proc/change_skill_exp_modifier, /*Tweaks experience gain*/
