@@ -3174,6 +3174,10 @@
 /obj/structure/fluff/railing/border/north,
 /turf/open/floor/grass/cold,
 /area/outdoors/town/rmh)
+"bBR" = (
+/obj/effect/landmark/start/mercenarylate,
+/turf/open/floor/tile/brownbrick,
+/area/indoors/town/merc_guild)
 "bBV" = (
 /obj/structure/flora/grass/tundra,
 /obj/structure/chair/bench/ancientlog,
@@ -17850,7 +17854,6 @@
 /obj/structure/door/viewport{
 	desc = "a large door. It seems big enough to fit a mount.";
 	dir = 2;
-	lockid = "merc";
 	name = "Mercenaries Guild"
 	},
 /obj/effect/mapping_helpers/access/keyset/town/mercenary,
@@ -257552,7 +257555,7 @@ gzf
 uJV
 fPQ
 pww
-pww
+bBR
 kaJ
 xjg
 rDK
@@ -257809,7 +257812,7 @@ gzf
 gzf
 kaJ
 wOP
-pww
+bBR
 kaJ
 hLh
 itN
@@ -258066,7 +258069,7 @@ gzf
 uJV
 rCn
 lXc
-pww
+bBR
 dcu
 lDn
 jnA
@@ -258323,7 +258326,7 @@ uJV
 uJV
 fPQ
 ele
-pww
+bBR
 atO
 mol
 dMT
@@ -258580,7 +258583,7 @@ gzf
 gzf
 iwz
 tNP
-pww
+bBR
 mkG
 mmo
 qZn
