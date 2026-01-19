@@ -46,7 +46,8 @@
 	traits = list(
 		TRAIT_SEEPRICES,
 		TRAIT_BEAUTIFUL,
-		TRAIT_GOODLOVER
+		TRAIT_GOODLOVER,
+		TRAIT_MERCHANT_GUILD
 	)
 
 /datum/job/shophand/after_spawn(mob/living/carbon/human/spawned, client/player_client)
