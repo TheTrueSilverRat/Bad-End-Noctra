@@ -8188,6 +8188,7 @@
 	pixel_y = 32
 	},
 /obj/structure/chair/stool,
+/obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/tile/brownbrick,
 /area/indoors/town/merc_guild)
 "dMT" = (
@@ -8898,6 +8899,7 @@
 /obj/effect/decal/cobblerockedge{
 	dir = 8
 	},
+/obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/indoors/town/merc_guild)
 "edq" = (
@@ -10259,6 +10261,7 @@
 	dir = 4
 	},
 /obj/structure/chair/stool,
+/obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/carpet/royalblack,
 /area/indoors/town/merc_guild)
 "eJv" = (
@@ -11719,6 +11722,7 @@
 /area/indoors/cave/rmh_cave/mine)
 "fBB" = (
 /obj/item/natural/wood/plank,
+/obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/wood,
 /area/indoors/town/merc_guild)
 "fBN" = (
@@ -12780,6 +12784,7 @@
 "gco" = (
 /obj/effect/decal/cleanable/debris/wood,
 /obj/effect/decal/cleanable/debris/glass,
+/obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/ruinedwood/darker,
 /area/indoors/town/merc_guild)
 "gcF" = (
@@ -17850,7 +17855,6 @@
 /obj/structure/door/viewport{
 	desc = "a large door. It seems big enough to fit a mount.";
 	dir = 2;
-	lockid = "merc";
 	name = "Mercenaries Guild"
 	},
 /obj/effect/mapping_helpers/access/keyset/town/mercenary,
@@ -24437,8 +24441,8 @@
 	plane = -6
 	},
 /obj/structure/door/green,
-/obj/effect/mapping_helpers/access/keyset/town/gaffer,
 /obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/town/mercenary,
 /turf/open/floor/ruinedwood/spiral,
 /area/indoors/town/merc_guild)
 "lDA" = (
@@ -28205,6 +28209,10 @@
 /obj/effect/landmark/start/cheesemaker,
 /turf/open/floor/dirt/road/snowy,
 /area/outdoors/exposed/town/rmh/farm)
+"nrW" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/blocks/stonered,
+/area/indoors/town/merc_guild)
 "nsi" = (
 /obj/structure/flora/grass/tundra,
 /turf/open/floor/grass/yel,
@@ -34193,6 +34201,7 @@
 /turf/open/floor/metal,
 /area/under/town/rmh/sewer)
 "qdy" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/wood,
 /area/indoors/town/merc_guild)
 "qdA" = (
@@ -40186,6 +40195,10 @@
 	},
 /turf/open/floor/church,
 /area/indoors/inq/office)
+"sQC" = (
+/obj/effect/landmark/start/mercenarylate,
+/turf/open/floor/tile/brownbrick,
+/area/indoors/town/merc_guild)
 "sQF" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
@@ -44213,6 +44226,7 @@
 	dir = 8
 	},
 /obj/structure/fermentation_keg/coffee,
+/obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/ruinedwood/herringbone_clear,
 /area/indoors/town/merc_guild)
 "uDf" = (
@@ -48727,6 +48741,10 @@
 "wOP" = (
 /obj/structure/chair/wood/alt/chair3{
 	dir = 4
+	},
+/obj/machinery/light/fueled/wallfire/candle/r{
+	pixel_x = 0;
+	pixel_y = 32
 	},
 /turf/open/floor/carpet/royalblack,
 /area/indoors/town/merc_guild)
@@ -192273,7 +192291,7 @@ uKo
 uKo
 uKo
 uKo
-qmN
+nrW
 sNO
 liS
 kQX
@@ -257552,7 +257570,7 @@ gzf
 uJV
 fPQ
 pww
-pww
+sQC
 kaJ
 xjg
 rDK
@@ -257809,7 +257827,7 @@ gzf
 gzf
 kaJ
 wOP
-pww
+sQC
 kaJ
 hLh
 itN
@@ -258066,7 +258084,7 @@ gzf
 uJV
 rCn
 lXc
-pww
+sQC
 dcu
 lDn
 jnA
@@ -258323,7 +258341,7 @@ uJV
 uJV
 fPQ
 ele
-pww
+sQC
 atO
 mol
 dMT
@@ -258580,7 +258598,7 @@ gzf
 gzf
 iwz
 tNP
-pww
+sQC
 mkG
 mmo
 qZn
