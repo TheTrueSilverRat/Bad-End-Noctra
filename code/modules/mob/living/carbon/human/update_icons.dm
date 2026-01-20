@@ -93,13 +93,13 @@ GLOBAL_PROTECT(no_child_icons)
 
 	var/use_female_sprites = MALE_SPRITES
 	if(species?.sexes)
-		if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+		if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 			use_female_sprites = FEMALE_SPRITES
 
 	var/list/offsets
 	var/limb_icon
 	var/is_child = (age == AGE_CHILD)
-	if(use_female_sprites)
+	if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 		offsets = is_child ? species.offset_features_child : species.offset_features_f
 		limb_icon = is_child ? species.child_dam_icon : species.dam_icon_f
 	else
@@ -107,7 +107,7 @@ GLOBAL_PROTECT(no_child_icons)
 		limb_icon = is_child ? species.child_dam_icon : species.dam_icon_m
 
 	var/hidechest = TRUE
-	if(use_female_sprites)
+	if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 		var/obj/item/bodypart/CH = get_bodypart(BODY_ZONE_CHEST)
 		if(CH)
 			if(wear_armor?.flags_inv & HIDEBOOB)
@@ -344,11 +344,11 @@ GLOBAL_PROTECT(no_child_icons)
 
 			var/use_female_sprites = FALSE
 			if(species?.sexes)
-				if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 					use_female_sprites = FEMALE_SPRITES
 
 			var/list/offsets
-			if(use_female_sprites)
+			if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 				offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 			else
 				offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -379,11 +379,11 @@ GLOBAL_PROTECT(no_child_icons)
 
 		var/use_female_sprites = FALSE
 		if(species?.sexes)
-			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 				use_female_sprites = FEMALE_SPRITES
 
 		var/list/offsets
-		if(use_female_sprites)
+		if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 		else
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -408,7 +408,7 @@ GLOBAL_PROTECT(no_child_icons)
 	var/datum/species/species = dna?.species
 	var/use_female_sprites = FALSE
 	if(species?.sexes)
-		if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+		if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 			use_female_sprites = FEMALE_SPRITES
 
 	if(!gloves && bloody_hands)
@@ -432,7 +432,7 @@ GLOBAL_PROTECT(no_child_icons)
 		update_observer_view(gloves, 1)
 
 		var/list/offsets
-		if(use_female_sprites)
+		if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 		else
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -486,11 +486,11 @@ GLOBAL_PROTECT(no_child_icons)
 
 		var/use_female_sprites = FALSE
 		if(species?.sexes)
-			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 				use_female_sprites = FEMALE_SPRITES
 
 		var/list/offsets
-		if(use_female_sprites)
+		if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 		else
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -545,11 +545,11 @@ GLOBAL_PROTECT(no_child_icons)
 
 		var/use_female_sprites = FALSE
 		if(species?.sexes)
-			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 				use_female_sprites = FEMALE_SPRITES
 
 		var/list/offsets
-		if(use_female_sprites)
+		if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 		else
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -601,10 +601,10 @@ GLOBAL_PROTECT(no_child_icons)
 		var/datum/species/species = dna?.species
 		var/use_female_sprites = FALSE
 		if(species?.sexes)
-			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 				use_female_sprites = FEMALE_SPRITES
 		var/list/offsets
-		if(use_female_sprites)
+		if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 		else
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -638,11 +638,11 @@ GLOBAL_PROTECT(no_child_icons)
 	var/datum/species/species = dna?.species
 	var/use_female_sprites = FALSE
 	if(species?.sexes)
-		if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+		if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 			use_female_sprites = FEMALE_SPRITES
 
 	var/list/offsets
-	if(use_female_sprites)
+	if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 	else
 		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -773,10 +773,10 @@ GLOBAL_PROTECT(no_child_icons)
 			var/datum/species/species = dna?.species
 			var/use_female_sprites = FALSE
 			if(species.sexes)
-				if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 					use_female_sprites = FEMALE_SPRITES
 			var/list/offsets
-			if(use_female_sprites)
+			if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 				offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 			else
 				offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -813,7 +813,7 @@ GLOBAL_PROTECT(no_child_icons)
 			use_female_sprites = FEMALE_SPRITES
 
 	var/list/offsets
-	if(use_female_sprites)
+	if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 	else
 		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -925,7 +925,7 @@ GLOBAL_PROTECT(no_child_icons)
 			use_female_sprites = FEMALE_SPRITES
 
 	var/list/offsets
-	if(use_female_sprites)
+	if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 	else
 		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -1030,7 +1030,7 @@ GLOBAL_PROTECT(no_child_icons)
 			else if(gender == MALE && species.swap_male_clothes)
 				use_female_sprites = FEMALE_SPRITES
 		var/list/offsets
-		if(use_female_sprites)
+		if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 		else
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -1094,7 +1094,7 @@ GLOBAL_PROTECT(no_child_icons)
 			else if(gender == MALE && species.swap_male_clothes)
 				use_female_sprites = FEMALE_SPRITES
 		var/list/offsets
-		if(use_female_sprites)
+		if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 		else
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -1148,10 +1148,10 @@ GLOBAL_PROTECT(no_child_icons)
 		var/legsindex = get_limbloss_index(LEG_RIGHT, LEG_LEFT)
 		var/use_female_sprites = FALSE
 		if(species?.sexes)
-			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 				use_female_sprites = FEMALE_SPRITES
 		var/list/offsets
-		if(use_female_sprites)
+		if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 		else
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -1204,10 +1204,10 @@ GLOBAL_PROTECT(no_child_icons)
 			var/datum/species/species = dna?.species
 			var/use_female_sprites = FALSE
 			if(species?.sexes)
-				if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 					use_female_sprites = FEMALE_SPRITES
 			var/list/offsets
-			if(use_female_sprites)
+			if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 				offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 			else
 				offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
@@ -1673,11 +1673,11 @@ generate/load female uniform sprites matching all previously decided variables
 
 	var/use_female_sprites = MALE_SPRITES
 	if(species.sexes)
-		if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+		if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes || gender == MALE && species.swap_male_clothes_but_not_offsets)
 			use_female_sprites = FEMALE_SPRITES
 
 	var/list/offsets
-	if(use_female_sprites)
+	if(use_female_sprites && !(gender == MALE && species.swap_male_clothes_but_not_offsets))
 		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 	else
 		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
