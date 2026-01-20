@@ -114,9 +114,7 @@
 #define JDO_MONK 14
 #define JDO_GRAVETENDER 15
 #define JDO_CHURCHLING 15.1
-
-#define JDO_SHEPHERD 17
-#define JDO_TEMPLAR 17.1
+#define JDO_TEMPLAR 17
 
 #define JDO_MERCHANT 18
 #define JDO_SHOPHAND 18.1
@@ -171,7 +169,9 @@
 
 #define JDO_PURITAN 40
 #define JDO_ORTHODOXIST	40.1
-#define JDO_ABSOLVER 40.2
+#define JDO_SHEPHERD 40.2
+#define JDO_ABSOLVER 40.3
+
 
 #define BITFLAG_CHURCH (1<<0)
 #define BITFLAG_ROYALTY (1<<1)
