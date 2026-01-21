@@ -17,6 +17,8 @@
     "minetype": null,
     "space_empty_levels": 0,
     "space_ruin_levels": 0,
+	"monarch_title": "Town Master",
+	"monarch_title_f": "Town Mistress",
     "shuttles": {
         "cargo": "cargo_rogue",
         "ferry": "ferry_base",
