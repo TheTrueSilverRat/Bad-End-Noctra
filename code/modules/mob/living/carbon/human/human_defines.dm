@@ -122,6 +122,7 @@
 	var/breathe_tick = 0 // Used for gas mask delays.
 
 	var/merctype = 0 // Used for mercenary backgrounds - check mail.dm
+	var/guild_type = 0 //Used for Theives Guild members back grounds - check mail.dm (when I get to it)
 	var/tokenclaimed = FALSE // Check for one-time tri reward.
 
 	// Boolean. Usually set only to TRUE for non-Eoran church roles.

@@ -245,12 +245,12 @@
 		/datum/skill/combat/knives = 3,
 		/datum/skill/misc/swimming = 3,
 		/datum/skill/misc/climbing = 2,
-		/datum/skill/misc/athletics = 2,
+		/datum/skill/misc/athletics = 3,
 		/datum/skill/misc/reading = 1,
 		/datum/skill/misc/sneaking = 3,
 		/datum/skill/misc/stealing = 3,
 		/datum/skill/misc/riding = 2,
-		/datum/skill/misc/lockpicking = 2,
+		/datum/skill/misc/lockpicking = 3,
 		/datum/skill/labor/mathematics = 2
 	)
 
@@ -259,11 +259,16 @@
 	)
 
 	traits = list(
-		TRAIT_THIEVESGUILD
+		TRAIT_THIEVESGUILD,
+		TRAIT_DODGEEXPERT
 	)
+
+	languages = list(/datum/language/thievescant)
 
 /datum/job/advclass/consort/courtesan/night_spy/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
+	spawned.set_flaw(/datum/charflaw/eznoflaw)
+	to_chat(spawned, "<br><br><font color='#fc0202'><span class='bold'>The Thieves Guild had ensured that your Brand is taken off to preserve loyalties. However be warned, the Town Master may not be happy once they find out.</span></font><br><br>")
 	if(spawned.age == AGE_OLD)
 		spawned.adjust_skillrank(/datum/skill/combat/knives, 1)
 

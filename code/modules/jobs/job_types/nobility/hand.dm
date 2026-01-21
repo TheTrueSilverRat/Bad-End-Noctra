@@ -145,6 +145,7 @@
 		/datum/skill/labor/mathematics = 3
 	)
 
+	languages = list(/datum/language/thievescant)
 
 //Spymaster is now a member of the Thieves' Guild, even more reason not to fuck with them.
 	mind_traits = list(

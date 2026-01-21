@@ -183,6 +183,11 @@
 	icon_state = "rustkey"
 	lockids = list(ACCESS_MATRON)
 
+/obj/item/key/crime
+	name = "matron's assistant key"
+	icon-state = "rustkey"
+	lockids = list(ACCESS_CRIME)
+
 /obj/item/key/elder
 	name = "elder's key"
 	icon_state = "rustkey"

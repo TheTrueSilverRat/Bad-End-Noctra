@@ -67,7 +67,6 @@
 	if(!species)
 		return
 	species.native_language = "Old Psydonic"
-	species.accent_language = species.get_accent(species.native_language)
 
 ////Classic Inquisitor with a much more underground twist. Use listening devices, sneak into places to gather evidence, track down suspicious individuals. Has relatively the same utility stats as Confessor, but fulfills a different niche in terms of their combative job as the head honcho.
 

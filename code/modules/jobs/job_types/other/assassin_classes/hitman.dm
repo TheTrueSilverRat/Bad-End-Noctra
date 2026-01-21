@@ -89,6 +89,7 @@
 
 	pack_backpack_contents = list(
 		/obj/item/flint = 1,
+		/obj/item/key/crime = 1,
 	)
 
 /datum/job_pack/assassin/assassin_bard/pick_pack(mob/living/carbon/human/picker)
@@ -148,6 +149,7 @@
 
 	pack_backpack_contents = list(
 		/obj/item/weapon/knife/hunting = 1,
+		/obj/item/key/crime = 1,
 		/obj/item/natural/worms = 1,
 		/obj/item/weapon/shovel/small = 1,
 	)
@@ -200,6 +202,7 @@
 	pack_backpack_contents = list(
 		/obj/item/flint = 1,
 		/obj/item/bait = 1,
+		/obj/item/key/crime = 1,
 		/obj/item/weapon/knife/hunting = 1,
 	)
 
@@ -227,6 +230,7 @@
 
 	pack_backpack_contents = list(
 		/obj/item/flint = 1,
+		/obj/item/key/crime = 1,
 		/obj/item/weapon/knife/hunting = 1,
 	)
 
@@ -249,6 +253,7 @@
 
 	pack_backpack_contents = list(
 		/obj/item/reagent_containers/glass/bottle/wine = 1,
+		/obj/item/key/crime = 1,
 		/obj/item/reagent_containers/glass/cup/silver = 1,
 	)
 
@@ -321,6 +326,7 @@
 
 	pack_backpack_contents = list(
 		/obj/item/neuFarm/seed/wheat = 1,
+		/obj/item/key/crime = 1,
 		/obj/item/neuFarm/seed/apple = 1,
 		/obj/item/fertilizer/ash = 1,
 		/obj/item/weapon/knife/villager = 1,
@@ -364,6 +370,7 @@
 
 	pack_backpack_contents = list(
 		/obj/item/flint = 1,
+		/obj/item/key/crime = 1,
 		/obj/item/weapon/knife/villager = 1,
 	)
 
@@ -409,6 +416,7 @@
 
 	pack_backpack_contents = list(
 		/obj/item/bait = 1,
+		/obj/item/key/crime = 1,
 		/obj/item/weapon/knife/hunting = 1,
 	)
 
@@ -460,8 +468,10 @@
 
 	pack_backpack_contents = list(
 		/obj/item/recipe_book/cooking = 1,
+		/obj/item/key/crime = 1,
 		/obj/item/reagent_containers/glass/bottle/poison = 1,
 		/obj/item/weapon/knife/dagger/steel/special = 1,
+		/obj/item/key/crime = 1,
 		/obj/item/lockpick = 1,
 	)
 

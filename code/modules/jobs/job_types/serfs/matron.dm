@@ -1,9 +1,13 @@
 /datum/job/matron
 	title = "Matron"
-	tutorial = "You are the Matron of the orphanage, once a cunning rogue who walked the shadows alongside legends. \
-		Time has softened your edge but not your wit, thanks to your unlikely kinship with your old adventuring party. \
-		Now, you guide the orphans with both a firm and gentle hand, ensuring they grow up sharp, swift, and self-sufficient. \
-		Perhaps one day, those fledglings might leap from your nest and soar to a greater legacy."
+
+	tutorial = "Once you were a Matron of an Orphanage, where you raised orphans with both a firm and gentle hand. \
+		\n\n Now all those days are gone, so you've resumed your old role.\
+		Where you were a cunning rogue who once walked alongside legends.\
+		Now while retired from adventuring, you've taken up your proper duties as a member of the Thieves Guild.\
+		Guide the new generation and make sure that the Guild gets its dues and that contracts are done \
+		Continue its success in this town even if you have to pay its masters a pretty coin or two."
+
 	department_flag = PEASANTS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_MATRON
@@ -36,18 +40,18 @@
 
 	skills = list(
 		/datum/skill/misc/sewing = 3,
-		/datum/skill/misc/sneaking = 4,
-		/datum/skill/misc/stealing = 4,
-		/datum/skill/misc/lockpicking = 4,
-		/datum/skill/craft/traps = 2,
+		/datum/skill/misc/sneaking = 5,
+		/datum/skill/misc/stealing = 5,
+		/datum/skill/misc/lockpicking = 5,
+		/datum/skill/craft/traps = 3,
 		/datum/skill/misc/climbing = 4,
-		/datum/skill/misc/athletics = 2,
+		/datum/skill/misc/athletics = 3,
 		/datum/skill/craft/cooking = 4,
 		/datum/skill/misc/medicine = 1,
 		/datum/skill/misc/reading = 3,
 		/datum/skill/combat/knives = 5,
-		/datum/skill/combat/unarmed = 3,
-		/datum/skill/combat/wrestling = 3,
+		/datum/skill/combat/unarmed = 4,
+		/datum/skill/combat/wrestling = 4,
 	)
 
 	jobstats = list(
@@ -63,11 +67,14 @@
 	traits = list(
 		TRAIT_THIEVESGUILD,
 		TRAIT_OLDPARTY,
-		TRAIT_EARGRAB,
+		TRAIT_DODGEEXPERT,
+		TRAIT_STRONG_GRABBER,
 		TRAIT_KITTEN_MOM,
 	)
 
 	languages = list(/datum/language/thievescant)
+
+	spells = list(/datum/action/cooldown/spell/undirected/list_target/convert_role/mercenary)
 
 /datum/job/matron/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
@@ -94,13 +101,10 @@
 	cloak = /obj/item/clothing/cloak/matron
 
 	backpack_contents = list(
-		/obj/item/weapon/knife/dagger/steel = 1,
+		/obj/item/weapon/knife/dagger/steel/special = 1,
 		/obj/item/key/matron = 1
 	)
 
 /datum/outfit/matron/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
 	. = ..()
-	if(has_world_trait(/datum/world_trait/orphanage_renovated))
-		beltl = /obj/item/storage/belt/pouch/coins/rich
-	else
-		beltl = /obj/item/storage/belt/pouch/coins/mid
+	beltl = /obj/item/storage/belt/pouch/coins/rich

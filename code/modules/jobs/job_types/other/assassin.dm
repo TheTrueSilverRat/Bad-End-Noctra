@@ -36,6 +36,10 @@
 		TRAIT_THIEVESGUILD //For obvious reasons
 	)
 
+	mind_traits = list(
+		TRAIT_KNOW_THIEF_DOORS
+	)
+
 	languages = list(/datum/language/thievescant)
 
 /datum/job/guilder/after_spawn(mob/living/carbon/human/spawned, client/player_client)

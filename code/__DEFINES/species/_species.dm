@@ -157,6 +157,13 @@
 	SPEC_ID_AASIMAR,\
 )
 
+/// Species who are affiliated with the Jade-Ink Empire, Close allies of Grenzelhoft (Basically it's just Grenzels but they get to have elves)
+#define RACES_PLAYER_JADE list(\
+	SPEC_ID_HUMEN, \
+	SPEC_ID_ELF, \
+	SPEC_ID_AASIMAR, \
+	SPEC_ID_DWARF, \)
+
 /// Species who are affiliated with Zaladin
 #define RACES_PLAYER_ZALADIN list(\
 	SPEC_ID_HUMEN,\
