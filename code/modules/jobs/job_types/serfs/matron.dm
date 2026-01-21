@@ -44,7 +44,7 @@
 		/datum/skill/misc/stealing = 5,
 		/datum/skill/misc/lockpicking = 5,
 		/datum/skill/craft/traps = 3,
-		/datum/skill/misc/climbing = 4,
+		/datum/skill/misc/climbing = 5,
 		/datum/skill/misc/athletics = 3,
 		/datum/skill/craft/cooking = 4,
 		/datum/skill/misc/medicine = 1,
