@@ -108,6 +108,13 @@ GLOBAL_LIST_EMPTY(donator_races)
 	 */
 	var/swap_male_clothes = FALSE
 	/**
+	 * Males use female clothes and damage icons, but not offsets
+	 * Importantly males still use male limb icons.
+	 * This does not effect stats or inherent traits/skills.
+	 * Males will not get boob overlays from this.
+	 */
+	var/swap_male_clothes_but_not_offsets = FALSE
+	/**
 	 * Females use male clothes, offsets and damage icons.
 	 * Importantly females still use female limb icons.
 	 * This does not effect stats or inherent traits/skills.
@@ -881,9 +888,9 @@ GLOBAL_LIST_EMPTY(donator_races)
 	var/list/offsets
 	if(species)
 		if(species.sexes)
-			if(H.gender == FEMALE && !species.swap_female_clothes || H.gender == MALE && species.swap_male_clothes)
+			if(H.gender == FEMALE && !species.swap_female_clothes || H.gender == MALE && species.swap_male_clothes || H.gender == MALE && species.swap_male_clothes_but_not_offsets)
 				use_female_sprites = FEMALE_BOOB
-		if(use_female_sprites)
+		if(use_female_sprites && !(H.gender == MALE && species.swap_male_clothes_but_not_offsets))
 			offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 		else
 			offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
