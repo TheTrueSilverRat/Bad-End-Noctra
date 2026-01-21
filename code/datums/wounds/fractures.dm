@@ -118,7 +118,7 @@
 		"The cranium is shattered!",
 	)
 	whp = 150
-	bleed_rate = 4.6
+	bleed_rate = 25.5
 	paralysis = TRUE
 	knockout = 25 SECONDS
 
@@ -239,7 +239,7 @@
 	)
 	whp = 50
 	// Lose 224.6 blood over 18 ticks then clot
-	bleed_rate = 23.1
+	bleed_rate = 15.1
 	clotting_threshold = 0.8
 	clotting_rate = 1.25
 

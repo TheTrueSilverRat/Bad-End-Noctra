@@ -1,6 +1,6 @@
 #define BLOWDART_DAMAGE		20
-#define ARROW_DAMAGE		33
-#define BOLT_DAMAGE			44
+#define ARROW_DAMAGE		44
+#define BOLT_DAMAGE			55
 #define BULLET_DAMAGE		80
 #define ARROW_PENETRATION	25
 #define BOLT_PENETRATION	50
@@ -511,7 +511,7 @@
 	armor_penetration = BULLET_PENETRATION
 	speed = 0.3
 	accuracy = 50 //Lower accuracy than an arrow.
-	reduce_crit_chance = 5 //Reduces crit chance
+	reduce_crit_chance = 2 //Reduces crit chance
 	dismemberment = 0 //Can't dismember
 	drop_ammo = FALSE // Don't drop ammo on hit, as this is a reusable bullet
 

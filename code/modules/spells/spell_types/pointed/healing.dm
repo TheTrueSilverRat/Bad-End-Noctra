@@ -16,7 +16,7 @@
 	spell_cost = 10
 
 	/// Base healing before adjustments
-	var/base_healing = 25
+	var/base_healing = 15
 	/// Wound healing modifier
 	var/wound_modifier = 0.25
 	/// Blood healing amount
@@ -263,8 +263,8 @@
 	cooldown_time = 20 SECONDS
 	spell_cost = 45
 
-	base_healing = 50
-	wound_modifier = 0.5
+	base_healing = 30
+	wound_modifier = 0.4
 	blood_restoration = BLOOD_VOLUME_SURVIVE
 	stun_undead = TRUE
 

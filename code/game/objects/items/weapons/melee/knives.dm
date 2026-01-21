@@ -675,11 +675,11 @@
 	item_state = "bone_dagger"
 	force = DAMAGE_DAGGER
 	throwforce = DAMAGE_DAGGER + 13
-	throw_speed = 4
+	throw_speed = 3
 	max_integrity = INTEGRITY_WORST - 50
 	wdefense = 1
 	icon_state = "throw_knifei"
-	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 25, "embedded_fall_chance" = 20)
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 85, "embedded_fall_chance" = 20)
 	melting_material = /datum/material/iron
 	melt_amount = 50
 	sellprice = 3
@@ -690,11 +690,11 @@
 	item_state = "bone_dagger"
 	force = DAMAGE_DAGGER
 	throwforce = DAMAGE_DAGGER + 10
-	throw_speed = 4
+	throw_speed = 3
 	max_integrity = INTEGRITY_WORST - 30
 	wdefense = 1
 	icon_state = "throwing_bronze"
-	embedding = list("embedded_pain_multiplier" = 3, "embed_chance" = 20, "embedded_fall_chance" = 15)
+	embedding = list("embedded_pain_multiplier" = 3, "embed_chance" = 88, "embedded_fall_chance" = 15)
 	melting_material = /datum/material/bronze
 	melt_amount = 50
 	sellprice = 2
@@ -704,10 +704,10 @@
 	desc = ""
 	icon_state = "throw_knifes"
 	item_state = "bone_dagger"
-	throw_speed = 4
+	throw_speed = 3
 	max_integrity = INTEGRITY_WORST
 	wdefense = 1
-	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 30, "embedded_fall_chance" = 15)
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 90, "embedded_fall_chance" = 15)
 	melt_amount = 50
 	sellprice = 4
 
@@ -716,10 +716,10 @@
 	desc = "An unconventional method of delivering silver to a heretic; but one PSYDON smiles at, all the same. Doubles as an 'actual' knife in a pinch."
 	icon_state = "throw_knifes"
 	item_state = "bone_dagger"
-	throw_speed = 4
+	throw_speed = 3
 	max_integrity = INTEGRITY_POOR
 	wdefense = 3
-	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 50, "embedded_fall_chance" = 0)
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 90, "embedded_fall_chance" = 0)
 	sellprice = 65
 	melting_material = /datum/material/silver
 	melt_amount = 50
@@ -732,10 +732,10 @@
 	name = "rous kunai"
 	desc = "A typical knife used by rous assassins. Quite effective when thrown."
 	icon_state = "rouskunai"
-	throw_speed = 4
+	throw_speed = 3
 	wdefense = 3
 	max_integrity = INTEGRITY_POOR
-	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 30, "embedded_fall_chance" = 15)
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 87, "embedded_fall_chance" = 15)
 	sellprice = 5
 	melt_amount = 50
 
@@ -745,5 +745,5 @@
 	icon_state = "throwcard"
 	throw_speed = 5
 	max_integrity = INTEGRITY_WORST - 50 // It's not about how effective it is, it's about sending a message.
-	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 50, "embedded_fall_chance" = 5)
+	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 87, "embedded_fall_chance" = 5)
 	sellprice = 2

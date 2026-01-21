@@ -13,7 +13,7 @@
 	spread = 0
 	can_parry = TRUE
 	var/chargingspeed = 40
-	var/reloadtime = 40
+	var/reloadtime = 50
 	var/movingreload = FALSE
 	var/hasloadedsprite = FALSE
 

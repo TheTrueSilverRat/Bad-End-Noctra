@@ -7,6 +7,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_LIVER
+	organ_flags = ORGAN_VITAL
 	desc = ""
 
 	maxHealth = STANDARD_ORGAN_THRESHOLD

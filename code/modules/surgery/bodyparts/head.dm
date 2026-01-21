@@ -17,7 +17,7 @@
 	grid_height = 64
 
 	var/mob/living/brain/brainmob = null //The current occupant.
-	var/obj/item/organ/brain/brain = null //The brain organ
+	var/obj/item/organ/brain/brain = null  //The brain organ
 	var/obj/item/organ/eyes/eyes
 	var/obj/item/organ/ears/ears
 	var/obj/item/organ/tongue/tongue

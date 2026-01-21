@@ -31,7 +31,7 @@
 /datum/wound/bruise/large
 	name = "massive hematoma"
 	whp = 40
-	bleed_rate = 0.9
+	bleed_rate = 0.8
 	clotting_rate = 0.02
 	clotting_threshold = 0.3
 	sew_threshold = 75
@@ -81,10 +81,10 @@
 // Woundpain limit makes it actually a threat
 // Wish we had internal bleeding proper
 /datum/wound/dynamic/maxed_check()
-	if(woundpain < 120)
+	if(woundpain < 130)
 		return FALSE
 	sleep_healing = passive_healing
-	passive_healing = 0
+	passive_healing = 0.2
 	bleed_rate += 1.2
 	update_name()
 	return TRUE
@@ -100,7 +100,7 @@
 	if(!upgrade_bleed_rate && woundpain >= 55)
 		upgrade_bleed_rate = 0.03
 		bleed_rate += damage * upgrade_bleed_rate
-		clotting_rate = 0.02
+		clotting_rate = 0.03
 		clotting_threshold = 0.3
 
 	return TRUE

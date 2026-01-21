@@ -425,7 +425,7 @@
 				dam += 20
 			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				dam += 10
-			used = round(damage_dividend * 20 + (dam / 6), 1)
+			used = round(damage_dividend * 20 + (dam / 5), 1)
 			if(HAS_TRAIT(src, TRAIT_CRITICAL_RESISTANCE))
 				used -= 10
 			if(!owner.stat && (zone_precise in knockout_zones) && !(bclass in GLOB.no_knockout_bclasses) && prob(used))
@@ -438,7 +438,7 @@
 				return
 			var/dislocation_type
 			var/fracture_type = /datum/wound/fracture/head
-			var/necessary_damage = 0.97
+			var/necessary_damage = 0.89
 			if(resistance)
 				fracture_type = /datum/wound/fracture
 			else if(zone_precise == BODY_ZONE_PRECISE_SKULL)

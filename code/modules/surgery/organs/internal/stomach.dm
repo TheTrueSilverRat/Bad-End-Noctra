@@ -4,6 +4,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	zone = BODY_ZONE_PRECISE_STOMACH
 	slot = ORGAN_SLOT_STOMACH
+	organ_flags = ORGAN_VITAL
 	attack_verb = list("gored", "squished", "slapped", "digested")
 	desc = ""
 
