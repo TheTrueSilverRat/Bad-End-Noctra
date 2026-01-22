@@ -50,7 +50,7 @@
 
 
 /datum/job_pack/death_monk/fists
-
+	name = "Pugilist"
 	pack_stats = list(STATKEY_STR = 1)
 
 	pack_skills = list(
@@ -67,7 +67,7 @@
 	)
 
 /datum/job_pack/death_monk/katar
-
+	name = "Katar Stabber"
 	pack_stats = list(STATKEY_STR = 1)
 
 
@@ -86,7 +86,7 @@
 
 
 /datum/job_pack/death_monk/staff
-
+	name = "Staff Master"
 
 	pack_skills = list(
 		/datum/skill/combat/polearms = 4
