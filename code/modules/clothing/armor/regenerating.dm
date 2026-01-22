@@ -116,7 +116,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_CHOP, BCLASS_STAB, BCLASS_PIERCE, BCLASS_BITE)
 	max_integrity = 400
 	repair_time = 20 SECONDS
-	armor = ARMOR_LEATHER_GOOD
+	armor = ARMOR_MAILLE
 	repairmsg_begin = "<br><br><font color='#ff2fa1'><span class='bold'>The Mark glows as it recovers my body in protection...</span></font><br><br>"
 	repairmsg_continue = "<br><br><font color='#ff2fa1'><span class='bold'>The Mark's protection continues to weave back....</span></font><br><br>"
 	repairmsg_stop = "<br><br><font color='#ff2fa1'><span class='bold'>The Mark stops mending from the onslaught!</span></font><br><br>"
