@@ -30,21 +30,22 @@
 		STATKEY_STR = 2,
 		STATKEY_INT = 2,
 		STATKEY_CON = 2,
-		STATKEY_END = 2
+		STATKEY_END = 2,
+		STATKEY_SPD = 2
 	)
 
 	skills = list(
-		/datum/skill/combat/knives = 2,
+		/datum/skill/combat/knives = 3,
 		/datum/skill/craft/cooking = 4,
-		/datum/skill/craft/crafting = 2,
-		/datum/skill/labor/butchering = 2,
+		/datum/skill/craft/crafting = 3,
+		/datum/skill/labor/butchering = 3,
 		/datum/skill/labor/farming = 2,
 		/datum/skill/labor/mathematics = 3,
-		/datum/skill/misc/athletics = 2,
-		/datum/skill/misc/medicine = 2,
-		/datum/skill/misc/music = 1,
+		/datum/skill/misc/athletics = 4,
+		/datum/skill/misc/medicine = 3,
+		/datum/skill/misc/music = 2,
 		/datum/skill/misc/reading = 3,
-		/datum/skill/misc/riding = 1,
+		/datum/skill/misc/riding = 2,
 		/datum/skill/misc/sewing = 3,
 		/datum/skill/misc/sneaking = 3,
 		/datum/skill/misc/stealing = 3
@@ -56,6 +57,9 @@
 	traits = list(
 		TRAIT_ROYALSERVANT,
 		TRAIT_CRITICAL_RESISTANCE,
+		TRAIT_DODGEEXPERT.
+		TRAIT_BEAUTIFUL,
+		TRAIT_GOODLOVER,
 		TRAIT_NOPAINSTUN,
 		TRAIT_HARDDISMEMBER,
 		TRAIT_EMPATH,
@@ -121,6 +125,7 @@
 	beltr = /obj/item/storage/keyring/captain
 	beltl = /obj/item/storage/belt/pouch/coins/mid
 	backr = /obj/item/storage/backpack/satchel
+	shirt = /obj/item/clothing/armor/regenerating/skin/maid/head
 
 	backpack_contents = list(
 		/obj/item/weapon/knife/villager = 1,
@@ -132,7 +137,6 @@
 
 	if(equipped_human.gender == MALE)
 		armor = /obj/item/clothing/armor/leather/jacket/tailcoat/lord
-		shirt = /obj/item/clothing/shirt/undershirt/formal
 		belt = /obj/item/storage/belt/leather/suspenders
 		pants = /obj/item/clothing/pants/trou/formal
 	else

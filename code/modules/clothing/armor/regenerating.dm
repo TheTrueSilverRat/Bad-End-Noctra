@@ -64,7 +64,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 
 	resistance_flags = FIRE_PROOF
-	body_parts_covered = COVERAGE_FULL
+	body_parts_covered = list(COVERAGE_HEAD_NOSE, COVERAGE_FULL)
 	flags_inv = null //Exposes the chest and-or breasts.
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
@@ -75,10 +75,10 @@
 	surgery_cover = FALSE
 	clothing_flags = NONE
 
-	repairmsg_begin = "My skin begins to slowly mend its abuse.."
-	repairmsg_continue = "My skin mends some of its abuse.."
-	repairmsg_stop = "My skin stops mending from the onslaught!"
-	repairmsg_end = "My skin has become taut with newfound vigor!"
+	repairmsg_begin = "<br><br><font color='#ffee00'><span class='bold'>My skin begins to slowly mend its abuse..</span></font><br><br>"
+	repairmsg_continue = "<br><br><font color='#ffee00'><span class='bold'>My skin mends some of its abuse..</span></font><br><br>"
+	repairmsg_stop = "<br><br><font color='#ffee00'><span class='bold'>My skin stops mending from the onslaught!</span></font><br><br>"
+	repairmsg_end = "<br><br><font color='#ffee00'><span class='bold'>My skin has become taut with newfound vigor!</span></font><br><br>"
 
 /obj/item/clothing/armor/regenerating/skin/Initialize(mapload)
 	. = ..()
@@ -96,11 +96,35 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_CHOP, BCLASS_STAB, BCLASS_PIERCE, BCLASS_BITE)
 	max_integrity = 400
 	repair_time = 20 SECONDS
+	repairmsg_begin = "<br><br><font color='#a200ff'><span class='bold'>I mentally chant the incantations to re-affirm my tattoo's protection..</span></font><br><br>"
+	repairmsg_continue = "<br><br><font color='#a200ff'><span class='bold'>I continue to mentally chant the tantras of repair..</span></font><br><br>"
+	repairmsg_stop = "<br><br><font color='#a200ff'><span class='bold'>My tattoos have finished repairing, I stop chanting and focus on the now!</span></font><br><br>"
+	repairmsg_end = "<br><br><font color='#a200ff'><span class='bold'>My tattoos are renewed with newfound strength!</span></font><br><br>"
 
 /obj/item/clothing/armor/regenerating/skin/disciple
 	name = "disciple's skin"
-	desc = "It's far more than just an oath. Mercurial circles of silver are etched into the skin of this person, engraved with fanatic zeal and faithful reverence. May it ward the darkness. It seems to be written in red ink."
+	desc = "It's far more than just an oath. Mercurial circles of silver are etched into the skin of this person, engraved with fanatic zeal and faithful reverence. May it ward the darkness. It seems to be written in red ink and engraved similar to the methods of Tianxian Ink."
 	armor = list("blunt" = 30, "slash" = 50, "stab" = 50, "piercing" = 20, "fire" = 0, "acid" = 0) //Custom value; padded gambeson's slash- and stab- armor.
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_CHOP, BCLASS_STAB, BCLASS_PIERCE, BCLASS_BITE)
 	max_integrity = 500
 	repair_time = 20 SECONDS
+
+/obj/item/clothing/armor/regenerating/skin/maid
+	name = "Indetured Protection Mark"
+	desc = "Based on teachings of an enslaved and broken down Tianxian Ink-master. The Maids of the Town-Master are indentured and forced to serve by the marking on their groin. \
+		It also grants them protection, akin to armor without even having armor."
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_CHOP, BCLASS_STAB, BCLASS_PIERCE, BCLASS_BITE)
+	max_integrity = 400
+	repair_time = 20 SECONDS
+	armor = ARMOR_LEATHER_GOOD
+	repairmsg_begin = "<br><br><font color='#ff2fa1'><span class='bold'>The Mark glows as it recovers my body in protection...</span></font><br><br>"
+	repairmsg_continue = "<br><br><font color='#ff2fa1'><span class='bold'>The Mark's protection continues to weave back....</span></font><br><br>"
+	repairmsg_stop = "<br><br><font color='#ff2fa1'><span class='bold'>The Mark stops mending from the onslaught!</span></font><br><br>"
+	repairmsg_end = "<br><br><font color='#ff2fa1'><span class='bold'>The Mark has become taut with newfound vigor!</span></font><br><br>"
+
+/obj/item/clothing/armor/regenerating/skin/maid/head
+	name = "Favoured Indentured Mark of Protection"
+	desc = "Similar to the markings of the Maids of the Town-Master, these ones show one who is favoured in position and thus given greater strength in turn"
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_CHOP, BCLASS_STAB, BCLASS_PIERCE, BCLASS_BITE)
+	max_integrity = 600
+	armor = ARMOR_BRIGANDINE

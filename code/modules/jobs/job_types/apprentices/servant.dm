@@ -22,6 +22,43 @@
 	cmode_music = 'sound/music/cmode/towner/CombatPrisoner.ogg'
 	can_have_apprentices = FALSE
 
+	jobstats = list(
+		STATKEY_STR = 1,
+		STATKEY_INT = 1,
+		STATKEY_CON = 1,
+		STATKEY_END = 1,
+		STATKEY_SPD = 1,
+	)
+
+	skills = list(
+	/datum/skill/combat/knives = 2,
+	/datum/skill/combat/wrestling = 2,
+	/datum/skill/craft/cooking = 3
+	/datum/skill/craft/crafting = pick(2,3)
+	/datum/skill/labor/butchering, = 2
+	/datum/skill/labor/farming = 1
+	/datum/skill/misc/athletics = 3
+	/datum/skill/misc/medicine = 2
+	/datum/skill/misc/music = pick(1,2)
+	/datum/skill/misc/reading = 1
+	/datum/skill/misc/sewing = 2
+	/datum/skill/misc/sneaking = 2
+	/datum/skill/misc/stealing = 2
+	)
+
+	mind_traits = list(
+		TRAIT_KNOW_KEEP_DOORS
+	)
+	traits = list(
+		TRAIT_ROYALSERVANT,
+		TRAIT_DODGEEXPERT.
+		TRAIT_BEAUTIFUL,
+		TRAIT_GOODLOVER,
+		TRAIT_EMPATH,
+		TRAIT_INDENTURED,
+	)
+
+
 /datum/outfit/servant/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.gender == MALE)
@@ -30,12 +67,14 @@
 			pants = /obj/item/clothing/pants/trou/formal // no one wants to see your wrinkly legs, codger
 		else
 			pants = /obj/item/clothing/pants/trou/formal/shorts
+		armor = /obj/item/clothing/armor/regenerating/skin/maid
 		belt = /obj/item/storage/belt/leather/suspenders
 		shoes = /obj/item/clothing/shoes/boots
 		beltl = /obj/item/storage/keyring/manorguard
 		backl = /obj/item/storage/backpack/satchel
 		backpack_contents = list(/obj/item/recipe_book/cooking = 1, /obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/rope/chain = 2, /obj/item/needle = 1)
 	else
+		shirt = /obj/item/clothing/armor/regenerating/skin/maid
 		armor = /obj/item/clothing/shirt/dress/maid/servant
 		shoes = /obj/item/clothing/shoes/simpleshoes
 		belt = /obj/item/storage/belt/leather/cloth_belt
@@ -46,27 +85,6 @@
 		backl = /obj/item/storage/backpack/satchel
 		backpack_contents = list(/obj/item/recipe_book/cooking = 1, /obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/rope/chain = 2, /obj/item/needle = 1)
 		neck = /obj/item/clothing/neck/leathercollar
-
-	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/crafting, pick(1,1,2), TRUE)
-	H.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/music, pick(0,1,1), TRUE)
-	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
-	H.change_stat(STATKEY_SPD, 2)
-	H.change_stat(STATKEY_INT, 2)
-	ADD_TRAIT(H, TRAIT_ROYALSERVANT, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 
 /datum/job/servant/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
@@ -85,7 +103,10 @@
 		"Fencer" = /obj/item/weapon/sword/rapier,
 		"Bow" = list(/obj/item/gun/ballistic/revolver/grenadelauncher/bow/long, /obj/item/ammo_holder/quiver/arrows),
 		"Crossbow" = list(/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow, /obj/item/ammo_holder/quiver/bolts),
-		"Knife" = /obj/item/weapon/knife/dagger/steel
+		"Knife" = /obj/item/weapon/knife/dagger/steel,
+		"Hoplite Combo (Spear and Shield)" = List(/obj/item/weapon/shield/tower/buckleriron, /obj/item/weapon/polearm/spear/hoplite),
+		"Pugilist (Fists)" = /obj/item/clothing/gloves/bandages/weighted,
+		"Whips" = /obj/item/weapon/whip/nagaika
 	)
 	var/weapon_choice = browser_input_list(chooser, "Choose your weapon.", "TAKE UP ARMS", weapons)
 	if(QDELETED(H) || !chooser)
@@ -114,7 +135,18 @@
 			H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 
 		if("Knife")
-			H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+
+		if("Hoplite Combo (Spear and Shield)")
+			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+
+		if("Pugilist (Fists)")
+			H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+
+		if("Whips")
+			H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 
 /datum/job/servant/proc/give_or_drop(mob/living/carbon/human/H, path)
 	if(!H || QDELETED(H) || !path)
@@ -258,8 +290,8 @@
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_SERVANT
 	faction = FACTION_TOWN
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	bypass_lastclass = TRUE
 	give_bank_account = TRUE
 	cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
