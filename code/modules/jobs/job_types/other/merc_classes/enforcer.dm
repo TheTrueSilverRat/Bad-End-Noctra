@@ -38,6 +38,9 @@
 		TRAIT_UNDODGING, //They can't dodge at all. This also mean that if they don't have anything to parry with, they're done.
 	)
 
+	languages = list(/datum/language/oldpsydonic) //Tianxian so they know old psydonic
+
+
 /datum/job/advclass/mercenary/enforcer/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
 	spawned.merctype = 9
