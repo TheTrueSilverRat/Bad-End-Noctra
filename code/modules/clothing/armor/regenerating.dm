@@ -75,10 +75,10 @@
 	surgery_cover = FALSE
 	clothing_flags = NONE
 
-	repairmsg_begin = "<br><br><font color='#ffee00'><span class='bold'>My skin begins to slowly mend its abuse..</span></font><br><br>"
-	repairmsg_continue = "<br><br><font color='#ffee00'><span class='bold'>My skin mends some of its abuse..</span></font><br><br>"
-	repairmsg_stop = "<br><br><font color='#ffee00'><span class='bold'>My skin stops mending from the onslaught!</span></font><br><br>"
-	repairmsg_end = "<br><br><font color='#ffee00'><span class='bold'>My skin has become taut with newfound vigor!</span></font><br><br>"
+	repairmsg_begin = "<br><font color='#ffee00'><span class='bold'>My skin begins to slowly mend its abuse..</span></font><br>"
+	repairmsg_continue = "<br><font color='#ffee00'><span class='bold'>My skin mends some of its abuse..</span></font><br>"
+	repairmsg_stop = "<br><font color='#ffee00'><span class='bold'>My skin stops mending from the onslaught!</span></font><br>"
+	repairmsg_end = "<br><font color='#ffee00'><span class='bold'>My skin has become taut with newfound vigor!</span></font><br>"
 
 /obj/item/clothing/armor/regenerating/skin/Initialize(mapload)
 	. = ..()
@@ -96,10 +96,10 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_CHOP, BCLASS_STAB, BCLASS_PIERCE, BCLASS_BITE)
 	max_integrity = 400
 	repair_time = 20 SECONDS
-	repairmsg_begin = "<br><br><font color='#a200ff'><span class='bold'>I mentally chant the incantations to re-affirm my tattoo's protection..</span></font><br><br>"
-	repairmsg_continue = "<br><br><font color='#a200ff'><span class='bold'>I continue to mentally chant the tantras of repair..</span></font><br><br>"
-	repairmsg_stop = "<br><br><font color='#a200ff'><span class='bold'>My tattoos have finished repairing, I stop chanting and focus on the now!</span></font><br><br>"
-	repairmsg_end = "<br><br><font color='#a200ff'><span class='bold'>My tattoos are renewed with newfound strength!</span></font><br><br>"
+	repairmsg_begin = "<br><font color='#a200ff'><span class='bold'>I mentally chant the incantations to re-affirm my tattoo's protection..</span></font><br>"
+	repairmsg_continue = "<br><font color='#a200ff'><span class='bold'>I continue to mentally chant the tantras of repair..</span></font><br>"
+	repairmsg_stop = "<br><font color='#a200ff'><span class='bold'>My tattoos have finished repairing, I stop chanting and focus on the now!</span></font><br>"
+	repairmsg_end = "<br><font color='#a200ff'><span class='bold'>My tattoos are renewed with newfound strength!</span></font><br>"
 
 /obj/item/clothing/armor/regenerating/skin/disciple
 	name = "disciple's skin"
@@ -117,10 +117,10 @@
 	max_integrity = 400
 	repair_time = 20 SECONDS
 	armor = ARMOR_MAILLE
-	repairmsg_begin = "<br><br><font color='#ff2fa1'><span class='bold'>The Mark glows as it recovers my body in protection...</span></font><br><br>"
-	repairmsg_continue = "<br><br><font color='#ff2fa1'><span class='bold'>The Mark's protection continues to weave back....</span></font><br><br>"
-	repairmsg_stop = "<br><br><font color='#ff2fa1'><span class='bold'>The Mark stops mending from the onslaught!</span></font><br><br>"
-	repairmsg_end = "<br><br><font color='#ff2fa1'><span class='bold'>The Mark has become taut with newfound vigor!</span></font><br><br>"
+	repairmsg_begin = "<br><font color='#ff2fa1'><span class='bold'>The Mark glows as it recovers my body in protection...</span></font><br>"
+	repairmsg_continue = "<br><font color='#ff2fa1'><span class='bold'>The Mark's protection continues to weave back....</span></font><br>"
+	repairmsg_stop = "<br><font color='#ff2fa1'><span class='bold'>The Mark stops mending from the onslaught!</span></font><br>"
+	repairmsg_end = "<br><font color='#ff2fa1'><span class='bold'>The Mark has become taut with newfound vigor!</span></font><br>"
 
 /obj/item/clothing/armor/regenerating/skin/maid/head
 	name = "Favoured Indentured Mark of Protection"
